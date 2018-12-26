@@ -1,0 +1,20 @@
+//
+//  PropetyManagement-prefix.pch
+//  澳門物管BMS
+//
+//  Created by geanguo_lucky on 2018/12/16.
+//  Copyright © 2018 geanguo_lucky. All rights reserved.
+//
+
+#ifndef PropetyManagement_prefix_pch
+#define PropetyManagement_prefix_pch
+
+#import "StaticString.h"
+#import <Masonry.h>
+#import "CommonUtil.h"
+#import "WebAPIHelper.h"
+#import "RequestUrlString.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PropetyManagement_prefix_pch */

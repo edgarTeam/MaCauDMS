@@ -1,0 +1,12 @@
+/* 
+  SysLocalizable.strings
+  澳門物管BMS
+
+  Created by geanguo_lucky on 2018/12/26.
+  Copyright © 2018 geanguo_lucky. All rights reserved.
+*/
+String_notice_title ="公告";
+String_Community_title = "社區";
+String_Place_title ="";
+
+

@@ -1,0 +1,38 @@
+//
+//  WebAPIHelper.h
+//  澳門物管BMS
+//
+//  Created by geanguo_lucky on 2018/12/23.
+//  Copyright © 2018 geanguo_lucky. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface WebAPIHelper : NSObject
++ (WebAPIHelper *)sharedWebAPIHelper;
+
+#pragma mark 用戶登陸
+- (void)postUserLogin:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
+
+
+#pragma mark 投訴
+
+#pragma mark 公告列表
+
+#pragma mark 公告
+- (void)postNotice:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
+#pragma 訂場詳情
+- (void)postPlaceRecord:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
+
+#pragma mark 場地列表
+
+#pragma mark 場地
+- (void)postPlace:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
+#pragma mark 社區列表
+- (void)postCommunity:(NSDictionary *)parameters completion:(void (^)(NSArray *communityList))completion;
+
+@end
+
+NS_ASSUME_NONNULL_END
