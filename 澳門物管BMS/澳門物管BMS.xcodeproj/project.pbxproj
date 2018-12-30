@@ -13,6 +13,7 @@
 		CB02668421D8D03F00561B1C /* LeftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02668321D8D03F00561B1C /* LeftModel.m */; };
 		CB02668721D9057000561B1C /* ZKAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02668621D9057000561B1C /* ZKAlertTool.m */; };
 		CB02668A21D9059A00561B1C /* LSXPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02668821D9059900561B1C /* LSXPopMenu.m */; };
+		CB02668D21D9069700561B1C /* UIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02668C21D9069700561B1C /* UIViewController+Additions.m */; };
 		CB02947A21D3A90500FE55A7 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02947921D3A90500FE55A7 /* BaseModel.m */; };
 		CB02948121D3AE2900FE55A7 /* SysLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB02948321D3AE2900FE55A7 /* SysLocalizable.strings */; };
 		CB02948A21D3B99000FE55A7 /* NoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02948821D3B99000FE55A7 /* NoticeTableViewCell.m */; };
@@ -104,6 +105,8 @@
 		CB02668621D9057000561B1C /* ZKAlertTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKAlertTool.m; sourceTree = "<group>"; };
 		CB02668821D9059900561B1C /* LSXPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSXPopMenu.m; sourceTree = "<group>"; };
 		CB02668921D9059A00561B1C /* LSXPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSXPopMenu.h; sourceTree = "<group>"; };
+		CB02668B21D9069700561B1C /* UIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Additions.h"; sourceTree = "<group>"; };
+		CB02668C21D9069700561B1C /* UIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Additions.m"; sourceTree = "<group>"; };
 		CB02947821D3A90500FE55A7 /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		CB02947921D3A90500FE55A7 /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		CB02947D21D3AE0D00FE55A7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -462,6 +465,8 @@
 		CB08143A21D502CF0018A363 /* ZKAlertTool */ = {
 			isa = PBXGroup;
 			children = (
+				CB02668B21D9069700561B1C /* UIViewController+Additions.h */,
+				CB02668C21D9069700561B1C /* UIViewController+Additions.m */,
 				CB02668521D9057000561B1C /* ZKAlertTool.h */,
 				CB02668621D9057000561B1C /* ZKAlertTool.m */,
 			);
@@ -913,6 +918,7 @@
 				CB05465C21C6B223008BE895 /* ComplainViewController.m in Sources */,
 				CB02668421D8D03F00561B1C /* LeftModel.m in Sources */,
 				CBCB79C221CBD28500BF454D /* HandlingDetailsViewController.m in Sources */,
+				CB02668D21D9069700561B1C /* UIViewController+Additions.m in Sources */,
 				CBFE45C321C9557A00DD80E4 /* ContactUSViewController.m in Sources */,
 				CB05465721C6B1FC008BE895 /* AnnouncementViewController.m in Sources */,
 				CBFFF13821CF9F68008BA2A0 /* CommonUtil.m in Sources */,
