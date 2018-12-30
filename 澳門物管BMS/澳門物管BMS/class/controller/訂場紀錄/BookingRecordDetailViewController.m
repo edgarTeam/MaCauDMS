@@ -8,10 +8,12 @@
 
 #import "BookingRecordDetailViewController.h"
 #import "PlaceRecord.h"
+#import "Place.h"
 #import <MJExtension/MJExtension.h>
 @interface BookingRecordDetailViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *bookingRecordDetailImageView;
-@property (nonatomic,strong)PlaceRecord *palceRecord;
+//@property (nonatomic,strong)PlaceRecord *palceRecord;
+@property (nonatomic,strong)Place *place;
 @end
 
 @implementation BookingRecordDetailViewController
@@ -23,26 +25,33 @@
     _bookingRecordDetailImageView=[UIImageView new];
     _bookingRecordDetailImageView.layer.masksToBounds=YES;
     _bookingRecordDetailImageView.layer.cornerRadius=10.0;
-    [self requestBookingRecord];
+    //[self requestBookingRecord];
+    [self requestPlace];
 }
 
 
-- (void)requestBookingRecord {
-    NSDictionary *para=@{
-                         @"recordId" :self.recordId
-                         };
-    [[WebAPIHelper sharedWebAPIHelper] postPlaceRecord:para completion:^(NSDictionary *dic){
-        if (dic==nil) {
-            return ;
-        }
-        _palceRecord=[PlaceRecord mj_setKeyValues:dic];
-    }];
-}
+//- (void)requestBookingRecord {
+//    NSDictionary *para=@{
+//                         @"recordId" :self.recordId
+//                         };
+//    [[WebAPIHelper sharedWebAPIHelper] postPlaceRecord:para completion:^(NSDictionary *dic){
+//        if (dic==nil) {
+//            return ;
+//        }
+//        _palceRecord=[PlaceRecord mj_setKeyValues:dic];
+//    }];
+//}
 
 - (void)requestPlace {
     NSDictionary *para=@{
                          @"placeId" :self.placeId
                          };
+    [[WebAPIHelper sharedWebAPIHelper] postPlace:para completion:^(NSDictionary *dic){
+        if (dic==nil) {
+            return ;
+        }
+        _place=[Place mj_setKeyValues:dic];
+    }];
 }
 /*
 #pragma mark - Navigation
@@ -56,6 +65,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
-    [self requestBookingRecord];
+  //  [self requestBookingRecord];
+    [];
 }
 @end
