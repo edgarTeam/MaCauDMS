@@ -8,22 +8,40 @@
 
 #import "WebAPIHelper.h"
 #import "HttpHelper.h"
+#import <AFNetworking.h>
 @interface WebAPIHelper()
 @property (nonatomic, strong) HttpHelper *httpHelper;
+//@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @end
 
 @implementation WebAPIHelper
 static WebAPIHelper *_instance;
+static AFHTTPSessionManager *_manager;
+//+ (id)allocWithZone:(NSZone *)zone
+//{
+//
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        _instance = [super allocWithZone:zone];
+//    });
+//    return _instance;
+//}
 
-+ (id)allocWithZone:(NSZone *)zone
-{
-    
++ (id) allocWithZone:(NSZone *)zone{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [super allocWithZone:zone];
+        _manager = [AFHTTPSessionManager manager];
+        [_manager.requestSerializer  setValue:UUID forHTTPHeaderField:@"Authorization"]; //uuid
+        _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain" ,@"text/html" ,@"text/xml",@"application/pdf",nil];
+        ((AFJSONResponseSerializer *)_manager.responseSerializer).removesKeysWithNullValues = YES;
+        
     });
-    return _instance;
+    
+    return  _instance;
 }
+
 
 + (WebAPIHelper *)sharedWebAPIHelper
 {
@@ -50,9 +68,52 @@ static WebAPIHelper *_instance;
     }];
 }
 
+- (void)postUpdatePsd:(NSDictionary *)parameters completion:(void (^)(NSString * _Nonnull))completion{
+    [self.httpHelper postStrWithURL:kUpdatePsd parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
+
+- (void)postComplainList:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
+    [self.httpHelper postDicWithURL:kComplainList parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
+
+- (void)postComplain:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
+    [self.httpHelper postDicWithURL:kComplain parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+- (void)postNoticeList:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
+    [self.httpHelper postDicWithURL:kNoticeList parameters:parameters needLoading:YES success:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
+        completion(dic);
+    } failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
+
+
 - (void)postNotice:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
     [self.httpHelper postDicWithURL:kNotice parameters:parameters needLoading:YES success:^(NSDictionary *dic){
         if (dic ==nil) {
+            return ;
+        }
+        completion(dic);
+    } failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
+
+- (void)postPlaceRecordList:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
+    [self.httpHelper postDicWithURL:kPlaceRecordList parameters:parameters needLoading:YES success:^(NSDictionary *dic){
+        if (dic == nil) {
             return ;
         }
         completion(dic);

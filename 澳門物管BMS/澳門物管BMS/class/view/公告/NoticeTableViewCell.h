@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Notice.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NoticeTableViewCell : UITableViewCell
@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
 
+- (void)setUpModel:(Notice *)model;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,7 +9,7 @@
 #import "ProcessingStateViewController.h"
 #import "ReportMaintenanceTableViewCell.h"
 #import "HandlingDetailsViewController.h"
-
+#import "ReportMaintenanceDetail.h"
 @interface ProcessingStateViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *processingStateTableView;
 
@@ -30,6 +30,18 @@
     
 }
 
+- (void)requestComplainList {
+    [[WebAPIHelper sharedWebAPIHelper] postComplainList:nil completion:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
+        NSMutableArray *array=[dic objectForKey:@"list"];
+        dataSource=[ReportMaintenanceDetail mj_objectArrayWithKeyValuesArray:array];
+        [_processingStateTableView reloadData];
+    }];
+}
+
+
 /*
 #pragma mark - Navigation
 
@@ -41,6 +53,8 @@
 */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     HandlingDetailsViewController *handVC=[[HandlingDetailsViewController alloc] init];
+    ReportMaintenanceDetail *report=[dataSource objectAtIndex:indexPath.row];
+    handVC.complainId=report.complainId;
     [self.navigationController pushViewController:handVC animated:YES];
 }
 
@@ -49,6 +63,7 @@
     if (cell == nil) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"ReportMaintenanceTableViewCell" owner:self options:nil] lastObject];
     }
+    [cell setUpModel:[dataSource objectAtIndex:indexPath.row]];
     return cell;
 }
 

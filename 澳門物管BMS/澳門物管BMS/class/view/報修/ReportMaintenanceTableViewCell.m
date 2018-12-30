@@ -20,5 +20,10 @@
 
     // Configure the view for the selected state
 }
-
+- (void)setUpModel:(ReportMaintenanceDetail *)model{
+    [self.titleLab setText:model.complainClassType];
+    [self.timeLab setText:model.createTime];
+    [self.contentLab setText:model.complainDescribe];
+    [self.stateLab setText:model.complainType];
+}
 @end

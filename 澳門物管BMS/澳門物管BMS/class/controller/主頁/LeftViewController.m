@@ -12,7 +12,8 @@
 #import "ContactUSViewController.h"
 #import "SettingViewController.h"
 #import "ProcessingStateViewController.h"
-
+#import "LeftViewTableViewCell.h"
+#import "LeftModel.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *table;
@@ -23,6 +24,7 @@
 @implementation LeftViewController
 {
     NSArray *dataSoure;
+    NSArray *imgArrar;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,14 +35,18 @@
 - (void)creatView{
     self.view.backgroundColor=[UIColor whiteColor];
     _headBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    _headBtn.backgroundColor=[UIColor redColor];
     _headBtn.layer.masksToBounds=YES;
-    _headBtn.layer.cornerRadius=_headBtn.bounds.size.width;
-    [_headBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    _headBtn.layer.cornerRadius=40;
+   // [_headBtn setImage:[UIImage imageNamed:@"work"] forState:UIControlStateNormal];
+  //  [_headBtn setBackgroundImage:[UIImage imageNamed:@"work"] forState:UIControlStateNormal];
   //  [_headBtn addTarget:self action:@selector(<#selector#>) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_headBtn];
     [_headBtn mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.mas_equalTo(20);
-        make.centerX.mas_equalTo(self.view);
+        make.top.mas_equalTo(60);
+     //   make.centerX.mas_equalTo(self.view);
+        make.left.mas_equalTo(ScreenWidth/4-40);
+       // make.left.mas_equalTo(0);
         make.width.mas_equalTo(80);
         make.height.mas_equalTo(_headBtn.mas_width);
     }];
@@ -49,17 +55,31 @@
     _loginOutBtn.backgroundColor=[UIColor blueColor];
     [_loginOutBtn setTitle:@"登出" forState:UIControlStateNormal];
    // [_loginOutBtn addTarget:self action:@selector(<#selector#>) forControlEvents:UIControlEventTouchUpInside];
+   // [_loginOutBtn.titleLabel setText:@"登出"];
     [self.view addSubview:_loginOutBtn];
     [_loginOutBtn mas_makeConstraints:^(MASConstraintMaker *make){
-        make.bottom.mas_equalTo(self.view.mas_bottom);
+        make.bottom.mas_equalTo(self.view.mas_bottom).mas_offset(-20);
         make.height.mas_equalTo(60);
         make.left.and.right.mas_equalTo(0);
     }];
     
-    dataSoure=[NSArray new];
-    dataSoure=@[@"訂場紀錄",@"聯繫我們",@"設定",@"報修紀錄"];
-    
-    
+    LeftModel *model1=[LeftModel new];
+    model1.title=@"訂場紀錄";
+    model1.image=@"dingchang";
+    LeftModel *model2=[LeftModel new];
+    model2.title=@"聯繫我們";
+    model2.image=@"lianxiwomen";
+    LeftModel *model3=[LeftModel new];
+    model3.title=@"設定";
+    model3.image=@"sheding";
+    LeftModel *model4=[LeftModel new];
+    model4.title=@"報修紀錄";
+    model4.image=@"wuyebaoxiu";
+    dataSoure=[NSArray arrayWithObjects:model1,model2,model3, model4, nil];
+//    dataSoure=[NSArray new];
+//    dataSoure=@[@"訂場紀錄",@"聯繫我們",@"設定",@"報修紀錄"];
+//    imgArrar=[NSArray new];
+//    imgArrar=@[@"wuyebaoxiu",@"wuyebaoxiu",@"wuyebaoxiu",@"wuyebaoxiu"];
     
     _table=[[UITableView alloc] init];
     _table.separatorColor=[UIColor grayColor];
@@ -69,7 +89,7 @@
     [self.view addSubview:_table];
     [_table mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.mas_equalTo(_headBtn.mas_bottom).offset(30);
-        make.bottom.mas_equalTo(_loginOutBtn.mas_top).offset(20);
+        make.bottom.mas_equalTo(_loginOutBtn.mas_top).offset(-20);
         make.left.and.right.mas_equalTo(0);
     }];
 }
@@ -84,12 +104,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *IDentified=@"cell";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:IDentified];
+   // static NSString *IDentified=@"cell";
+    LeftViewTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"LeftViewTableViewCell"];
     if (cell == nil) {
-        cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDentified];
+       // cell =[[LeftViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LeftViewTableViewCell"];
+         cell=[[[NSBundle mainBundle] loadNibNamed:@"LeftViewTableViewCell" owner:self options:nil] lastObject];
     }
-    cell.textLabel.text=dataSoure[indexPath.row];
+   // cell.textLabel.text=dataSoure[indexPath.row];
+   // [cell.imageView setImage:[UIImage imageNamed:imgArrar[indexPath.row]]];
+    [cell setUpModel:[dataSoure objectAtIndex:indexPath.row]];
     return cell;
 }
 

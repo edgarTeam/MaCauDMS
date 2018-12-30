@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClubhouseReservationViewController">
             <connections>
                 <outlet property="dateTableView" destination="tmE-ZP-U8U" id="Bzq-uy-NZa"/>
+                <outlet property="plateBtn" destination="wsl-b2-5qZ" id="9Xo-Lo-GF9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,6 +50,9 @@
                         <constraint firstAttribute="width" constant="120" id="N83-fL-yVB"/>
                     </constraints>
                     <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="plateBtnAction:" destination="-1" eventType="touchUpInside" id="Uci-WC-Bqa"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間段:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2s5-iR-Bpt">
                     <rect key="frame" x="10" y="111" width="80" height="21"/>

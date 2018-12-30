@@ -11,8 +11,10 @@
 #import "UIViewController+MMDrawerController.h"
 #import "LeftViewController.h"
 #import <Masonry/Masonry.h>
+#import "AnnouncementViewController.h"
 @interface MainViewController ()
 @property (nonatomic,strong) UIButton *sliderBtn;
+@property (nonatomic,strong) UIButton *rightBtn;
 @end
 
 @implementation MainViewController
@@ -32,14 +34,29 @@
         make.size.mas_equalTo(CGSizeMake(50, 30));
     }];
     
+    _rightBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [_rightBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [_rightBtn addTarget:self action:@selector(noticeBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_rightBtn];
+    [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make){
+        make.top.mas_equalTo(30);
+        make.right.mas_equalTo(-20);
+        make.size.mas_equalTo(CGSizeMake(50, 30));
+    }];
+    
 }
 
--(void)onClick:(UIButton *)sender{
+- (void)onClick:(UIButton *)sender {
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
     
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)noticeBtnAction:(UIButton *)sender {
+    AnnouncementViewController *announceVC=[AnnouncementViewController new];
+    [self.navigationController pushViewController:announceVC animated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
      self.navigationController.navigationBar.hidden = YES;
 }

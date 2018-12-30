@@ -7,9 +7,11 @@
 //
 
 #import "ClubhouseReservationViewController.h"
-
-@interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource>
-
+#import "LSXPopMenu.h"
+#import "Place.h"
+@interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *plateBtn;
+@property (nonatomic,strong)LSXPopMenu *plateMenu;
 @property (strong, nonatomic) IBOutlet UITableView *dateTableView;
 @property (nonatomic,strong) NSMutableArray *selectIndexs;
 @end
@@ -17,6 +19,7 @@
 @implementation ClubhouseReservationViewController
 {
     NSArray *dataSource;
+    NSArray *placeList;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +34,27 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
     [_dateTableView reloadData];
     
 }
+
+- (IBAction)plateBtnAction:(UIButton *)sender {
+    self.plateMenu=[LSXPopMenu showRelyOnView:sender titles:placeList icons:nil menuWidth:100 isShowTriangle:YES delegate:self];
+}
+
+
+#pragma mark 場所列表
+- (void)reuqestPlateList {
+    NSDictionary *para=@{
+                         @"keyword":self.keyword
+                         };
+    [[WebAPIHelper sharedWebAPIHelper] postPlaceList:para completion:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
+         NSMutableArray *array=[dic objectForKey:@"list"];
+        placeList=[Place mj_objectArrayWithKeyValuesArray:array];
+    }];
+}
+
+
 
 /*
 #pragma mark - Navigation
@@ -104,5 +128,11 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+    [self reuqestPlateList];
+}
+
+#pragma mark LSXPopMenuDelegate
+- (void)LSXPopupMenuDidSelectedAtIndex:(NSInteger)index LSXPopupMenu:(LSXPopMenu *)LSXPopupMenu{
+    [self.plateBtn setTitle:placeList[index] forState:UIControlStateNormal];
 }
 @end

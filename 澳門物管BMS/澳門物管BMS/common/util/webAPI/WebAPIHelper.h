@@ -16,18 +16,29 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 用戶登陸
 - (void)postUserLogin:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 
+#pragma mark 修改密碼
+- (void)postUpdatePsd:(NSDictionary *)parameters completion:(void (^)(NSString *result))completion;
+
+#pragma mark 投訴列表
+- (void)postComplainList:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 
 #pragma mark 投訴
+- (void)postComplain:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 
 #pragma mark 公告列表
-
+- (void)postNoticeList:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 #pragma mark 公告
 - (void)postNotice:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
+#pragma 訂場列表
+- (void)postPlaceRecordList:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
+
+
+
 #pragma 訂場詳情
 - (void)postPlaceRecord:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 
 #pragma mark 場地列表
-
+- (void)postPlaceList:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 #pragma mark 場地
 - (void)postPlace:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 #pragma mark 社區列表

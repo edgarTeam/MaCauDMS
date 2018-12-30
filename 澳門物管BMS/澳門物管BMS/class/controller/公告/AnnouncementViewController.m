@@ -9,6 +9,7 @@
 #import "AnnouncementViewController.h"
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import "NoticeTableViewCell.h"
+#import "Notice.h"
 @interface AnnouncementViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *cycleScrollView;
 
@@ -37,6 +38,17 @@
     return dataSource.count;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NoticeTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"NoticeTableViewCell"];
+    if (cell ==nil) {
+        cell=[[[NSBundle mainBundle] loadNibNamed:@"NoticeTableViewCell" owner:self options:nil] lastObject];
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 
 /*
@@ -48,8 +60,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)requestNoticeList {
+    [[WebAPIHelper sharedWebAPIHelper] postNoticeList:nil completion:^(NSDictionary *dic){
+        NSMutableArray *array=[dic objectForKey:@"list"];
+        dataSource=[Notice mj_objectArrayWithKeyValuesArray:array];
+        [_tableView reloadData];
+    }];
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+    [self requestNoticeList];
 }
 @end

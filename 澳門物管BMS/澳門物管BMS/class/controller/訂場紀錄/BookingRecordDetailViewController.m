@@ -7,10 +7,11 @@
 //
 
 #import "BookingRecordDetailViewController.h"
-
+#import "PlaceRecord.h"
+#import <MJExtension/MJExtension.h>
 @interface BookingRecordDetailViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *bookingRecordDetailImageView;
-
+@property (nonatomic,strong)PlaceRecord *palceRecord;
 @end
 
 @implementation BookingRecordDetailViewController
@@ -22,8 +23,27 @@
     _bookingRecordDetailImageView=[UIImageView new];
     _bookingRecordDetailImageView.layer.masksToBounds=YES;
     _bookingRecordDetailImageView.layer.cornerRadius=10.0;
+    [self requestBookingRecord];
 }
 
+
+- (void)requestBookingRecord {
+    NSDictionary *para=@{
+                         @"recordId" :self.recordId
+                         };
+    [[WebAPIHelper sharedWebAPIHelper] postPlaceRecord:para completion:^(NSDictionary *dic){
+        if (dic==nil) {
+            return ;
+        }
+        _palceRecord=[PlaceRecord mj_setKeyValues:dic];
+    }];
+}
+
+- (void)requestPlace {
+    NSDictionary *para=@{
+                         @"placeId" :self.placeId
+                         };
+}
 /*
 #pragma mark - Navigation
 
@@ -36,5 +56,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+    [self requestBookingRecord];
 }
 @end

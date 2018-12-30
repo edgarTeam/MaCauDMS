@@ -12,6 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HandlingDetailsViewController">
             <connections>
+                <outlet property="contactWayLab" destination="Avc-Va-id1" id="hT0-pq-NYT"/>
+                <outlet property="contentTextView" destination="KAr-cJ-nry" id="rNr-qu-xfI"/>
+                <outlet property="createTimeLab" destination="uMR-tb-T0r" id="Pkg-eI-Oyl"/>
+                <outlet property="nameLab" destination="hls-g4-0dX" id="LLG-fF-pE2"/>
+                <outlet property="positionLab" destination="Opi-LT-ILZ" id="2Ki-Dl-YUk"/>
+                <outlet property="titleLab" destination="Eet-q2-llB" id="xjh-v8-yMf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

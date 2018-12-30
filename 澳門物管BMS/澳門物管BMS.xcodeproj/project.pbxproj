@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
+		CB02667F21D8CF3F00561B1C /* LeftViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02667D21D8CF3F00561B1C /* LeftViewTableViewCell.m */; };
+		CB02668021D8CF3F00561B1C /* LeftViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB02667E21D8CF3F00561B1C /* LeftViewTableViewCell.xib */; };
+		CB02668421D8D03F00561B1C /* LeftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02668321D8D03F00561B1C /* LeftModel.m */; };
 		CB02947A21D3A90500FE55A7 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02947921D3A90500FE55A7 /* BaseModel.m */; };
 		CB02948121D3AE2900FE55A7 /* SysLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB02948321D3AE2900FE55A7 /* SysLocalizable.strings */; };
 		CB02948A21D3B99000FE55A7 /* NoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02948821D3B99000FE55A7 /* NoticeTableViewCell.m */; };
@@ -26,6 +29,12 @@
 		CB05465821C6B1FC008BE895 /* AnnouncementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB05465621C6B1FC008BE895 /* AnnouncementViewController.xib */; };
 		CB05465C21C6B223008BE895 /* ComplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB05465A21C6B223008BE895 /* ComplainViewController.m */; };
 		CB05465D21C6B223008BE895 /* ComplainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB05465B21C6B223008BE895 /* ComplainViewController.xib */; };
+		CB0654E621D79F5B00A78CD9 /* LSXPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0654E421D79F5B00A78CD9 /* LSXPopMenu.m */; };
+		CB08143421D4F6760018A363 /* LanguageSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB08143221D4F6760018A363 /* LanguageSettingViewController.m */; };
+		CB08143521D4F6760018A363 /* LanguageSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB08143321D4F6760018A363 /* LanguageSettingViewController.xib */; };
+		CB08143D21D502E80018A363 /* ZKAlertTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CB08143C21D502E80018A363 /* ZKAlertTool.m */; };
+		CB08144221D517F80018A363 /* ChangePswViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB08144021D517F80018A363 /* ChangePswViewController.m */; };
+		CB08144321D517F80018A363 /* ChangePswViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB08144121D517F80018A363 /* ChangePswViewController.xib */; };
 		CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB42089B21C2B1BA00980B64 /* BaseViewController.m */; };
 		CB42089F21C2B1E600980B64 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB42089E21C2B1E600980B64 /* BaseNavigationViewController.m */; };
 		CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4208A121C2B20600980B64 /* LoginViewController.m */; };
@@ -86,6 +95,11 @@
 /* Begin PBXFileReference section */
 		6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.release.xcconfig"; sourceTree = "<group>"; };
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
+		CB02667C21D8CF3F00561B1C /* LeftViewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewTableViewCell.h; sourceTree = "<group>"; };
+		CB02667D21D8CF3F00561B1C /* LeftViewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewTableViewCell.m; sourceTree = "<group>"; };
+		CB02667E21D8CF3F00561B1C /* LeftViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftViewTableViewCell.xib; sourceTree = "<group>"; };
+		CB02668221D8D03F00561B1C /* LeftModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftModel.h; sourceTree = "<group>"; };
+		CB02668321D8D03F00561B1C /* LeftModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftModel.m; sourceTree = "<group>"; };
 		CB02947821D3A90500FE55A7 /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		CB02947921D3A90500FE55A7 /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		CB02947D21D3AE0D00FE55A7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -126,6 +140,16 @@
 		CB05465921C6B223008BE895 /* ComplainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComplainViewController.h; sourceTree = "<group>"; };
 		CB05465A21C6B223008BE895 /* ComplainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComplainViewController.m; sourceTree = "<group>"; };
 		CB05465B21C6B223008BE895 /* ComplainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplainViewController.xib; sourceTree = "<group>"; };
+		CB0654E421D79F5B00A78CD9 /* LSXPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSXPopMenu.m; path = "../../../../../../../../Downloads/练习/练习/util/LSXPopMenu.m"; sourceTree = "<group>"; };
+		CB0654E521D79F5B00A78CD9 /* LSXPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSXPopMenu.h; path = "../../../../../../../../Downloads/练习/练习/util/LSXPopMenu.h"; sourceTree = "<group>"; };
+		CB08143121D4F6760018A363 /* LanguageSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageSettingViewController.h; sourceTree = "<group>"; };
+		CB08143221D4F6760018A363 /* LanguageSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageSettingViewController.m; sourceTree = "<group>"; };
+		CB08143321D4F6760018A363 /* LanguageSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSettingViewController.xib; sourceTree = "<group>"; };
+		CB08143B21D502E80018A363 /* ZKAlertTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZKAlertTool.h; path = "../../../../../../../../Downloads/练习/练习/util/ZKAlertTool.h"; sourceTree = "<group>"; };
+		CB08143C21D502E80018A363 /* ZKAlertTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZKAlertTool.m; path = "../../../../../../../../Downloads/练习/练习/util/ZKAlertTool.m"; sourceTree = "<group>"; };
+		CB08143F21D517F80018A363 /* ChangePswViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePswViewController.h; sourceTree = "<group>"; };
+		CB08144021D517F80018A363 /* ChangePswViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePswViewController.m; sourceTree = "<group>"; };
+		CB08144121D517F80018A363 /* ChangePswViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePswViewController.xib; sourceTree = "<group>"; };
 		CB42089A21C2B1BA00980B64 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		CB42089B21C2B1BA00980B64 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		CB42089D21C2B1E600980B64 /* BaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
@@ -235,6 +259,25 @@
 				F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB02667B21D8CEFC00561B1C /* LeftViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB02667C21D8CF3F00561B1C /* LeftViewTableViewCell.h */,
+				CB02667D21D8CF3F00561B1C /* LeftViewTableViewCell.m */,
+				CB02667E21D8CF3F00561B1C /* LeftViewTableViewCell.xib */,
+			);
+			path = LeftViewCell;
+			sourceTree = "<group>";
+		};
+		CB02668121D8CFFE00561B1C /* LeftModel */ = {
+			isa = PBXGroup;
+			children = (
+				CB02668221D8D03F00561B1C /* LeftModel.h */,
+				CB02668321D8D03F00561B1C /* LeftModel.m */,
+			);
+			path = LeftModel;
 			sourceTree = "<group>";
 		};
 		CB02947721D3A89000FE55A7 /* base */ = {
@@ -397,6 +440,44 @@
 			path = "公告";
 			sourceTree = "<group>";
 		};
+		CB0654E321D79F4700A78CD9 /* LSXPopMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CB0654E521D79F5B00A78CD9 /* LSXPopMenu.h */,
+				CB0654E421D79F5B00A78CD9 /* LSXPopMenu.m */,
+			);
+			path = LSXPopMenu;
+			sourceTree = "<group>";
+		};
+		CB08143021D4F63A0018A363 /* 語言設定 */ = {
+			isa = PBXGroup;
+			children = (
+				CB08143121D4F6760018A363 /* LanguageSettingViewController.h */,
+				CB08143221D4F6760018A363 /* LanguageSettingViewController.m */,
+				CB08143321D4F6760018A363 /* LanguageSettingViewController.xib */,
+			);
+			path = "語言設定";
+			sourceTree = "<group>";
+		};
+		CB08143A21D502CF0018A363 /* ZKAlertTool */ = {
+			isa = PBXGroup;
+			children = (
+				CB08143B21D502E80018A363 /* ZKAlertTool.h */,
+				CB08143C21D502E80018A363 /* ZKAlertTool.m */,
+			);
+			path = ZKAlertTool;
+			sourceTree = "<group>";
+		};
+		CB08143E21D5179B0018A363 /* 修改密碼 */ = {
+			isa = PBXGroup;
+			children = (
+				CB08143F21D517F80018A363 /* ChangePswViewController.h */,
+				CB08144021D517F80018A363 /* ChangePswViewController.m */,
+				CB08144121D517F80018A363 /* ChangePswViewController.xib */,
+			);
+			path = "修改密碼";
+			sourceTree = "<group>";
+		};
 		CB42089321C2B13400980B64 /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +503,7 @@
 		CB42089521C2B16F00980B64 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				CB02668121D8CFFE00561B1C /* LeftModel */,
 				CB02947721D3A89000FE55A7 /* base */,
 				CB04506E21D1460800EB59D7 /* 社區 */,
 				CB04506721D136E800EB59D7 /* 場地 */,
@@ -437,6 +519,7 @@
 		CB42089621C2B17600980B64 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				CB02667B21D8CEFC00561B1C /* LeftViewCell */,
 				CB02948621D3B93E00FE55A7 /* 公告 */,
 				CBCB79B921CBCA2D00BF454D /* 報修 */,
 				CBFF233B21CAA1BE0066E00C /* 訂場紀錄 */,
@@ -447,6 +530,8 @@
 		CB42089721C2B17D00980B64 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				CB08143E21D5179B0018A363 /* 修改密碼 */,
+				CB08143021D4F63A0018A363 /* 語言設定 */,
 				CB05465321C6B1C3008BE895 /* 公告 */,
 				CB05465221C6B1A2008BE895 /* 投訴 */,
 				CB05465121C6B182008BE895 /* 報事報修 */,
@@ -563,6 +648,8 @@
 		CBCB79C421CBD2A000BF454D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				CB0654E321D79F4700A78CD9 /* LSXPopMenu */,
+				CB08143A21D502CF0018A363 /* ZKAlertTool */,
 				CBFFF12F21CF9DF4008BA2A0 /* http */,
 				CBFFF12E21CF9DE8008BA2A0 /* webAPI */,
 				CBFFF13621CF9F68008BA2A0 /* CommonUtil.h */,
@@ -708,9 +795,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB02948B21D3B99000FE55A7 /* NoticeTableViewCell.xib in Resources */,
+				CB02668021D8CF3F00561B1C /* LeftViewTableViewCell.xib in Resources */,
 				CBCB79C921CBD68500BF454D /* BookingRecordDetailViewController.xib in Resources */,
 				CB4208A421C2B20600980B64 /* LoginViewController.xib in Resources */,
 				CBCB79BE21CBCA6300BF454D /* ReportMaintenanceTableViewCell.xib in Resources */,
+				CB08144321D517F80018A363 /* ChangePswViewController.xib in Resources */,
 				CBFFF13E21CFD7FA008BA2A0 /* ForgetPswViewController.xib in Resources */,
 				CBFE45C421C9557A00DD80E4 /* ContactUSViewController.xib in Resources */,
 				CBCB79C321CBD28500BF454D /* HandlingDetailsViewController.xib in Resources */,
@@ -720,6 +809,7 @@
 				CB02948121D3AE2900FE55A7 /* SysLocalizable.strings in Resources */,
 				CBFF233A21CA8BD80066E00C /* ProcessingStateViewController.xib in Resources */,
 				CBFF234021CAA2110066E00C /* BookingRecordTableViewCell.xib in Resources */,
+				CB08143521D4F6760018A363 /* LanguageSettingViewController.xib in Resources */,
 				CBFE45BA21C9547600DD80E4 /* ClubhouseReservationViewController.xib in Resources */,
 				CB6C9BB421C1672300B5A9E9 /* LaunchScreen.storyboard in Resources */,
 				CB6C9BB121C1672300B5A9E9 /* Assets.xcassets in Resources */,
@@ -800,6 +890,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBFFF14121CFD85C008BA2A0 /* User.m in Sources */,
+				CB0654E621D79F5B00A78CD9 /* LSXPopMenu.m in Sources */,
 				CB04505F21D122A000EB59D7 /* NoticeList.m in Sources */,
 				CB02947A21D3A90500FE55A7 /* BaseModel.m in Sources */,
 				CBCB79BD21CBCA6300BF454D /* ReportMaintenanceTableViewCell.m in Sources */,
@@ -814,12 +905,16 @@
 				CB42089F21C2B1E600980B64 /* BaseNavigationViewController.m in Sources */,
 				CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */,
 				CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */,
+				CB08143421D4F6760018A363 /* LanguageSettingViewController.m in Sources */,
 				CBFF233921CA8BD80066E00C /* ProcessingStateViewController.m in Sources */,
 				CB04506A21D136FF00EB59D7 /* PlaceList.m in Sources */,
+				CB02667F21D8CF3F00561B1C /* LeftViewTableViewCell.m in Sources */,
 				CB05465C21C6B223008BE895 /* ComplainViewController.m in Sources */,
+				CB02668421D8D03F00561B1C /* LeftModel.m in Sources */,
 				CBCB79C221CBD28500BF454D /* HandlingDetailsViewController.m in Sources */,
 				CBFE45C321C9557A00DD80E4 /* ContactUSViewController.m in Sources */,
 				CB05465721C6B1FC008BE895 /* AnnouncementViewController.m in Sources */,
+				CB08143D21D502E80018A363 /* ZKAlertTool.m in Sources */,
 				CBFFF13821CF9F68008BA2A0 /* CommonUtil.m in Sources */,
 				CB05464721C6A43F008BE895 /* MainViewController.m in Sources */,
 				CBFE45B421C9541C00DD80E4 /* ReportMaintenanceViewController.m in Sources */,
@@ -834,6 +929,7 @@
 				CB04507121D1464B00EB59D7 /* Community.m in Sources */,
 				CBFFF13221CF9E2A008BA2A0 /* HttpHelper.m in Sources */,
 				CBFF233F21CAA2110066E00C /* BookingRecordTableViewCell.m in Sources */,
+				CB08144221D517F80018A363 /* ChangePswViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1022,6 +1118,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8993J9FQNS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/澳門物管BMS/main/PropetyManagement-prefix.pch";
 				INFOPLIST_FILE = "澳門物管BMS/Info.plist";
@@ -1029,7 +1126,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "single.----BMS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gag.BMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1041,6 +1138,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8993J9FQNS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/澳門物管BMS/main/PropetyManagement-prefix.pch";
 				INFOPLIST_FILE = "澳門物管BMS/Info.plist";
@@ -1048,7 +1146,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "single.----BMS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gag.BMS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

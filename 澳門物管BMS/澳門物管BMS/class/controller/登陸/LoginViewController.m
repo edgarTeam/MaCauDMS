@@ -5,9 +5,10 @@
 //  Created by geanguo_lucky on 2018/12/13.
 //  Copyright © 2018 geanguo_lucky. All rights reserved.
 //
-
+#import <MJExtension/MJExtension.h>
 #import "LoginViewController.h"
-
+#import "WebAPIHelper.h"
+#import "User.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *psdTextField;
@@ -33,6 +34,21 @@
 }
 */
 - (IBAction)loginBtnAction:(id)sender {
+    if(_accountTextField.text.length ==0){
+         [[[UIAlertView alloc]initWithTitle:@"" message:LocalizedString(@"String_tips_input_tel") delegate:nil cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
+    }else if (_psdTextField.text.length ==0){
+          [[[UIAlertView alloc]initWithTitle:@"" message:LocalizedString(@"String_tips_input_password") delegate:nil cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
+    }else{
+        NSDictionary *dic =[NSDictionary  dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@%@",_accountTextField.text,_psdTextField.text],@"username",@"password"];
+        [[WebAPIHelper sharedWebAPIHelper]postUserLogin:dic completion:^(NSDictionary *dic){
+            if(dic !=nil){
+                User *user=[User shareUser];
+                user=[dic objectForKey:@"user"];
+              //  User *user=[User objectWithKeyValues:dic];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+    }
     
 }
 - (IBAction)forgetBtnAction:(id)sender {

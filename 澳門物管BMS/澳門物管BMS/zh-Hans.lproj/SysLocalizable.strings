@@ -5,3 +5,14 @@
   Created by geanguo_lucky on 2018/12/26.
   Copyright © 2018 geanguo_lucky. All rights reserved.
 */
+String_notice_title ="公告";
+String_Community_title = "社区";
+String_Place_title ="";
+
+
+String_Alert_title ="您已经设置成功啦！";
+String_confirm ="确认";
+string_old_psw_alert = "请输入旧密码";
+string_new_psw_alert = "请输入新密码";
+string_confirm_psw_alert = "请再次输入新密码";
+string_psw_difference ="两次输入密码不一致，请查证";

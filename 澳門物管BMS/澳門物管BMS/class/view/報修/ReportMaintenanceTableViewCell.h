@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ReportMaintenanceDetail.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReportMaintenanceTableViewCell : UITableViewCell
@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
 @property (weak, nonatomic) IBOutlet UILabel *stateLab;
 
+- (void)setUpModel:(ReportMaintenanceDetail *)model;
 @end
 
 NS_ASSUME_NONNULL_END

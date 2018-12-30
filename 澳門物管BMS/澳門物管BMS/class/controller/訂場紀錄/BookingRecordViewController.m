@@ -9,6 +9,9 @@
 #import "BookingRecordViewController.h"
 #import "BookingRecordTableViewCell.h"
 #import "BookingRecordDetailViewController.h"
+#import "PlaceRecord.h"
+#import "Place.h"
+#import <MJExtension/MJExtension.h>
 @interface BookingRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *bookingRecordTableView;
@@ -43,8 +46,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-   // return dataSource.count;
-    return 1;
+    return dataSource.count;
+   // return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -57,11 +60,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     BookingRecordDetailViewController *bookDetailVC=[[BookingRecordDetailViewController alloc] init];
+  //  PlaceRecord *place=[dataSource objectAtIndex:indexPath.row];
+//    bookDetailVC.recordId=place.recordId;
+    Place *place=[dataSource objectAtIndex:indexPath.row];
+    bookDetailVC.recordId=place.placeId;
     [self.navigationController pushViewController:bookDetailVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+//    [[WebAPIHelper sharedWebAPIHelper] postPlaceRecordList:nil completion:^(NSDictionary *dic){
+//        NSMutableArray *array=[dic objectForKey:@"list"];
+//        dataSource=[PlaceRecord mj_objectArrayWithKeyValuesArray:array];
+//        [_bookingRecordTableView reloadData];
+//    }];
+    [[WebAPIHelper sharedWebAPIHelper] postPlaceList:nil completion:^(NSDictionary *dic){
+        NSMutableArray *array=[dic objectForKey:@"list"];
+        dataSource=[Place mj_objectArrayWithKeyValuesArray:array];
+        [_bookingRecordTableView reloadData];
+    }];
 }
 @end

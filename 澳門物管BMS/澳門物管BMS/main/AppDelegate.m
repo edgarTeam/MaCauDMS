@@ -46,6 +46,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:AppLanguage]) {
+
+        [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hant"  forKey:AppLanguage];
+    }
     _complainVC=[[ComplainViewController alloc] init];
     _clubVC=[[ClubhouseReservationViewController alloc] init];
     _reportVC=[[ReportMaintenanceViewController alloc] init];
@@ -179,6 +183,8 @@
                 btn2.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
             } completion:^(BOOL finished){
                 btn2.hidden=YES;
+            
+                [UIView animateWithDuration:0.5 animations:^{
                 if (centerX==0 && centerY==0) {
                     self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
                     
@@ -187,13 +193,19 @@
                 }
                 self.centerBtn.layer.cornerRadius=25;
                 self.centerBtn.layer.masksToBounds=YES;
+                    self.centerBtn.userInteractionEnabled=NO;
+                }completion:^(BOOL finished){
+                    self.centerBtn.userInteractionEnabled=YES;
+                }];
             }];
         }
         
     }else{
+     
         self.centerBtn.frame=CGRectMake(ScreenWidth/2-35, ScreenHeight/2-35, 70, 70);
         self.centerBtn.layer.cornerRadius=35;
         self.centerBtn.layer.masksToBounds=YES;
+    
         [self addBtn];
     }
     
@@ -269,5 +281,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    UITouch *touch=event.allTouches.anyObject;
+//    CGPoint *point=[touch locationInView:self.window.rootViewController.view];
+//}
 @end

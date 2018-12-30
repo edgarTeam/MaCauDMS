@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PlaceRecord.h"
+#import "Place.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BookingRecordTableViewCell : UITableViewCell
 
+
+- (void)setUpModel:(Place *)model;
 @end
 
 NS_ASSUME_NONNULL_END

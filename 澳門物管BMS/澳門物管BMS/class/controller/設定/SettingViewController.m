@@ -7,8 +7,11 @@
 //
 
 #import "SettingViewController.h"
-
+#import "LanguageSettingViewController.h"
+#import "ChangePswViewController.h"
 @interface SettingViewController ()
+
+
 
 @end
 
@@ -19,6 +22,27 @@
     // Do any additional setup after loading the view from its nib.
    // self.title=LocalizedString(@"設定");
     self.title=@"設定";
+}
+- (IBAction)chooseBtnAction:(UIButton *)sender {
+    switch (sender.tag) {
+        case 0:{
+            LanguageSettingViewController *languageVC=[LanguageSettingViewController new];
+            [self.navigationController pushViewController:languageVC animated:YES];
+        }
+            break;
+        case 1:{
+            ChangePswViewController *PsdVC=[ChangePswViewController new];
+            [self.navigationController pushViewController:PsdVC animated:YES];
+        }
+            break;
+        case 2:{
+//            LanguageSettingViewController *languageVC=[LanguageSettingViewController new];
+//            [self.navigationController pushViewController:languageVC animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 /*

@@ -154,7 +154,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-A0-Ylh">
-                    <rect key="frame" x="137.5" y="627" width="100" height="30"/>
+                    <rect key="frame" x="137.5" y="617" width="100" height="30"/>
                     <color key="backgroundColor" red="0.51920114439999998" green="0.60095730629999999" blue="0.6292088468" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="0JL-y6-woD"/>
@@ -174,7 +174,7 @@
                 <constraint firstItem="mxp-HU-aD4" firstAttribute="top" secondItem="Pb5-iU-eqb" secondAttribute="bottom" constant="10" id="LOh-5O-y5A"/>
                 <constraint firstItem="Pb5-iU-eqb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ldl-gD-dez"/>
                 <constraint firstItem="eIq-cC-igu" firstAttribute="top" secondItem="mxp-HU-aD4" secondAttribute="bottom" id="OSx-6k-T7T"/>
-                <constraint firstAttribute="bottom" secondItem="Tqd-A0-Ylh" secondAttribute="bottom" constant="10" id="TFi-Xa-po6"/>
+                <constraint firstAttribute="bottom" secondItem="Tqd-A0-Ylh" secondAttribute="bottom" constant="20" id="TFi-Xa-po6"/>
                 <constraint firstItem="Mms-pl-Z3s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="TqI-Tt-msS"/>
                 <constraint firstItem="eIq-cC-igu" firstAttribute="trailing" secondItem="mxp-HU-aD4" secondAttribute="trailing" id="gdo-t9-LRf"/>
                 <constraint firstItem="mxp-HU-aD4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="jdL-rF-mSP"/>

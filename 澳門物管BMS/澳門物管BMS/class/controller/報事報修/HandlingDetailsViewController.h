@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HandlingDetailsViewController : UIViewController
-
+@property (nonatomic,strong)NSString *complainId;
 @end
 
 NS_ASSUME_NONNULL_END

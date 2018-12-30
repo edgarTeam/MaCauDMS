@@ -7,7 +7,7 @@
 //
 
 #import "NoticeTableViewCell.h"
-
+#import "Notice.h"
 @implementation NoticeTableViewCell
 
 - (void)awakeFromNib {
@@ -24,4 +24,7 @@
     // Configure the view for the selected state
 }
 
+- (void)setUpModel:(Notice *)model{
+   // [self.image];
+}
 @end

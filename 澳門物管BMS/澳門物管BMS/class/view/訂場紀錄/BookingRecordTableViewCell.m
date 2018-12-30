@@ -27,4 +27,8 @@
     // Configure the view for the selected state
 }
 
+- (void)setUpModel:(Place *)model{
+    [_contentLab setText:model.placeIntroduction];
+    [_image setImage:[UIImage imageNamed:model.placeImage]];
+}
 @end

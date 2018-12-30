@@ -9,22 +9,31 @@
 #ifndef RequestUrlString_h
 #define RequestUrlString_h
 
-#define kBaseUrl @"http://47.107.131.1:8080/app/"
+#define kBaseUrl @"http://47.107.131.1:8080/app/api"
 
 
 #define kUserLogin kBaseUrl @"pass/login"
+//修改密碼
+#define kUpdatePsd kBaseUrl @"user/updatePassword"
 
-
+//報修列表
+#define kComplainList kBaseUrl @"complain/list"
+//報修詳情
+#define kComplain kBaseUrl @"complain/detail"
 
 #define kNoticeList kBaseUrl @"notice/list"
 #define kNotice kBaseUrl @"notice/detail"
 //圖片上傳
 #define kUploadImg kBaseUrl @"file/upload"
-//訂場
+//訂場列表
+#define kPlaceRecordList kBaseUrl @"placeRecord/list"
+//訂場詳情
 #define kPlaceRecord kBaseUrl @"placeRecord/detail"
 
 //場地列表
 #define kPlaceList kBaseUrl @"place/list"
+//場地列表
+#define kPlace kBaseUrl @"place/list"
 //場地
 #define kPlace kBaseUrl @"place/detail"
 //社區列表
