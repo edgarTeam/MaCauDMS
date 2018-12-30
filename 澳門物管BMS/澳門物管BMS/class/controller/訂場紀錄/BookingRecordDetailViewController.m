@@ -51,6 +51,7 @@
             return ;
         }
         _place=[Place mj_setKeyValues:dic];
+        
     }];
 }
 /*
@@ -66,6 +67,6 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
   //  [self requestBookingRecord];
-    [];
+    [self requestPlace];
 }
 @end
