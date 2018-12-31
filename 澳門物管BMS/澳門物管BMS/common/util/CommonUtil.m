@@ -246,4 +246,33 @@
 //        
 //    }];
 //}
+
++(void)addGradientLayerTo:(id)object{
+    UIViewController *vc =  nil;
+    UIView *view = nil;
+    CGRect frame = CGRectZero;
+    if ([object isKindOfClass:[UIViewController class]]) {
+        vc = (UIViewController *)object;
+        frame = vc.view.frame;
+        
+    }else if ([object isKindOfClass:[UIView class]]){
+        view = (UIView *)object;
+        frame = view.frame;
+    }
+    UIView *layerView = [[UIView alloc] initWithFrame:frame];
+    CAGradientLayer *layer = [CAGradientLayer new];
+    layer.bounds = frame;
+    layer.frame = frame;
+    layer.borderWidth = 0;
+    NSArray *array = [NSArray arrayWithObjects:[UIColor colorWithRed:43.0/255 green:183.0/255 blue:224.0/255 alpha:1.0].CGColor,[UIColor lightGrayColor].CGColor, nil];
+    layer.colors = array;
+    layer.startPoint = CGPointMake(0.5, 0.5);
+    layer.endPoint = CGPointMake(0.5, 1.0);
+    [layerView.layer insertSublayer:layer atIndex:0];
+    if (vc) {
+        [vc.view addSubview:layerView];
+    }else{
+        [view addSubview:layerView];
+    }
+}
 @end

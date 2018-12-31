@@ -22,8 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
-    self.view.backgroundColor=[UIColor whiteColor];
     _sliderBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [_sliderBtn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
     [_sliderBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];

@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [CommonUtil addGradientLayerTo:self];
+    
     // Do any additional setup after loading the view.
 //     self.navigationItem.title=_str;
 //    self.btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40) ];

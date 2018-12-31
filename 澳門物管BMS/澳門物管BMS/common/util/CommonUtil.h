@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 //+ (void)IMlogin;
 //+ (void)IMlogout;
 + (NSString *)dateTimeWithYYMMDDHHMM:(NSDate *)date;
++ (void)addGradientLayerTo:(id)object;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
