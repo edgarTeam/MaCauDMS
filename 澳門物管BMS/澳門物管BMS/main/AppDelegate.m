@@ -69,7 +69,7 @@
     self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
     
-    [self.centerBtn setImage:[UIImage imageNamed:@"woker"] forState:UIControlStateNormal];
+    [self.centerBtn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
     self.centerBtn.layer.cornerRadius=self.centerBtn.frame.size.width/2;
     self.centerBtn.layer.cornerRadius=25;
     self.centerBtn.layer.masksToBounds=YES;
@@ -126,7 +126,7 @@
 - (void)addBtn{
     _btnArr=[NSMutableArray array];
 //    self.arr=[NSMutableArray arrayWithObjects:@"bank",@"three",@"woker",@"tv",@"one",@"two",@"people",@"teacher",@"up",nil];
-     self.arr=[NSMutableArray arrayWithObjects:@"one",@"two",@"up",@"people",nil];
+     self.arr=[NSMutableArray arrayWithObjects:@"complain",@"place",@"repairsec",@"settingsec",nil];
     int a=360/self.arr.count;
     
     for (int i = 0; i < self.arr.count; i++) {
@@ -285,4 +285,5 @@
 //    UITouch *touch=event.allTouches.anyObject;
 //    CGPoint *point=[touch locationInView:self.window.rootViewController.view];
 //}
+
 @end

@@ -7,9 +7,12 @@
 //
 
 #import "BaseViewController.h"
-
-@interface BaseViewController ()
+#import "User.h"
+#import "LoginViewController.h"
+#import "ZKAlertTool.h"
+@interface BaseViewController ()<UIAlertViewDelegate>
 @property(nonatomic,strong)UIButton *btn;
+@property (nonatomic,strong)NSString *token;
 @end
 
 @implementation BaseViewController
@@ -24,8 +27,27 @@
 //    [self.view addSubview:self.btn];
 //    UIBarButtonItem *back=[[UIBarButtonItem alloc]initWithCustomView:_btn];
 //    self.navigationItem.leftBarButtonItem=back;
+    NSUserDefaults *tokenId=[NSUserDefaults standardUserDefaults];
+    _token=[tokenId objectForKey:Token];
+   
 }
 
+-(void)checkLogin{
+    if (_token!= nil && _token.length > 0) {
+        NSLog(@"已登陆");
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"" message:LocalizedString(@"String_login_request") delegate:self cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
+
+        
+    }
+}
+//-(void)checkLogin{
+//    if ([User shareUser].tel!= nil && [User shareUser].tel .length > 0) {
+//
+//    }else{
+//        [[[UIAlertView alloc] initWithTitle:@"" message:LocalizedString(@"String_login_request") delegate:self cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
+//    }
+//}
 /*
 #pragma mark - Navigation
 
@@ -35,6 +57,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 -(void)backBtn:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:YES];
     

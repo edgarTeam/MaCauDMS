@@ -27,7 +27,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zM9-2G-x8O">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iDJ-VZ-eH8">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headImg" translatesAutoresizingMaskIntoConstraints="NO" id="iDJ-VZ-eH8">
                     <rect key="frame" x="147.5" y="120" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="iA2-Sh-h5L"/>
@@ -56,9 +56,8 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="p5H-cp-YF4"/>
                     </constraints>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tT1-Yu-WaZ">
                     <rect key="frame" x="87.5" y="340" width="200" height="2"/>
@@ -116,4 +115,7 @@
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
         </view>
     </objects>
+    <resources>
+        <image name="headImg" width="200" height="200"/>
+    </resources>
 </document>

@@ -24,6 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"公告";
+    self.edgesForExtendedLayout=UIRectEdgeNone;
     _tableView.separatorColor=[UIColor clearColor];
     _tableView.tableFooterView=[UIView new];
     _tableView.delegate=self;

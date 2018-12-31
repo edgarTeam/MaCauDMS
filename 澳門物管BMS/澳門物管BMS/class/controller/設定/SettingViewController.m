@@ -9,6 +9,7 @@
 #import "SettingViewController.h"
 #import "LanguageSettingViewController.h"
 #import "ChangePswViewController.h"
+#import "ContactUSViewController.h"
 @interface SettingViewController ()
 
 
@@ -38,6 +39,8 @@
         case 2:{
 //            LanguageSettingViewController *languageVC=[LanguageSettingViewController new];
 //            [self.navigationController pushViewController:languageVC animated:YES];
+            ContactUSViewController *aboutVC=[ContactUSViewController new];
+            [self.navigationController pushViewController:aboutVC animated:YES];
         }
             break;
         default:

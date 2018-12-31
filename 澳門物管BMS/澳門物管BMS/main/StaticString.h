@@ -13,7 +13,7 @@
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define RGB(r,g,b) [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1]
 
-#define UUID @"uuid"
+#define Token @"token"
 #define AppLanguage @"appLanguage"
 #define CustomLocalizedString(key, comment) \
 [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:@"" table:@"SysLocalizable"]

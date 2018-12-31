@@ -76,6 +76,9 @@
 //        [_bookingRecordTableView reloadData];
 //    }];
     [[WebAPIHelper sharedWebAPIHelper] postPlaceList:nil completion:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
         NSMutableArray *array=[dic objectForKey:@"list"];
         dataSource=[Place mj_objectArrayWithKeyValuesArray:array];
         [_bookingRecordTableView reloadData];

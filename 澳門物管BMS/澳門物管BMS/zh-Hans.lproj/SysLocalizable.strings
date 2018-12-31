@@ -9,7 +9,7 @@ String_notice_title ="公告";
 String_Community_title = "社区";
 String_Place_title ="";
 
-
+String_login_request = "请先登入";
 String_Alert_title ="您已经设置成功啦！";
 String_confirm ="确认";
 string_old_psw_alert = "请输入旧密码";

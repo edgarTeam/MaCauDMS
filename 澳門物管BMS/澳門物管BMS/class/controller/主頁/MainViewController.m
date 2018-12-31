@@ -25,23 +25,23 @@
 
     self.view.backgroundColor=[UIColor whiteColor];
     _sliderBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    [_sliderBtn setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
+    [_sliderBtn setImage:[UIImage imageNamed:@"list"] forState:UIControlStateNormal];
     [_sliderBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_sliderBtn];
     [_sliderBtn mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.mas_equalTo(30);
         make.left.mas_equalTo(20);
-        make.size.mas_equalTo(CGSizeMake(50, 30));
+        make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
     
     _rightBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    [_rightBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [_rightBtn setImage:[UIImage imageNamed:@"notice"] forState:UIControlStateNormal];
     [_rightBtn addTarget:self action:@selector(noticeBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_rightBtn];
     [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.mas_equalTo(30);
         make.right.mas_equalTo(-20);
-        make.size.mas_equalTo(CGSizeMake(50, 30));
+        make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
     
 }

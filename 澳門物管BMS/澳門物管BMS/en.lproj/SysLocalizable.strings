@@ -9,6 +9,7 @@ String_notice_title ="公告";
 String_Community_title = "社區";
 String_Place_title ="";
 
+String_login_request = "請先登入";
 
 String_Alert_title ="您已經設置語言成功啦！";
 String_confirm ="確認";

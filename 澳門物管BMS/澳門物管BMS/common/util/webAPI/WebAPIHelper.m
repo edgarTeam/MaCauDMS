@@ -32,7 +32,7 @@ static AFHTTPSessionManager *_manager;
     dispatch_once(&onceToken, ^{
         _instance = [super allocWithZone:zone];
         _manager = [AFHTTPSessionManager manager];
-        [_manager.requestSerializer  setValue:UUID forHTTPHeaderField:@"Authorization"]; //uuid
+        [_manager.requestSerializer  setValue:Token forHTTPHeaderField:@"Authorization"]; //uuid
         _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
         _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain" ,@"text/html" ,@"text/xml",@"application/pdf",nil];
         ((AFJSONResponseSerializer *)_manager.responseSerializer).removesKeysWithNullValues = YES;

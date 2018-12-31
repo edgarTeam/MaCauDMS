@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *psdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forgetBtn;
-
+@property (nonatomic,strong) NSString *token;
+@property (weak, nonatomic) IBOutlet UIImageView *headImg;
 @end
 
 @implementation LoginViewController
@@ -22,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _headImg.layer.masksToBounds=YES;
+    _headImg.layer.cornerRadius=40;
 }
 
 /*
@@ -45,6 +48,9 @@
                 User *user=[User shareUser];
                 user=[dic objectForKey:@"user"];
               //  User *user=[User objectWithKeyValues:dic];
+                _token=[dic objectForKey:@"token"];
+                NSUserDefaults *tokenId=[NSUserDefaults standardUserDefaults];
+                [tokenId setObject:_token forKey:Token];
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }];

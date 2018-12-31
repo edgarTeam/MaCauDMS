@@ -65,16 +65,16 @@
     
     LeftModel *model1=[LeftModel new];
     model1.title=@"訂場紀錄";
-    model1.image=@"dingchang";
+    model1.image=@"bookingPlace";
     LeftModel *model2=[LeftModel new];
     model2.title=@"聯繫我們";
-    model2.image=@"lianxiwomen";
+    model2.image=@"contact";
     LeftModel *model3=[LeftModel new];
     model3.title=@"設定";
-    model3.image=@"sheding";
+    model3.image=@"setting";
     LeftModel *model4=[LeftModel new];
     model4.title=@"報修紀錄";
-    model4.image=@"wuyebaoxiu";
+    model4.image=@"repair";
     dataSoure=[NSArray arrayWithObjects:model1,model2,model3, model4, nil];
 //    dataSoure=[NSArray new];
 //    dataSoure=@[@"訂場紀錄",@"聯繫我們",@"設定",@"報修紀錄"];
@@ -121,7 +121,7 @@
     UIViewController *vc=[NSClassFromString(array[indexPath.row]) new];
     UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
     
-    
+    [self checkLogin];
     [nav pushViewController:vc animated:YES];
     
     [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
