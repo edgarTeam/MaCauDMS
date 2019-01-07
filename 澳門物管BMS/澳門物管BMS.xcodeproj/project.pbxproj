@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
+		CB017BC321DB181400BB6BFD /* SuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC221DB181400BB6BFD /* SuspensionView.m */; };
+		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
+		CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */; };
 		CB02667F21D8CF3F00561B1C /* LeftViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02667D21D8CF3F00561B1C /* LeftViewTableViewCell.m */; };
 		CB02668021D8CF3F00561B1C /* LeftViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB02667E21D8CF3F00561B1C /* LeftViewTableViewCell.xib */; };
 		CB02668421D8D03F00561B1C /* LeftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02668321D8D03F00561B1C /* LeftModel.m */; };
@@ -32,6 +35,10 @@
 		CB05465821C6B1FC008BE895 /* AnnouncementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB05465621C6B1FC008BE895 /* AnnouncementViewController.xib */; };
 		CB05465C21C6B223008BE895 /* ComplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB05465A21C6B223008BE895 /* ComplainViewController.m */; };
 		CB05465D21C6B223008BE895 /* ComplainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB05465B21C6B223008BE895 /* ComplainViewController.xib */; };
+		CB05F35B21E1AB2D00208C5E /* PhotpCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB05F35921E1AB2D00208C5E /* PhotpCollectionViewCell.m */; };
+		CB05F35C21E1AB2D00208C5E /* PhotpCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB05F35A21E1AB2D00208C5E /* PhotpCollectionViewCell.xib */; };
+		CB05F36021E1AB4200208C5E /* AddCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB05F35E21E1AB4200208C5E /* AddCollectionViewCell.m */; };
+		CB05F36121E1AB4200208C5E /* AddCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB05F35F21E1AB4200208C5E /* AddCollectionViewCell.xib */; };
 		CB08143421D4F6760018A363 /* LanguageSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB08143221D4F6760018A363 /* LanguageSettingViewController.m */; };
 		CB08143521D4F6760018A363 /* LanguageSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB08143321D4F6760018A363 /* LanguageSettingViewController.xib */; };
 		CB08144221D517F80018A363 /* ChangePswViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB08144021D517F80018A363 /* ChangePswViewController.m */; };
@@ -96,6 +103,11 @@
 /* Begin PBXFileReference section */
 		6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.release.xcconfig"; sourceTree = "<group>"; };
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
+		CB017BC121DB181400BB6BFD /* SuspensionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuspensionView.h; sourceTree = "<group>"; };
+		CB017BC221DB181400BB6BFD /* SuspensionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuspensionView.m; sourceTree = "<group>"; };
+		CB017BC521DB294C00BB6BFD /* UserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		CB02667C21D8CF3F00561B1C /* LeftViewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewTableViewCell.h; sourceTree = "<group>"; };
 		CB02667D21D8CF3F00561B1C /* LeftViewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewTableViewCell.m; sourceTree = "<group>"; };
 		CB02667E21D8CF3F00561B1C /* LeftViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftViewTableViewCell.xib; sourceTree = "<group>"; };
@@ -147,6 +159,12 @@
 		CB05465921C6B223008BE895 /* ComplainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComplainViewController.h; sourceTree = "<group>"; };
 		CB05465A21C6B223008BE895 /* ComplainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComplainViewController.m; sourceTree = "<group>"; };
 		CB05465B21C6B223008BE895 /* ComplainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplainViewController.xib; sourceTree = "<group>"; };
+		CB05F35821E1AB2D00208C5E /* PhotpCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotpCollectionViewCell.h; sourceTree = "<group>"; };
+		CB05F35921E1AB2D00208C5E /* PhotpCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotpCollectionViewCell.m; sourceTree = "<group>"; };
+		CB05F35A21E1AB2D00208C5E /* PhotpCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotpCollectionViewCell.xib; sourceTree = "<group>"; };
+		CB05F35D21E1AB4200208C5E /* AddCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCollectionViewCell.h; sourceTree = "<group>"; };
+		CB05F35E21E1AB4200208C5E /* AddCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCollectionViewCell.m; sourceTree = "<group>"; };
+		CB05F35F21E1AB4200208C5E /* AddCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCollectionViewCell.xib; sourceTree = "<group>"; };
 		CB08143121D4F6760018A363 /* LanguageSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageSettingViewController.h; sourceTree = "<group>"; };
 		CB08143221D4F6760018A363 /* LanguageSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageSettingViewController.m; sourceTree = "<group>"; };
 		CB08143321D4F6760018A363 /* LanguageSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSettingViewController.xib; sourceTree = "<group>"; };
@@ -262,6 +280,25 @@
 				F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB017BC021DB17BD00BB6BFD /* 悬浮 */ = {
+			isa = PBXGroup;
+			children = (
+				CB017BC121DB181400BB6BFD /* SuspensionView.h */,
+				CB017BC221DB181400BB6BFD /* SuspensionView.m */,
+			);
+			path = "悬浮";
+			sourceTree = "<group>";
+		};
+		CB017BC421DB28FF00BB6BFD /* 個人信息 */ = {
+			isa = PBXGroup;
+			children = (
+				CB017BC521DB294C00BB6BFD /* UserInfoViewController.h */,
+				CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */,
+				CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */,
+			);
+			path = "個人信息";
 			sourceTree = "<group>";
 		};
 		CB02667B21D8CEFC00561B1C /* LeftViewCell */ = {
@@ -524,6 +561,7 @@
 		CB42089621C2B17600980B64 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				CB017BC021DB17BD00BB6BFD /* 悬浮 */,
 				CB02667B21D8CEFC00561B1C /* LeftViewCell */,
 				CB02948621D3B93E00FE55A7 /* 公告 */,
 				CBCB79B921CBCA2D00BF454D /* 報修 */,
@@ -535,6 +573,7 @@
 		CB42089721C2B17D00980B64 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				CB017BC421DB28FF00BB6BFD /* 個人信息 */,
 				CB08143E21D5179B0018A363 /* 修改密碼 */,
 				CB08143021D4F63A0018A363 /* 語言設定 */,
 				CB05465321C6B1C3008BE895 /* 公告 */,
@@ -646,6 +685,12 @@
 				CBCB79BA21CBCA6300BF454D /* ReportMaintenanceTableViewCell.h */,
 				CBCB79BB21CBCA6300BF454D /* ReportMaintenanceTableViewCell.m */,
 				CBCB79BC21CBCA6300BF454D /* ReportMaintenanceTableViewCell.xib */,
+				CB05F35821E1AB2D00208C5E /* PhotpCollectionViewCell.h */,
+				CB05F35921E1AB2D00208C5E /* PhotpCollectionViewCell.m */,
+				CB05F35A21E1AB2D00208C5E /* PhotpCollectionViewCell.xib */,
+				CB05F35D21E1AB4200208C5E /* AddCollectionViewCell.h */,
+				CB05F35E21E1AB4200208C5E /* AddCollectionViewCell.m */,
+				CB05F35F21E1AB4200208C5E /* AddCollectionViewCell.xib */,
 			);
 			path = "報修";
 			sourceTree = "<group>";
@@ -813,6 +858,7 @@
 				CB05465D21C6B223008BE895 /* ComplainViewController.xib in Resources */,
 				CB02948121D3AE2900FE55A7 /* SysLocalizable.strings in Resources */,
 				CBFF233A21CA8BD80066E00C /* ProcessingStateViewController.xib in Resources */,
+				CB05F35C21E1AB2D00208C5E /* PhotpCollectionViewCell.xib in Resources */,
 				CBFF234021CAA2110066E00C /* BookingRecordTableViewCell.xib in Resources */,
 				CB08143521D4F6760018A363 /* LanguageSettingViewController.xib in Resources */,
 				CBFE45BA21C9547600DD80E4 /* ClubhouseReservationViewController.xib in Resources */,
@@ -821,6 +867,8 @@
 				CBFE45B521C9541C00DD80E4 /* ReportMaintenanceViewController.xib in Resources */,
 				CB6C9BAF21C1672200B5A9E9 /* Main.storyboard in Resources */,
 				CB05465821C6B1FC008BE895 /* AnnouncementViewController.xib in Resources */,
+				CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */,
+				CB05F36121E1AB4200208C5E /* AddCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,6 +958,9 @@
 				CBFE45BE21C954DE00DD80E4 /* SettingViewController.m in Sources */,
 				CB42089F21C2B1E600980B64 /* BaseNavigationViewController.m in Sources */,
 				CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */,
+				CB017BC321DB181400BB6BFD /* SuspensionView.m in Sources */,
+				CB05F35B21E1AB2D00208C5E /* PhotpCollectionViewCell.m in Sources */,
+				CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */,
 				CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */,
 				CB08143421D4F6760018A363 /* LanguageSettingViewController.m in Sources */,
 				CBFF233921CA8BD80066E00C /* ProcessingStateViewController.m in Sources */,
@@ -935,6 +986,7 @@
 				CB04507121D1464B00EB59D7 /* Community.m in Sources */,
 				CBFFF13221CF9E2A008BA2A0 /* HttpHelper.m in Sources */,
 				CBFF233F21CAA2110066E00C /* BookingRecordTableViewCell.m in Sources */,
+				CB05F36021E1AB4200208C5E /* AddCollectionViewCell.m in Sources */,
 				CB08144221D517F80018A363 /* ChangePswViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

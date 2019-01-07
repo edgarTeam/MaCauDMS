@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotpCollectionViewCell" id="gTV-IL-0wX" customClass="PhotpCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sHB-BQ-NQa">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ3-Xz-TyU">
+                        <rect key="frame" x="42.5" y="-7.5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ZQ3-Xz-TyU" secondAttribute="height" multiplier="1:1" id="ETO-5F-s7h"/>
+                            <constraint firstAttribute="width" constant="15" id="NfQ-a8-tAi"/>
+                        </constraints>
+                        <connections>
+                            <action selector="deleteBtnAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nm7-A8-Zut"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="ZQ3-Xz-TyU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="4s8-rC-oNn"/>
+                <constraint firstItem="sHB-BQ-NQa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="FKd-Nd-jdN"/>
+                <constraint firstAttribute="bottom" secondItem="sHB-BQ-NQa" secondAttribute="bottom" id="TG5-OK-kL7"/>
+                <constraint firstItem="ZQ3-Xz-TyU" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="top" id="dwi-uW-lCa"/>
+                <constraint firstAttribute="trailing" secondItem="sHB-BQ-NQa" secondAttribute="trailing" id="eir-eO-nc7"/>
+                <constraint firstItem="sHB-BQ-NQa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lSf-D8-3Vk"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <connections>
+                <outlet property="deleteBtn" destination="ZQ3-Xz-TyU" id="wta-0P-a6L"/>
+                <outlet property="photoImageView" destination="sHB-BQ-NQa" id="rbM-gg-los"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

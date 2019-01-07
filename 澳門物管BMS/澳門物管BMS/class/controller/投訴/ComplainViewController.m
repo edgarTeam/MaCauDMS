@@ -9,6 +9,7 @@
 #import "ComplainViewController.h"
 
 @interface ComplainViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *complainTextView;
 
 @end
 
@@ -18,6 +19,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"投訴";
+    _complainTextView.layer.masksToBounds=YES;
+    _complainTextView.layer.cornerRadius=7.0;
+    _complainTextView.layer.borderWidth=0.5;
+    _complainTextView.layer.borderColor=RGB(170, 170, 170).CGColor;
+}
+- (IBAction)submitAction:(UIButton *)sender {
 }
 
 /*

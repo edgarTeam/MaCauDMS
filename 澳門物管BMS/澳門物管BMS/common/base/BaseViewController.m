@@ -19,8 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [CommonUtil addGradientLayerTo:self];
-    
+   // [CommonUtil addGradientLayerTo:self];
+    self.view.backgroundColor=[UIColor whiteColor];
     // Do any additional setup after loading the view.
 //     self.navigationItem.title=_str;
 //    self.btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40) ];
@@ -38,9 +38,15 @@
     if (_token!= nil && _token.length > 0) {
         NSLog(@"已登陆");
     }else{
-        [[[UIAlertView alloc] initWithTitle:@"" message:LocalizedString(@"String_login_request") delegate:self cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
-
-        
+//        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"String_login_request") preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+//            LoginViewController *loginVC=[[LoginViewController alloc] init];
+//            [self.navigationController pushViewController:loginVC animated:YES];
+//        }];
+//        [alert addAction:alertAc];
+//        [self presentViewController:alert animated:YES completion:nil];
+        LoginViewController *loginVC=[[LoginViewController alloc] init];
+        [self.navigationController pushViewController:loginVC animated:YES];
     }
 }
 //-(void)checkLogin{

@@ -20,14 +20,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ygl-Q0-l5T">
-                        <rect key="frame" x="10" y="7" width="30" height="30"/>
+                        <rect key="frame" x="10" y="-1" width="50" height="45.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="W2l-DK-Bz8"/>
-                            <constraint firstAttribute="width" secondItem="Ygl-Q0-l5T" secondAttribute="height" multiplier="1:1" id="sIP-0M-phR"/>
+                            <constraint firstAttribute="width" constant="50" id="W2l-DK-Bz8"/>
+                            <constraint firstAttribute="width" secondItem="Ygl-Q0-l5T" secondAttribute="height" multiplier="1:0.9" id="sIP-0M-phR"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fL3-8C-Dug">
-                        <rect key="frame" x="55" y="12" width="39.5" height="19.5"/>
+                        <rect key="frame" x="75" y="12" width="39.5" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>

@@ -52,6 +52,7 @@
 }
 */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HandlingDetailsViewController *handVC=[[HandlingDetailsViewController alloc] init];
     ReportMaintenanceDetail *report=[dataSource objectAtIndex:indexPath.row];
     handVC.complainId=report.complainId;

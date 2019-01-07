@@ -59,6 +59,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     BookingRecordDetailViewController *bookDetailVC=[[BookingRecordDetailViewController alloc] init];
   //  PlaceRecord *place=[dataSource objectAtIndex:indexPath.row];
 //    bookDetailVC.recordId=place.recordId;
@@ -75,13 +76,14 @@
 //        dataSource=[PlaceRecord mj_objectArrayWithKeyValuesArray:array];
 //        [_bookingRecordTableView reloadData];
 //    }];
-    [[WebAPIHelper sharedWebAPIHelper] postPlaceList:nil completion:^(NSDictionary *dic){
-        if (dic ==nil) {
-            return ;
-        }
-        NSMutableArray *array=[dic objectForKey:@"list"];
-        dataSource=[Place mj_objectArrayWithKeyValuesArray:array];
-        [_bookingRecordTableView reloadData];
-    }];
+    
+//    [[WebAPIHelper sharedWebAPIHelper] postPlaceList:nil completion:^(NSDictionary *dic){
+//        if (dic ==nil) {
+//            return ;
+//        }
+//        NSMutableArray *array=[dic objectForKey:@"list"];
+//        dataSource=[Place mj_objectArrayWithKeyValuesArray:array];
+//        [_bookingRecordTableView reloadData];
+//    }];
 }
 @end

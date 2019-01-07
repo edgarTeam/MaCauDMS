@@ -14,11 +14,15 @@
 #import "ProcessingStateViewController.h"
 #import "LeftViewTableViewCell.h"
 #import "LeftModel.h"
+#import "LoginViewController.h"
+#import "UserInfoViewController.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UIButton *loginOutBtn;
 @property (nonatomic,strong) UIButton *headBtn;
+@property (nonatomic,strong) UILabel *versionlab;
+@property (nonatomic,strong) UILabel *weatherLab;
 @end
 
 @implementation LeftViewController
@@ -35,12 +39,12 @@
 - (void)creatView{
     self.view.backgroundColor=[UIColor whiteColor];
     _headBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    _headBtn.backgroundColor=[UIColor redColor];
+   // _headBtn.backgroundColor=[UIColor redColor];
     _headBtn.layer.masksToBounds=YES;
     _headBtn.layer.cornerRadius=40;
    // [_headBtn setImage:[UIImage imageNamed:@"work"] forState:UIControlStateNormal];
-  //  [_headBtn setBackgroundImage:[UIImage imageNamed:@"work"] forState:UIControlStateNormal];
-  //  [_headBtn addTarget:self action:@selector(<#selector#>) forControlEvents:UIControlEventTouchUpInside];
+    [_headBtn setBackgroundImage:[UIImage imageNamed:@"headImg"] forState:UIControlStateNormal];
+    [_headBtn addTarget:self action:@selector(userInfoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_headBtn];
     [_headBtn mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.mas_equalTo(60);
@@ -50,17 +54,42 @@
         make.width.mas_equalTo(80);
         make.height.mas_equalTo(_headBtn.mas_width);
     }];
-    
+    _versionlab=[[UILabel alloc] init];
+    _versionlab.textColor=RGB(138, 138, 138);
+    _versionlab.font=[UIFont systemFontOfSize:14];
+    NSString *version=[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    //_versionlab.text=@"version 1.0.3";
+    _versionlab.text=[NSString stringWithFormat:@"version %@",version];
+    [self.view addSubview:_versionlab];
+    [_versionlab mas_makeConstraints:^(MASConstraintMaker *make){
+        make.bottom.mas_offset(0);
+        make.left.mas_offset(20);
+        make.width.mas_offset(100);
+        make.height.mas_offset(20);
+    }];
     _loginOutBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     _loginOutBtn.backgroundColor=[UIColor blueColor];
+    _loginOutBtn.layer.masksToBounds=YES;
+    _loginOutBtn.layer.cornerRadius=7.0;
     [_loginOutBtn setTitle:@"登出" forState:UIControlStateNormal];
    // [_loginOutBtn addTarget:self action:@selector(<#selector#>) forControlEvents:UIControlEventTouchUpInside];
    // [_loginOutBtn.titleLabel setText:@"登出"];
     [self.view addSubview:_loginOutBtn];
     [_loginOutBtn mas_makeConstraints:^(MASConstraintMaker *make){
         make.bottom.mas_equalTo(self.view.mas_bottom).mas_offset(-20);
-        make.height.mas_equalTo(60);
-        make.left.and.right.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+        make.left.mas_equalTo(10);
+        make.right.mas_offset(-10);
+    }];
+    
+    _weatherLab=[[UILabel alloc] init];
+    _weatherLab.textColor=RGB(138, 138, 138);
+    _weatherLab.font=[UIFont systemFontOfSize:14];
+    [self.view addSubview:_weatherLab];
+    [_weatherLab mas_makeConstraints:^(MASConstraintMaker *make){
+        make.bottom.mas_equalTo(_loginOutBtn.mas_top);
+        make.left.mas_equalTo(20);
+        make.right.mas_equalTo(25);
     }];
     
     LeftModel *model1=[LeftModel new];
@@ -82,6 +111,7 @@
 //    imgArrar=@[@"wuyebaoxiu",@"wuyebaoxiu",@"wuyebaoxiu",@"wuyebaoxiu"];
     
     _table=[[UITableView alloc] init];
+    _table.backgroundColor=[UIColor clearColor];
     _table.separatorColor=[UIColor grayColor];
     _table.tableFooterView=[UITableView new];
     _table.delegate=self;
@@ -94,13 +124,27 @@
     }];
 }
 
+- (void)loginOutAction:(UIButton *)btn {
+    
+}
+
+- (void)userInfoBtnAction:(UIButton *)btn {
+    UserInfoViewController *userVC=[[UserInfoViewController alloc] init];
+    UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+    [nav pushViewController:userVC animated:YES];
+    
+   // [self.navigationController pushViewController:userVC animated:YES];
+    [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
+        [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    }];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return dataSoure.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -112,21 +156,31 @@
     }
    // cell.textLabel.text=dataSoure[indexPath.row];
    // [cell.imageView setImage:[UIImage imageNamed:imgArrar[indexPath.row]]];
+    cell.backgroundColor=[UIColor clearColor];
     [cell setUpModel:[dataSoure objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+  //  [self checkLogin];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSArray *array=@[@"BookingRecordViewController",@"ContactUSViewController",@"SettingViewController",@"ProcessingStateViewController"];
     UIViewController *vc=[NSClassFromString(array[indexPath.row]) new];
     UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
-    
-    [self checkLogin];
+
+
     [nav pushViewController:vc animated:YES];
-    
+
     [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
         [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
     }];
+    
+//    LoginViewController *loginVC=[[LoginViewController alloc] init];
+//    UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+//    [nav pushViewController:loginVC animated:YES];
+//    [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
+//          [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+//    }];
 }
 
 

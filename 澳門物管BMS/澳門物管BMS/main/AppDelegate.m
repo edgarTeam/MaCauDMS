@@ -16,19 +16,23 @@
 #import "ClubhouseReservationViewController.h"
 #import "ReportMaintenanceViewController.h"
 #import "SettingViewController.h"
-
+#import "SuspensionView.h"
 @interface AppDelegate ()
 @property(nonatomic,strong)MMDrawerController *drawer;
 @property (nonatomic,strong) UIButton *centerBtn;
 @property (nonatomic,strong) UIImage *image;
 @property (nonatomic,strong) NSMutableArray *arr;
 @property (nonatomic,strong) UIButton *button1;
+@property (nonatomic,strong) UILabel *label;
 @property (nonatomic,strong)  UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic) BOOL show;
 @property (nonatomic,strong) NSMutableArray *btnArr;
 @property (nonatomic,strong) UINavigationController *centerNvaVC;
 @property (nonatomic,strong) UINavigationController *leftNvaVC;
+@property (nonatomic,strong) NSMutableArray *labelArr;
+@property (nonatomic,strong) NSMutableArray *labelNameArr;
 
+@property (nonatomic,strong) SuspensionView *suspensionView;
 @property (nonatomic,strong) ComplainViewController *complainVC;
 @property (nonatomic,strong) ClubhouseReservationViewController *clubVC;
 @property (nonatomic,strong) ReportMaintenanceViewController *reportVC;
@@ -41,6 +45,7 @@
     CGFloat theCenterY;
     CGFloat centerX;
     CGFloat centerY;
+    CGFloat radius;
     int a;
 }
 
@@ -65,23 +70,34 @@
     self.drawer.maximumRightDrawerWidth = ScreenWidth/2;
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setRootViewController:self.drawer];
+//    _suspensionView=[[SuspensionView alloc] init];
+//    [_suspensionView.button1 addTarget:self action:@selector(handleClick:) forControlEvents:UIControlEventTouchUpInside];
+//    //_suspensionView.userInteractionEnabled=NO;
+    
+//    _suspensionView=[[SuspensionView alloc] init];
+//    [self.drawer.view addSubview:_suspensionView];
+   
+  //  [self.window.rootViewController.view addSubview:_suspensionView];
     [self.window makeKeyAndVisible];
     self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-    
+
     [self.centerBtn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
     self.centerBtn.layer.cornerRadius=self.centerBtn.frame.size.width/2;
     self.centerBtn.layer.cornerRadius=25;
     self.centerBtn.layer.masksToBounds=YES;
+    self.centerBtn.layer.borderWidth=0.5;
+    self.centerBtn.layer.borderColor=RGB(138, 138, 138).CGColor;
     [self.centerBtn addTarget:self action:@selector(choose:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.window.rootViewController.view addSubview:self.centerBtn];
+
+   // [self.window.rootViewController.view addSubview:self.centerBtn];
+    [self.drawer.view addSubview:self.centerBtn];
     _panGestureRecognizer = [[UIPanGestureRecognizer alloc]
-                             
+
                              initWithTarget:self
-                             
+
                              action:@selector(handlePan:)];
-    
+
     [self.centerBtn addGestureRecognizer:_panGestureRecognizer];
     [self.centerBtn addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
     return YES;
@@ -119,17 +135,27 @@
 }
 
 -(void)choose:(UIButton *)btn{
-    self.centerBtn.selected=self.show=!self.show;
-    
+    if (self.centerBtn.selected) {
+        self.show=NO;
+    }else{
+        self.show=YES;
+    }
 }
 
 - (void)addBtn{
+    radius=ScreenWidth/2-35-25-10;
     _btnArr=[NSMutableArray array];
+    _labelArr=[NSMutableArray array];
 //    self.arr=[NSMutableArray arrayWithObjects:@"bank",@"three",@"woker",@"tv",@"one",@"two",@"people",@"teacher",@"up",nil];
      self.arr=[NSMutableArray arrayWithObjects:@"complain",@"place",@"repairsec",@"settingsec",nil];
     int a=360/self.arr.count;
+    self.labelNameArr=[NSMutableArray arrayWithObjects:@"投訴",@"會所預定",@"報事維修",@"設置", nil];
+    
     
     for (int i = 0; i < self.arr.count; i++) {
+        _label=[[UILabel alloc] init];
+        _label.font=[UIFont systemFontOfSize:14.0];
+        _label.text=[self.labelNameArr objectAtIndex:i];
         _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
         _button1.tag = i+1;
         _button1.layer.cornerRadius = 50/2;
@@ -140,24 +166,33 @@
         _button1.hidden=NO;
         _button1.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
         
-        _button1.backgroundColor=[UIColor blackColor];
+      //  _button1.backgroundColor=[UIColor blackColor];
         
         [_button1 addTarget:self action:@selector(handleClick:)forControlEvents:UIControlEventTouchUpInside];
-        
+        [self.window addSubview:_label];
         [self.window addSubview:_button1];
         
         [UIView animateWithDuration:0.5 animations:^{
            
-            CGFloat x=[UIScreen mainScreen].bounds.size.width/2-25+130*cosf((_button1.tag-1)*a*3.1415926/180);
-            CGFloat y=[UIScreen mainScreen].bounds.size.height/2-25+130*sinf((_button1.tag-1)*a*3.1415926/180);
+            CGFloat x=[UIScreen mainScreen].bounds.size.width/2-25+radius*cosf((_button1.tag-1)*a*3.1415926/180);
+            CGFloat y=[UIScreen mainScreen].bounds.size.height/2-25+radius*sinf((_button1.tag-1)*a*3.1415926/180);
             _button1.frame=CGRectMake(x, y, 50, 50);
+            [_label mas_makeConstraints:^(MASConstraintMaker *make){
+                make.centerX.mas_equalTo(_button1);
+               make.top.mas_equalTo(_button1.mas_bottom).offset(5);
+            }];
+        }completion:^(BOOL finish){
+
+            self.centerBtn.userInteractionEnabled=YES;
         }];
         [_btnArr addObject:_button1];
+        [_labelArr addObject:_label];
         // NSLog(@"%ld",_btnArr.count);
     }
     NSLog(@"%ld",_btnArr.count);
 }
 - (void)setShow:(BOOL)show{
+//     self.centerBtn.userInteractionEnabled=NO;
     _show=show;
     self.centerBtn.selected=show;
     
@@ -166,6 +201,7 @@
     //   array=_btnArr;
     
     if (!show) {
+        
         if(centerX>ScreenWidth/2) {
             theCenterX=ScreenWidth-50/2;
         }else{
@@ -193,20 +229,29 @@
                 }
                 self.centerBtn.layer.cornerRadius=25;
                 self.centerBtn.layer.masksToBounds=YES;
-                    self.centerBtn.userInteractionEnabled=NO;
+//                    self.centerBtn.userInteractionEnabled=NO;
                 }completion:^(BOOL finished){
-                    self.centerBtn.userInteractionEnabled=YES;
+                  //  self.centerBtn.userInteractionEnabled=YES;
                 }];
             }];
         }
         
+        for (UILabel *label2 in _labelArr) {
+            [UIView animateWithDuration:0.5 animations:^{
+                label2.hidden=YES;
+           
+            }];
+        }
     }else{
-     
+        // self.centerBtn.userInteractionEnabled=NO;
+         [UIView animateWithDuration:0.5 animations:^{
         self.centerBtn.frame=CGRectMake(ScreenWidth/2-35, ScreenHeight/2-35, 70, 70);
         self.centerBtn.layer.cornerRadius=35;
         self.centerBtn.layer.masksToBounds=YES;
-    
-        [self addBtn];
+         }completion:^(BOOL finish){
+             [self addBtn];
+             
+         }];
     }
     
 }
@@ -285,5 +330,16 @@
 //    UITouch *touch=event.allTouches.anyObject;
 //    CGPoint *point=[touch locationInView:self.window.rootViewController.view];
 //}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    UITouch *touch=[touches anyObject];
+    CGPoint point =[touch locationInView:self.window];
+    if (!CGRectContainsPoint(self.centerBtn.frame, point)) {
+     //   [self.centerBtn removeFromSuperview];
+        if (!CGRectContainsPoint(self.button1.frame, point)) {
+            self.show=NO;
+        }
 
+    }
+}
 @end

@@ -27,7 +27,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"報事詳情";
-   
+    _contentTextView.layer.masksToBounds=YES;
+    _contentTextView.layer.cornerRadius=7.0;
+    _contentTextView.layer.borderWidth=0.5;
+    _contentTextView.layer.borderColor=RGB(170, 170, 170).CGColor;
+    _contentTextView.editable=NO;
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+    textAttachment.image = [UIImage imageNamed:@""];
+    NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+    [string insertAttributedString:textAttachmentString atIndex:string.length];//index为用户指定要插入图片的位置
+    
+    _contentTextView.attributedText = string;
+
 }
 
 /*

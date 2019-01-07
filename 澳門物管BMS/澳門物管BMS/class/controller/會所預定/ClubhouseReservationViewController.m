@@ -27,7 +27,7 @@
     self.title=@"會所預定";
     _selectIndexs=[NSMutableArray new];
 dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00~10:00",@"10:00~12:00",@"12:00~14:00",@"14:00~16:00",@"16:00~18:00",@"18:00~20:00",@"20:00~22:00",@"22:00~00:00"];
-    _dateTableView=[[UITableView alloc] init];
+   // _dateTableView=[[UITableView alloc] init];
     _dateTableView.tableFooterView=[UIView new];
     _dateTableView.delegate=self;
     _dateTableView.dataSource=self;
@@ -71,8 +71,9 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+     NSLog(@"data的個數%ld",dataSource.count);
     return dataSource.count;
-    NSLog(@"data的個數%ld",dataSource.count);
+   
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -89,6 +90,7 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
@@ -128,7 +130,7 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
-    [self reuqestPlateList];
+ //   [self reuqestPlateList];
 }
 
 #pragma mark LSXPopMenuDelegate

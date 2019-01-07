@@ -42,18 +42,20 @@
     }else if (_psdTextField.text.length ==0){
           [[[UIAlertView alloc]initWithTitle:@"" message:LocalizedString(@"String_tips_input_password") delegate:nil cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
     }else{
-        NSDictionary *dic =[NSDictionary  dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@%@",_accountTextField.text,_psdTextField.text],@"username",@"password"];
-        [[WebAPIHelper sharedWebAPIHelper]postUserLogin:dic completion:^(NSDictionary *dic){
-            if(dic !=nil){
-                User *user=[User shareUser];
-                user=[dic objectForKey:@"user"];
-              //  User *user=[User objectWithKeyValues:dic];
-                _token=[dic objectForKey:@"token"];
-                NSUserDefaults *tokenId=[NSUserDefaults standardUserDefaults];
-                [tokenId setObject:_token forKey:Token];
-                [self.navigationController popViewControllerAnimated:YES];
-            }
-        }];
+//        NSDictionary *dic =[NSDictionary  dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@%@",_accountTextField.text,_psdTextField.text],@"username",@"password"];
+//        [[WebAPIHelper sharedWebAPIHelper]postUserLogin:dic completion:^(NSDictionary *dic){
+//            if(dic !=nil){
+//                User *user=[User shareUser];
+//                user=[dic objectForKey:@"user"];
+//              //  User *user=[User objectWithKeyValues:dic];
+//                _token=[dic objectForKey:@"token"];
+//                NSUserDefaults *tokenId=[NSUserDefaults standardUserDefaults];
+//                [tokenId setObject:_token forKey:Token];
+//                [self.navigationController popViewControllerAnimated:YES];
+//            }
+//        }];
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
     
 }

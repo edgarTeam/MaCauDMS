@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.centerView.layer.masksToBounds=YES;
+    self.centerView.layer.cornerRadius=7.0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
