@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 場地
 - (void)postPlace:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 #pragma mark 社區列表
-- (void)postCommunity:(NSDictionary *)parameters completion:(void (^)(NSArray *communityList))completion;
+- (void)postCommunity:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 
 @end
 

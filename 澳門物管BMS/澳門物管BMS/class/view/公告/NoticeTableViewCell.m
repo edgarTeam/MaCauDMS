@@ -26,5 +26,8 @@
 
 - (void)setUpModel:(Notice *)model{
    // [self.image];
+    [self.imageView setImage:[UIImage imageNamed:model.noticeImage]];
+    self.timeLab.text=model.createTime;
+    self.contentLab.text=model.noticeTitle;
 }
 @end

@@ -145,12 +145,23 @@ static AFHTTPSessionManager *_manager;
     }];
 }
 
-- (void)postCommunity:(NSDictionary *)parameters completion:(void (^)(NSArray * _Nonnull))completion{
-    [self.httpHelper postObjWithURL:kCommunity parameters:parameters convertClassName:@"" needLoading:YES success:^(NSArray *arr){
-        if (arr == nil) {
+//- (void)postCommunity:(NSDictionary *)parameters completion:(void (^)(NSArray * _Nonnull))completion{
+//    [self.httpHelper postObjWithURL:kCommunity parameters:parameters convertClassName:@"" needLoading:YES success:^(NSArray *arr){
+//        if (arr == nil) {
+//            return ;
+//        }
+//        completion(arr);
+//    } failure:^(NSError *error){
+//        NSLog(@"%@",error);
+//    }];
+//}
+
+- (void)postCommunity:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
+    [self.httpHelper postDicWithURL:kCommunity parameters:parameters needLoading:YES success:^(NSDictionary *dic){
+        if (dic == nil) {
             return ;
         }
-        completion(arr);
+        completion(dic);
     } failure:^(NSError *error){
         NSLog(@"%@",error);
     }];

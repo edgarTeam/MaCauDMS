@@ -47,6 +47,8 @@
 		CB42089F21C2B1E600980B64 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB42089E21C2B1E600980B64 /* BaseNavigationViewController.m */; };
 		CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4208A121C2B20600980B64 /* LoginViewController.m */; };
 		CB4208A421C2B20600980B64 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4208A221C2B20600980B64 /* LoginViewController.xib */; };
+		CB5C392F21E39A8C008E3A64 /* NoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5C392D21E39A8C008E3A64 /* NoticeDetailViewController.m */; };
+		CB5C393021E39A8C008E3A64 /* NoticeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5C392E21E39A8C008E3A64 /* NoticeDetailViewController.xib */; };
 		CB6C9BA921C1672200B5A9E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6C9BA821C1672200B5A9E9 /* AppDelegate.m */; };
 		CB6C9BAC21C1672200B5A9E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6C9BAB21C1672200B5A9E9 /* ViewController.m */; };
 		CB6C9BAF21C1672200B5A9E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB6C9BAD21C1672200B5A9E9 /* Main.storyboard */; };
@@ -178,6 +180,9 @@
 		CB4208A021C2B20600980B64 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CB4208A121C2B20600980B64 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CB4208A221C2B20600980B64 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		CB5C392C21E39A8C008E3A64 /* NoticeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeDetailViewController.h; sourceTree = "<group>"; };
+		CB5C392D21E39A8C008E3A64 /* NoticeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeDetailViewController.m; sourceTree = "<group>"; };
+		CB5C392E21E39A8C008E3A64 /* NoticeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeDetailViewController.xib; sourceTree = "<group>"; };
 		CB6C9BA421C1672200B5A9E9 /* 澳門物管BMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "澳門物管BMS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB6C9BA721C1672200B5A9E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB6C9BA821C1672200B5A9E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -476,6 +481,9 @@
 				CB05465421C6B1FC008BE895 /* AnnouncementViewController.h */,
 				CB05465521C6B1FC008BE895 /* AnnouncementViewController.m */,
 				CB05465621C6B1FC008BE895 /* AnnouncementViewController.xib */,
+				CB5C392C21E39A8C008E3A64 /* NoticeDetailViewController.h */,
+				CB5C392D21E39A8C008E3A64 /* NoticeDetailViewController.m */,
+				CB5C392E21E39A8C008E3A64 /* NoticeDetailViewController.xib */,
 			);
 			path = "公告";
 			sourceTree = "<group>";
@@ -847,6 +855,7 @@
 				CB02948B21D3B99000FE55A7 /* NoticeTableViewCell.xib in Resources */,
 				CB02668021D8CF3F00561B1C /* LeftViewTableViewCell.xib in Resources */,
 				CBCB79C921CBD68500BF454D /* BookingRecordDetailViewController.xib in Resources */,
+				CB5C393021E39A8C008E3A64 /* NoticeDetailViewController.xib in Resources */,
 				CB4208A421C2B20600980B64 /* LoginViewController.xib in Resources */,
 				CBCB79BE21CBCA6300BF454D /* ReportMaintenanceTableViewCell.xib in Resources */,
 				CB08144321D517F80018A363 /* ChangePswViewController.xib in Resources */,
@@ -979,6 +988,7 @@
 				CB04506221D122CE00EB59D7 /* Notice.m in Sources */,
 				CB04506D21D1374D00EB59D7 /* Place.m in Sources */,
 				CB6C9BB721C1672300B5A9E9 /* main.m in Sources */,
+				CB5C392F21E39A8C008E3A64 /* NoticeDetailViewController.m in Sources */,
 				CBFE45B921C9547600DD80E4 /* ClubhouseReservationViewController.m in Sources */,
 				CBFFF13D21CFD7FA008BA2A0 /* ForgetPswViewController.m in Sources */,
 				CB04506621D126B000EB59D7 /* PlaceRecord.m in Sources */,

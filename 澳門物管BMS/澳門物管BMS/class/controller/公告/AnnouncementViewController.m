@@ -10,6 +10,7 @@
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import "NoticeTableViewCell.h"
 #import "Notice.h"
+#import "NoticeDetailViewController.h"
 @interface AnnouncementViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *cycleScrollView;
 
@@ -49,6 +50,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NoticeDetailViewController *noticeVC=[[NoticeDetailViewController alloc] init];
+    Notice *notice=[dataSource objectAtIndex:indexPath.row];
+    noticeVC.noticeId=notice.noticeId;
+    [self.navigationController pushViewController:noticeVC animated:YES];
 }
 
 
