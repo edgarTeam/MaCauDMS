@@ -9,6 +9,9 @@
 #ifndef StaticString_h
 #define StaticString_h
 
+#define kEMPTYIMG [UIImage imageNamed:@""]
+
+
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define RGB(r,g,b) [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1]

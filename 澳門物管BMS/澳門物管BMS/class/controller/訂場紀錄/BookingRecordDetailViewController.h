@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BookingRecordDetailViewController : UIViewController
 @property (nonatomic,strong)NSString *recordId;
-@property (nonatomic,strong)NSString *placeId;
+//@property (nonatomic,strong)NSString *placeId;
 @end
 
 NS_ASSUME_NONNULL_END

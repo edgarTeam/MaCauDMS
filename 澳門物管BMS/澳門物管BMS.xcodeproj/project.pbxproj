@@ -43,6 +43,7 @@
 		CB08143521D4F6760018A363 /* LanguageSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB08143321D4F6760018A363 /* LanguageSettingViewController.xib */; };
 		CB08144221D517F80018A363 /* ChangePswViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB08144021D517F80018A363 /* ChangePswViewController.m */; };
 		CB08144321D517F80018A363 /* ChangePswViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB08144121D517F80018A363 /* ChangePswViewController.xib */; };
+		CB18AA0421E6443200B3A232 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB18AA0221E6443200B3A232 /* GradientView.m */; };
 		CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB42089B21C2B1BA00980B64 /* BaseViewController.m */; };
 		CB42089F21C2B1E600980B64 /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB42089E21C2B1E600980B64 /* BaseNavigationViewController.m */; };
 		CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4208A121C2B20600980B64 /* LoginViewController.m */; };
@@ -173,6 +174,8 @@
 		CB08143F21D517F80018A363 /* ChangePswViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePswViewController.h; sourceTree = "<group>"; };
 		CB08144021D517F80018A363 /* ChangePswViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePswViewController.m; sourceTree = "<group>"; };
 		CB08144121D517F80018A363 /* ChangePswViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePswViewController.xib; sourceTree = "<group>"; };
+		CB18AA0221E6443200B3A232 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		CB18AA0321E6443200B3A232 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		CB42089A21C2B1BA00980B64 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		CB42089B21C2B1BA00980B64 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		CB42089D21C2B1E600980B64 /* BaseNavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
@@ -613,6 +616,8 @@
 		CB42089921C2B19C00980B64 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				CB18AA0321E6443200B3A232 /* GradientView.h */,
+				CB18AA0221E6443200B3A232 /* GradientView.m */,
 				CB42089A21C2B1BA00980B64 /* BaseViewController.h */,
 				CB42089B21C2B1BA00980B64 /* BaseViewController.m */,
 				CB42089D21C2B1E600980B64 /* BaseNavigationViewController.h */,
@@ -985,6 +990,7 @@
 				CB05464721C6A43F008BE895 /* MainViewController.m in Sources */,
 				CBFE45B421C9541C00DD80E4 /* ReportMaintenanceViewController.m in Sources */,
 				CB04505821D11CAC00EB59D7 /* ReportMaintenanceList.m in Sources */,
+				CB18AA0421E6443200B3A232 /* GradientView.m in Sources */,
 				CB04506221D122CE00EB59D7 /* Notice.m in Sources */,
 				CB04506D21D1374D00EB59D7 /* Place.m in Sources */,
 				CB6C9BB721C1672300B5A9E9 /* main.m in Sources */,

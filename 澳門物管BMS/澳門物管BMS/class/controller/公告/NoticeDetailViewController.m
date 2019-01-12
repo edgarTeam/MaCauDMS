@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title=@"公告詳情";
+    self.edgesForExtendedLayout=UIRectEdgeNone;
     _noticeTextView.layer.masksToBounds=YES;
     _noticeTextView.layer.cornerRadius=7.0;
     _noticeTextView.layer.borderWidth=0.5;
@@ -46,7 +48,9 @@
         }
         self.notice=[Notice mj_setKeyValues:dic];
         self.noticeTitleLab.text=self.notice.noticeTitle;
-        [self.noticeImageView setImage:[UIImage imageNamed:self.notice.noticeImage]];
+        NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,self.notice.noticeImage]];
+        [self.noticeImageView sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
+//        [self.noticeImageView setImage:[UIImage imageNamed:self.notice.noticeImage]];
         self.createTimeLable.text=self.notice.createTime;
         self.noticeTextView.text=self.notice.noticeDetails;
     }];

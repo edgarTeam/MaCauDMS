@@ -17,7 +17,7 @@
 #define kUpdatePsd kBaseUrl @"user/updatePassword"
 
 //報修列表
-#define kComplainList kBaseUrl @"complain/list"
+#define kComplainList kBaseUrl @"complain/selfList"
 //報修詳情
 #define kComplain kBaseUrl @"complain/detail"
 
@@ -32,10 +32,15 @@
 
 //場地列表
 #define kPlaceList kBaseUrl @"place/list"
-//場地列表
-#define kPlace kBaseUrl @"place/list"
+
 //場地
 #define kPlace kBaseUrl @"place/detail"
 //社區列表
 #define kCommunity kBaseUrl @"community/list"
+
+//添加報修/投訴
+#define kAddComplain kBaseUrl @"complain/add"
+//添加訂場
+#define kAddPlaceRecord kBaseUrl @"placeRecord/add"
+
 #endif /* RequestUrlString_h */

@@ -49,6 +49,7 @@ static AFHTTPSessionManager *_manager;
             parameters:(id)parameters
       convertClassName:(NSString *)className
                isArray:(BOOL)isArray
+//                isBody:(BOOL)isBody
               isString:(BOOL)isString
                success:(void (^)(id obj))success
                failure:(void (^)(NSError *error))failure{
@@ -65,6 +66,7 @@ static AFHTTPSessionManager *_manager;
             //  Handle reuquest by method post
         case HTTPRequestMethodPost:
             [self postWithURL:urlEncodeString parameters:parameters convertClassName:className isArray:isArray isString:isString success:success failure:failure];
+//            [self postWithURL:urlEncodeString parameters:parameters convertClassName:className isArray:isArray isBody:isBody isString:isString success:success failure:failure];
             break;
         default:
             break;
@@ -76,6 +78,7 @@ static AFHTTPSessionManager *_manager;
          parameters:(id)parameters
    convertClassName:(NSString *)className
             isArray:(BOOL)isArray
+//             isBody:(BOOL)isBody
            isString:(BOOL)isString
             success:(void (^)(id obj))success
             failure:(void (^)(NSError *error))failure
@@ -125,6 +128,7 @@ static AFHTTPSessionManager *_manager;
         parameters:(NSDictionary *)parameters
            isArray:(BOOL)isArray
           isString:(BOOL)isString
+
            success:(void (^)(id obj))success
            failure:(void (^)(NSError *error))failure
 {
@@ -158,6 +162,9 @@ static AFHTTPSessionManager *_manager;
                     id obj = [NSClassFromString(className) mj_objectWithKeyValues:resultObject];
                     success(obj);
                 }
+//                }else if (isBody){
+//
+//                }
             }else{
                 [SVProgressHUD dismiss];
             }
@@ -178,45 +185,50 @@ static AFHTTPSessionManager *_manager;
 
 #pragma mark Post Request
 
--(void)postObjWithURL:(NSString *)URLString parameters:(id)parameters convertClassName:(NSString *)className needLoading:(BOOL)needLoading success:(void (^)(id))success failure:(void (^)(NSError *))failure
+-(void)postObjWithURL:(NSString *)URLString parameters:(id)parameters convertClassName:(NSString *)className needLoading:(BOOL)needLoading isBody:(BOOL)isBody success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
     if (needLoading) {
         [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
         [SVProgressHUD show];
     }
     [self requestWithURL:URLString requestMethod:HTTPRequestMethodPost parameters:parameters convertClassName:className isArray:NO isString:NO success:success failure:failure];
+//    [self requestWithURL:URLString requestMethod:HTTPRequestMethodPost parameters:parameters convertClassName:className isArray:NO isBody:NO isString:NO success:success failure:failure];
 }
 
--(void)postArrWithURL:(NSString *)URLString parameters:(id)parameters needLoading:(BOOL)needLoading success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
+-(void)postArrWithURL:(NSString *)URLString parameters:(id)parameters needLoading:(BOOL)needLoading isBody:(BOOL)isBody success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
     if (needLoading) {
         [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
         [SVProgressHUD show];
     }
     [self requestWithURL:URLString requestMethod:HTTPRequestMethodPost parameters:parameters convertClassName:nil isArray:YES isString:NO success:success failure:failure];
+//    [self requestWithURL:URLString requestMethod:HTTPRequestMethodPost parameters:parameters convertClassName:nil isArray:YES isBody:isBody isString:NO success:success failure:failure];
 }
 
-- (void)postDicWithURL:(NSString *)urlString parameters:(id)parameters needLoading:(BOOL)needLoading success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure{
+- (void)postDicWithURL:(NSString *)urlString parameters:(id)parameters needLoading:(BOOL)needLoading isBody:(BOOL)isBody success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure{
     if (needLoading) {
         [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
         [SVProgressHUD show];
     }
     [self requestWithURL:urlString requestMethod:HTTPRequestMethodPost parameters:parameters convertClassName:nil isArray:NO isString:NO success:success failure:failure];
+//    [self requestWithURL:urlString requestMethod:HTTPRequestMethodPost parameters:parameters convertClassName:nil isArray:NO isBody:isBody isString:NO success:success failure:failure];
 }
 
--(void)postStrWithURL:(NSString *)URLString parameters:(id)parameters needLoading:(BOOL)needLoading success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure{
+-(void)postStrWithURL:(NSString *)URLString parameters:(id)parameters needLoading:(BOOL)needLoading isBody:(BOOL)isBody success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure{
     if (needLoading) {
         [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
         [SVProgressHUD show];
     }
     [self requestWithURL:URLString requestMethod:HTTPRequestMethodPost parameters:parameters convertClassName:nil isArray:NO isString:YES success:success failure:failure];
+//    [self requestWithURL:URLString requestMethod:HTTPRequestMethodPost parameters:parameters convertClassName:nil isArray:NO isBody:isBody isString:YES success:success failure:failure];
 }
 
--(void)postObjArrWithURL:(NSString *)URLString parameters:(id)parameters convertClassName:(NSString *)className needLoading:(BOOL)needLoading success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+-(void)postObjArrWithURL:(NSString *)URLString parameters:(id)parameters convertClassName:(NSString *)className needLoading:(BOOL)needLoading isBody:(BOOL)isBody success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     if (needLoading) {
         [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
         [SVProgressHUD show];
     }
     [self requestWithURL:URLString requestMethod:HTTPRequestMethodPost parameters:parameters convertClassName:className isArray:YES isString:NO success:success failure:failure];
+//    [self requestWithURL:URLString requestMethod:HTTPRequestMethodPost parameters:parameters convertClassName:className isArray:YES isBody:isBody isString:NO success:success failure:failure];
 }
 
 
@@ -229,6 +241,7 @@ static AFHTTPSessionManager *_manager;
 {
     
     [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:className isArray:NO isString:NO success:success failure:failure];
+//    [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:className isArray:NO isBody:NO isString:NO success:success failure:failure];
 }
 
 
@@ -238,6 +251,7 @@ static AFHTTPSessionManager *_manager;
         [SVProgressHUD show];
     }
     [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:nil isArray:YES isString:NO success:success failure:failure];
+//    [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:nil isArray:YES isBody:NO isString:NO success:success failure:failure];
 }
 
 
@@ -251,6 +265,7 @@ static AFHTTPSessionManager *_manager;
         [SVProgressHUD show];
     }
     [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:className isArray:YES isString:NO success:success failure:failure];
+//    [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:className isArray:YES isBody:NO isString:NO success:success failure:failure];
 }
 
 -(void)getStrWithURL:(NSString *)URLString needLoading:(BOOL)needLoading success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure{
@@ -259,6 +274,7 @@ static AFHTTPSessionManager *_manager;
         [SVProgressHUD show];
     }
     [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:nil isArray:NO isString:YES success:success failure:failure];
+//    [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:nil isArray:NO isBody:NO isString:YES success:success failure:failure];
 }
 
 - (void)getObjWithURL:(NSString *)URLString
@@ -271,7 +287,7 @@ static AFHTTPSessionManager *_manager;
         [SVProgressHUD show];
     }
     [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:className isArray:NO isString:NO success:success failure:failure];
-    
+//    [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:className isArray:NO isBody:NO isString:NO success:success failure:failure];
 }
 
 - (void)getDicWithURL:(NSString *)URLString needLoading:(BOOL)needLoading success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure{
@@ -280,6 +296,7 @@ static AFHTTPSessionManager *_manager;
         [SVProgressHUD show];
     }
     [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:nil isArray:NO isString:NO success:success failure:failure];
+//    [self requestWithURL:URLString requestMethod:HTTPRequestMethodGet parameters:nil convertClassName:nil isArray:NO isBody:NO isString:NO success:success failure:failure];
 }
 
 

@@ -80,8 +80,8 @@
   //  [self.window.rootViewController.view addSubview:_suspensionView];
     [self.window makeKeyAndVisible];
     self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-
+//    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
+    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);
     [self.centerBtn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
     self.centerBtn.layer.cornerRadius=self.centerBtn.frame.size.width/2;
     self.centerBtn.layer.cornerRadius=25;
@@ -153,40 +153,48 @@
     
     
     for (int i = 0; i < self.arr.count; i++) {
-        _label=[[UILabel alloc] init];
-        _label.font=[UIFont systemFontOfSize:14.0];
-        _label.text=[self.labelNameArr objectAtIndex:i];
+//        _label=[[UILabel alloc] init];
+//        _label.font=[UIFont systemFontOfSize:14.0];
+//        _label.text=[self.labelNameArr objectAtIndex:i];
         _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
         _button1.tag = i+1;
-        _button1.layer.cornerRadius = 50/2;
-        _button1.layer.masksToBounds = YES;
+      //  _button1.layer.cornerRadius = 50/2;
+      //  _button1.layer.masksToBounds = YES;
         _button1.userInteractionEnabled = YES;
         NSString *name=[self.arr objectAtIndex:i];
         [_button1 setImage:[UIImage imageNamed:name] forState:UIControlStateNormal];
+         _button1.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 75);
+         _button1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [_button1 setTitle:self.labelNameArr[i] forState:UIControlStateNormal];
+        [_button1.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
+       // [_button1.titleLabel setText:self.labelNameArr[i]];
+        [_button1 setTitleEdgeInsets:UIEdgeInsetsMake(_button1.imageView.frame.size.height, -_button1.imageView.frame.size.width, 0, 0)];
+        NSLog(@"值是：：：%f",(_button1.frame.size.height/2-_button1.imageView.frame.size.height/2));
+        [_button1 setImageEdgeInsets:UIEdgeInsetsMake( -(_button1.frame.size.height/2-_button1.imageView.frame.size.height/2), 0, 0, -_button1.titleLabel.frame.size.width)];
         _button1.hidden=NO;
-        _button1.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+       
         
       //  _button1.backgroundColor=[UIColor blackColor];
         
         [_button1 addTarget:self action:@selector(handleClick:)forControlEvents:UIControlEventTouchUpInside];
-        [self.window addSubview:_label];
+//        [self.window addSubview:_label];
         [self.window addSubview:_button1];
         
         [UIView animateWithDuration:0.5 animations:^{
            
             CGFloat x=[UIScreen mainScreen].bounds.size.width/2-25+radius*cosf((_button1.tag-1)*a*3.1415926/180);
-            CGFloat y=[UIScreen mainScreen].bounds.size.height/2-25+radius*sinf((_button1.tag-1)*a*3.1415926/180);
-            _button1.frame=CGRectMake(x, y, 50, 50);
-            [_label mas_makeConstraints:^(MASConstraintMaker *make){
-                make.centerX.mas_equalTo(_button1);
-               make.top.mas_equalTo(_button1.mas_bottom).offset(5);
-            }];
+            CGFloat y=[UIScreen mainScreen].bounds.size.height/2-37+radius*sinf((_button1.tag-1)*a*3.1415926/180);
+            _button1.frame=CGRectMake(x, y, 50, 75);
+//            [_label mas_makeConstraints:^(MASConstraintMaker *make){
+//                make.centerX.mas_equalTo(_button1);
+//               make.top.mas_equalTo(_button1.mas_bottom).offset(5);
+//            }];
         }completion:^(BOOL finish){
 
             self.centerBtn.userInteractionEnabled=YES;
         }];
         [_btnArr addObject:_button1];
-        [_labelArr addObject:_label];
+//        [_labelArr addObject:_label];
         // NSLog(@"%ld",_btnArr.count);
     }
     NSLog(@"%ld",_btnArr.count);
@@ -216,14 +224,14 @@
        
         for (UIButton *btn2 in _btnArr) {
             [UIView animateWithDuration:0.5 animations:^{
-                btn2.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+                btn2.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 70);
             } completion:^(BOOL finished){
                 btn2.hidden=YES;
             
                 [UIView animateWithDuration:0.5 animations:^{
                 if (centerX==0 && centerY==0) {
-                    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-                    
+//                    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
+                    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);
                 }else{
                     self.centerBtn.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
                 }
@@ -236,12 +244,12 @@
             }];
         }
         
-        for (UILabel *label2 in _labelArr) {
-            [UIView animateWithDuration:0.5 animations:^{
-                label2.hidden=YES;
-           
-            }];
-        }
+//        for (UILabel *label2 in _labelArr) {
+//            [UIView animateWithDuration:0.5 animations:^{
+//                label2.hidden=YES;
+//           
+//            }];
+//        }
     }else{
         // self.centerBtn.userInteractionEnabled=NO;
          [UIView animateWithDuration:0.5 animations:^{

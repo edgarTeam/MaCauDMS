@@ -45,6 +45,9 @@
     if (cell ==nil) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"NoticeTableViewCell" owner:self options:nil] lastObject];
     }
+    [cell setUpModel:[dataSource objectAtIndex:indexPath.row]];
+    
+    
     return cell;
 }
 

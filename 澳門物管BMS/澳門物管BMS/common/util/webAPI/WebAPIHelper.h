@@ -44,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 社區列表
 - (void)postCommunity:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 
+- (void)postWithUrl:(NSString *)url body:(NSData *)body showLoading:(BOOL)show success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure;
+
 @end
 
 NS_ASSUME_NONNULL_END

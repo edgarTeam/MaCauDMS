@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma  mark POST request
 - (void)postDicWithURL:(NSString *)urlString
             parameters:(id)parameters
+//                isBody:(BOOL)isBody
            needLoading:(BOOL)needLoading
                success:(void(^)(NSDictionary *dic))success
                failure:(void(^)(NSError *error))failure;
@@ -24,12 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)postArrWithURL:(NSString *)URLString
             parameters:(id)parameters
            needLoading:(BOOL)needLoading
+//                isBody:(BOOL)isBody
                success:(void (^)(NSArray *array))success
                failure:(void (^)(NSError *error))failure;
 
 - (void)postObjWithURL:(NSString *)URLString
             parameters:(id)parameters
       convertClassName:(NSString *)className
+//                isBody:(BOOL)isBody
            needLoading:(BOOL)needLoading
                success:(void (^)(id obj))success
                failure:(void (^)(NSError *error))failure;
@@ -38,12 +41,14 @@ NS_ASSUME_NONNULL_BEGIN
                parameters:(id)parameters
          convertClassName:(NSString *)className
               needLoading:(BOOL)needLoading
+//                   isBody:(BOOL)isBody
                   success:(void (^)(id obj))success
                   failure:(void (^)(NSError *error))failure;
 
 - (void)postStrWithURL:(NSString *)URLString
             parameters:(id)parameters
            needLoading:(BOOL)needLoading
+//                isBody:(BOOL)isBody
                success:(void (^)(NSString *result))success
                failure:(void (^)(NSError *error))failure;
 

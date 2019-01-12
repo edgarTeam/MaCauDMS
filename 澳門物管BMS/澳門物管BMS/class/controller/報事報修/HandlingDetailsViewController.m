@@ -27,6 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"報事詳情";
+    self.edgesForExtendedLayout=UIRectEdgeNone;
+    self.view.backgroundColor=[UIColor clearColor];
     _contentTextView.layer.masksToBounds=YES;
     _contentTextView.layer.cornerRadius=7.0;
     _contentTextView.layer.borderWidth=0.5;
@@ -73,5 +75,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+    [self requestComplain];
 }
 @end

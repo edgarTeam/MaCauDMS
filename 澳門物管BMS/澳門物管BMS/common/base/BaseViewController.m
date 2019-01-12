@@ -10,17 +10,28 @@
 #import "User.h"
 #import "LoginViewController.h"
 #import "ZKAlertTool.h"
+
+#import <Masonry/Masonry.h>
 @interface BaseViewController ()<UIAlertViewDelegate>
 @property(nonatomic,strong)UIButton *btn;
 @property (nonatomic,strong)NSString *token;
+
 @end
 
 @implementation BaseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   // [CommonUtil addGradientLayerTo:self];
-    self.view.backgroundColor=[UIColor whiteColor];
+    _gradientView=[[GradientView alloc] init];
+
+    [self.view addSubview:_gradientView];
+    [_gradientView mas_makeConstraints:^(MASConstraintMaker *make){
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
+    [self.view sendSubviewToBack:_gradientView];
+//    [CommonUtil addGradientLayerTo:self.view];
+    
+   // self.view.backgroundColor=[UIColor whiteColor];
     // Do any additional setup after loading the view.
 //     self.navigationItem.title=_str;
 //    self.btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40) ];

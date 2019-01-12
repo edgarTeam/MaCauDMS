@@ -63,25 +63,37 @@ static AFHTTPSessionManager *_manager;
 
 
 - (void)postUserLogin:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
-    [self.httpHelper postDicWithURL:kUserLogin parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+//    [self.httpHelper postDicWithURL:kUserLogin parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+//        NSLog(@"%@",error);
+//    }];
+    [self.httpHelper postDicWithURL:kUserLogin parameters:parameters  needLoading:YES success:completion failure:^(NSError *error){
         NSLog(@"%@",error);
     }];
 }
 
 - (void)postUpdatePsd:(NSDictionary *)parameters completion:(void (^)(NSString * _Nonnull))completion{
-    [self.httpHelper postStrWithURL:kUpdatePsd parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+//    [self.httpHelper postStrWithURL:kUpdatePsd parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+//        NSLog(@"%@",error);
+//    }];
+    [self.httpHelper postStrWithURL:kUpdatePsd parameters:parameters needLoading:YES  success:completion failure:^(NSError *error){
         NSLog(@"%@",error);
     }];
 }
 
 - (void)postComplainList:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
-    [self.httpHelper postDicWithURL:kComplainList parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+//    [self.httpHelper postDicWithURL:kComplainList parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+//        NSLog(@"%@",error);
+//    }];
+    [self.httpHelper postDicWithURL:kComplainList parameters:parameters  needLoading:YES success:completion failure:^(NSError *error){
         NSLog(@"%@",error);
     }];
 }
 
 - (void)postComplain:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
-    [self.httpHelper postDicWithURL:kComplain parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+//    [self.httpHelper postDicWithURL:kComplain parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+//        NSLog(@"%@",error);
+//    }];
+    [self.httpHelper postDicWithURL:kComplain parameters:parameters  needLoading:YES success:completion failure:^(NSError *error){
         NSLog(@"%@",error);
     }];
 }
@@ -89,7 +101,15 @@ static AFHTTPSessionManager *_manager;
 
 
 - (void)postNoticeList:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
-    [self.httpHelper postDicWithURL:kNoticeList parameters:parameters needLoading:YES success:^(NSDictionary *dic){
+//    [self.httpHelper postDicWithURL:kNoticeList parameters:parameters needLoading:YES success:^(NSDictionary *dic){
+//        if (dic ==nil) {
+//            return ;
+//        }
+//        completion(dic);
+//    } failure:^(NSError *error){
+//        NSLog(@"%@",error);
+//    }];
+    [self.httpHelper postDicWithURL:kNoticeList parameters:parameters  needLoading:YES success:^(NSDictionary *dic){
         if (dic ==nil) {
             return ;
         }
@@ -101,7 +121,7 @@ static AFHTTPSessionManager *_manager;
 
 
 - (void)postNotice:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
-    [self.httpHelper postDicWithURL:kNotice parameters:parameters needLoading:YES success:^(NSDictionary *dic){
+    [self.httpHelper postDicWithURL:kNotice parameters:parameters  needLoading:YES success:^(NSDictionary *dic){
         if (dic ==nil) {
             return ;
         }
@@ -112,7 +132,7 @@ static AFHTTPSessionManager *_manager;
 }
 
 - (void)postPlaceRecordList:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
-    [self.httpHelper postDicWithURL:kPlaceRecordList parameters:parameters needLoading:YES success:^(NSDictionary *dic){
+    [self.httpHelper postDicWithURL:kPlaceRecordList parameters:parameters  needLoading:YES success:^(NSDictionary *dic){
         if (dic == nil) {
             return ;
         }
@@ -123,7 +143,7 @@ static AFHTTPSessionManager *_manager;
 }
 
 - (void)postPlaceRecord:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
-    [self.httpHelper postDicWithURL:kPlaceRecord parameters:parameters needLoading:YES success:^(NSDictionary *dic){
+    [self.httpHelper postDicWithURL:kPlaceRecord parameters:parameters  needLoading:YES success:^(NSDictionary *dic){
         if (dic == nil) {
             return ;
         }
@@ -135,7 +155,7 @@ static AFHTTPSessionManager *_manager;
 
 
 - (void)postPlace:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
-    [self.httpHelper postDicWithURL:kPlace parameters:parameters needLoading:YES success:^(NSDictionary *dic){
+    [self.httpHelper postDicWithURL:kPlace parameters:parameters  needLoading:YES success:^(NSDictionary *dic){
         if (dic ==nil) {
             return ;
         }
@@ -157,7 +177,7 @@ static AFHTTPSessionManager *_manager;
 //}
 
 - (void)postCommunity:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
-    [self.httpHelper postDicWithURL:kCommunity parameters:parameters needLoading:YES success:^(NSDictionary *dic){
+    [self.httpHelper postDicWithURL:kCommunity parameters:parameters  needLoading:YES success:^(NSDictionary *dic){
         if (dic == nil) {
             return ;
         }
@@ -166,4 +186,61 @@ static AFHTTPSessionManager *_manager;
         NSLog(@"%@",error);
     }];
 }
+
+
+
++ (NSURLSessionDataTask *)POST_JSON:(NSString *)URLString parameters:(id)parameters progress:(void (^)(NSProgress *))uploadProgress body:(id)body success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager new];
+    
+    //    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    //
+    //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    //[self setupJSONResponse];
+    NSURLSessionDataTask *dataTask =  [manager POST:URLString parameters:parameters progress:uploadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject){
+        AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
+        //        AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+        //       AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
+        serializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain" ,@"text/html" ,@"text/xml",nil];
+        NSError *serializationError = nil;
+        id  jsonObject = [serializer responseObjectForResponse:task.response data:responseObject error:&serializationError];
+        if (serializationError == nil) {
+            success(task,jsonObject);
+        }else {
+            failure(dataTask,serializationError);
+        }
+        
+    } failure:failure];
+    
+    
+    return dataTask;
+}
+
+
+- (void)postWithUrl:(NSString *)url body:(NSData *)body showLoading:(BOOL)show success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure
+{
+
+   // NSString *requestUrl = [NSString stringWithFormat:@"%@%@", kBaseUrl, url];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:nil error:nil];
+   
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    // 设置body
+    [request setHTTPBody:body];
+    
+    AFHTTPResponseSerializer *responseSerializer = [AFHTTPResponseSerializer serializer];
+    responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",
+                                                 @"text/html",
+                                                 @"text/json",
+                                                 @"text/javascript",
+                                                 @"text/plain",
+                                                 nil];
+    manager.responseSerializer = responseSerializer;
+    [[manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        
+
+    }] resume];
+}
+
+
 @end

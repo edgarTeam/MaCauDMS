@@ -22,7 +22,7 @@
     self.title=@"聯繫我們";
 }
 - (IBAction)phoneBtnAction:(id)sender {
-    
+    [self callTel:@"835-66223344"];
 }
 
 /*
@@ -34,8 +34,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)callTel:(NSString *)telString{
+    NSString *cmdString = [NSString stringWithFormat:@"tel:%@",telString];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:cmdString]];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+
 }
 @end

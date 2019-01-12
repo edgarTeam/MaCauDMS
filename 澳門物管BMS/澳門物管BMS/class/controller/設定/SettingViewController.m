@@ -22,7 +22,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=LocalizedString(@"設定");
+    
     self.title=@"設定";
+    
 }
 - (IBAction)chooseBtnAction:(UIButton *)sender {
     switch (sender.tag) {

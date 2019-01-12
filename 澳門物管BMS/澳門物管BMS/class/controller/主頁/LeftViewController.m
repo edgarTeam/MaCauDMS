@@ -57,15 +57,17 @@
     _versionlab=[[UILabel alloc] init];
     _versionlab.textColor=RGB(138, 138, 138);
     _versionlab.font=[UIFont systemFontOfSize:14];
+    _versionlab.textAlignment=NSTextAlignmentCenter;
     NSString *version=[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     //_versionlab.text=@"version 1.0.3";
     _versionlab.text=[NSString stringWithFormat:@"version %@",version];
     [self.view addSubview:_versionlab];
     [_versionlab mas_makeConstraints:^(MASConstraintMaker *make){
         make.bottom.mas_offset(0);
-        make.left.mas_offset(20);
+//        make.left.mas_offset(20);
         make.width.mas_offset(100);
         make.height.mas_offset(20);
+        make.centerX.mas_equalTo(self.view);
     }];
     _loginOutBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     _loginOutBtn.backgroundColor=[UIColor blueColor];

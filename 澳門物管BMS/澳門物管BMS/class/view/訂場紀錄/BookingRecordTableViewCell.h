@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (void)setUpModel:(Place *)model;
+- (void)setUpPlaceRecord:(PlaceRecord *)model;
 @end
 
 NS_ASSUME_NONNULL_END

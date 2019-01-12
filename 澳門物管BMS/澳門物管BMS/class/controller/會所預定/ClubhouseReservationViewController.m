@@ -9,22 +9,29 @@
 #import "ClubhouseReservationViewController.h"
 #import "LSXPopMenu.h"
 #import "Place.h"
+#import "PlaceRecord.h"
 @interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *plateBtn;
 @property (nonatomic,strong)LSXPopMenu *plateMenu;
 @property (strong, nonatomic) IBOutlet UITableView *dateTableView;
 @property (nonatomic,strong) NSMutableArray *selectIndexs;
+@property (nonatomic,strong) NSMutableArray *placeList;
+@property (nonatomic,strong) NSMutableArray *placeIdArr;
+@property (nonatomic,strong) PlaceRecord *placeRecord;
 @end
 
 @implementation ClubhouseReservationViewController
 {
     NSArray *dataSource;
-    NSArray *placeList;
+    NSString *placeId;
+//    NSArray *placeList;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"會所預定";
+    _placeList=[NSMutableArray new];
+    _placeIdArr=[NSMutableArray new];
     _selectIndexs=[NSMutableArray new];
 dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00~10:00",@"10:00~12:00",@"12:00~14:00",@"14:00~16:00",@"16:00~18:00",@"18:00~20:00",@"20:00~22:00",@"22:00~00:00"];
    // _dateTableView=[[UITableView alloc] init];
@@ -35,22 +42,51 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
     
 }
 
-- (IBAction)plateBtnAction:(UIButton *)sender {
-    self.plateMenu=[LSXPopMenu showRelyOnView:sender titles:placeList icons:nil menuWidth:100 isShowTriangle:YES delegate:self];
+- (void)requestAddPlaceRecord{
+    NSDictionary *para=@{
+                         @"placeId":placeId
+                         
+                         };
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
+    NSDictionary *dic=@{
+                        @"placeRecord":jsonData
+                        };
+    [[WebAPIHelper sharedWebAPIHelper] postWithUrl:kAddComplain body:dic showLoading:YES success:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
+        _placeRecord=[PlaceRecord mj_setKeyValues:dic[@"data"]];
+    } failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
 }
 
 
+- (IBAction)plateBtnAction:(UIButton *)sender {
+    self.plateMenu=[LSXPopMenu showRelyOnView:sender titles:_placeList icons:nil menuWidth:100 isShowTriangle:YES delegate:self];
+}
+
+- (IBAction)submitBtn:(id)sender {
+    [self requestAddPlaceRecord];
+}
+
 #pragma mark 場所列表
 - (void)reuqestPlateList {
-    NSDictionary *para=@{
-                         @"keyword":self.keyword
-                         };
-    [[WebAPIHelper sharedWebAPIHelper] postPlaceList:para completion:^(NSDictionary *dic){
+//    NSDictionary *para=@{
+//                         @"keyword":self.keyword
+//                         };
+    [[WebAPIHelper sharedWebAPIHelper] postPlaceList:nil completion:^(NSDictionary *dic){
         if (dic ==nil) {
             return ;
         }
          NSMutableArray *array=[dic objectForKey:@"list"];
-        placeList=[Place mj_objectArrayWithKeyValuesArray:array];
+        NSMutableArray *placeArr=[NSMutableArray new];
+        placeArr=[Place mj_objectArrayWithKeyValuesArray:array];
+        for (Place *place in placeArr) {
+            [_placeList addObject:place.placeName];
+            [_placeIdArr addObject:place.placeId];
+        }
     }];
 }
 
@@ -135,6 +171,7 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
 
 #pragma mark LSXPopMenuDelegate
 - (void)LSXPopupMenuDidSelectedAtIndex:(NSInteger)index LSXPopupMenu:(LSXPopMenu *)LSXPopupMenu{
-    [self.plateBtn setTitle:placeList[index] forState:UIControlStateNormal];
+    [self.plateBtn setTitle:_placeList[index] forState:UIControlStateNormal];
+    placeId=_placeIdArr[index];
 }
 @end

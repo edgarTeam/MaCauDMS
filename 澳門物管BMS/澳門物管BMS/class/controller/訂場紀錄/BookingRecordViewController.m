@@ -15,6 +15,10 @@
 @interface BookingRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *bookingRecordTableView;
+
+@property (nonatomic,strong)Place *place;
+@property (nonatomic,strong)NSString *placeId;
+@property (nonatomic,strong)NSMutableArray *placeArr;
 @end
 
 @implementation BookingRecordViewController
@@ -30,6 +34,8 @@
     _bookingRecordTableView.dataSource=self;
     _bookingRecordTableView.separatorColor=[UIColor clearColor];
     _bookingRecordTableView.tableFooterView=[UIView new];
+    
+    _placeArr=[NSMutableArray new];
 }
 
 /*
@@ -55,27 +61,49 @@
     if (cell == nil) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"BookingRecordTableViewCell" owner:self options:nil] lastObject];
     }
+   // [cell setUpPlaceRecord:[dataSource objectAtIndex:indexPath.row]];
+    [cell setUpModel:[_placeArr objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     BookingRecordDetailViewController *bookDetailVC=[[BookingRecordDetailViewController alloc] init];
-  //  PlaceRecord *place=[dataSource objectAtIndex:indexPath.row];
+    PlaceRecord *place=[dataSource objectAtIndex:indexPath.row];
 //    bookDetailVC.recordId=place.recordId;
-    Place *place=[dataSource objectAtIndex:indexPath.row];
-    bookDetailVC.recordId=place.placeId;
+  //  Place *place=[dataSource objectAtIndex:indexPath.row];
+    //bookDetailVC.recordId=place.placeId;
+    bookDetailVC.recordId=place.recordId;
     [self.navigationController pushViewController:bookDetailVC animated:YES];
+}
+- (void)requestPlace {
+    NSDictionary *para=@{
+                         @"placeId" :_placeId
+                         };
+    [[WebAPIHelper sharedWebAPIHelper] postPlace:para completion:^(NSDictionary *dic){
+        if (dic==nil) {
+            return ;
+        }
+        _place=[Place mj_setKeyValues:dic];
+        [self.placeArr addObject:_place];
+        [_bookingRecordTableView reloadData];
+//        _palceLab.text=_place.placeName;
+//        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,_place.placeImage]]placeholderImage:kEMPTYIMG completed:nil];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
-//    [[WebAPIHelper sharedWebAPIHelper] postPlaceRecordList:nil completion:^(NSDictionary *dic){
-//        NSMutableArray *array=[dic objectForKey:@"list"];
-//        dataSource=[PlaceRecord mj_objectArrayWithKeyValuesArray:array];
+    [[WebAPIHelper sharedWebAPIHelper] postPlaceRecordList:nil completion:^(NSDictionary *dic){
+        NSMutableArray *array=[dic objectForKey:@"list"];
+        dataSource=[PlaceRecord mj_objectArrayWithKeyValuesArray:array];
 //        [_bookingRecordTableView reloadData];
-//    }];
+        for (PlaceRecord *palceRecord in dataSource) {
+            _placeId=palceRecord.placeId;
+            [self requestPlace];
+        }
+    }];
     
 //    [[WebAPIHelper sharedWebAPIHelper] postPlaceList:nil completion:^(NSDictionary *dic){
 //        if (dic ==nil) {

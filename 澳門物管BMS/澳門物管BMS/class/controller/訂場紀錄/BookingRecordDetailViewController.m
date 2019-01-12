@@ -9,15 +9,22 @@
 #import "BookingRecordDetailViewController.h"
 #import "PlaceRecord.h"
 #import "Place.h"
+#import "User.h"
 #import <MJExtension/MJExtension.h>
 @interface BookingRecordDetailViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *bookingRecordDetailImageView;
-//@property (nonatomic,strong)PlaceRecord *palceRecord;
+@property (nonatomic,strong)PlaceRecord *palceRecord;
+@property (weak, nonatomic) IBOutlet UILabel *timeZoneLab;
+@property (weak, nonatomic) IBOutlet UILabel *clientName;
+@property (weak, nonatomic) IBOutlet UILabel *statusLab;
+@property (weak, nonatomic) IBOutlet UILabel *palceLab;
 @property (nonatomic,strong)Place *place;
 @end
 
 @implementation BookingRecordDetailViewController
-
+{
+    NSArray *dataSource;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -25,8 +32,9 @@
     _bookingRecordDetailImageView=[UIImageView new];
     _bookingRecordDetailImageView.layer.masksToBounds=YES;
     _bookingRecordDetailImageView.layer.cornerRadius=10.0;
+    dataSource=@[@"預約取消",@"開始發起",@"預約成功",@"預約失敗"];
     //[self requestBookingRecord];
-    [self requestPlace];
+//    [self requestPlace];
 }
 
 
@@ -44,16 +52,36 @@
 
 - (void)requestPlace {
     NSDictionary *para=@{
-                         @"placeId" :self.placeId
+                         @"placeId" :_palceRecord.placeId
                          };
     [[WebAPIHelper sharedWebAPIHelper] postPlace:para completion:^(NSDictionary *dic){
         if (dic==nil) {
             return ;
         }
         _place=[Place mj_setKeyValues:dic];
-        
+        _palceLab.text=_place.placeName;
+        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,_place.placeImage]]placeholderImage:kEMPTYIMG completed:nil];
     }];
 }
+
+- (void)requestPlaceRecord {
+    NSDictionary *para=@{
+                         @"recordId" :self.recordId
+                         };
+    [[WebAPIHelper sharedWebAPIHelper] postPlaceRecord:para completion:^(NSDictionary *dic){
+        if (dic==nil) {
+            return ;
+        }
+        _palceRecord=[PlaceRecord mj_setKeyValues:dic];
+        _statusLab.text=dataSource[[_palceRecord.recordStatus intValue]+1];
+        _timeZoneLab.text=[NSString stringWithFormat:@"%@ 至 %@",_palceRecord.orderStartTime,_palceRecord.orderEndTime];
+        _clientName.text=[User shareUser].name;
+        [self requestPlace];
+    }];
+    
+}
+
+
 /*
 #pragma mark - Navigation
 
@@ -67,6 +95,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
   //  [self requestBookingRecord];
-    [self requestPlace];
+    [self requestPlaceRecord];
+    //[self requestPlace];
 }
 @end

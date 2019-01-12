@@ -23,11 +23,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"報事狀態";
+    self.edgesForExtendedLayout=UIRectEdgeNone;
     _processingStateTableView.delegate=self;
     _processingStateTableView.dataSource=self;
     _processingStateTableView.separatorColor=[UIColor clearColor];
     _processingStateTableView.tableFooterView=[UIView new];
-    
+    _processingStateTableView.backgroundColor=[UIColor clearColor];
 }
 
 - (void)requestComplainList {

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HandlingDetailsViewController : UIViewController
+@interface HandlingDetailsViewController : BaseViewController
 @property (nonatomic,strong)NSString *complainId;
 @end
 
