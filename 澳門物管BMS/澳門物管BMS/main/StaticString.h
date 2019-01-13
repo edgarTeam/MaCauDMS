@@ -9,7 +9,7 @@
 #ifndef StaticString_h
 #define StaticString_h
 
-#define kEMPTYIMG [UIImage imageNamed:@""]
+#define kEMPTYIMG [UIImage imageNamed:@"headImg"]
 
 
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width

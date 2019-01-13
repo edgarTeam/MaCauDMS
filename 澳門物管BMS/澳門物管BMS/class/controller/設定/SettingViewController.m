@@ -22,7 +22,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=LocalizedString(@"設定");
-    
+    if (![self login]) {
+        return;
+    }
     self.title=@"設定";
     
 }
@@ -62,5 +64,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+    if (![self login]) {
+        return;
+    }
 }
 @end

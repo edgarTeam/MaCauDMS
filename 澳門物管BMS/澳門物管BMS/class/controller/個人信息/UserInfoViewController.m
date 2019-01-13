@@ -27,7 +27,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"個人信息";
+    self.title=LocalizedString(@"String_info_title");
+    
+    self.headTitleLab.text=LocalizedString(@"String_head_title");
+    self.nameTitleLab.text=LocalizedString(@"String_name_title");
+    self.sexTitleLab.text=LocalizedString(@"String_sex_title");
+    self.telTitleLab.text=LocalizedString(@"String_tel_title");
+    
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.nameLab.text=[User shareUser].username;
     self.sexLab.text=[User shareUser].sex;

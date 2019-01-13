@@ -17,6 +17,7 @@
 #import "ReportMaintenanceViewController.h"
 #import "SettingViewController.h"
 #import "SuspensionView.h"
+#import "BaseViewController.h"
 @interface AppDelegate ()
 @property(nonatomic,strong)MMDrawerController *drawer;
 @property (nonatomic,strong) UIButton *centerBtn;
@@ -149,8 +150,8 @@
 //    self.arr=[NSMutableArray arrayWithObjects:@"bank",@"three",@"woker",@"tv",@"one",@"two",@"people",@"teacher",@"up",nil];
      self.arr=[NSMutableArray arrayWithObjects:@"complain",@"place",@"repairsec",@"settingsec",nil];
     int a=360/self.arr.count;
-    self.labelNameArr=[NSMutableArray arrayWithObjects:@"投訴",@"會所預定",@"報事維修",@"設置", nil];
-    
+//    self.labelNameArr=[NSMutableArray arrayWithObjects:@"投訴",@"會所預定",@"報事維修",@"設置", nil];
+        self.labelNameArr=[NSMutableArray arrayWithObjects:LocalizedString(@"string_complain_title"),LocalizedString(@"string_reservation_place_title"),LocalizedString(@"string_report_maintenance_title"),LocalizedString(@"string_set_title"), nil];
     
     for (int i = 0; i < self.arr.count; i++) {
 //        _label=[[UILabel alloc] init];
@@ -166,6 +167,8 @@
          _button1.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 75);
          _button1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [_button1 setTitle:self.labelNameArr[i] forState:UIControlStateNormal];
+        //_button1.titleLabel.textColor=RGB(138, 138, 138);
+        [_button1 setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
         [_button1.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
        // [_button1.titleLabel setText:self.labelNameArr[i]];
         [_button1 setTitleEdgeInsets:UIEdgeInsetsMake(_button1.imageView.frame.size.height, -_button1.imageView.frame.size.width, 0, 0)];
@@ -282,17 +285,40 @@
 
 -(void)handleClick:(UIButton *)sender{
     self.show=false;
+    BaseViewController *baseVC=[[BaseViewController alloc] init];
+//    baseVC=[UIApplication sharedApplication].keyWindow.rootViewController;
     switch (sender.tag) {
         case 1:
-            [_centerNvaVC pushViewController:_complainVC animated:YES];
+//            if (![baseVC login]) {
+////                [_reportVC setTitle:@"投訴"];
+////                [_centerNvaVC pushViewController:_reportVC animated:YES];
+//                return;
+//            }
+            [_reportVC setTitle:LocalizedString(@"string_complain_title")];
+            [_centerNvaVC pushViewController:_reportVC animated:YES];
             break;
         case 2:
+//            if (![baseVC login]) {
+////            [_centerNvaVC pushViewController:_clubVC animated:YES];
+//                return;
+//            }
             [_centerNvaVC pushViewController:_clubVC animated:YES];
+
             break;
         case 3:
+//            if (![baseVC login]) {
+////            [_reportVC setTitle:@"報事維修"];
+////            [_centerNvaVC pushViewController:_reportVC animated:YES];
+//                return;
+//            }
+            [_reportVC setTitle:LocalizedString(@"string_report_maintenance_title")];
             [_centerNvaVC pushViewController:_reportVC animated:YES];
             break;
         case 4:
+//            if (![baseVC login]) {
+////            [_centerNvaVC pushViewController:_setVC animated:YES];
+//                return;
+//            }
             [_centerNvaVC pushViewController:_setVC animated:YES];
             break;
         default:

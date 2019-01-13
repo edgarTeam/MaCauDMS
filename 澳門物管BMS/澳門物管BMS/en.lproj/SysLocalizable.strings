@@ -18,3 +18,30 @@ string_new_psw_alert = "請輸入新密碼";
 string_confirm_psw_alert = "請再次輸入新密碼";
 string_psw_difference ="兩次輸入密碼不一致，請查正";
 
+
+
+string_take_album ="相冊";
+string_take_photo ="拍照";
+String_cancel= "取消";
+
+String_info_title = "個人信息";
+String_head_title = "頭像";
+String_name_title = "姓名";
+String_sex_title = "性別";
+String_tel_title = "電話";
+
+String_change_psd_title ="修改密碼";
+string_setting_title ="語言設定";
+string_notice_detail_title ="公告詳情";
+string_report_maintenance_list ="報修紀錄";
+string_report_maintenance_detail_title ="報事詳情";
+
+string_reservation_place_title ="會所預定";
+string_contact_us_title = "聯繫我們";
+string_booking_record_title ="訂場紀錄";
+string_booking_record_detail_title = "訂場詳情";
+
+string_login_out ="登出";
+string_set_title ="設定";
+string_complain_title ="投訴";
+string_report_maintenance_title = "報事報修";

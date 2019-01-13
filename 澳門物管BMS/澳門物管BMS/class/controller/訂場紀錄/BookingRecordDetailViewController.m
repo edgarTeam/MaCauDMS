@@ -28,7 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title=@"訂場詳情";
+//    self.title=@"訂場詳情";
+    self.title=LocalizedString(@"string_booking_record_detail_title");
     _bookingRecordDetailImageView=[UIImageView new];
     _bookingRecordDetailImageView.layer.masksToBounds=YES;
     _bookingRecordDetailImageView.layer.cornerRadius=10.0;

@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title=LocalizedString(@"String_change_psd_title");
     [_confirmBtn setTitle:LocalizedString(@"String_confirm") forState:UIControlStateNormal];
 }
 

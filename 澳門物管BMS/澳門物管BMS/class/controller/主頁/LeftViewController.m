@@ -16,6 +16,7 @@
 #import "LeftModel.h"
 #import "LoginViewController.h"
 #import "UserInfoViewController.h"
+#import "User.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *table;
@@ -23,6 +24,7 @@
 @property (nonatomic,strong) UIButton *headBtn;
 @property (nonatomic,strong) UILabel *versionlab;
 @property (nonatomic,strong) UILabel *weatherLab;
+@property (nonatomic,strong) UIImageView *headImage;
 @end
 
 @implementation LeftViewController
@@ -43,7 +45,10 @@
     _headBtn.layer.masksToBounds=YES;
     _headBtn.layer.cornerRadius=40;
    // [_headBtn setImage:[UIImage imageNamed:@"work"] forState:UIControlStateNormal];
-    [_headBtn setBackgroundImage:[UIImage imageNamed:@"headImg"] forState:UIControlStateNormal];
+   // NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
+   // [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
+   // [_headBtn setBackgroundImage:[UIImage ] forState:<#(UIControlState)#>];
+  //  [_headBtn setBackgroundImage:[UIImage imageNamed:@"headImg"] forState:UIControlStateNormal];
     [_headBtn addTarget:self action:@selector(userInfoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_headBtn];
     [_headBtn mas_makeConstraints:^(MASConstraintMaker *make){
@@ -54,6 +59,18 @@
         make.width.mas_equalTo(80);
         make.height.mas_equalTo(_headBtn.mas_width);
     }];
+    
+    _headImage=[[UIImageView alloc] init];
+     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
+    [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
+    [self.view addSubview:_headImage];
+    [_headImage mas_makeConstraints:^(MASConstraintMaker *make){
+        make.top.mas_equalTo(_headBtn.mas_top);
+        make.left.mas_equalTo(_headBtn.mas_left);
+        make.right.mas_equalTo(_headBtn.mas_right);
+        make.bottom.mas_equalTo(_headBtn.mas_bottom);
+    }];
+    
     _versionlab=[[UILabel alloc] init];
     _versionlab.textColor=RGB(138, 138, 138);
     _versionlab.font=[UIFont systemFontOfSize:14];
@@ -73,7 +90,7 @@
     _loginOutBtn.backgroundColor=[UIColor blueColor];
     _loginOutBtn.layer.masksToBounds=YES;
     _loginOutBtn.layer.cornerRadius=7.0;
-    [_loginOutBtn setTitle:@"登出" forState:UIControlStateNormal];
+    [_loginOutBtn setTitle:LocalizedString(@"string_login_out") forState:UIControlStateNormal];
    // [_loginOutBtn addTarget:self action:@selector(<#selector#>) forControlEvents:UIControlEventTouchUpInside];
    // [_loginOutBtn.titleLabel setText:@"登出"];
     [self.view addSubview:_loginOutBtn];
@@ -95,16 +112,16 @@
     }];
     
     LeftModel *model1=[LeftModel new];
-    model1.title=@"訂場紀錄";
+    model1.title=LocalizedString(@"string_booking_record_title");
     model1.image=@"bookingPlace";
     LeftModel *model2=[LeftModel new];
-    model2.title=@"聯繫我們";
+    model2.title=LocalizedString(@"string_contact_us_title");
     model2.image=@"contact";
     LeftModel *model3=[LeftModel new];
-    model3.title=@"設定";
+    model3.title=LocalizedString(@"string_set_title");
     model3.image=@"setting";
     LeftModel *model4=[LeftModel new];
-    model4.title=@"報修紀錄";
+    model4.title=LocalizedString(@"string_report_maintenance_list");
     model4.image=@"repair";
     dataSoure=[NSArray arrayWithObjects:model1,model2,model3, model4, nil];
 //    dataSoure=[NSArray new];
@@ -166,6 +183,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   //  [self checkLogin];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (![self login]) {
+        return;
+    }
     NSArray *array=@[@"BookingRecordViewController",@"ContactUSViewController",@"SettingViewController",@"ProcessingStateViewController"];
     UIViewController *vc=[NSClassFromString(array[indexPath.row]) new];
     UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;

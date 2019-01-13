@@ -10,7 +10,7 @@
 #import "User.h"
 #import "LoginViewController.h"
 #import "ZKAlertTool.h"
-
+#import "UIViewController+MMDrawerController.h"
 #import <Masonry/Masonry.h>
 @interface BaseViewController ()<UIAlertViewDelegate>
 @property(nonatomic,strong)UIButton *btn;
@@ -49,15 +49,15 @@
     if (_token!= nil && _token.length > 0) {
         NSLog(@"已登陆");
     }else{
-//        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"String_login_request") preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-//            LoginViewController *loginVC=[[LoginViewController alloc] init];
-//            [self.navigationController pushViewController:loginVC animated:YES];
-//        }];
-//        [alert addAction:alertAc];
-//        [self presentViewController:alert animated:YES completion:nil];
-        LoginViewController *loginVC=[[LoginViewController alloc] init];
-        [self.navigationController pushViewController:loginVC animated:YES];
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"String_login_request") preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            LoginViewController *loginVC=[[LoginViewController alloc] init];
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }];
+        [alert addAction:alertAc];
+        [self presentViewController:alert animated:YES completion:nil];
+//        LoginViewController *loginVC=[[LoginViewController alloc] init];
+//        [self.navigationController pushViewController:loginVC animated:YES];
     }
 }
 //-(void)checkLogin{
@@ -67,6 +67,36 @@
 //        [[[UIAlertView alloc] initWithTitle:@"" message:LocalizedString(@"String_login_request") delegate:self cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
 //    }
 //}
+- (BOOL)login{
+    if (_token!= nil && _token.length > 0) {
+        NSLog(@"已登陆");
+        return YES;
+    }else{
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"String_login_request") preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            LoginViewController *loginVC=[[LoginViewController alloc] init];
+            
+            UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+
+
+            [nav pushViewController:loginVC animated:YES];
+            [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
+                [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+            }];
+        }];
+        [alert addAction:alertAc];
+        [self presentViewController:alert animated:YES completion:nil];
+//        LoginViewController *loginVC=[[LoginViewController alloc] init];
+//        UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+//
+//
+//        [nav pushViewController:loginVC animated:YES];
+//        [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
+//            [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+//        }];
+        return NO;
+    }
+}
 /*
 #pragma mark - Navigation
 

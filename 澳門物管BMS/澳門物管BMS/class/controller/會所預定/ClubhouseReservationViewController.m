@@ -29,7 +29,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title=@"會所預定";
+    //self.title=@"會所預定";
+    self.title=LocalizedString(@"string_reservation_place_title");
+    if (![self login]) {
+        return;
+    }
     _placeList=[NSMutableArray new];
     _placeIdArr=[NSMutableArray new];
     _selectIndexs=[NSMutableArray new];
@@ -39,13 +43,43 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
     _dateTableView.delegate=self;
     _dateTableView.dataSource=self;
     [_dateTableView reloadData];
+    [self reuqestPlateList];
     
 }
 
 - (void)requestAddPlaceRecord{
+    NSMutableArray *resultArr=[NSMutableArray new];
+    for (int i=0; i<_selectIndexs.count; i++) {
+        NSString *str=[_selectIndexs[i] stringByReplacingOccurrencesOfString:@"~" withString:@""];
+        NSString *handlerStr=[str stringByReplacingOccurrencesOfString:@":" withString:@""];
+        NSString *resultStr=[handlerStr substringToIndex:2];
+        [resultArr addObject:resultStr];
+    }
+    NSArray *arr=[resultArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
+        int a=[obj1 intValue];
+        int b=[obj2 intValue];
+        if (a >b) {
+            return NSOrderedDescending;
+        }else{
+            return NSOrderedAscending;
+        }
+       
+    }];
+    NSInteger indexFirst = 0;
+    NSInteger indexLast = 0;
+    if ([resultArr containsObject:arr[0]]) {
+        indexFirst=[resultArr indexOfObject:arr[0]];
+    }
+    if ([resultArr containsObject:arr[arr.count-1]]) {
+        indexLast=[resultArr indexOfObject:arr[arr.count-1]];
+    }
+    
+    
+    
     NSDictionary *para=@{
-                         @"placeId":placeId
-                         
+                         @"placeId":placeId,
+                         @"orderStartTime":_selectIndexs[indexLast],
+                         @"orderEndTime":_selectIndexs[indexFirst]
                          };
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
@@ -166,6 +200,9 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+    if (![self login]) {
+        return;
+    }
  //   [self reuqestPlateList];
 }
 

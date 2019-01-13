@@ -28,7 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    // self.title=LocalizedString(@"訂場紀錄");
-    self.title=@"訂場紀錄";
+    //self.title=@"訂場紀錄";
+    self.title=LocalizedString(@"string_booking_record_title");
     // Do any additional setup after loading the view from its nib.
     _bookingRecordTableView.delegate=self;
     _bookingRecordTableView.dataSource=self;
@@ -64,6 +65,10 @@
    // [cell setUpPlaceRecord:[dataSource objectAtIndex:indexPath.row]];
     [cell setUpModel:[_placeArr objectAtIndex:indexPath.row]];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 200;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

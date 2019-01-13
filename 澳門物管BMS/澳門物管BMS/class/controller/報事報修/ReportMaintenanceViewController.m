@@ -42,7 +42,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title=@"報事維修";
+   // self.title=@"報事維修";
+    if (![self login]) {
+        return;
+    }
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.headView.hidden=YES;
     self.dataSource=[NSMutableArray new];
@@ -101,7 +104,8 @@
     
     NSString *document=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask ,YES) firstObject];
     // filePath=[document stringByAppendingString:@"/Record.wav"];
-    filePath = [NSString stringWithFormat:@"%@/%@.wav",document,@"123"];
+//    filePath = [NSString stringWithFormat:@"%@/%@.wav",document,@"123"];
+    filePath = [NSString stringWithFormat:@"%@/%@.mp3",document,@"123"];
     // NSLog(@"%@",filePath);
     _recordFileUrl=[NSURL fileURLWithPath:filePath];
     _recorder=[[AVAudioRecorder alloc] initWithURL:_recordFileUrl settings:recordSetting error:nil];
@@ -513,5 +517,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+    if (![self login]) {
+        return;
+    }
 }
 @end

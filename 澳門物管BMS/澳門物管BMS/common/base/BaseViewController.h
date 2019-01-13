@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)GradientView *gradientView;
 @property (nonatomic,strong)NSString *str;
 -(void)checkLogin;
+- (BOOL)login;
 @end
 
 NS_ASSUME_NONNULL_END

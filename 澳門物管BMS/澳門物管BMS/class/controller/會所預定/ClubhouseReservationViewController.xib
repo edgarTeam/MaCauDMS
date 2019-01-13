@@ -32,12 +32,14 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsl-b2-5qZ">
-                    <rect key="frame" x="100" y="40" width="120" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsl-b2-5qZ">
+                    <rect key="frame" x="100" y="44" width="120" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="N83-fL-yVB"/>
                     </constraints>
-                    <state key="normal" title="會所選擇">
+                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="會所選擇" image="choose">
                         <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -56,14 +58,8 @@
                         <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lip-wZ-fM3">
-                    <rect key="frame" x="10" y="111" width="355" height="0.0"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tmE-ZP-U8U">
-                    <rect key="frame" x="67.5" y="121" width="240" height="491"/>
+                    <rect key="frame" x="67.5" y="115.5" width="240" height="496.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="240" id="qqR-BF-VlE"/>
@@ -90,21 +86,21 @@
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="pC0-xP-aQT" secondAttribute="bottom" constant="15" id="Csb-Gf-WFf"/>
                 <constraint firstItem="2s5-iR-Bpt" firstAttribute="leading" secondItem="DM4-bE-E1w" secondAttribute="leading" id="G3i-H5-nZ0"/>
                 <constraint firstItem="wsl-b2-5qZ" firstAttribute="centerY" secondItem="DM4-bE-E1w" secondAttribute="centerY" id="Hgf-Hx-lsN"/>
-                <constraint firstItem="tmE-ZP-U8U" firstAttribute="top" secondItem="Lip-wZ-fM3" secondAttribute="bottom" constant="10" id="JXb-wr-u8O"/>
                 <constraint firstItem="DM4-bE-E1w" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="LOT-J2-Zse"/>
                 <constraint firstItem="2s5-iR-Bpt" firstAttribute="trailing" secondItem="DM4-bE-E1w" secondAttribute="trailing" id="SBT-EE-wDX"/>
                 <constraint firstItem="Vgg-Dd-xuh" firstAttribute="leading" secondItem="2s5-iR-Bpt" secondAttribute="trailing" constant="10" id="Xg1-gp-BNl"/>
                 <constraint firstItem="wsl-b2-5qZ" firstAttribute="leading" secondItem="DM4-bE-E1w" secondAttribute="trailing" constant="10" id="atZ-Ne-CQ1"/>
-                <constraint firstItem="Lip-wZ-fM3" firstAttribute="top" secondItem="2s5-iR-Bpt" secondAttribute="bottom" constant="10" id="bNz-yC-A03"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Lip-wZ-fM3" secondAttribute="trailing" constant="10" id="eWJ-TA-ZSu"/>
                 <constraint firstItem="DM4-bE-E1w" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="gsg-lc-SRk"/>
                 <constraint firstItem="pC0-xP-aQT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jFh-l2-vIw"/>
                 <constraint firstItem="2s5-iR-Bpt" firstAttribute="top" secondItem="DM4-bE-E1w" secondAttribute="bottom" constant="10" id="o0q-89-I0R"/>
+                <constraint firstItem="tmE-ZP-U8U" firstAttribute="top" secondItem="Vgg-Dd-xuh" secondAttribute="bottom" constant="10" id="tHu-cL-UCO"/>
                 <constraint firstItem="Vgg-Dd-xuh" firstAttribute="centerY" secondItem="2s5-iR-Bpt" secondAttribute="centerY" id="vV3-EO-lJI"/>
-                <constraint firstItem="Lip-wZ-fM3" firstAttribute="leading" secondItem="2s5-iR-Bpt" secondAttribute="leading" id="xBI-zz-YBR"/>
                 <constraint firstItem="tmE-ZP-U8U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xY7-7i-zgt"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
         </view>
     </objects>
+    <resources>
+        <image name="choose" width="20" height="20"/>
+    </resources>
 </document>

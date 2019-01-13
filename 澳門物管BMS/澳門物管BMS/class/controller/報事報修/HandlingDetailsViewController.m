@@ -26,7 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title=@"報事詳情";
+   // self.title=@"報事詳情";
+    self.title=LocalizedString(@"string_report_maintenance_detail_title");
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.view.backgroundColor=[UIColor clearColor];
     _contentTextView.layer.masksToBounds=YES;

@@ -11,6 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserInfoViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UILabel *headTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *sexTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *nameTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *telTitleLab;
 
 @end
 

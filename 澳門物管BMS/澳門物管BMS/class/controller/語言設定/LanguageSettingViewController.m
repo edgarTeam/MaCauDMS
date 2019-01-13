@@ -21,7 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title=@"語言設定";
+   // self.title=@"語言設定";
+    self.title=LocalizedString(@"string_setting_title");
+    for (UIImageView *view in _imageArray) {
+        if (view.tag ==0 ) {
+            view.hidden = NO;
+        }
+    }
 }
 
 /*
@@ -77,7 +83,7 @@
             break;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-        [UIApplication sharedApplication].keyWindow.rootViewController = [[MainViewController alloc] init];
+//        [UIApplication sharedApplication].keyWindow.rootViewController = [[MainViewController alloc] init];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         });
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"String_Alert_title")];
