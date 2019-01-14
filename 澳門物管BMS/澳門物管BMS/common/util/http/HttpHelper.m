@@ -301,6 +301,7 @@ static AFHTTPSessionManager *_manager;
 
 
 - (void)postUploadImagesWithUrl:(NSString *)urlString parameters:(NSDictionary *)parameters images :(NSArray *)images completion:(void (^)(NSDictionary *))completion{
+    
     NSURL *url = [NSURL URLWithString:urlString];
     [_manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         

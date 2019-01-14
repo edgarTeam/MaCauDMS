@@ -10,6 +10,7 @@
 #import "WebAPIHelper.h"
 #import "User.h"
 #import "ChangePswViewController.h"
+#import "ForgetPswViewController.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *psdTextField;
@@ -61,8 +62,10 @@
     
 }
 - (IBAction)forgetBtnAction:(id)sender {
-    ChangePswViewController *changeVC=[[ChangePswViewController alloc] init];
-    [self.navigationController pushViewController:changeVC animated:YES];
+//    ChangePswViewController *changeVC=[[ChangePswViewController alloc] init];
+//    [self.navigationController pushViewController:changeVC animated:YES];
+    ForgetPswViewController *forgetVC=[[ForgetPswViewController alloc] init];
+    [self.navigationController pushViewController:forgetVC animated:YES];
 }
 
 

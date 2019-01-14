@@ -9,6 +9,8 @@
 #import "ForgetPswViewController.h"
 
 @interface ForgetPswViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *userNameText;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 
 @end
 
@@ -17,6 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title=LocalizedString(@"string_forget_psd_title");
+    
+}
+- (IBAction)submitBtnAction:(id)sender {
+    
+    
+    
 }
 
 /*
@@ -28,5 +37,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden=NO;
+}
+
 
 @end

@@ -45,3 +45,6 @@ string_set_title ="設定";
 string_complain_title ="投訴";
 string_report_maintenance_title = "報事報修";
 string_login_in = "登入";
+string_forget_psd_title = "忘記密碼";
+string_sex_female ="女";
+string_sex_male ="男";

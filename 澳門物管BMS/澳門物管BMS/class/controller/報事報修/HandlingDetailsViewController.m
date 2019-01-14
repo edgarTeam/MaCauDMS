@@ -16,8 +16,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *contactWayLab;
 @property (weak, nonatomic) IBOutlet UILabel *createTimeLab;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet UILabel *statusLab;
 
-
+@property (nonatomic,strong) NSArray *statusArr;
+@property (weak, nonatomic) IBOutlet UIButton *playBtn;
+@property (nonatomic,strong) NSURL *voiceUrl;
 
 @end
 
@@ -42,7 +45,13 @@
     [string insertAttributedString:textAttachmentString atIndex:string.length];//index为用户指定要插入图片的位置
     
     _contentTextView.attributedText = string;
+    
+    _statusArr=@[@"发起",@"收到",@"处理中",@"处理完成"];
 
+}
+- (IBAction)playBtnAction:(id)sender {
+    
+    
 }
 
 /*
@@ -69,6 +78,28 @@
         _contactWayLab.text=_complain.complainLiaisonsEmail;
         _createTimeLab.text=_complain.createTime;
         _contentTextView.text=_complain.complainDescribe;
+        _voiceUrl=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,_complain.complainVoice]];
+        
+        
+        
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+//        textAttachment.image = [UIImage imageNamed:@""];
+//        NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+//        [string insertAttributedString:textAttachmentString atIndex:string.length];
+        NSArray *imageArr=[_complain.complainImages componentsSeparatedByString:@","];
+        
+        for ( int i=0; i<imageArr.count; i++) {
+             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageArr[i]]];
+            UIImage *image=[UIImage imageWithData:data];
+            textAttachment.image = image;
+            NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+            [string insertAttributedString:textAttachmentString atIndex:string.length];
+        }
+//        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:]];
+        _statusLab.text=_statusArr[[_complain.complainStatus intValue]];
+//        dataSource[[_palceRecord.recordStatus intValue]+1];
+        
         
     }];
 }

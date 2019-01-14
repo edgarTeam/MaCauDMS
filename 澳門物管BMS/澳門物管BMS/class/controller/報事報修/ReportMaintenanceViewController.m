@@ -68,6 +68,7 @@
     
     [self.recordBtn addTarget:self action:@selector(beginRecord:) forControlEvents:UIControlEventTouchDown];
     [self.recordBtn addTarget:self action:@selector(endRecord:) forControlEvents:UIControlEventTouchUpInside];
+    [self requestCommunityList];
 }
 
 
@@ -520,5 +521,6 @@
     if (![self login]) {
         return;
     }
+    [self requestCommunityList];
 }
 @end

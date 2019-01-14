@@ -36,7 +36,12 @@
     
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.nameLab.text=[User shareUser].username;
-    self.sexLab.text=[User shareUser].sex;
+    if ([[User shareUser].sex intValue]==0) {
+        self.sexLab.text = LocalizedString(@"string_sex_female");
+    }else if ([[User shareUser].sex intValue]==1){
+        self.sexLab.text = LocalizedString(@"string_sex_male");
+    }
+  //  self.sexLab.text=[User shareUser].sex;
     self.telLab.text=[User shareUser].tel;
     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
     [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
