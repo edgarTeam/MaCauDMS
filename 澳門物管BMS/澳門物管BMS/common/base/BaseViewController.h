@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseViewController : UIViewController
 @property (nonatomic,strong)GradientView *gradientView;
 @property (nonatomic,strong)NSString *str;
+@property (nonatomic,strong)NSString *token;
 -(void)checkLogin;
 - (BOOL)login;
 @end

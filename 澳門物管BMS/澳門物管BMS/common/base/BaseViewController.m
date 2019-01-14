@@ -14,7 +14,7 @@
 #import <Masonry/Masonry.h>
 @interface BaseViewController ()<UIAlertViewDelegate>
 @property(nonatomic,strong)UIButton *btn;
-@property (nonatomic,strong)NSString *token;
+
 
 @end
 
@@ -31,15 +31,18 @@
     [self.view sendSubviewToBack:_gradientView];
 //    [CommonUtil addGradientLayerTo:self.view];
     
-   // self.view.backgroundColor=[UIColor whiteColor];
-    // Do any additional setup after loading the view.
-//     self.navigationItem.title=_str;
-//    self.btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40) ];
-//    [self.btn setTitle:@"返回" forState:UIControlStateNormal];
-//    [self.btn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:self.btn];
-//    UIBarButtonItem *back=[[UIBarButtonItem alloc]initWithCustomView:_btn];
-//    self.navigationItem.leftBarButtonItem=back;
+//    self.view.backgroundColor=[UIColor whiteColor];
+//     Do any additional setup after loading the view.
+     
+    self.btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40) ];
+    [self.btn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [self.btn setTitle:@"返回" forState:UIControlStateNormal];
+    //[self.btn.titleLabel setTextColor:RGB(77, 77, 77)];
+    [self.btn setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
+    [self.btn addTarget:self action:@selector(backBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.btn];
+    UIBarButtonItem *back=[[UIBarButtonItem alloc]initWithCustomView:_btn];
+    self.navigationItem.leftBarButtonItem=back;
     NSUserDefaults *tokenId=[NSUserDefaults standardUserDefaults];
     _token=[tokenId objectForKey:Token];
    

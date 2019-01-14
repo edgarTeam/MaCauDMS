@@ -77,7 +77,7 @@
     _versionlab.textAlignment=NSTextAlignmentCenter;
     NSString *version=[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     //_versionlab.text=@"version 1.0.3";
-    _versionlab.text=[NSString stringWithFormat:@"version %@",version];
+    _versionlab.text=[NSString stringWithFormat:@"Ver %@",version];
     [self.view addSubview:_versionlab];
     [_versionlab mas_makeConstraints:^(MASConstraintMaker *make){
         make.bottom.mas_offset(0);
@@ -86,13 +86,21 @@
         make.height.mas_offset(20);
         make.centerX.mas_equalTo(self.view);
     }];
+    
+
     _loginOutBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     _loginOutBtn.backgroundColor=[UIColor blueColor];
     _loginOutBtn.layer.masksToBounds=YES;
     _loginOutBtn.layer.cornerRadius=7.0;
+    if (self.token.length==0) {
+        [_loginOutBtn setTitle:LocalizedString(@"string_login_in") forState:UIControlStateNormal];
+        [_loginOutBtn addTarget:self action:@selector(loginInBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }else{
     [_loginOutBtn setTitle:LocalizedString(@"string_login_out") forState:UIControlStateNormal];
-   // [_loginOutBtn addTarget:self action:@selector(<#selector#>) forControlEvents:UIControlEventTouchUpInside];
+    [_loginOutBtn addTarget:self action:@selector(loginOutAction:) forControlEvents:UIControlEventTouchUpInside];
    // [_loginOutBtn.titleLabel setText:@"登出"];
+    }
     [self.view addSubview:_loginOutBtn];
     [_loginOutBtn mas_makeConstraints:^(MASConstraintMaker *make){
         make.bottom.mas_equalTo(self.view.mas_bottom).mas_offset(-20);
@@ -144,10 +152,25 @@
 }
 
 - (void)loginOutAction:(UIButton *)btn {
-    
+    [User clear];
 }
 
+- (void)loginInBtnAction:(UIButton *)btn {
+    LoginViewController *loginVC=[[LoginViewController alloc] init];
+    UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+    [nav pushViewController:loginVC animated:YES];
+    
+    // [self.navigationController pushViewController:userVC animated:YES];
+    [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
+        [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    }];
+}
+
+
 - (void)userInfoBtnAction:(UIButton *)btn {
+    if (![self login]) {
+        return;
+    }
     UserInfoViewController *userVC=[[UserInfoViewController alloc] init];
     UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
     [nav pushViewController:userVC animated:YES];

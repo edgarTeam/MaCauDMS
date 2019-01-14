@@ -37,7 +37,8 @@
 */
 -(void)callTel:(NSString *)telString{
     NSString *cmdString = [NSString stringWithFormat:@"tel:%@",telString];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:cmdString]];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:cmdString]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:cmdString] options:@{} completionHandler:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

@@ -9,38 +9,43 @@
 #ifndef RequestUrlString_h
 #define RequestUrlString_h
 
-#define kBaseUrl @"http://47.107.131.1:8080/app/api"
+#define kBaseUrl @"http://47.107.131.1:8080/app/"
 
 
 #define kUserLogin kBaseUrl @"pass/login"
 //修改密碼
-#define kUpdatePsd kBaseUrl @"user/updatePassword"
+#define kUpdatePsd kBaseUrl @"api/user/updatePassword"
 
 //報修列表
-#define kComplainList kBaseUrl @"complain/selfList"
+#define kComplainList kBaseUrl @"api/complain/selfList"
 //報修詳情
-#define kComplain kBaseUrl @"complain/detail"
+#define kComplain kBaseUrl @"api/complain/detail"
 
-#define kNoticeList kBaseUrl @"notice/list"
-#define kNotice kBaseUrl @"notice/detail"
+#define kNoticeList kBaseUrl @"api/notice/list"
+#define kNotice kBaseUrl @"api/notice/detail"
 //圖片上傳
-#define kUploadImg kBaseUrl @"file/upload"
+#define kUploadImg kBaseUrl @"api/file/upload"
 //訂場列表
-#define kPlaceRecordList kBaseUrl @"placeRecord/list"
+#define kPlaceRecordList kBaseUrl @"api/placeRecord/list"
 //訂場詳情
-#define kPlaceRecord kBaseUrl @"placeRecord/detail"
+#define kPlaceRecord kBaseUrl @"api/placeRecord/detail"
 
 //場地列表
-#define kPlaceList kBaseUrl @"place/list"
+#define kPlaceList kBaseUrl @"api/place/list"
 
 //場地
-#define kPlace kBaseUrl @"place/detail"
+#define kPlace kBaseUrl @"api/place/detail"
 //社區列表
-#define kCommunity kBaseUrl @"community/list"
+#define kCommunity kBaseUrl @"api/community/list"
 
 //添加報修/投訴
-#define kAddComplain kBaseUrl @"complain/add"
+#define kAddComplain kBaseUrl @"api/complain/add"
 //添加訂場
-#define kAddPlaceRecord kBaseUrl @"placeRecord/add"
+#define kAddPlaceRecord kBaseUrl @"api/placeRecord/add"
+
+
+#define CHECK_UPDATE_URL @"http://47.107.131.1:8080/app/app/system/version" //检查更新
+#define UPDATE_WEB_URL @"" //更新内容网址
+#define UPDATE_URL @""
 
 #endif /* RequestUrlString_h */

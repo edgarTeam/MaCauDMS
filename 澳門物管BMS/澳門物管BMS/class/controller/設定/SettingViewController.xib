@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController">
             <connections>
+                <outlet property="changePsdBtn" destination="nCY-sy-3ix" id="8dr-ub-odC"/>
+                <outlet property="psdBtnHeight" destination="NXA-pP-PI5" id="ZZ4-qA-2Iw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -62,11 +64,11 @@
                 <constraint firstItem="1eT-dc-qM1" firstAttribute="top" secondItem="nCY-sy-3ix" secondAttribute="bottom" constant="10" id="92e-XM-bxJ"/>
                 <constraint firstItem="nCY-sy-3ix" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="CSK-hh-hjc"/>
                 <constraint firstItem="1eT-dc-qM1" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Ktu-aZ-QLZ"/>
-                <constraint firstItem="1eT-dc-qM1" firstAttribute="height" secondItem="nCY-sy-3ix" secondAttribute="height" id="Pdk-nc-BrD"/>
                 <constraint firstItem="nCY-sy-3ix" firstAttribute="top" secondItem="guS-gM-rDK" secondAttribute="bottom" constant="10" id="QZT-cf-rlX"/>
                 <constraint firstItem="guS-gM-rDK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="VVs-Qp-Qo4"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="1eT-dc-qM1" secondAttribute="trailing" id="e9K-6O-Cxb"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="guS-gM-rDK" secondAttribute="trailing" id="fEb-Ig-yaZ"/>
+                <constraint firstItem="1eT-dc-qM1" firstAttribute="height" secondItem="guS-gM-rDK" secondAttribute="height" id="j1w-pb-4h9"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="nCY-sy-3ix" secondAttribute="trailing" id="sqN-q0-gzT"/>
                 <constraint firstItem="guS-gM-rDK" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="tmL-3Q-76j"/>
             </constraints>

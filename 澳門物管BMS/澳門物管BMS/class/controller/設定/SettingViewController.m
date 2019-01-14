@@ -11,6 +11,8 @@
 #import "ChangePswViewController.h"
 #import "ContactUSViewController.h"
 @interface SettingViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *changePsdBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *psdBtnHeight;
 
 
 
@@ -22,8 +24,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=LocalizedString(@"設定");
-    if (![self login]) {
-        return;
+//    if (![self login]) {
+//        return;
+//    }
+    if (self.token.length==0) {
+        _changePsdBtn.hidden=YES;
+        _psdBtnHeight.constant=0;
     }
     self.title=@"設定";
     
@@ -64,8 +70,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
-    if (![self login]) {
-        return;
-    }
+//    if (![self login]) {
+//        return;
+//    }
 }
 @end

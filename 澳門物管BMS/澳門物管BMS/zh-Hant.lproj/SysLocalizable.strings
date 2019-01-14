@@ -44,3 +44,4 @@ string_login_out ="登出";
 string_set_title ="設定";
 string_complain_title ="投訴";
 string_report_maintenance_title = "報事報修";
+string_login_in = "登入";

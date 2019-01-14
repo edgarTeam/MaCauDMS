@@ -9,12 +9,13 @@
 #import "LoginViewController.h"
 #import "WebAPIHelper.h"
 #import "User.h"
+#import "ChangePswViewController.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *psdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forgetBtn;
-@property (nonatomic,strong) NSString *token;
+@property (nonatomic,strong) NSString *loginToken;
 @property (weak, nonatomic) IBOutlet UIImageView *headImg;
 @end
 
@@ -42,15 +43,15 @@
     }else if (_psdTextField.text.length ==0){
           [[[UIAlertView alloc]initWithTitle:@"" message:LocalizedString(@"String_tips_input_password") delegate:nil cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
     }else{
-        NSDictionary *dic =[NSDictionary  dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@%@",_accountTextField.text,_psdTextField.text],@"username",@"password"];
+        NSDictionary *dic =[NSDictionary  dictionaryWithObjectsAndKeys:_accountTextField.text,@"username",_psdTextField.text,@"password",nil];
         [[WebAPIHelper sharedWebAPIHelper]postUserLogin:dic completion:^(NSDictionary *dic){
             if(dic !=nil){
                 User *user=[User shareUser];
                 user=[dic objectForKey:@"user"];
               //  User *user=[User objectWithKeyValues:dic];
-                _token=[dic objectForKey:@"token"];
+                _loginToken=[dic objectForKey:@"token"];
                 NSUserDefaults *tokenId=[NSUserDefaults standardUserDefaults];
-                [tokenId setObject:_token forKey:Token];
+                [tokenId setObject:_loginToken forKey:Token];
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }];
@@ -60,8 +61,13 @@
     
 }
 - (IBAction)forgetBtnAction:(id)sender {
-    
-    
+    ChangePswViewController *changeVC=[[ChangePswViewController alloc] init];
+    [self.navigationController pushViewController:changeVC animated:YES];
 }
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden=YES;
+}
 @end
