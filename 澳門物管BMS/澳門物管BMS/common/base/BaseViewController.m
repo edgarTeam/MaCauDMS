@@ -43,8 +43,7 @@
     [self.view addSubview:self.btn];
     UIBarButtonItem *back=[[UIBarButtonItem alloc]initWithCustomView:_btn];
     self.navigationItem.leftBarButtonItem=back;
-    NSUserDefaults *tokenId=[NSUserDefaults standardUserDefaults];
-    _token=[tokenId objectForKey:Token];
+ 
    
 }
 
@@ -109,6 +108,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)viewWillAppear:(BOOL)animated{
+    NSUserDefaults *tokenId=[NSUserDefaults standardUserDefaults];
+    _token=[tokenId objectForKey:LoginToken];
+}
 
 
 -(void)backBtn:(UIButton *)sender{
