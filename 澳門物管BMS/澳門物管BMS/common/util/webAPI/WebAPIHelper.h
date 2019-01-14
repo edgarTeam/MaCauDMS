@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 用戶登陸
 - (void)postUserLogin:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 
+
+#pragma mark 用戶详情
+- (void)postUserDetail:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
+
 #pragma mark 修改密碼
 - (void)postUpdatePsd:(NSDictionary *)parameters completion:(void (^)(NSString *result))completion;
 

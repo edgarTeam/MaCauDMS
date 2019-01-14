@@ -72,6 +72,12 @@ static AFHTTPSessionManager *_manager;
     }];
 }
 
+-(void)postUserDetail:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
+    [self.httpHelper postDicWithURL:kUserDetail parameters:parameters needLoading:YES success:completion failure:^(NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
 - (void)postUpdatePsd:(NSDictionary *)parameters completion:(void (^)(NSString * _Nonnull))completion{
 //    [self.httpHelper postStrWithURL:kUpdatePsd parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
 //        NSLog(@"%@",error);

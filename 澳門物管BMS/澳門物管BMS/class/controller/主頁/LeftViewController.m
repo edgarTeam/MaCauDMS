@@ -63,8 +63,7 @@
     }];
     
     _headImage=[[UIImageView alloc] init];
-     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
-    [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
+    _headImage.image = kEMPTYIMG;
     [self.view addSubview:_headImage];
     [_headImage mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.mas_equalTo(_headBtn.mas_top);
@@ -149,9 +148,13 @@
 - (void) setUpLoginBtn{
     if (self.token.length==0) {
         [_loginOutBtn setTitle:LocalizedString(@"string_login_in") forState:UIControlStateNormal];
-        
+        [self.headImage setImage:kEMPTYIMG];
     }else{
         [_loginOutBtn setTitle:LocalizedString(@"string_login_out") forState:UIControlStateNormal];
+        NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,[User shareUser].portrait]];
+        [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+           
+        }];
         // [_loginOutBtn.titleLabel setText:@"登出"];
     }
     
