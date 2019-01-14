@@ -38,6 +38,8 @@
     [self creatView];
 }
 
+
+
 - (void)creatView{
     self.view.backgroundColor=[UIColor whiteColor];
     _headBtn=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -61,8 +63,7 @@
     }];
     
     _headImage=[[UIImageView alloc] init];
-     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
-    [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
+    _headImage.image = kEMPTYIMG;
     [self.view addSubview:_headImage];
     [_headImage mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.mas_equalTo(_headBtn.mas_top);
@@ -92,15 +93,7 @@
     _loginOutBtn.backgroundColor=[UIColor blueColor];
     _loginOutBtn.layer.masksToBounds=YES;
     _loginOutBtn.layer.cornerRadius=7.0;
-    if (self.token.length==0) {
-        [_loginOutBtn setTitle:LocalizedString(@"string_login_in") forState:UIControlStateNormal];
-        [_loginOutBtn addTarget:self action:@selector(loginInBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-        
-    }else{
-    [_loginOutBtn setTitle:LocalizedString(@"string_login_out") forState:UIControlStateNormal];
-    [_loginOutBtn addTarget:self action:@selector(loginOutAction:) forControlEvents:UIControlEventTouchUpInside];
-   // [_loginOutBtn.titleLabel setText:@"登出"];
-    }
+   
     [self.view addSubview:_loginOutBtn];
     [_loginOutBtn mas_makeConstraints:^(MASConstraintMaker *make){
         make.bottom.mas_equalTo(self.view.mas_bottom).mas_offset(-20);
@@ -108,7 +101,8 @@
         make.left.mas_equalTo(10);
         make.right.mas_offset(-10);
     }];
-    
+      [_loginOutBtn addTarget:self action:@selector(loginInBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self setUpLoginBtn];
     _weatherLab=[[UILabel alloc] init];
     _weatherLab.textColor=RGB(138, 138, 138);
     _weatherLab.font=[UIFont systemFontOfSize:14];
@@ -151,11 +145,29 @@
     }];
 }
 
-- (void)loginOutAction:(UIButton *)btn {
-    [User clear];
+- (void) setUpLoginBtn{
+    if (self.token.length==0) {
+        [_loginOutBtn setTitle:LocalizedString(@"string_login_in") forState:UIControlStateNormal];
+        [self.headImage setImage:kEMPTYIMG];
+    }else{
+        [_loginOutBtn setTitle:LocalizedString(@"string_login_out") forState:UIControlStateNormal];
+        NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,[User shareUser].portrait]];
+        [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+           
+        }];
+        // [_loginOutBtn.titleLabel setText:@"登出"];
+    }
+    
 }
 
 - (void)loginInBtnAction:(UIButton *)btn {
+    if (self.token && self.token.length >0) {
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        self.token = @"";
+        [userDefault setObject:@"" forKey:LoginToken];
+        [User clear];
+        [self setUpLoginBtn];
+    }else{
     LoginViewController *loginVC=[[LoginViewController alloc] init];
     UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
     [nav pushViewController:loginVC animated:YES];
@@ -164,6 +176,8 @@
     [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
         [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
     }];
+        
+    }
 }
 
 
@@ -232,7 +246,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    [self setUpLoginBtn];
 }
+
+
 /*
 #pragma mark - Navigation
 

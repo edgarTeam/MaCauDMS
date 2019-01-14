@@ -54,20 +54,12 @@
                 return  NO;
                 ;
             }
-            case 2000:{
+            case 200:{
                 
                 return  YES;
                 
             }
-            case 4000:{
-                return YES;
-            }
-            case 0000:{
-                return YES;
-            }
-            case 0001:{
-                return NO;
-            }
+           
                 //            case 401:{
                 //                //        storyBoard_ = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 //                LoginNavigationController *loginVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]

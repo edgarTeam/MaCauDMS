@@ -303,6 +303,7 @@ static AFHTTPSessionManager *_manager;
 - (void)postUploadImagesWithUrl:(NSString *)urlString parameters:(NSDictionary *)parameters images :(NSArray *)images completion:(void (^)(NSDictionary *))completion{
     
     NSURL *url = [NSURL URLWithString:urlString];
+    [_manager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:LoginToken] forHTTPHeaderField:@"Authorization"];
     [_manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         for (int i=0; i<images.count; i++) {
@@ -317,7 +318,7 @@ static AFHTTPSessionManager *_manager;
             
             NSString *type = @"image/png";
             
-            [formData appendPartWithFileData:data name:formKey fileName:name mimeType:type];
+            [formData appendPartWithFileData:data name:@"file" fileName:name mimeType:type];
             
         }
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

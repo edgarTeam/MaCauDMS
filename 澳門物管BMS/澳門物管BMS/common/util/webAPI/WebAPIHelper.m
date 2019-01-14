@@ -32,7 +32,8 @@ static AFHTTPSessionManager *_manager;
     dispatch_once(&onceToken, ^{
         _instance = [super allocWithZone:zone];
         _manager = [AFHTTPSessionManager manager];
-        [_manager.requestSerializer  setValue:Token forHTTPHeaderField:@"Authorization"]; //uuid
+        NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:LoginToken];
+        [_manager.requestSerializer  setValue:token forHTTPHeaderField:@"Authorization"]; //uuid
         _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
         _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain" ,@"text/html" ,@"text/xml",@"application/pdf",nil];
         ((AFJSONResponseSerializer *)_manager.responseSerializer).removesKeysWithNullValues = YES;
@@ -67,6 +68,12 @@ static AFHTTPSessionManager *_manager;
 //        NSLog(@"%@",error);
 //    }];
     [self.httpHelper postDicWithURL:kUserLogin parameters:parameters  needLoading:YES success:completion failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
+
+-(void)postUserDetail:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
+    [self.httpHelper postDicWithURL:kUserDetail parameters:parameters needLoading:YES success:completion failure:^(NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
 }

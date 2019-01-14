@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *psdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forgetBtn;
-@property (nonatomic,strong) NSString *loginToken;
 @property (weak, nonatomic) IBOutlet UIImageView *headImg;
 @end
 
@@ -48,11 +47,14 @@
         [[WebAPIHelper sharedWebAPIHelper]postUserLogin:dic completion:^(NSDictionary *dic){
             if(dic !=nil){
                 User *user=[User shareUser];
-                user=[dic objectForKey:@"user"];
+                
+               user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
+                
+//                user=[dic objectForKey:@"user"];
               //  User *user=[User objectWithKeyValues:dic];
-                _loginToken=[dic objectForKey:@"token"];
-                NSUserDefaults *tokenId=[NSUserDefaults standardUserDefaults];
-                [tokenId setObject:_loginToken forKey:Token];
+                NSString * loginToken=[dic objectForKey:@"token"];
+                NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:loginToken forKey:LoginToken];
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }];
