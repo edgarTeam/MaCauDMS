@@ -177,9 +177,11 @@
     [[HttpHelper shareHttpHelper] postUploadImagesWithUrl:kUploadImg parameters:dic images:[NSArray arrayWithObject:[UIImage imageWithData:data]] completion:^(NSDictionary * info){
         if ([CommonUtil isRequestOK:info]) {
             
-            [[WebAPIHelper sharedWebAPIHelper] postUserDetail:nil completion:^(NSDictionary * _Nonnull dic) {
-                NSLog(@"%@",dic);
-            }];
+            NSDictionary *dic = [info objectForKey:@"data"];
+            NSString *path = [dic objectForKey:@"path"];
+            if (path) {
+                [[User shareUser] setPortrait:path];
+            }
         }
     }];
     
