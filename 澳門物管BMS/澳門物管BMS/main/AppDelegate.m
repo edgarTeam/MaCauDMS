@@ -74,34 +74,35 @@
     [self.window setRootViewController:self.drawer];
 //    _suspensionView=[[SuspensionView alloc] init];
 //    [_suspensionView.button1 addTarget:self action:@selector(handleClick:) forControlEvents:UIControlEventTouchUpInside];
-//    //_suspensionView.userInteractionEnabled=NO;
+    //_suspensionView.userInteractionEnabled=NO;
     
-//    _suspensionView=[[SuspensionView alloc] init];
+    _suspensionView=[[SuspensionView alloc] init];
 //    [self.drawer.view addSubview:_suspensionView];
-   
-  //  [self.window.rootViewController.view addSubview:_suspensionView];
+    
+    [self.window.rootViewController.view  addSubview:_suspensionView];
+    [self.window.rootViewController.view bringSubviewToFront:_suspensionView];
     [self.window makeKeyAndVisible];
-    self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+//    self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
 //    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);
-    [self.centerBtn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
-    self.centerBtn.layer.cornerRadius=self.centerBtn.frame.size.width/2;
-    self.centerBtn.layer.cornerRadius=25;
-    self.centerBtn.layer.masksToBounds=YES;
-    self.centerBtn.layer.borderWidth=0.5;
-    self.centerBtn.layer.borderColor=RGB(138, 138, 138).CGColor;
-    [self.centerBtn addTarget:self action:@selector(choose:) forControlEvents:UIControlEventTouchUpInside];
+//    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);
+//    [self.centerBtn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
+//    self.centerBtn.layer.cornerRadius=self.centerBtn.frame.size.width/2;
+//    self.centerBtn.layer.cornerRadius=25;
+//    self.centerBtn.layer.masksToBounds=YES;
+//    self.centerBtn.layer.borderWidth=0.5;
+//    self.centerBtn.layer.borderColor=RGB(138, 138, 138).CGColor;
+//    [self.centerBtn addTarget:self action:@selector(choose:) forControlEvents:UIControlEventTouchUpInside];
 
    // [self.window.rootViewController.view addSubview:self.centerBtn];
-    [self.drawer.view addSubview:self.centerBtn];
-    _panGestureRecognizer = [[UIPanGestureRecognizer alloc]
-
-                             initWithTarget:self
-
-                             action:@selector(handlePan:)];
-
-    [self.centerBtn addGestureRecognizer:_panGestureRecognizer];
-    [self.centerBtn addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
+//    [self.drawer.view addSubview:self.centerBtn];
+//    _panGestureRecognizer = [[UIPanGestureRecognizer alloc]
+//
+//                             initWithTarget:self
+//
+//                             action:@selector(handlePan:)];
+//
+//    [self.centerBtn addGestureRecognizer:_panGestureRecognizer];
+//    [self.centerBtn addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
     return YES;
 }
 

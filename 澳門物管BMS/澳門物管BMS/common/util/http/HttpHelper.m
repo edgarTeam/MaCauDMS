@@ -29,6 +29,13 @@ static AFHTTPSessionManager *_manager;
         _instance = [super allocWithZone:zone];
         _manager = [AFHTTPSessionManager manager];
         
+        
+            NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:LoginToken];
+            [_manager.requestSerializer  setValue:token forHTTPHeaderField:@"Authorization"]; //uuid
+            _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+            _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain" ,@"text/html" ,@"text/xml",@"application/pdf",nil];
+            ((AFJSONResponseSerializer *)_manager.responseSerializer).removesKeysWithNullValues = YES;
+        
         _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
     });
     return  _instance;
@@ -54,8 +61,8 @@ static AFHTTPSessionManager *_manager;
                success:(void (^)(id obj))success
                failure:(void (^)(NSError *error))failure{
 #pragma warning setting header
-    
-    //        [_manager.requestSerializer setValue:accessToken forHTTPHeaderField:@"Authorization"];
+//            NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:LoginToken];
+//            [_manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
     //     encode url
     NSString *urlEncodeString = [URLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     switch (requestMethod) {

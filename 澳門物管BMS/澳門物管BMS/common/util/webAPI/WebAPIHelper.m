@@ -17,31 +17,31 @@
 @implementation WebAPIHelper
 static WebAPIHelper *_instance;
 static AFHTTPSessionManager *_manager;
-//+ (id)allocWithZone:(NSZone *)zone
-//{
-//
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        _instance = [super allocWithZone:zone];
-//    });
-//    return _instance;
-//}
++ (id)allocWithZone:(NSZone *)zone
+{
 
-+ (id) allocWithZone:(NSZone *)zone{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instance = [super allocWithZone:zone];
-        _manager = [AFHTTPSessionManager manager];
-        NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:LoginToken];
-        [_manager.requestSerializer  setValue:token forHTTPHeaderField:@"Authorization"]; //uuid
-        _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain" ,@"text/html" ,@"text/xml",@"application/pdf",nil];
-        ((AFJSONResponseSerializer *)_manager.responseSerializer).removesKeysWithNullValues = YES;
-        
     });
-    
-    return  _instance;
+    return _instance;
 }
+
+//+ (id) allocWithZone:(NSZone *)zone{
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        _instance = [super allocWithZone:zone];
+//        _manager = [AFHTTPSessionManager manager];
+//        NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:LoginToken];
+//        [_manager.requestSerializer  setValue:token forHTTPHeaderField:@"Authorization"]; //uuid
+//        _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+//        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain" ,@"text/html" ,@"text/xml",@"application/pdf",nil];
+//        ((AFJSONResponseSerializer *)_manager.responseSerializer).removesKeysWithNullValues = YES;
+//        
+//    });
+//    
+//    return  _instance;
+//}
 
 
 + (WebAPIHelper *)sharedWebAPIHelper

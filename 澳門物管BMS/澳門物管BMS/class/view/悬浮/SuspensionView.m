@@ -43,7 +43,7 @@
     self = [super init];
     //self.userInteractionEnabled=YES;
   //  self.frame = CGRectMake(0, 0, ScreenWidth,  ScreenHeight);
-     self.frame = CGRectMake(0, 0, ScreenWidth,  ScreenHeight);
+     self.frame = CGRectMake(ScreenWidth-60, ScreenHeight-60, 50,  50);
     self.backgroundColor=[UIColor clearColor];
    // self.gra=[[GradientView alloc] init];
    // [self addSubview:self.gra];
@@ -55,7 +55,8 @@
 - (void)createView {
     radius=ScreenWidth/2-35-25-10;
     self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
+    self.centerBtn.backgroundColor=[UIColor redColor];
+    self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
     
     [self.centerBtn setImage:[UIImage imageNamed:@"zhuye-4"] forState:UIControlStateNormal];
     self.centerBtn.layer.cornerRadius=self.centerBtn.frame.size.width/2;
@@ -70,8 +71,8 @@
                              initWithTarget:self
                              
                              action:@selector(handlePan:)];
-    
-    [self.centerBtn addGestureRecognizer:_panGestureRecognizer];
+    [self addGestureRecognizer:_panGestureRecognizer];
+   // [self.centerBtn addGestureRecognizer:_panGestureRecognizer];
     [self.centerBtn addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
     _btnArr=[NSMutableArray array];
     self.arr=[NSMutableArray arrayWithObjects:@"complain",@"place",@"repairsec",@"settingsec",nil];
@@ -160,6 +161,8 @@
     //   array=_btnArr;
     
     if (!show) {
+        
+        
         if(centerX>ScreenWidth/2) {
             theCenterX=ScreenWidth-50/2;
         }else{
@@ -180,10 +183,13 @@
                 
                 [UIView animateWithDuration:0.5 animations:^{
                     if (centerX==0 && centerY==0) {
-                        self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-                        
+//                        self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
+                        self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+                        self.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
                     }else{
-                        self.centerBtn.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+                        self.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+//                        self.centerBtn.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+                        self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
                     }
                     self.centerBtn.layer.cornerRadius=25;
                     self.centerBtn.layer.masksToBounds=YES;
@@ -196,7 +202,7 @@
         }
         
     }else{
-        
+        self.frame=CGRectMake(0, 0, ScreenWidth, ScreenHeight);
         self.centerBtn.frame=CGRectMake(ScreenWidth/2-35, ScreenHeight/2-35, 70, 70);
         self.centerBtn.layer.cornerRadius=35;
         self.centerBtn.layer.masksToBounds=YES;

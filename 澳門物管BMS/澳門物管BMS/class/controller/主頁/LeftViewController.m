@@ -43,14 +43,15 @@
 - (void)creatView{
     self.view.backgroundColor=[UIColor whiteColor];
     _headBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    _headBtn.backgroundColor=[UIColor redColor];
+   // _headBtn.backgroundColor=[UIColor redColor];
     _headBtn.layer.masksToBounds=YES;
-//    _headBtn.layer.cornerRadius=40;
+    _headBtn.layer.cornerRadius=40;
    // [_headBtn setImage:[UIImage imageNamed:@"work"] forState:UIControlStateNormal];
    // NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
    // [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
    // [_headBtn setBackgroundImage:[UIImage ] forState:<#(UIControlState)#>];
   //  [_headBtn setBackgroundImage:[UIImage imageNamed:@"headImg"] forState:UIControlStateNormal];
+    
     [_headBtn addTarget:self action:@selector(userInfoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_headBtn];
     [_headBtn mas_makeConstraints:^(MASConstraintMaker *make){
@@ -64,7 +65,11 @@
 
     
     _headImage=[[UIImageView alloc] init];
-    _headImage.image = kEMPTYIMG;
+  //  _headImage.image = kEMPTYIMG;
+    _headImage.layer.masksToBounds=YES;
+    _headImage.layer.cornerRadius=_headBtn.frame.size.width/2;
+     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
+     [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
     [self.view addSubview:_headImage];
     [_headImage mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.mas_equalTo(_headBtn.mas_top);
