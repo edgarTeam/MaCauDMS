@@ -7,7 +7,7 @@
 //
 
 #import "CommonUtil.h"
-
+#import "User.h"
 @implementation CommonUtil
 + (CommonUtil *)sharedInstance
 {
@@ -174,27 +174,27 @@
 //+ (void)storeUser{
 //    User *user =  [User shareUser];
 //    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//    [ userDefaults setObject:user.memberid forKey:@"memberid"];
+//    [ userDefaults setObject:user.name forKey:@"useName"];
 //    [ userDefaults setObject:user.tel forKey:@"tel"];
 //    [ userDefaults setObject:[NSString stringWithFormat:@"%ld",user.sex] forKey:@"sex"];
 //    [ userDefaults setObject:user.headerPath forKey:@"headerPath"];
 //    [ userDefaults setObject:user.nickName forKey:@"nickName"];
 //    [ userDefaults setObject:user.imUserName forKey:@"imUserName"];
 //}
-
-
+//
+//
 //+ (void)loadDefuatUser{
 //    User *user =  [User shareUser];
 //    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//    if ([userDefaults objectForKey:@"memberid"]!= nil && [[userDefaults objectForKey:@"memberid"] length] > 0) {
-//        user.memberid = [userDefaults objectForKey:@"memberid"];
-//        user.headerPath = [userDefaults objectForKey:@"headerPath"];
+//    if ([userDefaults objectForKey:@"userId"]!= nil && [[userDefaults objectForKey:@"userId"] length] > 0) {
+//        user.userId = [userDefaults objectForKey:@"userId"];
+//        user.birthday = [userDefaults objectForKey:@"birthday"];
 //        user.tel = [userDefaults objectForKey:@"tel"];
-//        user.sex = [[userDefaults objectForKey:@"sex"] integerValue];
-//        user.nickName = [userDefaults objectForKey:@"nickName"];
-//        user.sex = [[userDefaults objectForKey:@"sex"] integerValue];
+////        user.sex = [[userDefaults objectForKey:@"sex"] integerValue];
+////        user.nickName = [userDefaults objectForKey:@"nickName"];
+////        user.sex = [[userDefaults objectForKey:@"sex"] integerValue];
 //        user.imUserName = [userDefaults objectForKey:@"imUserName"];
-//        
+//
 //    }
 //}
 
@@ -208,12 +208,25 @@
 
 + (void)clearDefuatUser{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [ userDefaults setObject:nil forKey:@"memberid"];
-    [ userDefaults setObject:nil forKey:@"tel"];
+    [ userDefaults setObject:nil forKey:@"birthday"];
+    [ userDefaults setObject:nil forKey:@"communityId"];
+    [ userDefaults setObject:nil forKey:@"countryCode"];
+    [ userDefaults setObject:nil forKey:@"createTime"];
+    [ userDefaults setObject:nil forKey:@"deleted"];
+    [ userDefaults setObject:nil forKey:@"email"];
+    [ userDefaults setObject:nil forKey:@"englishName"];
+    [ userDefaults setObject:nil forKey:@"idCard"];
+    [ userDefaults setObject:nil forKey:@"marriageSystem"];
+    [ userDefaults setObject:nil forKey:@"mateName"];
+    [ userDefaults setObject:nil forKey:@"name"];
+    [ userDefaults setObject:nil forKey:@"password"];
+    [ userDefaults setObject:nil forKey:@"portrait"];
     [ userDefaults setObject:nil forKey:@"sex"];
-    [ userDefaults setObject:nil forKey:@"headerPath"];
-    [ userDefaults setObject:nil forKey:@"nickName"];
-    [ userDefaults setObject:nil forKey:@"imUserName"];
+    [ userDefaults setObject:nil forKey:@"tel"];
+    [ userDefaults setObject:nil forKey:@"updateTime"];
+    [ userDefaults setObject:nil forKey:@"userId"];
+    [ userDefaults setObject:nil forKey:@"username"];
+    
 }
 
 //+ (void)IMlogin{
