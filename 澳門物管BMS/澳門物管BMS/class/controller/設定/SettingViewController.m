@@ -27,10 +27,7 @@
 //    if (![self login]) {
 //        return;
 //    }
-    if (self.token.length==0) {
-        _changePsdBtn.hidden=YES;
-        _psdBtnHeight.constant=0;
-    }
+    
     self.title=@"設定";
     
 }
@@ -70,6 +67,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+    if (self.token.length==0) {
+        _changePsdBtn.hidden=YES;
+        _psdBtnHeight.constant=0;
+    }
 //    if (![self login]) {
 //        return;
 //    }

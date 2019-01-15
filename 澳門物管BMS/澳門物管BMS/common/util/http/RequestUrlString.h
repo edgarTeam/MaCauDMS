@@ -9,8 +9,8 @@
 #ifndef RequestUrlString_h
 #define RequestUrlString_h
 
-#define kBaseUrl @"http://47.107.131.1:8080/app"
-#define kBaseImageUrl @"http://47.107.131.1:8080"
+#define kBaseUrl @"http://songsong.fun:8080/app"
+#define kBaseImageUrl @"http://songsong.fun:8080/file"
 
 #define kUserLogin kBaseUrl @"/pass/login"
 
