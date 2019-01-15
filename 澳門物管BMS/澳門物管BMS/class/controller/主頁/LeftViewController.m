@@ -43,9 +43,9 @@
 - (void)creatView{
     self.view.backgroundColor=[UIColor whiteColor];
     _headBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-   // _headBtn.backgroundColor=[UIColor redColor];
+    _headBtn.backgroundColor=[UIColor redColor];
     _headBtn.layer.masksToBounds=YES;
-    _headBtn.layer.cornerRadius=40;
+//    _headBtn.layer.cornerRadius=40;
    // [_headBtn setImage:[UIImage imageNamed:@"work"] forState:UIControlStateNormal];
    // NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
    // [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
@@ -61,6 +61,7 @@
         make.width.mas_equalTo(80);
         make.height.mas_equalTo(_headBtn.mas_width);
     }];
+
     
     _headImage=[[UIImageView alloc] init];
     _headImage.image = kEMPTYIMG;

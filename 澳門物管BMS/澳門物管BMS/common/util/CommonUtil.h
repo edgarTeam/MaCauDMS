@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)HandleMoneyString:(NSString *)stringFloat;
 + (NSString *)getCurrentYaarMonth;
 + (NSString *)corvertTimeString:(NSString *)string;
-//+ (void)storeUser;
++ (void)storeUser;
 + (void)loadDefuatUser;
 + (void)clearDefuatUser;
 //+ (void)IMlogin;

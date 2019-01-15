@@ -11,6 +11,7 @@
 #import "User.h"
 #import "ChangePswViewController.h"
 #import "ForgetPswViewController.h"
+#import "CommonUtil.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *psdTextField;
@@ -46,6 +47,7 @@
         NSDictionary *dic =[NSDictionary  dictionaryWithObjectsAndKeys:_accountTextField.text,@"username",_psdTextField.text,@"password",nil];
         [[WebAPIHelper sharedWebAPIHelper]postUserLogin:dic completion:^(NSDictionary *dic){
             if(dic !=nil){
+                [CommonUtil clearDefuatUser];
                 User *user=[User shareUser];
                 
                user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
@@ -55,6 +57,7 @@
                 NSString * loginToken=[dic objectForKey:@"token"];
                 NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
                 [userDefaults setObject:loginToken forKey:LoginToken];
+                [CommonUtil storeUser];
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }];
