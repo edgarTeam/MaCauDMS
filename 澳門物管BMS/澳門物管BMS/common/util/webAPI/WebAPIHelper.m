@@ -161,6 +161,17 @@ static AFHTTPSessionManager *_manager;
 }
 
 
+- (void)postPlaceList:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
+    [self.httpHelper postDicWithURL:kPlaceList parameters:parameters  needLoading:YES success:^(NSDictionary *dic){
+        if (dic == nil) {
+            return ;
+        }
+        completion(dic);
+    } failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
+
 - (void)postPlace:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
     [self.httpHelper postDicWithURL:kPlace parameters:parameters  needLoading:YES success:^(NSDictionary *dic){
         if (dic ==nil) {

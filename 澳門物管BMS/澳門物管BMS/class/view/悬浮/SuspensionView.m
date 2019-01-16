@@ -15,6 +15,7 @@
 @property (nonatomic,strong)  UIPanGestureRecognizer *panGestureRecognizer;
 
 @property (nonatomic,strong) NSMutableArray *btnArr;
+@property (nonatomic,strong) NSMutableArray *labelNameArr;
 @end
 @implementation SuspensionView
 {
@@ -117,7 +118,7 @@
 //    _btnArr=[NSMutableArray array];
 //    self.arr=[NSMutableArray arrayWithObjects:@"complain",@"place",@"repairsec",@"settingsec",nil];
     int a=360/self.arr.count;
-    
+    self.labelNameArr=[NSMutableArray arrayWithObjects:LocalizedString(@"string_complain_title"),LocalizedString(@"string_reservation_place_title"),LocalizedString(@"string_report_maintenance_title"),LocalizedString(@"string_set_title"), nil];
     for (int i = 0; i < self.arr.count; i++) {
         _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
         _button1.tag = i+1;
@@ -126,11 +127,22 @@
         _button1.userInteractionEnabled = YES;
         NSString *name=[self.arr objectAtIndex:i];
         [_button1 setImage:[UIImage imageNamed:name] forState:UIControlStateNormal];
-        _button1.hidden=NO;
-        _button1.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+        
+      //  _button1.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
         
       //  _button1.backgroundColor=[UIColor blackColor];
         
+        _button1.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 75);
+        _button1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [_button1 setTitle:self.labelNameArr[i] forState:UIControlStateNormal];
+        //_button1.titleLabel.textColor=RGB(138, 138, 138);
+        [_button1 setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
+        [_button1.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
+        // [_button1.titleLabel setText:self.labelNameArr[i]];
+        [_button1 setTitleEdgeInsets:UIEdgeInsetsMake(_button1.imageView.frame.size.height, -_button1.imageView.frame.size.width, 0, 0)];
+        NSLog(@"值是：：：%f",(_button1.frame.size.height/2-_button1.imageView.frame.size.height/2));
+        [_button1 setImageEdgeInsets:UIEdgeInsetsMake( -(_button1.frame.size.height/2-_button1.imageView.frame.size.height/2), 0, 0, -_button1.titleLabel.frame.size.width)];
+        _button1.hidden=NO;
         [_button1 addTarget:self action:@selector(handleClick:)forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:_button1];
@@ -138,8 +150,9 @@
         [UIView animateWithDuration:0.5 animations:^{
             
             CGFloat x=[UIScreen mainScreen].bounds.size.width/2-25+radius*cosf((_button1.tag-1)*a*3.1415926/180);
-            CGFloat y=[UIScreen mainScreen].bounds.size.height/2-25+radius*sinf((_button1.tag-1)*a*3.1415926/180);
-            _button1.frame=CGRectMake(x, y, 50, 50);
+            CGFloat y=[UIScreen mainScreen].bounds.size.height/2-37+radius*sinf((_button1.tag-1)*a*3.1415926/180);
+         //   _button1.frame=CGRectMake(x, y, 50, 50);
+            _button1.frame=CGRectMake(x, y, 50, 75);
         }completion:^(BOOL finish){
             self.centerBtn.userInteractionEnabled=YES;
         }];
@@ -174,33 +187,150 @@
         }else if(centerY <40){
             theCenterY=60;
         }
+//        [UIView animateWithDuration:0.5 animations:^{
+//        for (UIButton *btn2 in _btnArr) {
+//            [UIView animateWithDuration:0.5 animations:^{
+//                btn2.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+//            } completion:^(BOOL finished){
+//                btn2.hidden=YES;
+//              }];
+//        }
+//        }completion:^(BOOL finished){
+//            self.centerBtn.hidden=YES;
+//            [UIView animateWithDuration:0.5 animations:^{
+//
+//                self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+//            }completion:^(BOOL finished){
+//
+//                [UIView animateWithDuration:0.5 animations:^{
+//                    self.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+//                } completion:^(BOOL finished){
+//                    self.centerBtn.hidden=NO;
+//                    self.centerBtn.userInteractionEnabled=YES;
+//                }];
+//              // self.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+////                self.centerBtn.hidden=NO;
+////                self.centerBtn.userInteractionEnabled=YES;
+//            }];
+//        }];
         
-        for (UIButton *btn2 in _btnArr) {
-            [UIView animateWithDuration:0.5 animations:^{
-                btn2.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
-            } completion:^(BOOL finished){
-                btn2.hidden=YES;
+        self.layer.masksToBounds=YES;
+        [UIView animateWithDuration:0.5 animations:^{
+            for (UIButton *btn2 in _btnArr) {
                 
                 [UIView animateWithDuration:0.5 animations:^{
-                    if (centerX==0 && centerY==0) {
-//                        self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-                        self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
-                        self.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-                    }else{
-                        self.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
-//                        self.centerBtn.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
-                        self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
-                    }
-                    self.centerBtn.layer.cornerRadius=25;
-                    self.centerBtn.layer.masksToBounds=YES;
-                    //                    self.centerBtn.userInteractionEnabled=NO;
-                }completion:^(BOOL finished){
-                    self.centerBtn.userInteractionEnabled=YES;
-                    
+                    btn2.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+                } completion:^(BOOL finished){
+                    btn2.hidden=YES;
                 }];
+            }
+        }completion:^(BOOL finished){
+           // self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+          //  self.centerBtn.frame=CGRectMake(ScreenWidth/2-35, ScreenHeight/2-35, 50, 50);
+            self.centerBtn.hidden=YES;
+            [UIView animateWithDuration:0.5 animations:^{
+                
+                self.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+                
+            } completion:^(BOOL finished){
+            
+                self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+                self.centerBtn.hidden=NO;
+//                [UIView animateWithDuration:0.5 animations:^{
+//                    self.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+//                }];
             }];
-        }
+            
+//            self.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+           // self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+            self.centerBtn.userInteractionEnabled=YES;
+        }];
+//            [UIView animateWithDuration:0.5 animations:^{
+//
+//                self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+//            }completion:^(BOOL finished){
+//
+//                [UIView animateWithDuration:0.5 animations:^{
+//                    self.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+//                } completion:^(BOOL finished){
+//                    self.centerBtn.hidden=NO;
+//                    self.centerBtn.userInteractionEnabled=YES;
+//                }];
+//                // self.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+//                //                self.centerBtn.hidden=NO;
+//                //                self.centerBtn.userInteractionEnabled=YES;
+//            }];
+//        }];
         
+        
+        
+        
+        
+        
+        
+//                self.frame=CGRectMake(ScreenWidth-25, ScreenHeight-25, 50, 50);
+//                [UIView animateWithDuration:0.5 animations:^{
+//                    if (centerX==0 && centerY==0) {
+//                   //     self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
+//                        [UIView animateWithDuration:0.5 animations:^{
+//
+//                            self.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
+//                        }completion:^(BOOL finished){
+//                             self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+//                        }];
+////                        self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+////                        self.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
+//                    }else{
+//                      //  self.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+////                        self.frame=CGRectMake(theCenterX-25, theCenterY, 50, 50);
+//                     //   self.centerBtn.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+////                        self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+////                        self.frame=CGRectMake(ScreenWidth-25, ScreenHeight-25, 50, 50);
+////                        self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+//
+////                        self.frame=CGRectMake(theCenterX-25, theCenterY, 50, 50);
+//                        self.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+//                        [UIView animateWithDuration:0.5 animations:^{
+//                           // self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+//                             self.frame=CGRectMake(theCenterX-25, theCenterY, 50, 50);
+//                          //   self.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+//                        }completion:^(BOOL finished){
+//                            self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+//
+////                            self.frame=CGRectMake(theCenterX-25, theCenterY, 50, 50);
+////                              self.frame=CGRectMake(theCenterX-25, theCenterY, 50, 50);
+//                        }];
+//                    }
+//                    self.centerBtn.layer.cornerRadius=25;
+//                    self.centerBtn.layer.masksToBounds=YES;
+//                    //                    self.centerBtn.userInteractionEnabled=NO;
+//                }completion:^(BOOL finished){
+//                    self.centerBtn.userInteractionEnabled=YES;
+//
+//
+//                }];
+//            }];
+//        }
+        
+        
+        
+//        [UIView animateWithDuration:0.5 animations:^{
+//                                       // self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+//            self.centerBtn.hidden=YES;
+////                                         self.frame=CGRectMake(theCenterX-25, theCenterY, 50, 50);
+//                                      //   self.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+//        }completion:^(BOOL finished){
+//            self.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
+//            [UIView animateWithDuration:0.5 animations:^{
+//                self.frame=CGRectMake(theCenterX-25, theCenterY, 50, 50);
+//            }completion:^(BOOL finished){
+//                self.centerBtn.hidden=NO;
+//                self.centerBtn.frame=CGRectMake(0, 0, 50, 50);
+//                self.centerBtn.userInteractionEnabled=YES;
+//            }];
+//        }];
+        
+         //  self.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 50);
     }else{
         self.frame=CGRectMake(0, 0, ScreenWidth, ScreenHeight);
         self.centerBtn.frame=CGRectMake(ScreenWidth/2-35, ScreenHeight/2-35, 70, 70);

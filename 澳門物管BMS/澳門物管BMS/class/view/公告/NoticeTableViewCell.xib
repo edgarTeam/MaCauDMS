@@ -54,6 +54,7 @@
                     <constraint firstItem="l4K-hC-QPa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zAp-5o-R8C"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="contentLab" destination="0Vb-e0-q4o" id="5Fu-tO-vd6"/>

@@ -46,10 +46,15 @@
     if (cell ==nil) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"NoticeTableViewCell" owner:self options:nil] lastObject];
     }
+   // cell.backgroundColor=[UIColor clearColor];
     [cell setUpModel:[dataSource objectAtIndex:indexPath.row]];
     
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

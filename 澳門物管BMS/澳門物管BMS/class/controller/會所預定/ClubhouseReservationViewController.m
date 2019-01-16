@@ -122,6 +122,8 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
             [_placeIdArr addObject:place.placeId];
         }
     }];
+    
+    
 }
 
 
@@ -203,7 +205,7 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
     if (![self login]) {
         return;
     }
- //   [self reuqestPlateList];
+    [self reuqestPlateList];
 }
 
 #pragma mark LSXPopMenuDelegate
