@@ -19,7 +19,7 @@ string_psw_difference ="两次输入密码不一致，请查证";
 
 
 
-string_take_album ="c相册";
+string_take_album ="相册";
 string_take_photo ="拍照";
 String_cancel= "取消";
 

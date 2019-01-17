@@ -54,7 +54,13 @@
         UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"String_login_request") preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
             LoginViewController *loginVC=[[LoginViewController alloc] init];
-            [self.navigationController pushViewController:loginVC animated:YES];
+            UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+            
+            
+            [nav pushViewController:loginVC animated:YES];
+            [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
+                [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+            }];
         }];
         [alert addAction:alertAc];
         [self presentViewController:alert animated:YES completion:nil];

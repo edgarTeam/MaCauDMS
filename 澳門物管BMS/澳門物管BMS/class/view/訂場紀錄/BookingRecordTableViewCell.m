@@ -31,7 +31,7 @@
     [_contentLab setText:model.placeIntroduction];
     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,model.placeImage]];
     [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
-    //[_image setImage:[UIImage imageNamed:model.placeImage]];
+    
 }
 
 - (void)setUpPlaceRecord:(PlaceRecord *)model{

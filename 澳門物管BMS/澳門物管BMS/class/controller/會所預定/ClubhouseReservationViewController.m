@@ -17,12 +17,13 @@
 @property (nonatomic,strong) NSMutableArray *selectIndexs;
 @property (nonatomic,strong) NSMutableArray *placeList;
 @property (nonatomic,strong) NSMutableArray *placeIdArr;
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,strong) PlaceRecord *placeRecord;
 @end
 
 @implementation ClubhouseReservationViewController
 {
-    NSArray *dataSource;
+    //NSArray *dataSource;
     NSString *placeId;
 //    NSArray *placeList;
 }
@@ -31,26 +32,34 @@
     // Do any additional setup after loading the view from its nib.
     //self.title=@"會所預定";
     self.title=LocalizedString(@"string_reservation_place_title");
-    if (![self login]) {
-        return;
-    }
-    _placeList=[NSMutableArray new];
-    _placeIdArr=[NSMutableArray new];
+
+
     _selectIndexs=[NSMutableArray new];
-dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00~10:00",@"10:00~12:00",@"12:00~14:00",@"14:00~16:00",@"16:00~18:00",@"18:00~20:00",@"20:00~22:00",@"22:00~00:00"];
+    NSArray *source=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00~10:00",@"10:00~12:00",@"12:00~14:00",@"14:00~16:00",@"16:00~18:00",@"18:00~20:00",@"20:00~22:00",@"22:00~00:00"];
+    _dataSource=[source mutableCopy];
    // _dateTableView=[[UITableView alloc] init];
     _dateTableView.tableFooterView=[UIView new];
     _dateTableView.delegate=self;
     _dateTableView.dataSource=self;
     [_dateTableView reloadData];
-    [self reuqestPlateList];
+  //  [self reuqestPlateList];
+    if (![self login]) {
+        return;
+    }
+}
+
+- (void)createView {
     
 }
+
 
 - (void)requestAddPlaceRecord{
     NSMutableArray *resultArr=[NSMutableArray new];
     for (int i=0; i<_selectIndexs.count; i++) {
-        NSString *str=[_selectIndexs[i] stringByReplacingOccurrencesOfString:@"~" withString:@""];
+       //dataSource[]
+     NSString *str1=  _dataSource[[_selectIndexs[i] intValue]];
+        NSString *str=[str1 stringByReplacingOccurrencesOfString:@"~" withString:@""];
+//        NSString *str=[_dataSource[_selectIndexs[i]] stringByReplacingOccurrencesOfString:@"~" withString:@""];
         NSString *handlerStr=[str stringByReplacingOccurrencesOfString:@":" withString:@""];
         NSString *resultStr=[handlerStr substringToIndex:2];
         [resultArr addObject:resultStr];
@@ -77,20 +86,21 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
     
     
     NSDictionary *para=@{
+                         @"orderDate":@"2018-08-08 00:00:00",
                          @"placeId":placeId,
-                         @"orderStartTime":_selectIndexs[indexLast],
-                         @"orderEndTime":_selectIndexs[indexFirst]
+                         @"orderStartTime":@"12:00:00",
+                         @"orderEndTime":@"14:00:00"
                          };
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
     NSDictionary *dic=@{
                         @"placeRecord":jsonData
                         };
-    [[WebAPIHelper sharedWebAPIHelper] postWithUrl:kAddComplain body:dic showLoading:YES success:^(NSDictionary *dic){
-        if (dic ==nil) {
+    [[WebAPIHelper sharedWebAPIHelper] postWithUrl:kAddComplain body:dic showLoading:YES success:^(NSDictionary *resultDic){
+        if (resultDic ==nil) {
             return ;
         }
-        _placeRecord=[PlaceRecord mj_setKeyValues:dic[@"data"]];
+        _placeRecord=[PlaceRecord mj_setKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){
         NSLog(@"%@",error);
     }];
@@ -115,8 +125,11 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
             return ;
         }
          NSMutableArray *array=[dic objectForKey:@"list"];
+       
         NSMutableArray *placeArr=[NSMutableArray new];
         placeArr=[Place mj_objectArrayWithKeyValuesArray:array];
+        _placeList=[NSMutableArray new];
+        _placeIdArr=[NSMutableArray new];
         for (Place *place in placeArr) {
             [_placeList addObject:place.placeName];
             [_placeIdArr addObject:place.placeId];
@@ -143,8 +156,8 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-     NSLog(@"data的個數%ld",dataSource.count);
-    return dataSource.count;
+     NSLog(@"data的個數%ld",_dataSource.count);
+    return _dataSource.count;
    
 }
 
@@ -154,7 +167,7 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
     if (cell == nil) {
         cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDentified];
     }
-    cell.textLabel.text=dataSource[indexPath.row];
+    cell.textLabel.text=_dataSource[indexPath.row];
     NSLog(@"%@",cell.textLabel.text);
 
     return cell;
@@ -166,17 +179,18 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-        [_selectIndexs removeObject:indexPath]; //数据移除
+        [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
         
     }else { //未选中
         cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-        [_selectIndexs addObject:indexPath]; //添加索引数据到数组
+        [_selectIndexs addObject:@(indexPath.row)]; //添加索引数据到数组
         if (_selectIndexs.count >=2) {
             NSIndexPath *i;
             i=[_selectIndexs objectAtIndex:_selectIndexs.count-2];
             NSMutableArray *vArr=[NSMutableArray new];
             for (int z=0; z<_selectIndexs.count; z++) {
-                int j=[_selectIndexs.lastObject row]-[[_selectIndexs objectAtIndex:z] row];
+//                int j=[_selectIndexs.lastObject]-[_selectIndexs objectAtIndex:z] ;
+                int j=[_selectIndexs.lastObject intValue]-[[_selectIndexs objectAtIndex:z] intValue];
                 //  NSString *str=[NSString stringWithFormat:@"%d",j];
                 [vArr addObject:[NSString stringWithFormat:@"%d",j]];
                 
@@ -184,10 +198,10 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
             if ([vArr containsObject:@"2"]) {
                 if ([vArr containsObject:@"1"]){
                     cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-                    [_selectIndexs addObject:indexPath];
+                    [_selectIndexs addObject:@(indexPath.row)];
                 }else{
                     cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-                    [_selectIndexs removeObject:indexPath]; //数据移除
+                    [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
                 }
             }
             
@@ -205,6 +219,7 @@ dataSource=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00
     if (![self login]) {
         return;
     }
+//    [self checkLogin];
     [self reuqestPlateList];
 }
 

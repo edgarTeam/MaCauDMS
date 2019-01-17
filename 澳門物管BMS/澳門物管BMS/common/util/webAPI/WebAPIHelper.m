@@ -72,6 +72,9 @@ static AFHTTPSessionManager *_manager;
     }];
 }
 
+
+
+
 -(void)postUserDetail:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
     [self.httpHelper postDicWithURL:kUserDetail parameters:parameters needLoading:YES success:completion failure:^(NSError * _Nonnull error) {
         NSLog(@"%@",error);

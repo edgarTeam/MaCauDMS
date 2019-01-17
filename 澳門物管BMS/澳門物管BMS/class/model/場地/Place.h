@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString *placeTraditionalName;
 @property (nonatomic,assign)NSInteger placeUpperLimit;
 @property (nonatomic,copy)NSString *updateTime;
+@property (nonatomic,assign) NSInteger placeStatus;
 @end
 
 NS_ASSUME_NONNULL_END

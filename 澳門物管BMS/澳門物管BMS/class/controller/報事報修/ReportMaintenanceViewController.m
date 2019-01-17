@@ -43,9 +43,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事維修";
-    if (![self login]) {
-        return;
-    }
+
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.headView.hidden=YES;
     self.dataSource=[NSMutableArray new];

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RequestResultModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 用戶登陸
 - (void)postUserLogin:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
+
+
 
 
 #pragma mark 用戶详情

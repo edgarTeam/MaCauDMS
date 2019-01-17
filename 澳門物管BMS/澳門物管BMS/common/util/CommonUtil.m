@@ -5,7 +5,7 @@
 //  Created by geanguo_lucky on 2018/12/23.
 //  Copyright © 2018 geanguo_lucky. All rights reserved.
 //
-
+#import "ZKAlertTool/ZKAlertTool.h"
 #import "CommonUtil.h"
 #import "User.h"
 @implementation CommonUtil
@@ -23,6 +23,8 @@
 +(BOOL)isRequestOK:(id)response{
     if ([response isKindOfClass: [NSDictionary class]]){
         NSDictionary *dictResp = (NSDictionary *)response;
+        NSLog(@"%@",[dictResp objectForKey:@"msg"] );
+        NSLog(@"%d",[[dictResp objectForKey:@"code"] intValue]);
         switch ([[dictResp objectForKey:@"code"] intValue]) {
                 //            case 1:{
                 //                NSLog(@"Util Response , request success");
@@ -38,6 +40,11 @@
                 //
                 //                NSLog(@"Util Response , Missing input");
                 //                return NO;}
+            case 100:
+            {
+                [ZKAlertTool showAlertWithMsg:@"未登录/登陆缓存已过期，请重新登陆"];
+                return  NO;
+            }
             case 102: //没有这条纪录
             { NSLog(@"Util Response ,  No record");
                 return NO;}
@@ -59,7 +66,10 @@
                 return  YES;
                 
             }
-           
+            case 105:{
+                [ZKAlertTool showAlertWithMsg:@"账号或者密码不对"];
+                return NO;
+            }
                 //            case 401:{
                 //                //        storyBoard_ = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 //                LoginNavigationController *loginVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]

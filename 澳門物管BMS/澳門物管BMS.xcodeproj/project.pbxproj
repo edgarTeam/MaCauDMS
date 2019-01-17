@@ -13,6 +13,7 @@
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
 		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
 		CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */; };
+		CB019E9821F0B382004A88D8 /* RequestResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB019E9721F0B382004A88D8 /* RequestResultModel.m */; };
 		CB02667F21D8CF3F00561B1C /* LeftViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02667D21D8CF3F00561B1C /* LeftViewTableViewCell.m */; };
 		CB02668021D8CF3F00561B1C /* LeftViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB02667E21D8CF3F00561B1C /* LeftViewTableViewCell.xib */; };
 		CB02668421D8D03F00561B1C /* LeftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02668321D8D03F00561B1C /* LeftModel.m */; };
@@ -118,6 +119,8 @@
 		CB017BC521DB294C00BB6BFD /* UserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
+		CB019E9621F0B382004A88D8 /* RequestResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestResultModel.h; sourceTree = "<group>"; };
+		CB019E9721F0B382004A88D8 /* RequestResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestResultModel.m; sourceTree = "<group>"; };
 		CB02667C21D8CF3F00561B1C /* LeftViewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewTableViewCell.h; sourceTree = "<group>"; };
 		CB02667D21D8CF3F00561B1C /* LeftViewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewTableViewCell.m; sourceTree = "<group>"; };
 		CB02667E21D8CF3F00561B1C /* LeftViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftViewTableViewCell.xib; sourceTree = "<group>"; };
@@ -756,6 +759,8 @@
 				CBFFF12E21CF9DE8008BA2A0 /* webAPI */,
 				CBFFF13621CF9F68008BA2A0 /* CommonUtil.h */,
 				CBFFF13721CF9F68008BA2A0 /* CommonUtil.m */,
+				CB019E9621F0B382004A88D8 /* RequestResultModel.h */,
+				CB019E9721F0B382004A88D8 /* RequestResultModel.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -1035,6 +1040,7 @@
 				CB04506221D122CE00EB59D7 /* Notice.m in Sources */,
 				CB04506D21D1374D00EB59D7 /* Place.m in Sources */,
 				CB6C9BB721C1672300B5A9E9 /* main.m in Sources */,
+				CB019E9821F0B382004A88D8 /* RequestResultModel.m in Sources */,
 				CB5C392F21E39A8C008E3A64 /* NoticeDetailViewController.m in Sources */,
 				CBFE45B921C9547600DD80E4 /* ClubhouseReservationViewController.m in Sources */,
 				323A128321F06741009891ED /* SuspensionMenu.m in Sources */,
