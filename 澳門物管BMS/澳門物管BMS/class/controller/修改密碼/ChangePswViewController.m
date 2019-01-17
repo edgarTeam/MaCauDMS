@@ -53,7 +53,7 @@
     }
     NSDictionary *para=@{
                          @"password":_oldPsdTextField.text,
-                         @"newpassword":_changePsdTextField
+                         @"newpassword":_changePsdTextField.text
                          };
     [[WebAPIHelper sharedWebAPIHelper] postUpdatePsd:para completion:^(NSString *result){
         if (result ==nil) {
