@@ -16,7 +16,6 @@
 #import "ClubhouseReservationViewController.h"
 #import "ReportMaintenanceViewController.h"
 #import "SettingViewController.h"
-#import "SuspensionView.h"
 #import "BaseViewController.h"
 #import "UpdateHelper.h"
 #import "SuspensionModel.h"
@@ -36,7 +35,6 @@
 @property (nonatomic,strong) NSMutableArray *labelArr;
 @property (nonatomic,strong) NSMutableArray *labelNameArr;
 
-@property (nonatomic,strong) SuspensionView *suspensionView;
 @property (nonatomic,strong) ComplainViewController *complainVC;
 @property (nonatomic,strong) ClubhouseReservationViewController *clubVC;
 @property (nonatomic,strong) ReportMaintenanceViewController *reportVC;
@@ -378,18 +376,18 @@
 //    UITouch *touch=event.allTouches.anyObject;
 //    CGPoint *point=[touch locationInView:self.window.rootViewController.view];
 //}
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [super touchesBegan:touches withEvent:event];
-    UITouch *touch=[touches anyObject];
-    CGPoint point =[touch locationInView:self.window];
-    if (!CGRectContainsPoint(self.centerBtn.frame, point)) {
-     //   [self.centerBtn removeFromSuperview];
-        if (!CGRectContainsPoint(self.button1.frame, point)) {
-            self.show=NO;
-        }
-
-    }
-}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    [super touchesBegan:touches withEvent:event];
+//    UITouch *touch=[touches anyObject];
+//    CGPoint point =[touch locationInView:self.window];
+//    if (!CGRectContainsPoint(self.centerBtn.frame, point)) {
+//     //   [self.centerBtn removeFromSuperview];
+//        if (!CGRectContainsPoint(self.button1.frame, point)) {
+//            self.show=NO;
+//        }
+//
+//    }
+//}
 
 #pragma suspensionDelegate
 

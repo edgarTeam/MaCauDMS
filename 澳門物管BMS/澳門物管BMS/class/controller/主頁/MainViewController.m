@@ -5,7 +5,6 @@
 //  Created by geanguo_lucky on 2018/12/16.
 //  Copyright © 2018 geanguo_lucky. All rights reserved.
 //
-#import "SuspensionView.h"
 #import "MainViewController.h"
 #import "MMDrawerController.h"
 #import "UIViewController+MMDrawerController.h"
@@ -15,7 +14,7 @@
 @interface MainViewController ()
 @property (nonatomic,strong) UIButton *sliderBtn;
 @property (nonatomic,strong) UIButton *rightBtn;
-@property (nonatomic,strong) SuspensionView *suspensionView;
+//@property (nonatomic,strong) SuspensionView *suspensionView;
 @end
 
 @implementation MainViewController
@@ -26,7 +25,6 @@
     CGRect statusRect=[[UIApplication sharedApplication] statusBarFrame];
     CGFloat height=statusRect.size.height;
     
-    _suspensionView=[[SuspensionView alloc] init];
     _sliderBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     [_sliderBtn setImage:[UIImage imageNamed:@"list"] forState:UIControlStateNormal];
     [_sliderBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -50,16 +48,14 @@
 }
 
 - (void)onClick:(UIButton *)sender {
-    _suspensionView.show=YES;
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-    
+
 }
 
 - (void)noticeBtnAction:(UIButton *)sender {
 
    // _suspensionView.show=YES;
    // [_suspensionView setShow:!_suspensionView.show];
-    [_suspensionView setShow:NO];
     AnnouncementViewController *announceVC=[AnnouncementViewController new];
     [self.navigationController pushViewController:announceVC animated:YES];
 }

@@ -8,6 +8,7 @@
 #import <MJExtension/MJExtension.h>
 #import "LoginViewController.h"
 #import "WebAPIHelper.h"
+#import "HttpHelper.h"
 #import "User.h"
 #import "ChangePswViewController.h"
 #import "ForgetPswViewController.h"
@@ -57,6 +58,7 @@
                 NSString * loginToken=[dic objectForKey:@"token"];
                 NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
                 [userDefaults setObject:loginToken forKey:LoginToken];
+                [[HttpHelper shareHttpHelper] resetToken:loginToken];
                 [CommonUtil storeUser];
                 [self.navigationController popViewControllerAnimated:YES];
             }

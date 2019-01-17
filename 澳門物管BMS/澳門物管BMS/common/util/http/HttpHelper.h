@@ -88,6 +88,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)downLoadFileToSandBox:(NSString *)urlString completion:(void (^)(NSURL *sandBoxPath))completion;
 
 
+- (void)resetToken:(NSString *)token;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -28,8 +28,6 @@ static AFHTTPSessionManager *_manager;
     dispatch_once(&onceToken, ^{
         _instance = [super allocWithZone:zone];
         _manager = [AFHTTPSessionManager manager];
-        
-        
             NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:LoginToken];
             [_manager.requestSerializer  setValue:token forHTTPHeaderField:@"Authorization"]; //uuid
             _manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
@@ -48,6 +46,10 @@ static AFHTTPSessionManager *_manager;
     });
     
     return _instance;
+}
+
+-(void)resetToken:(NSString *)token{
+    [_manager.requestSerializer  setValue:token forHTTPHeaderField:@"Authorization"];
 }
 
 #pragma mark - private method

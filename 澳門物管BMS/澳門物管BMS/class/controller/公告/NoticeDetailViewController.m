@@ -47,7 +47,7 @@
         if (dic ==nil) {
             return ;
         }
-        self.notice=[Notice mj_setKeyValues:dic];
+        self.notice=[Notice mj_objectWithKeyValues:dic];
         self.noticeTitleLab.text=self.notice.noticeTitle;
         NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,self.notice.noticeImage]];
         [self.noticeImageView sd_setImageWithURL:url placeholderImage:kEMPTYIMG];

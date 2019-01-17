@@ -11,7 +11,6 @@
 		323A128221F06741009891ED /* CircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A127E21F06741009891ED /* CircleButton.m */; };
 		323A128321F06741009891ED /* SuspensionMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A128021F06741009891ED /* SuspensionMenu.m */; };
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
-		CB017BC321DB181400BB6BFD /* SuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC221DB181400BB6BFD /* SuspensionView.m */; };
 		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
 		CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */; };
 		CB02667F21D8CF3F00561B1C /* LeftViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB02667D21D8CF3F00561B1C /* LeftViewTableViewCell.m */; };
@@ -116,8 +115,6 @@
 		323A128121F06741009891ED /* SuspensionMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspensionMenu.h; sourceTree = "<group>"; };
 		6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.release.xcconfig"; sourceTree = "<group>"; };
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
-		CB017BC121DB181400BB6BFD /* SuspensionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuspensionView.h; sourceTree = "<group>"; };
-		CB017BC221DB181400BB6BFD /* SuspensionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuspensionView.m; sourceTree = "<group>"; };
 		CB017BC521DB294C00BB6BFD /* UserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
@@ -327,8 +324,6 @@
 			children = (
 				323A127D21F06733009891ED /* view */,
 				323A127921F0670F009891ED /* model */,
-				CB017BC121DB181400BB6BFD /* SuspensionView.h */,
-				CB017BC221DB181400BB6BFD /* SuspensionView.m */,
 			);
 			path = "悬浮";
 			sourceTree = "<group>";
@@ -1016,7 +1011,6 @@
 				CBFE45BE21C954DE00DD80E4 /* SettingViewController.m in Sources */,
 				CB42089F21C2B1E600980B64 /* BaseNavigationViewController.m in Sources */,
 				CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */,
-				CB017BC321DB181400BB6BFD /* SuspensionView.m in Sources */,
 				CB05F35B21E1AB2D00208C5E /* PhotpCollectionViewCell.m in Sources */,
 				CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */,
 				CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */,
