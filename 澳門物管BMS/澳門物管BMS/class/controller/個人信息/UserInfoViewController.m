@@ -36,14 +36,16 @@
     
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.nameLab.text=[User shareUser].username;
-    if ([User shareUser].sex ==0) {
+    if ([[User shareUser].sex integerValue]==0) {
         self.sexLab.text = LocalizedString(@"string_sex_female");
-    }else if ([User shareUser].sex ==1){
+    }else if ([[User shareUser].sex integerValue] ==1){
         self.sexLab.text = LocalizedString(@"string_sex_male");
     }
+    self.headImage.layer.masksToBounds = YES;
+    self.headImage.layer.cornerRadius = self.headImage.frame.size.width/2;
   //  self.sexLab.text=[User shareUser].sex;
-    self.telLab.text=[NSString stringWithFormat:@"%ld", [User shareUser].tel ];
-    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
+    self.telLab.text=[NSString stringWithFormat:@"%@", [User shareUser].tel ];
+    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,[User shareUser].portrait]];
     [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
     
     // Do any additional setup after loading the view from its nib.

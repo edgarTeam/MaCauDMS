@@ -174,24 +174,21 @@
 + (void)storeUser{
     User *user =  [User shareUser];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [ userDefaults setObject:nil forKey:@"birthday"];
-    [ userDefaults setObject:nil forKey:@"communityId"];
-    [ userDefaults setObject:nil forKey:@"countryCode"];
-    [ userDefaults setObject:nil forKey:@"createTime"];
-    [ userDefaults setObject:nil forKey:@"deleted"];
-    [ userDefaults setObject:nil forKey:@"email"];
-    [ userDefaults setObject:nil forKey:@"englishName"];
-    [ userDefaults setObject:nil forKey:@"idCard"];
-    [ userDefaults setObject:nil forKey:@"marriageSystem"];
-    [ userDefaults setObject:nil forKey:@"mateName"];
-    [ userDefaults setObject:nil forKey:@"name"];
-    [ userDefaults setObject:nil forKey:@"password"];
-    [ userDefaults setObject:nil forKey:@"portrait"];
-    [ userDefaults setObject:nil forKey:@"sex"];
-    [ userDefaults setObject:nil forKey:@"tel"];
-    [ userDefaults setObject:nil forKey:@"updateTime"];
-    [ userDefaults setObject:nil forKey:@"userId"];
-    [ userDefaults setObject:nil forKey:@"username"];
+    [ userDefaults setObject:user.birthday forKey:@"birthday"];
+    [ userDefaults setObject:user.communityId forKey:@"communityId"];
+    [ userDefaults setObject:user.countryCode forKey:@"countryCode"];
+    [ userDefaults setObject:user.deleted forKey:@"deleted"];
+    [ userDefaults setObject:user.email forKey:@"email"];
+    [ userDefaults setObject:user.englishName forKey:@"englishName"];
+    [ userDefaults setObject:user.idCard forKey:@"idCard"];
+    [ userDefaults setObject:user.marriageSystem forKey:@"marriageSystem"];
+    [ userDefaults setObject:user.mateName forKey:@"mateName"];
+    [ userDefaults setObject:user.name forKey:@"name"];
+    [ userDefaults setObject:user.portrait forKey:@"portrait"];
+    [ userDefaults setObject:user.sex forKey:@"sex"];
+    [ userDefaults setObject:user.tel forKey:@"tel"];
+    [ userDefaults setObject:user.userId forKey:@"userId"];
+    [ userDefaults setObject:user.username forKey:@"username"];
 }
 //
 //
@@ -205,7 +202,6 @@
         user.communityId =[userDefaults objectForKey:@"communityId"];
         user.sex = [userDefaults objectForKey:@"sex"] ;
         user.countryCode=[userDefaults objectForKey:@"countryCode"];
-        user.createTime=[userDefaults objectForKey:@"createTime"];
 //        user.deleted=[userDefaults objectForKey:@"deleted"];
         user.email=[userDefaults objectForKey:@"email"];
         user.englishName=[userDefaults objectForKey:@"englishName"];
@@ -213,9 +209,7 @@
         user.marriageSystem=[userDefaults objectForKey:@"marriageSystem"];
         user.mateName=[userDefaults objectForKey:@"mateName"];
         user.name=[userDefaults objectForKey:@"name"];
-        user.password=[userDefaults objectForKey:@"password"];
         user.portrait=[userDefaults objectForKey:@"portrait"];
-        user.updateTime=[userDefaults objectForKey:@"updateTime"];
         user.userId=[userDefaults objectForKey:@"userId"];
         user.username=[userDefaults objectForKey:@"username"];
 
@@ -236,7 +230,6 @@
     [ userDefaults setObject:nil forKey:@"birthday"];
     [ userDefaults setObject:nil forKey:@"communityId"];
     [ userDefaults setObject:nil forKey:@"countryCode"];
-    [ userDefaults setObject:nil forKey:@"createTime"];
     [ userDefaults setObject:nil forKey:@"deleted"];
     [ userDefaults setObject:nil forKey:@"email"];
     [ userDefaults setObject:nil forKey:@"englishName"];
@@ -244,11 +237,9 @@
     [ userDefaults setObject:nil forKey:@"marriageSystem"];
     [ userDefaults setObject:nil forKey:@"mateName"];
     [ userDefaults setObject:nil forKey:@"name"];
-    [ userDefaults setObject:nil forKey:@"password"];
     [ userDefaults setObject:nil forKey:@"portrait"];
     [ userDefaults setObject:nil forKey:@"sex"];
     [ userDefaults setObject:nil forKey:@"tel"];
-    [ userDefaults setObject:nil forKey:@"updateTime"];
     [ userDefaults setObject:nil forKey:@"userId"];
     [ userDefaults setObject:nil forKey:@"username"];
     

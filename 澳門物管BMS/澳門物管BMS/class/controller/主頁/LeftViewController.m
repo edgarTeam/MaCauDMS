@@ -17,6 +17,7 @@
 #import "LoginViewController.h"
 #import "UserInfoViewController.h"
 #import "User.h"
+#import "UIButton+WebCache.h"
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *table;
@@ -24,7 +25,6 @@
 @property (nonatomic,strong) UIButton *headBtn;
 @property (nonatomic,strong) UILabel *versionlab;
 @property (nonatomic,strong) UILabel *weatherLab;
-@property (nonatomic,strong) UIImageView *headImage;
 @end
 
 @implementation LeftViewController
@@ -46,7 +46,7 @@
    // _headBtn.backgroundColor=[UIColor redColor];
     _headBtn.layer.masksToBounds=YES;
     _headBtn.layer.cornerRadius=40;
-   // [_headBtn setImage:[UIImage imageNamed:@"work"] forState:UIControlStateNormal];
+   // [_headBtn setImage:[UIImage iSuspensionView.hmageNamed:@"work"] forState:UIControlStateNormal];
    // NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
    // [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
    // [_headBtn setBackgroundImage:[UIImage ] forState:<#(UIControlState)#>];
@@ -62,21 +62,22 @@
         make.width.mas_equalTo(80);
         make.height.mas_equalTo(_headBtn.mas_width);
     }];
+    
 
     
-    _headImage=[[UIImageView alloc] init];
-  //  _headImage.image = kEMPTYIMG;
-    _headImage.layer.masksToBounds=YES;
-    _headImage.layer.cornerRadius=_headBtn.frame.size.width/2;
-     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
-     [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
-    [self.view addSubview:_headImage];
-    [_headImage mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.mas_equalTo(_headBtn.mas_top);
-        make.left.mas_equalTo(_headBtn.mas_left);
-        make.right.mas_equalTo(_headBtn.mas_right);
-        make.bottom.mas_equalTo(_headBtn.mas_bottom);
-    }];
+//    _headImage=[[UIImageView alloc] init];
+//  //  _headImage.image = kEMPTYIMG;
+//    _headImage.layer.masksToBounds=YES;
+//    _headImage.layer.cornerRadius=_headBtn.frame.size.width/2;
+//     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,[User shareUser].portrait]];
+//     [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
+//    [self.view addSubview:_headImage];
+//    [_headImage mas_makeConstraints:^(MASConstraintMaker *make){
+//        make.top.mas_equalTo(_headBtn.mas_top);
+//        make.left.mas_equalTo(_headBtn.mas_left);
+//        make.right.mas_equalTo(_headBtn.mas_right);
+//        make.bottom.mas_equalTo(_headBtn.mas_bottom);
+//    }];
     
     _versionlab=[[UILabel alloc] init];
     _versionlab.textColor=RGB(138, 138, 138);
@@ -154,13 +155,12 @@
 - (void) setUpLoginBtn{
     if (self.token.length==0) {
         [_loginOutBtn setTitle:LocalizedString(@"string_login_in") forState:UIControlStateNormal];
-        [self.headImage setImage:kEMPTYIMG];
+        [self.headBtn setImage:kEMPTYIMG forState:UIControlStateNormal];
     }else{
         [_loginOutBtn setTitle:LocalizedString(@"string_login_out") forState:UIControlStateNormal];
         NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,[User shareUser].portrait]];
-        [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-           
-        }];
+        
+        [self.headBtn sd_setImageWithURL:url forState:UIControlStateNormal placeholderImage:kEMPTYIMG];
         // [_loginOutBtn.titleLabel setText:@"登出"];
     }
     

@@ -19,7 +19,9 @@
 #import "SuspensionView.h"
 #import "BaseViewController.h"
 #import "UpdateHelper.h"
-@interface AppDelegate ()
+#import "SuspensionModel.h"
+#import "SuspensionMenu.h"
+@interface AppDelegate ()<SuspensionMenuDelegate>
 @property(nonatomic,strong)MMDrawerController *drawer;
 @property (nonatomic,strong) UIButton *centerBtn;
 @property (nonatomic,strong) UIImage *image;
@@ -39,16 +41,18 @@
 @property (nonatomic,strong) ClubhouseReservationViewController *clubVC;
 @property (nonatomic,strong) ReportMaintenanceViewController *reportVC;
 @property (nonatomic,strong) SettingViewController *setVC;
+@property (nonatomic, strong) NSArray *menuArray;
+@property (nonatomic, strong) SuspensionMenu *suspensionMenu;
 @end
 
 @implementation AppDelegate
 {
-    CGFloat theCenterX;
-    CGFloat theCenterY;
-    CGFloat centerX;
-    CGFloat centerY;
-    CGFloat radius;
-    int a;
+//    CGFloat theCenterX;
+//    CGFloat theCenterY;
+//    CGFloat centerX;
+//    CGFloat centerY;
+//    CGFloat radius;
+//    int a;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -72,6 +76,10 @@
     self.drawer.maximumRightDrawerWidth = ScreenWidth/2;
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setRootViewController:self.drawer];
+    
+    self.suspensionMenu = [[SuspensionMenu alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
+    self.suspensionMenu.delegate = self;
+    
 //    _suspensionView=[[SuspensionView alloc] init];
 //    [_suspensionView.button1 addTarget:self action:@selector(handleClick:) forControlEvents:UIControlEventTouchUpInside];
     //_suspensionView.userInteractionEnabled=NO;
@@ -79,256 +87,256 @@
 //    _suspensionView=[[SuspensionView alloc] init];
 //    [self.drawer.view addSubview:_suspensionView];
     
-//    [self.window.rootViewController.view  addSubview:_suspensionView];
-//    [self.window.rootViewController.view bringSubviewToFront:_suspensionView];
+    [self.window.rootViewController.view  addSubview:_suspensionMenu];
+    [self.window.rootViewController.view bringSubviewToFront:_suspensionMenu];
     [self.window makeKeyAndVisible];
-    self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);
-    [self.centerBtn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
-    self.centerBtn.layer.cornerRadius=self.centerBtn.frame.size.width/2;
-    self.centerBtn.layer.cornerRadius=25;
-    self.centerBtn.layer.masksToBounds=YES;
-    self.centerBtn.layer.borderWidth=0.5;
-    self.centerBtn.layer.borderColor=RGB(138, 138, 138).CGColor;
-    [self.centerBtn addTarget:self action:@selector(choose:) forControlEvents:UIControlEventTouchUpInside];
+//    self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+//    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
+//    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);
+//    [self.centerBtn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
+//    self.centerBtn.layer.cornerRadius=self.centerBtn.frame.size.width/2;
+//    self.centerBtn.layer.cornerRadius=25;
+//    self.centerBtn.layer.masksToBounds=YES;
+//    self.centerBtn.layer.borderWidth=0.5;
+//    self.centerBtn.layer.borderColor=RGB(138, 138, 138).CGColor;
+//    [self.centerBtn addTarget:self action:@selector(choose:) forControlEvents:UIControlEventTouchUpInside];
+//
+//    [self.window.rootViewController.view addSubview:self.centerBtn];
+//    [self.drawer.view addSubview:self.centerBtn];
+//    _panGestureRecognizer = [[UIPanGestureRecognizer alloc]
 
-    [self.window.rootViewController.view addSubview:self.centerBtn];
-    [self.drawer.view addSubview:self.centerBtn];
-    _panGestureRecognizer = [[UIPanGestureRecognizer alloc]
-
-                             initWithTarget:self
-
-                             action:@selector(handlePan:)];
-
-    [self.centerBtn addGestureRecognizer:_panGestureRecognizer];
-    [self.centerBtn addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
+//                             initWithTarget:self
+//
+//                             action:@selector(handlePan:)];
+//
+//    [self.centerBtn addGestureRecognizer:_panGestureRecognizer];
+//    [self.centerBtn addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
     return YES;
 }
 
-- (void) handlePan:(UIPanGestureRecognizer*) recognizer
-{
-    CGPoint translation = [recognizer translationInView:self.window.rootViewController.view];
-    centerX=recognizer.view.center.x+ translation.x;
-    centerY=recognizer.view.center.y+ translation.y;
-    theCenterX=centerX;
-    theCenterY=centerY;
-    // recognizer.view.center=CGPointMake(centerX,
-    //                                       recognizer.view.center.y+ translation.y);
-    recognizer.view.center=CGPointMake(centerX,centerY);
-    [recognizer setTranslation:CGPointZero inView:self.window.rootViewController.view];
-    if(recognizer.state==UIGestureRecognizerStateEnded|| recognizer.state==UIGestureRecognizerStateCancelled) {
-        if(centerX>ScreenWidth/2) {
-            theCenterX=ScreenWidth-50/2;
-        }else{
-            theCenterX=50/2;
-        }
-        if (centerY >ScreenHeight-40 ) {
-            theCenterY=ScreenHeight-60;
-        }else if(centerY <40){
-            theCenterY=60;
-        }
-        [UIView animateWithDuration:0.3 animations:^{
-            //            recognizer.view.center=CGPointMake(thecenter,
-            //                                               recognizer.view.center.y+ translation.y);
-            recognizer.view.center=CGPointMake(theCenterX,theCenterY);
-        }];
-    }
-    
-}
+//- (void) handlePan:(UIPanGestureRecognizer*) recognizer
+//{
+//    CGPoint translation = [recognizer translationInView:self.window.rootViewController.view];
+//    centerX=recognizer.view.center.x+ translation.x;
+//    centerY=recognizer.view.center.y+ translation.y;
+//    theCenterX=centerX;
+//    theCenterY=centerY;
+//    // recognizer.view.center=CGPointMake(centerX,
+//    //                                       recognizer.view.center.y+ translation.y);
+//    recognizer.view.center=CGPointMake(centerX,centerY);
+//    [recognizer setTranslation:CGPointZero inView:self.window.rootViewController.view];
+//    if(recognizer.state==UIGestureRecognizerStateEnded|| recognizer.state==UIGestureRecognizerStateCancelled) {
+//        if(centerX>ScreenWidth/2) {
+//            theCenterX=ScreenWidth-50/2;
+//        }else{
+//            theCenterX=50/2;
+//        }
+//        if (centerY >ScreenHeight-40 ) {
+//            theCenterY=ScreenHeight-60;
+//        }else if(centerY <40){
+//            theCenterY=60;
+//        }
+//        [UIView animateWithDuration:0.3 animations:^{
+//            //            recognizer.view.center=CGPointMake(thecenter,
+//            //                                               recognizer.view.center.y+ translation.y);
+//            recognizer.view.center=CGPointMake(theCenterX,theCenterY);
+//        }];
+//    }
+//
+//}
 
--(void)choose:(UIButton *)btn{
-    if (self.centerBtn.selected) {
-        self.show=NO;
-    }else{
-        self.show=YES;
-    }
-}
+//-(void)choose:(UIButton *)btn{
+//    if (self.centerBtn.selected) {
+//        self.show=NO;
+//    }else{
+//        self.show=YES;
+//    }
+//}
 
-- (void)addBtn{
-    radius=ScreenWidth/2-35-25-10;
-    _btnArr=[NSMutableArray array];
-    _labelArr=[NSMutableArray array];
-//    self.arr=[NSMutableArray arrayWithObjects:@"bank",@"three",@"woker",@"tv",@"one",@"two",@"people",@"teacher",@"up",nil];
-     self.arr=[NSMutableArray arrayWithObjects:@"complain",@"place",@"repairsec",@"settingsec",nil];
-    int a=360/self.arr.count;
-//    self.labelNameArr=[NSMutableArray arrayWithObjects:@"投訴",@"會所預定",@"報事維修",@"設置", nil];
-        self.labelNameArr=[NSMutableArray arrayWithObjects:LocalizedString(@"string_complain_title"),LocalizedString(@"string_reservation_place_title"),LocalizedString(@"string_report_maintenance_title"),LocalizedString(@"string_set_title"), nil];
-    
-    for (int i = 0; i < self.arr.count; i++) {
-//        _label=[[UILabel alloc] init];
-//        _label.font=[UIFont systemFontOfSize:14.0];
-//        _label.text=[self.labelNameArr objectAtIndex:i];
-        _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        _button1.tag = i+1;
-      //  _button1.layer.cornerRadius = 50/2;
-      //  _button1.layer.masksToBounds = YES;
-        _button1.userInteractionEnabled = YES;
-        NSString *name=[self.arr objectAtIndex:i];
-        [_button1 setImage:[UIImage imageNamed:name] forState:UIControlStateNormal];
-         _button1.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 75);
-         _button1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [_button1 setTitle:self.labelNameArr[i] forState:UIControlStateNormal];
-        //_button1.titleLabel.textColor=RGB(138, 138, 138);
-        [_button1 setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
-        [_button1.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
-       // [_button1.titleLabel setText:self.labelNameArr[i]];
-        [_button1 setTitleEdgeInsets:UIEdgeInsetsMake(_button1.imageView.frame.size.height, -_button1.imageView.frame.size.width, 0, 0)];
-        NSLog(@"值是：：：%f",(_button1.frame.size.height/2-_button1.imageView.frame.size.height/2));
-        [_button1 setImageEdgeInsets:UIEdgeInsetsMake( -(_button1.frame.size.height/2-_button1.imageView.frame.size.height/2), 0, 0, -_button1.titleLabel.frame.size.width)];
-        _button1.hidden=NO;
-       
-        
-      //  _button1.backgroundColor=[UIColor blackColor];
-        
-        [_button1 addTarget:self action:@selector(handleClick:)forControlEvents:UIControlEventTouchUpInside];
-//        [self.window addSubview:_label];
-        [self.window addSubview:_button1];
-        
-        [UIView animateWithDuration:0.5 animations:^{
-           
-            CGFloat x=[UIScreen mainScreen].bounds.size.width/2-25+radius*cosf((_button1.tag-1)*a*3.1415926/180);
-            CGFloat y=[UIScreen mainScreen].bounds.size.height/2-37+radius*sinf((_button1.tag-1)*a*3.1415926/180);
-            _button1.frame=CGRectMake(x, y, 50, 75);
-//            [_label mas_makeConstraints:^(MASConstraintMaker *make){
-//                make.centerX.mas_equalTo(_button1);
-//               make.top.mas_equalTo(_button1.mas_bottom).offset(5);
-//            }];
-        }completion:^(BOOL finish){
-
-            self.centerBtn.userInteractionEnabled=YES;
-        }];
-        [_btnArr addObject:_button1];
-//        [_labelArr addObject:_label];
-        // NSLog(@"%ld",_btnArr.count);
-    }
-    NSLog(@"%ld",_btnArr.count);
-}
-- (void)setShow:(BOOL)show{
-//     self.centerBtn.userInteractionEnabled=NO;
-    _show=show;
-    self.centerBtn.selected=show;
-    
-    
-    NSLog(@"%ld",_btnArr.count);
-    //   array=_btnArr;
-    
-    if (!show) {
-        
-        if(centerX>ScreenWidth/2) {
-            theCenterX=ScreenWidth-50/2;
-        }else{
-            theCenterX=50/2;
-        }
-      
-        if (centerY >ScreenHeight-40 ) {
-            theCenterY=ScreenHeight-60;
-        }else if(centerY <40){
-            theCenterY=60;
-        }
-       
-        for (UIButton *btn2 in _btnArr) {
-            [UIView animateWithDuration:0.5 animations:^{
-                btn2.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 70);
-            } completion:^(BOOL finished){
-                btn2.hidden=YES;
-            
-                [UIView animateWithDuration:0.5 animations:^{
-                if (centerX==0 && centerY==0) {
-//                    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-                    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);
-                }else{
-                    self.centerBtn.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
-                }
-                self.centerBtn.layer.cornerRadius=25;
-                self.centerBtn.layer.masksToBounds=YES;
-//                    self.centerBtn.userInteractionEnabled=NO;
-                }completion:^(BOOL finished){
-                  //  self.centerBtn.userInteractionEnabled=YES;
-                }];
-            }];
-        }
-        
-//        for (UILabel *label2 in _labelArr) {
+//- (void)addBtn{
+//    radius=ScreenWidth/2-35-25-10;
+//    _btnArr=[NSMutableArray array];
+//    _labelArr=[NSMutableArray array];
+////    self.arr=[NSMutableArray arrayWithObjects:@"bank",@"three",@"woker",@"tv",@"one",@"two",@"people",@"teacher",@"up",nil];
+//     self.arr=[NSMutableArray arrayWithObjects:@"complain",@"place",@"repairsec",@"settingsec",nil];
+//    int a=360/self.arr.count;
+////    self.labelNameArr=[NSMutableArray arrayWithObjects:@"投訴",@"會所預定",@"報事維修",@"設置", nil];
+//        self.labelNameArr=[NSMutableArray arrayWithObjects:LocalizedString(@"string_complain_title"),LocalizedString(@"string_reservation_place_title"),LocalizedString(@"string_report_maintenance_title"),LocalizedString(@"string_set_title"), nil];
+//
+//    for (int i = 0; i < self.arr.count; i++) {
+////        _label=[[UILabel alloc] init];
+////        _label.font=[UIFont systemFontOfSize:14.0];
+////        _label.text=[self.labelNameArr objectAtIndex:i];
+//        _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+//        _button1.tag = i+1;
+//      //  _button1.layer.cornerRadius = 50/2;
+//      //  _button1.layer.masksToBounds = YES;
+//        _button1.userInteractionEnabled = YES;
+//        NSString *name=[self.arr objectAtIndex:i];
+//        [_button1 setImage:[UIImage imageNamed:name] forState:UIControlStateNormal];
+//         _button1.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 75);
+//         _button1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+//        [_button1 setTitle:self.labelNameArr[i] forState:UIControlStateNormal];
+//        //_button1.titleLabel.textColor=RGB(138, 138, 138);
+//        [_button1 setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
+//        [_button1.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
+//       // [_button1.titleLabel setText:self.labelNameArr[i]];
+//        [_button1 setTitleEdgeInsets:UIEdgeInsetsMake(_button1.imageView.frame.size.height, -_button1.imageView.frame.size.width, 0, 0)];
+//        NSLog(@"值是：：：%f",(_button1.frame.size.height/2-_button1.imageView.frame.size.height/2));
+//        [_button1 setImageEdgeInsets:UIEdgeInsetsMake( -(_button1.frame.size.height/2-_button1.imageView.frame.size.height/2), 0, 0, -_button1.titleLabel.frame.size.width)];
+//        _button1.hidden=NO;
+//
+//
+//      //  _button1.backgroundColor=[UIColor blackColor];
+//
+//        [_button1 addTarget:self action:@selector(handleClick:)forControlEvents:UIControlEventTouchUpInside];
+////        [self.window addSubview:_label];
+//        [self.window addSubview:_button1];
+//
+//        [UIView animateWithDuration:0.5 animations:^{
+//
+//            CGFloat x=[UIScreen mainScreen].bounds.size.width/2-25+radius*cosf((_button1.tag-1)*a*3.1415926/180);
+//            CGFloat y=[UIScreen mainScreen].bounds.size.height/2-37+radius*sinf((_button1.tag-1)*a*3.1415926/180);
+//            _button1.frame=CGRectMake(x, y, 50, 75);
+////            [_label mas_makeConstraints:^(MASConstraintMaker *make){
+////                make.centerX.mas_equalTo(_button1);
+////               make.top.mas_equalTo(_button1.mas_bottom).offset(5);
+////            }];
+//        }completion:^(BOOL finish){
+//
+//            self.centerBtn.userInteractionEnabled=YES;
+//        }];
+//        [_btnArr addObject:_button1];
+////        [_labelArr addObject:_label];
+//        // NSLog(@"%ld",_btnArr.count);
+//    }
+//    NSLog(@"%ld",_btnArr.count);
+//}
+//- (void)setShow:(BOOL)show{
+////     self.centerBtn.userInteractionEnabled=NO;
+//    _show=show;
+//    self.centerBtn.selected=show;
+//
+//
+//    NSLog(@"%ld",_btnArr.count);
+//    //   array=_btnArr;
+//
+//    if (!show) {
+//
+//        if(centerX>ScreenWidth/2) {
+//            theCenterX=ScreenWidth-50/2;
+//        }else{
+//            theCenterX=50/2;
+//        }
+//
+//        if (centerY >ScreenHeight-40 ) {
+//            theCenterY=ScreenHeight-60;
+//        }else if(centerY <40){
+//            theCenterY=60;
+//        }
+//
+//        for (UIButton *btn2 in _btnArr) {
 //            [UIView animateWithDuration:0.5 animations:^{
-//                label2.hidden=YES;
-//           
+//                btn2.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 70);
+//            } completion:^(BOOL finished){
+//                btn2.hidden=YES;
+//
+//                [UIView animateWithDuration:0.5 animations:^{
+//                if (centerX==0 && centerY==0) {
+////                    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
+//                    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);
+//                }else{
+//                    self.centerBtn.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
+//                }
+//                self.centerBtn.layer.cornerRadius=25;
+//                self.centerBtn.layer.masksToBounds=YES;
+////                    self.centerBtn.userInteractionEnabled=NO;
+//                }completion:^(BOOL finished){
+//                  //  self.centerBtn.userInteractionEnabled=YES;
+//                }];
 //            }];
 //        }
-    }else{
-        // self.centerBtn.userInteractionEnabled=NO;
-         [UIView animateWithDuration:0.5 animations:^{
-        self.centerBtn.frame=CGRectMake(ScreenWidth/2-35, ScreenHeight/2-35, 70, 70);
-        self.centerBtn.layer.cornerRadius=35;
-        self.centerBtn.layer.masksToBounds=YES;
-         }completion:^(BOOL finish){
-             [self addBtn];
-             
-         }];
-    }
-    
-}
+//
+////        for (UILabel *label2 in _labelArr) {
+////            [UIView animateWithDuration:0.5 animations:^{
+////                label2.hidden=YES;
+////
+////            }];
+////        }
+//    }else{
+//        // self.centerBtn.userInteractionEnabled=NO;
+//         [UIView animateWithDuration:0.5 animations:^{
+//        self.centerBtn.frame=CGRectMake(ScreenWidth/2-35, ScreenHeight/2-35, 70, 70);
+//        self.centerBtn.layer.cornerRadius=35;
+//        self.centerBtn.layer.masksToBounds=YES;
+//         }completion:^(BOOL finish){
+//             [self addBtn];
+//
+//         }];
+//    }
+//
+//}
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-    if (![keyPath isEqualToString:@"frame"]) {
-        return;
-    }
-    CGFloat height=self.centerBtn.frame.size.height;
-    if (height ==50) {
-        _panGestureRecognizer.enabled=YES;
-    }else if(height ==70){
-        _panGestureRecognizer.enabled=NO;
-    }
-}
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+//    if (![keyPath isEqualToString:@"frame"]) {
+//        return;
+//    }
+//    CGFloat height=self.centerBtn.frame.size.height;
+//    if (height ==50) {
+//        _panGestureRecognizer.enabled=YES;
+//    }else if(height ==70){
+//        _panGestureRecognizer.enabled=NO;
+//    }
+//}
 
 - (void)dealloc {
-    [self.centerBtn removeObserver:self forKeyPath:@"frame"];
+//    [self.centerBtn removeObserver:self forKeyPath:@"frame"];
 }
 
--(void)handleClick:(UIButton *)sender{
-    self.show=false;
-    BaseViewController *baseVC=[[BaseViewController alloc] init];
-//    baseVC=[UIApplication sharedApplication].keyWindow.rootViewController;
-    switch (sender.tag) {
-        case 1:
-//            if (![baseVC login]) {
-////                [_reportVC setTitle:@"投訴"];
-////                [_centerNvaVC pushViewController:_reportVC animated:YES];
-//                return;
-//            }
-            [_reportVC setTitle:LocalizedString(@"string_complain_title")];
-            [_centerNvaVC pushViewController:_reportVC animated:YES];
-            break;
-        case 2:
-//            if (![baseVC login]) {
-////            [_centerNvaVC pushViewController:_clubVC animated:YES];
-//                return;
-//            }
-            [_centerNvaVC pushViewController:_clubVC animated:YES];
-
-            break;
-        case 3:
-//            if (![baseVC login]) {
-////            [_reportVC setTitle:@"報事維修"];
-////            [_centerNvaVC pushViewController:_reportVC animated:YES];
-//                return;
-//            }
-            [_reportVC setTitle:LocalizedString(@"string_report_maintenance_title")];
-            [_centerNvaVC pushViewController:_reportVC animated:YES];
-            break;
-        case 4:
-//            if (![baseVC login]) {
-////            [_centerNvaVC pushViewController:_setVC animated:YES];
-//                return;
-//            }
-            [_centerNvaVC pushViewController:_setVC animated:YES];
-            break;
-        default:
-            break;
-    }
-//    MapViewController *map=[[MapViewController alloc]init];
-//    [_sliderNvaVC pushViewController:map animated:YES];
-}
+//-(void)handleClick:(UIButton *)sender{
+//    self.show=false;
+//    BaseViewController *baseVC=[[BaseViewController alloc] init];
+////    baseVC=[UIApplication sharedApplication].keyWindow.rootViewController;
+//    switch (sender.tag) {
+//        case 1:
+////            if (![baseVC login]) {
+//////                [_reportVC setTitle:@"投訴"];
+//////                [_centerNvaVC pushViewController:_reportVC animated:YES];
+////                return;
+////            }
+//            [_reportVC setTitle:LocalizedString(@"string_complain_title")];
+//            [_centerNvaVC pushViewController:_reportVC animated:YES];
+//            break;
+//        case 2:
+////            if (![baseVC login]) {
+//////            [_centerNvaVC pushViewController:_clubVC animated:YES];
+////                return;
+////            }
+//            [_centerNvaVC pushViewController:_clubVC animated:YES];
+//
+//            break;
+//        case 3:
+////            if (![baseVC login]) {
+//////            [_reportVC setTitle:@"報事維修"];
+//////            [_centerNvaVC pushViewController:_reportVC animated:YES];
+////                return;
+////            }
+//            [_reportVC setTitle:LocalizedString(@"string_report_maintenance_title")];
+//            [_centerNvaVC pushViewController:_reportVC animated:YES];
+//            break;
+//        case 4:
+////            if (![baseVC login]) {
+//////            [_centerNvaVC pushViewController:_setVC animated:YES];
+////                return;
+////            }
+//            [_centerNvaVC pushViewController:_setVC animated:YES];
+//            break;
+//        default:
+//            break;
+//    }
+////    MapViewController *map=[[MapViewController alloc]init];
+////    [_sliderNvaVC pushViewController:map animated:YES];
+//}
 
 
 
@@ -381,5 +389,64 @@
         }
 
     }
+}
+
+#pragma suspensionDelegate
+
+-(void)selectMenuAtIndex:(NSInteger)index{
+    switch (index) {
+    case 3:
+            
+            
+        //            if (![baseVC login]) {
+        ////                [_reportVC setTitle:@"投訴"];
+        ////                [_centerNvaVC pushViewController:_reportVC animated:YES];
+        //                return;
+        //            }
+        [_reportVC setTitle:LocalizedString(@"string_complain_title")];
+        [_centerNvaVC pushViewController:_reportVC animated:YES];
+        break;
+    case 1:
+        //            if (![baseVC login]) {
+        ////            [_centerNvaVC pushViewController:_clubVC animated:YES];
+        //                return;
+        //            }
+        [_centerNvaVC pushViewController:_clubVC animated:YES];
+        
+        break;
+    case 2:
+        //            if (![baseVC login]) {
+        ////            [_reportVC setTitle:@"報事維修"];
+        ////            [_centerNvaVC pushViewController:_reportVC animated:YES];
+        //                return;
+        //            }
+           
+        [_reportVC setTitle:LocalizedString(@"string_report_maintenance_title")];
+        [_centerNvaVC pushViewController:_reportVC animated:YES];
+        break;
+    case 0:
+        //            if (![baseVC login]) {
+        ////            [_centerNvaVC pushViewController:_setVC animated:YES];
+        //                return;
+        //            }
+        [_centerNvaVC pushViewController:_setVC animated:YES];
+        break;
+    default:
+        break;
+    }
+}
+
+
+#pragma getter
+
+-(NSArray *)menuArray{
+    if (!_menuArray) {
+        SuspensionModel *setting = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_set_title") image:@"settingsec"];
+           SuspensionModel *place = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_reservation_place_title") image:@"place"];
+           SuspensionModel *repairsec = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_report_maintenance_title") image:@"repairsec"];
+           SuspensionModel *complain = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_complain_title") image:@"complain"];
+        _menuArray = [NSArray arrayWithObjects:setting,place,repairsec,complain, nil];
+    }
+    return _menuArray;
 }
 @end

@@ -14,8 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *birthday;
 @property (nonatomic,copy) NSString *communityId;
 @property (nonatomic,copy) NSString *countryCode;
-@property (nonatomic,copy) NSString *createTime;
-@property (nonatomic,assign) Boolean *deleted;
+@property (nonatomic,copy) NSString *deleted;
 @property (nonatomic,copy) NSString *email;
 @property (nonatomic,copy) NSString *englishName;
 @property (nonatomic,copy) NSString *idCard;
@@ -23,12 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *mateName;
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSString *portrait;
-@property (nonatomic,assign) NSInteger sex;
+@property (nonatomic,copy) NSString *sex;
 @property (nonatomic,copy) NSString *tel;
-@property (nonatomic,copy) NSString *updateTime;
 @property (nonatomic,copy) NSString *userId;
 @property (nonatomic,copy) NSString *username;
-@property (nonatomic,copy) NSString *password;
 
 + (User *)shareUser;
 + (void)clear;

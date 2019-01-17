@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		323A127C21F06730009891ED /* SuspensionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A127B21F06730009891ED /* SuspensionModel.m */; };
+		323A128221F06741009891ED /* CircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A127E21F06741009891ED /* CircleButton.m */; };
+		323A128321F06741009891ED /* SuspensionMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A128021F06741009891ED /* SuspensionMenu.m */; };
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
 		CB017BC321DB181400BB6BFD /* SuspensionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC221DB181400BB6BFD /* SuspensionView.m */; };
 		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
@@ -105,6 +108,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		323A127A21F06730009891ED /* SuspensionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspensionModel.h; sourceTree = "<group>"; };
+		323A127B21F06730009891ED /* SuspensionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspensionModel.m; sourceTree = "<group>"; };
+		323A127E21F06741009891ED /* CircleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleButton.m; sourceTree = "<group>"; };
+		323A127F21F06741009891ED /* CircleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleButton.h; sourceTree = "<group>"; };
+		323A128021F06741009891ED /* SuspensionMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspensionMenu.m; sourceTree = "<group>"; };
+		323A128121F06741009891ED /* SuspensionMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspensionMenu.h; sourceTree = "<group>"; };
 		6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.release.xcconfig"; sourceTree = "<group>"; };
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
 		CB017BC121DB181400BB6BFD /* SuspensionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuspensionView.h; sourceTree = "<group>"; };
@@ -276,6 +285,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		323A127921F0670F009891ED /* model */ = {
+			isa = PBXGroup;
+			children = (
+				323A127A21F06730009891ED /* SuspensionModel.h */,
+				323A127B21F06730009891ED /* SuspensionModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		323A127D21F06733009891ED /* view */ = {
+			isa = PBXGroup;
+			children = (
+				323A127F21F06741009891ED /* CircleButton.h */,
+				323A127E21F06741009891ED /* CircleButton.m */,
+				323A128121F06741009891ED /* SuspensionMenu.h */,
+				323A128021F06741009891ED /* SuspensionMenu.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		755944FFF401CE30DE5CDD3C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +325,8 @@
 		CB017BC021DB17BD00BB6BFD /* 悬浮 */ = {
 			isa = PBXGroup;
 			children = (
+				323A127D21F06733009891ED /* view */,
+				323A127921F0670F009891ED /* model */,
 				CB017BC121DB181400BB6BFD /* SuspensionView.h */,
 				CB017BC221DB181400BB6BFD /* SuspensionView.m */,
 			);
@@ -989,8 +1020,10 @@
 				CB05F35B21E1AB2D00208C5E /* PhotpCollectionViewCell.m in Sources */,
 				CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */,
 				CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */,
+				323A127C21F06730009891ED /* SuspensionModel.m in Sources */,
 				CB08143421D4F6760018A363 /* LanguageSettingViewController.m in Sources */,
 				CBFF233921CA8BD80066E00C /* ProcessingStateViewController.m in Sources */,
+				323A128221F06741009891ED /* CircleButton.m in Sources */,
 				CB04506A21D136FF00EB59D7 /* PlaceList.m in Sources */,
 				CB02667F21D8CF3F00561B1C /* LeftViewTableViewCell.m in Sources */,
 				CB05465C21C6B223008BE895 /* ComplainViewController.m in Sources */,
@@ -1010,6 +1043,7 @@
 				CB6C9BB721C1672300B5A9E9 /* main.m in Sources */,
 				CB5C392F21E39A8C008E3A64 /* NoticeDetailViewController.m in Sources */,
 				CBFE45B921C9547600DD80E4 /* ClubhouseReservationViewController.m in Sources */,
+				323A128321F06741009891ED /* SuspensionMenu.m in Sources */,
 				CBFFF13D21CFD7FA008BA2A0 /* ForgetPswViewController.m in Sources */,
 				CB04506621D126B000EB59D7 /* PlaceRecord.m in Sources */,
 				CB6C9BA921C1672200B5A9E9 /* AppDelegate.m in Sources */,
