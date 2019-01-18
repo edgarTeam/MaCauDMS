@@ -27,7 +27,7 @@
 - (void)setUpModel:(Notice *)model{
    // [self.image];
     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,model.noticeImage]];
-    [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
+    [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMAGE];
    // [self.imageView setImage:[UIImage imageNamed:model.noticeImage]];
     self.timeLab.text=model.createTime;
     self.contentLab.text=model.noticeTitle;

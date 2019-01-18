@@ -21,7 +21,8 @@
 @property (nonatomic,strong) NSArray *statusArr;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 @property (nonatomic,strong) NSURL *voiceUrl;
-
+@property (nonatomic,strong) AVPlayer *player;
+//@property (nonatomic,strong) NSString *voiceURL;
 @end
 
 @implementation HandlingDetailsViewController
@@ -51,7 +52,10 @@
 }
 - (IBAction)playBtnAction:(id)sender {
     
-    
+    AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:self.voiceUrl];
+    //  播放当前资源
+    [self.player replaceCurrentItemWithPlayerItem:playerItem];
+    [self.player play];
 }
 
 /*
@@ -71,7 +75,7 @@
         if (dic ==nil) {
             return ;
         }
-        _complain=[ReportMaintenanceDetail mj_setKeyValues:dic];
+        _complain=[ReportMaintenanceDetail mj_objectWithKeyValues:dic];
         _titleLab.text=_complain.complainClassType;
         _positionLab.text=[NSString stringWithFormat:@"%@,%@",_complain.complainPosition,_complain.complainSpecificPosition];
         _nameLab.text=_complain.complainLiaisonsName;

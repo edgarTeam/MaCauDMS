@@ -23,10 +23,13 @@
     // Do any additional setup after loading the view from its nib.
    // self.title=@"語言設定";
     self.title=LocalizedString(@"string_setting_title");
-    for (UIImageView *view in _imageArray) {
-        if (view.tag ==0 ) {
-            view.hidden = NO;
-        }
+
+    NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
+    
+    if ([lang isEqualToString:@"zh-Hant"]) {
+        [self selectedLanguageOfIndex:0];
+    }else if ([lang isEqualToString:@"zh-Hans"]){
+        [self selectedLanguageOfIndex:1];
     }
 }
 

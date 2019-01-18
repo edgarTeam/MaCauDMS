@@ -53,6 +53,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)postWithUrl:(NSString *)url body:(NSData *)body showLoading:(BOOL)show success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure;
 
+
+
+- (void)uploadVoice:(NSDictionary *)para filePath:(NSString *)filePath completion:(void(^)(NSDictionary *dic))completion;
 @end
 
 NS_ASSUME_NONNULL_END

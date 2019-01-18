@@ -10,6 +10,7 @@
 #import "LSXPopMenu.h"
 #import "Place.h"
 #import "PlaceRecord.h"
+#import "HttpHelper.h"
 @interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *plateBtn;
 @property (nonatomic,strong)LSXPopMenu *plateMenu;
@@ -19,6 +20,12 @@
 @property (nonatomic,strong) NSMutableArray *placeIdArr;
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,strong) PlaceRecord *placeRecord;
+
+
+@property (nonatomic,strong) NSMutableArray *strArr;
+@property (nonatomic,strong) NSMutableArray *compareArr;
+@property (nonatomic,strong) NSMutableArray *cancelArr;
+@property (nonatomic,assign) NSInteger index;
 @end
 
 @implementation ClubhouseReservationViewController
@@ -33,7 +40,10 @@
     //self.title=@"會所預定";
     self.title=LocalizedString(@"string_reservation_place_title");
 
-
+    
+    _strArr=[NSMutableArray new];
+    _compareArr=[NSMutableArray new];
+    _cancelArr=[NSMutableArray new];
     _selectIndexs=[NSMutableArray new];
     NSArray *source=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00~10:00",@"10:00~12:00",@"12:00~14:00",@"14:00~16:00",@"16:00~18:00",@"18:00~20:00",@"20:00~22:00",@"22:00~00:00"];
     _dataSource=[source mutableCopy];
@@ -56,10 +66,9 @@
 - (void)requestAddPlaceRecord{
     NSMutableArray *resultArr=[NSMutableArray new];
     for (int i=0; i<_selectIndexs.count; i++) {
-       //dataSource[]
+      
      NSString *str1=  _dataSource[[_selectIndexs[i] intValue]];
         NSString *str=[str1 stringByReplacingOccurrencesOfString:@"~" withString:@""];
-//        NSString *str=[_dataSource[_selectIndexs[i]] stringByReplacingOccurrencesOfString:@"~" withString:@""];
         NSString *handlerStr=[str stringByReplacingOccurrencesOfString:@":" withString:@""];
         NSString *resultStr=[handlerStr substringToIndex:2];
         [resultArr addObject:resultStr];
@@ -96,13 +105,23 @@
     NSDictionary *dic=@{
                         @"placeRecord":jsonData
                         };
-    [[WebAPIHelper sharedWebAPIHelper] postWithUrl:kAddComplain body:dic showLoading:YES success:^(NSDictionary *resultDic){
-        if (resultDic ==nil) {
-            return ;
-        }
-        _placeRecord=[PlaceRecord mj_setKeyValues:resultDic[@"data"]];
+//    [[WebAPIHelper sharedWebAPIHelper] postWithUrl:kAddComplain body:dic showLoading:YES success:^(NSDictionary *resultDic){
+//        [CommonUtil isRequestOK:resultDic];
+//        if (resultDic ==nil) {
+//            return ;
+//        }
+//        _placeRecord=[PlaceRecord mj_setKeyValues:resultDic[@"data"]];
+//    } failure:^(NSError *error){
+//        NSLog(@"%@",error);
+//    }];
+    [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:dic showLoading:YES success:^(NSDictionary *resultDic){
+                [CommonUtil isRequestOK:resultDic];
+                if (resultDic ==nil) {
+                    return ;
+                }
+                _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){
-        NSLog(@"%@",error);
+        
     }];
 }
 
@@ -180,32 +199,98 @@
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
         [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
-        
+//        NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
+//        NSMutableArray *removeArr=[NSMutableArray new];
+//        removeArr=[_strArr mutableCopy];
+//        if ([removeArr containsObject:str]) {
+//           _index=[removeArr indexOfObject:str];
+//            [removeArr removeObjectAtIndex:_index];
+//        }
+//        for (int i=0; i<removeArr.count-1; i++) {
+//
+//            [_cancelArr addObject:[NSString stringWithFormat:@"%d", [removeArr.lastObject intValue]-[removeArr[i] intValue]]];
+//            NSLog(@"数组个数%ld",_cancelArr.count);
+//            NSLog(@"%@",_cancelArr[i]);
+//            if ([_cancelArr containsObject:@"4"] ||[_cancelArr containsObject:@"-4"]) {
+//                if ([_cancelArr containsObject:@"2"]) {
+//                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+////                     cell.accessoryType = UITableViewCellAccessoryNone;
+//                }else{
+////                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+//                   // [_cancelArr removeObject:_cancelArr.lastObject];
+//                   // [_strArr removeObject:_strArr.lastObject];
+//                    [_strArr removeObjectAtIndex:_index];
+//                }
+//            }else{
+//                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//            }
+//        }
     }else { //未选中
-        cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-        [_selectIndexs addObject:@(indexPath.row)]; //添加索引数据到数组
-        if (_selectIndexs.count >=2) {
-            NSIndexPath *i;
-            i=[_selectIndexs objectAtIndex:_selectIndexs.count-2];
-            NSMutableArray *vArr=[NSMutableArray new];
-            for (int z=0; z<_selectIndexs.count; z++) {
-//                int j=[_selectIndexs.lastObject]-[_selectIndexs objectAtIndex:z] ;
-                int j=[_selectIndexs.lastObject intValue]-[[_selectIndexs objectAtIndex:z] intValue];
-                //  NSString *str=[NSString stringWithFormat:@"%d",j];
-                [vArr addObject:[NSString stringWithFormat:@"%d",j]];
+//        cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//        [_selectIndexs addObject:@(indexPath.row)]; //添加索引数据到数组
+//        if (_selectIndexs.count >=2) {
+//            NSIndexPath *i;
+//            i=[_selectIndexs objectAtIndex:_selectIndexs.count-2];
+//            NSMutableArray *vArr=[NSMutableArray new];
+//            for (int z=0; z<_selectIndexs.count; z++) {
+//                int j=[_selectIndexs.lastObject intValue]-[[_selectIndexs objectAtIndex:z] intValue];
+//                //  NSString *str=[NSString stringWithFormat:@"%d",j];
+//                [vArr addObject:[NSString stringWithFormat:@"%d",j]];
+//
+//            }
+//            if ([vArr containsObject:@"2"]) {
+//                if ([vArr containsObject:@"1"]){
+//                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//                    [_selectIndexs addObject:@(indexPath.row)];
+//                }else{
+//                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+//                    [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
+//                }
+//            }
+//
+//        }
+       
+//        NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
+//        [_strArr addObject:str];
+//
+//        if (_strArr.count>=2) {
+//            if ([_strArr.lastObject intValue]-[_strArr[_strArr.count-2] intValue]==4) {
+//                cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+//                [_strArr removeObject:_strArr.lastObject];
+//            }else{
+//                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//            }
+//        }else{
+//            cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//        }
+       
+        NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
+        [_strArr addObject:str];
+        
+        if (_strArr.count>=2) {
+            for (int i=0; i<_strArr.count-1; i++) {
                 
-            }
-            if ([vArr containsObject:@"2"]) {
-                if ([vArr containsObject:@"1"]){
-                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-                    [_selectIndexs addObject:@(indexPath.row)];
+                [_compareArr addObject:[NSString stringWithFormat:@"%d", [_strArr.lastObject intValue]-[_strArr[i] intValue]]];
+                NSLog(@"数组个数%ld",_compareArr.count);
+                NSLog(@"%@",_compareArr[i]);
+                if ([_compareArr containsObject:@"4"] ||[_compareArr containsObject:@"-4"]) {
+                    if ([_compareArr containsObject:@"2"]) {
+                        cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+                    }else{
+                        cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+                        [_compareArr removeObject:_compareArr.lastObject];
+                        [_strArr removeObject:_strArr.lastObject];
+                    }
                 }else{
-                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-                    [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
+                     cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
                 }
             }
-            
+        }else{
+             cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
         }
+        
+        
         
         
     }

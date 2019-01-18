@@ -5,7 +5,7 @@
 //  Created by geanguo_lucky on 2018/12/19.
 //  Copyright © 2018 geanguo_lucky. All rights reserved.
 //
-
+#import "UITextView+PlaceHolder.h"
 #import "ReportMaintenanceViewController.h"
 #import "PhotpCollectionViewCell.h"
 #import "AddCollectionViewCell.h"
@@ -17,6 +17,8 @@
 #import "CommonUtil.h"
 #import "User.h"
 #import "ReportMaintenanceDetail.h"
+#import "PictureModel.h"
+#import "NSDate+Utils.h"
 @interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *maintenanceTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *maintenanceCollectionView;
@@ -31,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *recordBtn;
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
 @property (nonatomic,strong) ReportMaintenanceDetail *reportMaintenance;
+@property (weak, nonatomic) IBOutlet UIButton *playBtn;
 
 @end
 
@@ -48,6 +51,7 @@
     self.headView.hidden=YES;
     self.dataSource=[NSMutableArray new];
     self.communityList=[NSMutableArray new];
+    _maintenanceTextView.placeHoldString=@"请输入报修内容";
     _maintenanceTextView.layer.masksToBounds=YES;
     _maintenanceTextView.layer.cornerRadius=7.0;
     _maintenanceTextView.layer.borderWidth=0.5;
@@ -64,8 +68,8 @@
     _maintenanceCollectionView.dataSource=self;
     _maintenanceCollectionView.alwaysBounceVertical=YES;
     
-    [self.recordBtn addTarget:self action:@selector(beginRecord:) forControlEvents:UIControlEventTouchDown];
-    [self.recordBtn addTarget:self action:@selector(endRecord:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.recordBtn addTarget:self action:@selector(beginRecord:) forControlEvents:UIControlEventTouchDown];
+//    [self.recordBtn addTarget:self action:@selector(endRecord:) forControlEvents:UIControlEventTouchUpInside];
     [self requestCommunityList];
 }
 
@@ -82,88 +86,88 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (void)beginRecord:(UIButton *)btn {
-    AVAudioSession *session =[AVAudioSession sharedInstance];
-    NSError *sessionError;
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
-    if (session == nil) {
-        NSLog(@"error: %@",[sessionError description]);
-    }else{
-        [session setActive:YES error:nil];
-    }
-    self.session = session;
-    
-    NSDictionary *recordSetting = @{
-                                    AVEncoderAudioQualityKey : [NSNumber numberWithInt:AVAudioQualityMin],
-                                    AVEncoderBitRateKey : [NSNumber numberWithInt:16],
-                                    AVFormatIDKey : [NSNumber numberWithInt:kAudioFormatLinearPCM],
-                                    AVNumberOfChannelsKey : @2,
-                                    AVLinearPCMBitDepthKey : @8
-                                    };
-    
-    NSString *document=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask ,YES) firstObject];
-    // filePath=[document stringByAppendingString:@"/Record.wav"];
-//    filePath = [NSString stringWithFormat:@"%@/%@.wav",document,@"123"];
-    filePath = [NSString stringWithFormat:@"%@/%@.mp3",document,@"123"];
-    // NSLog(@"%@",filePath);
-    _recordFileUrl=[NSURL fileURLWithPath:filePath];
-    _recorder=[[AVAudioRecorder alloc] initWithURL:_recordFileUrl settings:recordSetting error:nil];
-    if (!_recorder) {
-        NSLog(@"音频格式和文件存储格式不匹配,无法初始化Recorder");
-        return;
-    }
-    _recorder.meteringEnabled=YES;
-    [_recorder prepareToRecord];
-    _recorder.delegate=self;
-    if (!_session.inputIsAvailable) {
-        return;
-    }
-    [_recorder record];
-    playTime = 0;
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(addRecordTime) userInfo:nil repeats:YES];
-    
-    
-}
-
--(void)addRecordTime{
-    playTime++;
-//    NSLog(@"%ld",playTime);
-//    self.label.text=[NSString stringWithFormat:@"%ld 秒",playTime];
-}
-#pragma mark - AVAudioRecorderDelegate
-
-- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
-{
-    NSURL *url = [NSURL fileURLWithPath:filePath];
-    NSError *err = nil;
-    NSLog(@"%@",url);
-    NSData *audioData = [NSData dataWithContentsOfFile:[url path] options:0 error:&err];
-    if (audioData) {
-        [self endConvertWithData:audioData];
-    }
-}
-//回调录音资料
-- (void)endConvertWithData:(NSData *)voiceData
-{
-    // [self.delegate UUInputFunctionView:self sendVoice:voiceData time:playTime+1];
-    
-    //缓冲消失时间 (最好有block回调消失完成)
-    self.recordBtn.enabled = NO;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //self.recordBtn.enabled = YES;
-        // [self.recordBtn setEnabled:YES];
-
-        //  self.hidden=YES;
-    });
-}
-
-
-
-
-
-- (void)endRecord:(UIButton *)btn {
-    
-}
+//- (void)beginRecord:(UIButton *)btn {
+//    AVAudioSession *session =[AVAudioSession sharedInstance];
+//    NSError *sessionError;
+//    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+//    if (session == nil) {
+//        NSLog(@"error: %@",[sessionError description]);
+//    }else{
+//        [session setActive:YES error:nil];
+//    }
+//    self.session = session;
+//
+//    NSDictionary *recordSetting = @{
+//                                    AVEncoderAudioQualityKey : [NSNumber numberWithInt:AVAudioQualityMin],
+//                                    AVEncoderBitRateKey : [NSNumber numberWithInt:16],
+//                                    AVFormatIDKey : [NSNumber numberWithInt:kAudioFormatLinearPCM],
+//                                    AVNumberOfChannelsKey : @2,
+//                                    AVLinearPCMBitDepthKey : @8
+//                                    };
+//
+//    NSString *document=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask ,YES) firstObject];
+//    // filePath=[document stringByAppendingString:@"/Record.wav"];
+////    filePath = [NSString stringWithFormat:@"%@/%@.wav",document,@"123"];
+//    filePath = [NSString stringWithFormat:@"%@/%@.mp3",document,@"123"];
+//    // NSLog(@"%@",filePath);
+//    _recordFileUrl=[NSURL fileURLWithPath:filePath];
+//    _recorder=[[AVAudioRecorder alloc] initWithURL:_recordFileUrl settings:recordSetting error:nil];
+//    if (!_recorder) {
+//        NSLog(@"音频格式和文件存储格式不匹配,无法初始化Recorder");
+//        return;
+//    }
+//    _recorder.meteringEnabled=YES;
+//    [_recorder prepareToRecord];
+//    _recorder.delegate=self;
+//    if (!_session.inputIsAvailable) {
+//        return;
+//    }
+//    [_recorder record];
+//    playTime = 0;
+//   // _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(addRecordTime) userInfo:nil repeats:YES];
+//
+//
+//}
+//
+////-(void)addRecordTime{
+////    playTime++;
+//////    NSLog(@"%ld",playTime);
+//////    self.label.text=[NSString stringWithFormat:@"%ld 秒",playTime];
+////}
+//#pragma mark - AVAudioRecorderDelegate
+//
+//- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
+//{
+//    NSURL *url = [NSURL fileURLWithPath:filePath];
+//    NSError *err = nil;
+//    NSLog(@"%@",url);
+//    NSData *audioData = [NSData dataWithContentsOfFile:[url path] options:0 error:&err];
+//    if (audioData) {
+//        [self endConvertWithData:audioData];
+//    }
+//}
+////回调录音资料
+//- (void)endConvertWithData:(NSData *)voiceData
+//{
+//    // [self.delegate UUInputFunctionView:self sendVoice:voiceData time:playTime+1];
+//
+//    //缓冲消失时间 (最好有block回调消失完成)
+//    self.recordBtn.enabled = NO;
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        //self.recordBtn.enabled = YES;
+//        // [self.recordBtn setEnabled:YES];
+//
+//        //  self.hidden=YES;
+//    });
+//}
+//
+//
+//
+//
+//
+//- (void)endRecord:(UIButton *)btn {
+//
+//}
 
 
 - (void)requestAddRepair {
@@ -245,6 +249,9 @@
 //        PhotpCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
 //        return cell;
         _photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
+        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:_dataSource[indexPath.row]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+             [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:@""]] placeholderImage:image];
+        }];
         return _photoCell;
     }
 }
@@ -462,21 +469,11 @@
         
         if ([mediaType isEqualToString:@"public.image"]) {
             
-            /*
-             //获取照片的原图
-             UIImage* original = [info objectForKey:UIImagePickerControllerOriginalImage];
-             //获取图片裁剪后，剩下的图
-             UIImage* crop = [info objectForKey:UIImagePickerControllerCropRect];
-             //获取图片的url
-             NSURL* url = [info objectForKey:UIImagePickerControllerMediaURL];
-             //获取图片的metadata数据信息
-             NSDictionary* metadata = [info objectForKey:UIImagePickerControllerMediaMetadata];
-             */
+
             
             //获取图片裁剪的图
             UIImage* edit = [info objectForKey:UIImagePickerControllerEditedImage];
-           // self.headImage.image = edit;
-            self.photoCell.photoImageView.image=edit;
+       //     self.photoCell.photoImageView.image=edit;
             NSData *data = UIImageJPEGRepresentation(edit, 1.0);
             if (data.length>100*1024) {
                 if (data.length>1024*1024) {//1M以及以上
@@ -503,11 +500,120 @@
                         };
     [[HttpHelper shareHttpHelper] postUploadImagesWithUrl:kUploadImg parameters:dic images:[NSArray arrayWithObject:[UIImage imageWithData:data]] completion:^(NSDictionary * info){
         if ([CommonUtil isRequestOK:info]) {
-            [User shareUser].portrait=[info objectForKey:@"data"];
+            if ([[info allKeys]containsObject:@"data"]) {
+                 PictureModel *picture=[PictureModel mj_objectWithKeyValues:@"data"];
+                if (picture.originalUrl!=nil) {
+                    [_dataSource addObject:picture.originalUrl];
+                    [self.maintenanceCollectionView reloadData];
+                }
+                
+            }
+           // [User shareUser].portrait=[info objectForKey:@"data"];
+            
         }
     }];
     
 }
+
+- (IBAction)startRecordAction:(id)sender {
+    [self stopRecord];
+}
+
+- (IBAction)stopRecordAction:(id)sender {
+    [self stopRecord];
+}
+
+- (IBAction)playBtnAction:(id)sender {
+    if (self.player.rate != 0) {
+        [self.player pause];
+        return;
+    }
+    
+    if (self.recordPath != nil) {
+        AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL fileURLWithPath:self.recordPath]];
+        // 播放当前资源
+        [self.player replaceCurrentItemWithPlayerItem:playerItem];
+        
+    } else {
+        AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:self.voiceRemarkUrl]]];
+       //  播放当前资源
+        [self.player replaceCurrentItemWithPlayerItem:playerItem];
+    }
+    
+    [self.player play];
+}
+
+- (void)startRecord {
+    if (self.player.rate != 0) {
+        [self.player pause];
+    }
+    //设置会话
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *sessionError;
+    //设置会话种类
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+    //激活全局会话
+    if (sessionError == nil) {
+        [session setActive:YES error:nil];
+    }
+    //设置录音参数
+    NSDictionary *recordSetting = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                   [NSNumber numberWithFloat: 8000.0],AVSampleRateKey,
+                                   [NSNumber numberWithInt: kAudioFormatLinearPCM],AVFormatIDKey,
+                                   [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey,
+                                   [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
+                                   [NSNumber numberWithInt:AVAudioQualityMax],AVEncoderAudioQualityKey,
+                                   nil];
+    NSString *fileName = [NSString stringWithFormat:@"%@.mp3",[NSDate getCurrentTimes]];
+    NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
+    self.recordPath = path;
+    NSError *initError;
+    self.recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:path]
+                                               settings:recordSetting
+                                                  error:&initError];
+    if (initError == nil) {
+        [self.recorder prepareToRecord];
+        [self.recorder record];
+    }
+    playTime = 0;
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(addRecordTime) userInfo:nil repeats:YES];
+    
+    
+}
+
+-(void)addRecordTime{
+    playTime++;
+    //    NSLog(@"%ld",playTime);
+    //    self.label.text=[NSString stringWithFormat:@"%ld 秒",playTime];
+}
+
+
+- (void)stopRecord {
+    if (![self.recorder isRecording]) {
+        return;
+    }
+    [self.recorder stop];
+  //  [self stopTiming];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    //计算文件大小
+    if ([manager fileExistsAtPath:self.recordPath]){
+        NSString *tipStr = [NSString stringWithFormat:@"录了文件大小为 %.2fMB",[[manager attributesOfItemAtPath:self.recordPath error:nil] fileSize]/1024.0/1024.0];
+        NSLog(@"%@--%@",self.recordPath,tipStr);
+    }
+    self.playBtn.hidden = NO;
+    NSDictionary *dic=@{
+                        @"type":@(2)
+                        };
+    [[WebAPIHelper sharedWebAPIHelper] uploadVoice:dic filePath:self.recordPath completion:^(NSDictionary *resultDic){
+        //self.voiceRemarkUrl
+    }];
+
+}
+
+
+//- (void)stopTiming {
+//    dispatch_source_cancel(_timer);
+//}
 
 
 

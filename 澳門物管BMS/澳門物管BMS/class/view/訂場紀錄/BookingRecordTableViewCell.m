@@ -30,7 +30,7 @@
 - (void)setUpModel:(Place *)model{
     [_contentLab setText:model.placeIntroduction];
     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,model.placeImage]];
-    [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
+    [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMAGE];
     
 }
 

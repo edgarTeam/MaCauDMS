@@ -377,4 +377,94 @@ static AFHTTPSessionManager *_manager;
     [download resume];
 }
 
+
+
+
+
+- (void)postWithUrl:(NSString *)url body:(NSData *)body showLoading:(BOOL)show success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure
+{
+    
+    // NSString *requestUrl = [NSString stringWithFormat:@"%@%@", kBaseUrl, url];
+   // AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+
+   
+
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:nil error:nil];
+    
+ 
+  
+    // 设置body
+    [request setValue:[[NSUserDefaults standardUserDefaults] objectForKey:LoginToken] forHTTPHeaderField:@"Authorization"];
+    [request setHTTPBody:body];
+    AFJSONResponseSerializer *responseSerializer=[AFJSONResponseSerializer serializer];
+   // AFHTTPResponseSerializer *responseSerializer = [AFHTTPResponseSerializer serializer];
+    responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",
+                                                 @"text/html",
+                                                 @"text/json",
+                                                 @"text/javascript",
+                                                 @"text/plain",
+                                                 nil];
+    _manager.responseSerializer = responseSerializer;
+    [[_manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (!error) {
+            if([responseObject isKindOfClass:[NSDictionary class]]){
+                NSData *jsonData = nil;
+                
+                if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSString class]]) {
+                    jsonData = [[responseObject objectForKey:@"data"] dataUsingEncoding:NSUTF8StringEncoding];
+                } else if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSDictionary class]]) {
+                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
+                }else if([[responseObject objectForKey:@"data"] isKindOfClass:[NSArray class]]){
+                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
+                }
+                
+                NSLog(@"%@",[[responseObject objectForKey:@"data"] class]);
+                //                NSError *err;
+                //                id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
+                //                                                                  options:NSJSONReadingAllowFragments
+                //                                                                    error:&err];
+                
+            }
+            success(responseObject);
+        }else{
+            failure(error);
+        }
+        
+        
+    }] resume];
+}
+
+
+
+
+
+- (void)uploadFileWithURL:(NSString *)URLString parameters:(id)parameters filePath:(NSString *)filePath success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    [_manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:@"file" error:nil];
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if ([CommonUtil isRequestOK:responseObject]) {
+            success(responseObject[@"data"]);
+            //            if([responseObject isKindOfClass:[NSDictionary class]]){
+            //                NSData *jsonData = nil;
+            //                if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSString class]]) {
+            //                    jsonData = [[responseObject objectForKey:@"data"] dataUsingEncoding:NSUTF8StringEncoding];
+            //                } else if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSDictionary class]]) {
+            //                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
+            //                }else if([[responseObject objectForKey:@"data"] isKindOfClass:[NSArray class]]){
+            //                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
+            //                }
+            //                success(jsonData);
+            //            }
+        }else{
+            success(nil);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        success(nil);
+    }];
+}
+
+
+
+
+
 @end

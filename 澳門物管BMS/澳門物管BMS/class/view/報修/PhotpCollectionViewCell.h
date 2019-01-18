@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotpCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
-
+@property (nonatomic,copy) void (^deleteBtnAction)(void);
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @end
 

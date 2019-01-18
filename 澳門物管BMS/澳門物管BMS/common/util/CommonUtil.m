@@ -23,7 +23,7 @@
 +(BOOL)isRequestOK:(id)response{
     if ([response isKindOfClass: [NSDictionary class]]){
         NSDictionary *dictResp = (NSDictionary *)response;
-        NSLog(@"%@",[dictResp objectForKey:@"msg"] );
+        NSLog(@"信息%@",[dictResp objectForKey:@"msg"] );
         NSLog(@"%d",[[dictResp objectForKey:@"code"] intValue]);
         switch ([[dictResp objectForKey:@"code"] intValue]) {
                 //            case 1:{

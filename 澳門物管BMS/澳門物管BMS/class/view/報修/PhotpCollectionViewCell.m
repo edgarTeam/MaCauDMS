@@ -15,6 +15,9 @@
     // Initialization code
 }
 - (IBAction)deleteBtnAction:(UIButton *)sender {
+    if (self.deleteBtnAction != nil) {
+        self.deleteBtnAction();
+    }
 }
 
 @end

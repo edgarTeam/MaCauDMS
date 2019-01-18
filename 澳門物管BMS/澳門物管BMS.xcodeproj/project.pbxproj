@@ -11,6 +11,9 @@
 		323A128221F06741009891ED /* CircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A127E21F06741009891ED /* CircleButton.m */; };
 		323A128321F06741009891ED /* SuspensionMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A128021F06741009891ED /* SuspensionMenu.m */; };
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
+		BA04C86221F190D9007A38AF /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */; };
+		BA04C86621F19423007A38AF /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86521F19423007A38AF /* PictureModel.m */; };
+		BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86921F1AE82007A38AF /* NSDate+Utils.m */; };
 		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
 		CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */; };
 		CB019E9821F0B382004A88D8 /* RequestResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB019E9721F0B382004A88D8 /* RequestResultModel.m */; };
@@ -116,6 +119,12 @@
 		323A128121F06741009891ED /* SuspensionMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspensionMenu.h; sourceTree = "<group>"; };
 		6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.release.xcconfig"; sourceTree = "<group>"; };
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
+		BA04C86021F190D9007A38AF /* UITextView+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+PlaceHolder.h"; sourceTree = "<group>"; };
+		BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+PlaceHolder.m"; sourceTree = "<group>"; };
+		BA04C86421F19423007A38AF /* PictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureModel.h; sourceTree = "<group>"; };
+		BA04C86521F19423007A38AF /* PictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureModel.m; sourceTree = "<group>"; };
+		BA04C86821F1AE82007A38AF /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		BA04C86921F1AE82007A38AF /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		CB017BC521DB294C00BB6BFD /* UserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
@@ -320,6 +329,33 @@
 				F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA04C85F21F19095007A38AF /* UITextView+PlaceHolder */ = {
+			isa = PBXGroup;
+			children = (
+				BA04C86021F190D9007A38AF /* UITextView+PlaceHolder.h */,
+				BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */,
+			);
+			path = "UITextView+PlaceHolder";
+			sourceTree = "<group>";
+		};
+		BA04C86321F193DD007A38AF /* 图片 */ = {
+			isa = PBXGroup;
+			children = (
+				BA04C86421F19423007A38AF /* PictureModel.h */,
+				BA04C86521F19423007A38AF /* PictureModel.m */,
+			);
+			path = "图片";
+			sourceTree = "<group>";
+		};
+		BA04C86721F1AE5E007A38AF /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				BA04C86821F1AE82007A38AF /* NSDate+Utils.h */,
+				BA04C86921F1AE82007A38AF /* NSDate+Utils.m */,
+			);
+			path = NSDate;
 			sourceTree = "<group>";
 		};
 		CB017BC021DB17BD00BB6BFD /* 悬浮 */ = {
@@ -597,6 +633,7 @@
 		CB42089521C2B16F00980B64 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BA04C86321F193DD007A38AF /* 图片 */,
 				CB02668121D8CFFE00561B1C /* LeftModel */,
 				CB02947721D3A89000FE55A7 /* base */,
 				CB04506E21D1460800EB59D7 /* 社區 */,
@@ -752,6 +789,8 @@
 		CBCB79C421CBD2A000BF454D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				BA04C86721F1AE5E007A38AF /* NSDate */,
+				BA04C85F21F19095007A38AF /* UITextView+PlaceHolder */,
 				CB118E6A21EB8BFB00F25522 /* updateHelper */,
 				CB0654E321D79F4700A78CD9 /* LSXPopMenu */,
 				CB08143A21D502CF0018A363 /* ZKAlertTool */,
@@ -1007,6 +1046,7 @@
 				CBCB79BD21CBCA6300BF454D /* ReportMaintenanceTableViewCell.m in Sources */,
 				CB02668A21D9059A00561B1C /* LSXPopMenu.m in Sources */,
 				CBFFF13521CF9E48008BA2A0 /* WebAPIHelper.m in Sources */,
+				BA04C86221F190D9007A38AF /* UITextView+PlaceHolder.m in Sources */,
 				CB04505B21D11D0300EB59D7 /* ReportMaintenanceDetail.m in Sources */,
 				CBFE45C821C955D600DD80E4 /* BookingRecordViewController.m in Sources */,
 				CB6C9BAC21C1672200B5A9E9 /* ViewController.m in Sources */,
@@ -1018,6 +1058,7 @@
 				CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */,
 				CB05F35B21E1AB2D00208C5E /* PhotpCollectionViewCell.m in Sources */,
 				CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */,
+				BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */,
 				CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */,
 				323A127C21F06730009891ED /* SuspensionModel.m in Sources */,
 				CB08143421D4F6760018A363 /* LanguageSettingViewController.m in Sources */,
@@ -1045,6 +1086,7 @@
 				CBFE45B921C9547600DD80E4 /* ClubhouseReservationViewController.m in Sources */,
 				323A128321F06741009891ED /* SuspensionMenu.m in Sources */,
 				CBFFF13D21CFD7FA008BA2A0 /* ForgetPswViewController.m in Sources */,
+				BA04C86621F19423007A38AF /* PictureModel.m in Sources */,
 				CB04506621D126B000EB59D7 /* PlaceRecord.m in Sources */,
 				CB6C9BA921C1672200B5A9E9 /* AppDelegate.m in Sources */,
 				CB04507121D1464B00EB59D7 /* Community.m in Sources */,

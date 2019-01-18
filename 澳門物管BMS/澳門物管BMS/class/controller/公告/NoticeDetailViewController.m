@@ -50,7 +50,7 @@
         self.notice=[Notice mj_objectWithKeyValues:dic];
         self.noticeTitleLab.text=self.notice.noticeTitle;
         NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,self.notice.noticeImage]];
-        [self.noticeImageView sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
+        [self.noticeImageView sd_setImageWithURL:url placeholderImage:kEMPTYIMAGE];
 //        [self.noticeImageView setImage:[UIImage imageNamed:self.notice.noticeImage]];
         self.createTimeLable.text=self.notice.createTime;
         self.noticeTextView.text=self.notice.noticeDetails;

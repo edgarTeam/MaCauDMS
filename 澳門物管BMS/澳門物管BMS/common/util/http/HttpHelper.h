@@ -90,6 +90,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)resetToken:(NSString *)token;
 
+
+
+
+
+- (void)postWithUrl:(NSString *)url body:(NSData *)body showLoading:(BOOL)show success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure;
+
+
+
+- (void)uploadFileWithURL:(NSString *)URLString
+               parameters:(id)parameters
+                 filePath:(NSString *)filePath
+                  success:(void (^)(id result))success
+                  failure:(void (^)(NSError *error))failure;
+
 @end
 
 NS_ASSUME_NONNULL_END

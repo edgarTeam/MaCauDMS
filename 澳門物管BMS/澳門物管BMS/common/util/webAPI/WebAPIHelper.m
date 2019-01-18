@@ -242,9 +242,12 @@ static AFHTTPSessionManager *_manager;
 
    // NSString *requestUrl = [NSString stringWithFormat:@"%@%@", kBaseUrl, url];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    
+  
+
+
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:nil error:nil];
-   
+
+    //[request setValue:[[NSUserDefaults standardUserDefaults] objectForKey:LoginToken] forHTTPHeaderField:@"Authorization"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     // 设置body
     [request setHTTPBody:body];
@@ -258,10 +261,42 @@ static AFHTTPSessionManager *_manager;
                                                  nil];
     manager.responseSerializer = responseSerializer;
     [[manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (!error) {
+            if([responseObject isKindOfClass:[NSDictionary class]]){
+                NSData *jsonData = nil;
+                
+                if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSString class]]) {
+                    jsonData = [[responseObject objectForKey:@"data"] dataUsingEncoding:NSUTF8StringEncoding];
+                } else if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSDictionary class]]) {
+                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
+                }else if([[responseObject objectForKey:@"data"] isKindOfClass:[NSArray class]]){
+                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
+                }
+                
+                NSLog(@"%@",[[responseObject objectForKey:@"data"] class]);
+//                NSError *err;
+//                id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
+//                                                                  options:NSJSONReadingAllowFragments
+//                                                                    error:&err];
+
+            }
+            success(responseObject);
+        }else{
+            failure(error);
+        }
         
 
     }] resume];
 }
 
-
+- (void)uploadVoice:(NSDictionary *)para filePath:(NSString *)filePath completion:(void (^)(NSDictionary *))completion {
+    [self.httpHelper uploadFileWithURL:kUploadImg parameters:para filePath:filePath success:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
+        completion(dic);
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
 @end

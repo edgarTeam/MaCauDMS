@@ -56,10 +56,12 @@
                          @"newpassword":_changePsdTextField.text
                          };
     [[WebAPIHelper sharedWebAPIHelper] postUpdatePsd:para completion:^(NSString *result){
-        if (result ==nil) {
-            return ;
-        }
-        [ZKAlertTool showAlertWithMsg:result];
+//        if (result ==nil) {
+//            return ;
+//        }
+        NSLog(@"%@",result);
+//        [ZKAlertTool showAlertWithMsg:result];
+        [ZKAlertTool showAlertWithMsg:@"修改成功！"];
     }];
 }
 - (void)viewWillAppear:(BOOL)animated{

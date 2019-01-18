@@ -17,6 +17,7 @@
                 <outlet property="headView" destination="Pb5-iU-eqb" id="Vha-Yl-ain"/>
                 <outlet property="maintenanceCollectionView" destination="IaJ-gD-HuE" id="dSK-9a-FRi"/>
                 <outlet property="maintenanceTextView" destination="Mms-pl-Z3s" id="0u6-5S-CQQ"/>
+                <outlet property="playBtn" destination="jLi-9J-hod" id="7hL-66-1vz"/>
                 <outlet property="recordBtn" destination="bMD-xk-VZ6" id="fed-7u-5sN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -158,6 +159,19 @@
                         <constraint firstAttribute="height" constant="30" id="XXs-rn-ckj"/>
                     </constraints>
                     <state key="normal" backgroundImage="yuyin"/>
+                    <connections>
+                        <action selector="startRecordAction:" destination="-1" eventType="touchDown" id="Dp7-7P-Wxo"/>
+                        <action selector="stopRecordAction:" destination="-1" eventType="touchDragOutside" id="QKJ-75-dHw"/>
+                        <action selector="stopRecordAction:" destination="-1" eventType="touchDragExit" id="UY5-ur-4ex"/>
+                        <action selector="stopRecordAction:" destination="-1" eventType="touchUpInside" id="cxE-pF-SOZ"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLi-9J-hod">
+                    <rect key="frame" x="305" y="582" width="30" height="30"/>
+                    <state key="normal" backgroundImage="play"/>
+                    <connections>
+                        <action selector="playBtnAction:" destination="-1" eventType="touchUpInside" id="O9v-cb-MuV"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -166,6 +180,7 @@
                 <constraint firstItem="jlC-LL-6Ms" firstAttribute="trailing" secondItem="KdK-g4-HNH" secondAttribute="trailing" id="3Uf-ja-LnJ"/>
                 <constraint firstItem="Tqd-A0-Ylh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4Er-bo-dka"/>
                 <constraint firstItem="Mms-pl-Z3s" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4mM-8S-Evi"/>
+                <constraint firstItem="jLi-9J-hod" firstAttribute="centerY" secondItem="bMD-xk-VZ6" secondAttribute="centerY" id="4zr-U7-vyU"/>
                 <constraint firstItem="bMD-xk-VZ6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AVU-dY-YEJ"/>
                 <constraint firstItem="bMD-xk-VZ6" firstAttribute="top" secondItem="IaJ-gD-HuE" secondAttribute="bottom" constant="10" id="B4Y-LT-LYq"/>
                 <constraint firstItem="IaJ-gD-HuE" firstAttribute="top" secondItem="Mms-pl-Z3s" secondAttribute="bottom" constant="8" id="B6U-Il-Fg5"/>
@@ -185,11 +200,13 @@
                 <constraint firstItem="mxp-HU-aD4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oXs-8S-tYA"/>
                 <constraint firstItem="8GX-HR-Nx4" firstAttribute="trailing" secondItem="mxp-HU-aD4" secondAttribute="trailing" id="qPM-ls-vAy"/>
                 <constraint firstItem="Tqd-A0-Ylh" firstAttribute="top" secondItem="bMD-xk-VZ6" secondAttribute="bottom" constant="10" id="tkh-Ob-Lml"/>
+                <constraint firstItem="jLi-9J-hod" firstAttribute="trailing" secondItem="IaJ-gD-HuE" secondAttribute="trailing" id="xzu-Wc-RPs"/>
             </constraints>
         </view>
     </objects>
     <resources>
         <image name="choose" width="20" height="20"/>
+        <image name="play" width="30" height="30"/>
         <image name="yuyin" width="45" height="45"/>
     </resources>
 </document>
