@@ -91,14 +91,34 @@
 //    if ([resultArr containsObject:arr[arr.count-1]]) {
 //        indexLast=[resultArr indexOfObject:arr[arr.count-1]];
 //    }
+    NSMutableArray *arr=[NSMutableArray new];
+    arr=[_strArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
+        int a=[obj1 intValue];
+        int b=[obj2 intValue];
+        if (a >b) {
+            return NSOrderedDescending;
+        }else{
+            return NSOrderedAscending;
+        }
+    }];
+    NSMutableArray *resultArr=[NSMutableArray new];
+    for (int i=0; i<arr.count; i++) {
+        NSString *time=[arr[i] stringByAppendingString:@":00:00"];
+        [resultArr addObject:time];
+        NSLog(@"%@",resultArr[i]);
+    }
+    
+//    for (int j=0; j<arr.count; j++) {
+//        arr[j]=[arr[j] componentsSeparatedByString:@":00:00"];
+//    }
     
     
     
     NSDictionary *para=@{
                          @"orderDate":@"2018-08-08 00:00:00",
                          @"placeId":placeId,
-                         @"orderStartTime":@"12:00:00",
-                         @"orderEndTime":@"14:00:00"
+                         @"orderStartTime":[resultArr firstObject],
+                         @"orderEndTime":[resultArr lastObject]
                          };
     NSDictionary *dic=@{
                         @"placeRecord":para

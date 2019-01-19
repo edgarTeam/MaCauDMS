@@ -410,6 +410,9 @@ static AFHTTPSessionManager *_manager;
         if (!error) {
             if([responseObject isKindOfClass:[NSDictionary class]]){
                 NSData *jsonData = nil;
+                if ([responseObject objectForKey:@"data"]  ==nil) {
+                    return ;
+                }
                 
                 if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSString class]]) {
                     jsonData = [[responseObject objectForKey:@"data"] dataUsingEncoding:NSUTF8StringEncoding];
