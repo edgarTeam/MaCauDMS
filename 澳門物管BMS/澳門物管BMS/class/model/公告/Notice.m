@@ -9,5 +9,8 @@
 #import "Notice.h"
 
 @implementation Notice
-
++ (NSDictionary *)mj_objectClassInArray{
+    return @{ @"noticeImage" : [NoticeSubList class]};
+    
+}
 @end

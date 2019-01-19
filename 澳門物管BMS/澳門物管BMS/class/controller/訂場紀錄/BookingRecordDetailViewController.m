@@ -61,7 +61,7 @@
         }
         _place=[Place mj_setKeyValues:dic];
         _palceLab.text=_place.placeName;
-        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,_place.placeImage]]placeholderImage:kEMPTYIMG completed:nil];
+        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_place.placeImage]]placeholderImage:kEMPTYIMG completed:nil];
     }];
 }
 

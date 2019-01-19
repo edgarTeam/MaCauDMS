@@ -8,6 +8,7 @@
 
 #import "NoticeTableViewCell.h"
 #import "Notice.h"
+#import "NoticeSubList.h"
 @implementation NoticeTableViewCell
 
 - (void)awakeFromNib {
@@ -26,7 +27,15 @@
 
 - (void)setUpModel:(Notice *)model{
    // [self.image];
-    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,model.noticeImage]];
+    _noticeImgArr=[NSMutableArray new];
+    _noticeImgArr=model.noticeImage;
+    _imageThumbnailArr=[NSMutableArray new];
+    _imageUrlArr=[NSMutableArray new];
+    for (NoticeSubList *notice in _noticeImgArr) {
+        [_imageUrlArr addObject:notice.imageUrl];
+        [_imageUrlArr addObject:notice.imageThumbnail];
+    }
+    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_imageUrlArr[0]]];
     [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMAGE];
    // [self.imageView setImage:[UIImage imageNamed:model.noticeImage]];
     self.timeLab.text=model.createTime;

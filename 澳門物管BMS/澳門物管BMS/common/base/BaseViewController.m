@@ -34,7 +34,7 @@
 //    self.view.backgroundColor=[UIColor whiteColor];
 //     Do any additional setup after loading the view.
      
-    self.btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40) ];
+    self.btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 40) ];
     [self.btn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [self.btn setTitle:@"返回" forState:UIControlStateNormal];
     //[self.btn.titleLabel setTextColor:RGB(77, 77, 77)];
@@ -76,7 +76,8 @@
 //    }
 //}
 - (BOOL)login{
-    if (_token!= nil && _token.length > 0) {
+     NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:LoginToken];
+    if (token!= nil && token.length > 0) {
         NSLog(@"已登陆");
         return YES;
     }else{

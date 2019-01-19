@@ -11,6 +11,7 @@
 #import "Place.h"
 #import "PlaceRecord.h"
 #import "HttpHelper.h"
+#import "ZKAlertTool.h"
 @interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *plateBtn;
 @property (nonatomic,strong)LSXPopMenu *plateMenu;
@@ -239,8 +240,14 @@
             [_strArr removeObject:str];
             return;
         }
+        if (index==arr.count-1) {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            [_strArr removeObject:str];
+            return;
+        }
         if ([arr[index+1] intValue]-[arr[index-1] intValue]==4) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            [ZKAlertTool showAlertWithMsg:@"您不能取消这行，因为间隔了2小时"];
         }else{
             cell.accessoryType = UITableViewCellAccessoryNone;
             [_strArr removeObject:str];
@@ -353,6 +360,7 @@
                 }else{
                     cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
                     //   [_compareArr removeAllObjects];
+                    [ZKAlertTool showAlertWithMsg:@"您不能选择这行，因为间隔了2小时"];
                     [_strArr removeObject:_strArr.lastObject];
                 }
             }else{

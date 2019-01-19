@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "NoticeSubList.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Notice : NSObject
@@ -17,12 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString *noticeEnglishDetails;
 @property (nonatomic,copy)NSString *noticeEnglishTitle;
 @property (nonatomic,copy)NSString *noticeId;
-@property (nonatomic,copy)NSString *noticeImage;
+//@property (nonatomic,copy)NSString *noticeImage;
 @property (nonatomic,copy)NSString *noticeTitle;
 @property (nonatomic,copy)NSString *noticeTraditionalDetails;
 @property (nonatomic,copy)NSString *noticeTraditionalTitle;
 @property (nonatomic,copy)NSString *noticeType;
 @property (nonatomic,copy)NSString *updateTime;
+@property (nonatomic,copy) NSArray<NoticeSubList *>* noticeImage;
 @end
 
 NS_ASSUME_NONNULL_END

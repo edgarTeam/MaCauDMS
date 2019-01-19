@@ -12,6 +12,7 @@
 		323A128321F06741009891ED /* SuspensionMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A128021F06741009891ED /* SuspensionMenu.m */; };
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
 		BA03620121F322E1008E0B4A /* AppDelegate+DismissKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */; };
+		BA03620421F3322B008E0B4A /* NoticeSubList.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620321F3322B008E0B4A /* NoticeSubList.m */; };
 		BA04C86221F190D9007A38AF /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */; };
 		BA04C86621F19423007A38AF /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86521F19423007A38AF /* PictureModel.m */; };
 		BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86921F1AE82007A38AF /* NSDate+Utils.m */; };
@@ -123,6 +124,8 @@
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
 		BA0361FF21F322E0008E0B4A /* AppDelegate+DismissKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DismissKeyboard.h"; sourceTree = "<group>"; };
 		BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+DismissKeyboard.m"; sourceTree = "<group>"; };
+		BA03620221F3322B008E0B4A /* NoticeSubList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSubList.h; sourceTree = "<group>"; };
+		BA03620321F3322B008E0B4A /* NoticeSubList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSubList.m; sourceTree = "<group>"; };
 		BA04C86021F190D9007A38AF /* UITextView+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+PlaceHolder.h"; sourceTree = "<group>"; };
 		BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+PlaceHolder.m"; sourceTree = "<group>"; };
 		BA04C86421F19423007A38AF /* PictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureModel.h; sourceTree = "<group>"; };
@@ -446,6 +449,8 @@
 				CB04505E21D122A000EB59D7 /* NoticeList.m */,
 				CB04506021D122CE00EB59D7 /* Notice.h */,
 				CB04506121D122CE00EB59D7 /* Notice.m */,
+				BA03620221F3322B008E0B4A /* NoticeSubList.h */,
+				BA03620321F3322B008E0B4A /* NoticeSubList.m */,
 			);
 			path = "公告";
 			sourceTree = "<group>";
@@ -1108,6 +1113,7 @@
 				323A128321F06741009891ED /* SuspensionMenu.m in Sources */,
 				CBFFF13D21CFD7FA008BA2A0 /* ForgetPswViewController.m in Sources */,
 				BA04C86621F19423007A38AF /* PictureModel.m in Sources */,
+				BA03620421F3322B008E0B4A /* NoticeSubList.m in Sources */,
 				CB04506621D126B000EB59D7 /* PlaceRecord.m in Sources */,
 				CB6C9BA921C1672200B5A9E9 /* AppDelegate.m in Sources */,
 				CB04507121D1464B00EB59D7 /* Community.m in Sources */,

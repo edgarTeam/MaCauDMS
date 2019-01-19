@@ -485,6 +485,7 @@
 
 - (IBAction)deleteBtnAction:(id)sender {
     self.voiceRemarkUrl=@"";
+    self.playBtn.hidden=YES;
     self.deleteBtn.hidden=YES;
 }
 - (IBAction)submitAction:(id)sender {

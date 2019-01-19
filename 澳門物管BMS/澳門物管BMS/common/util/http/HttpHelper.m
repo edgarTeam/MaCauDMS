@@ -408,7 +408,7 @@ static AFHTTPSessionManager *_manager;
     _manager.responseSerializer = responseSerializer;
     [[_manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
-            if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            if ([responseObject isKindOfClass:[NSData class]]) {
                 NSDictionary *jsonDic=[NSJSONSerialization JSONObjectWithData:responseObject
                                                                       options:NSJSONReadingMutableLeaves
                                                                         error:nil];
