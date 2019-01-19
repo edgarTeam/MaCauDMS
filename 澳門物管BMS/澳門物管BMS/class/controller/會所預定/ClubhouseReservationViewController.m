@@ -214,6 +214,11 @@
             }];
         NSInteger index=[arr indexOfObject:str];
         NSLog(@"%ld",index);
+        if (index==0) {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            [_strArr removeObject:str];
+            return;
+        }
         if ([arr[index+1] intValue]-[arr[index-1] intValue]==4) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }else{

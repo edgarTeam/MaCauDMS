@@ -11,9 +11,11 @@
 #import "NoticeTableViewCell.h"
 #import "Notice.h"
 #import "NoticeDetailViewController.h"
+#import "MJRefresh.h"
+#import "SVProgressHUD.h"
 @interface AnnouncementViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *cycleScrollView;
-
+@property(nonatomic,strong)SVProgressHUD *hud;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -31,7 +33,18 @@
     _tableView.tableFooterView=[UIView new];
     _tableView.delegate=self;
     _tableView.dataSource=self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self requestNoticeList];
+    }];
 }
+
+
+
+
+
+
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -78,6 +91,9 @@
 - (void)requestNoticeList {
     [[WebAPIHelper sharedWebAPIHelper] postNoticeList:nil completion:^(NSDictionary *dic){
         NSMutableArray *array=[dic objectForKey:@"list"];
+        if (_tableView.mj_header.isRefreshing) {
+            [_tableView.mj_header endRefreshing];
+        }
         dataSource=[Notice mj_objectArrayWithKeyValuesArray:array];
         [_tableView reloadData];
     }];

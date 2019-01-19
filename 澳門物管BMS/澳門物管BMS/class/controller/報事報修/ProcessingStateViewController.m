@@ -30,6 +30,10 @@
     _processingStateTableView.separatorColor=[UIColor clearColor];
     _processingStateTableView.tableFooterView=[UIView new];
     _processingStateTableView.backgroundColor=[UIColor clearColor];
+    _processingStateTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self requestComplainList];
+    }];
+    
 }
 
 - (void)requestComplainList {
@@ -38,6 +42,9 @@
             return ;
         }
         NSMutableArray *array=[dic objectForKey:@"list"];
+        if (_processingStateTableView.mj_header.isRefreshing) {
+            [_processingStateTableView.mj_header endRefreshing];
+        }
         dataSource=[ReportMaintenanceDetail mj_objectArrayWithKeyValuesArray:array];
         [_processingStateTableView reloadData];
     }];

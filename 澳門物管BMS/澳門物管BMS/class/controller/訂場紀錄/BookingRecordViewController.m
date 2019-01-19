@@ -35,7 +35,9 @@
     _bookingRecordTableView.dataSource=self;
     _bookingRecordTableView.separatorColor=[UIColor clearColor];
     _bookingRecordTableView.tableFooterView=[UIView new];
-    
+    _bookingRecordTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self requestPlaceList];
+    }];
     _placeArr=[NSMutableArray new];
 }
 
@@ -91,24 +93,34 @@
         }
         _place=[Place mj_setKeyValues:dic];
         [self.placeArr addObject:_place];
+        if (_bookingRecordTableView.mj_header.isRefreshing) {
+            [_bookingRecordTableView.mj_header endRefreshing];
+        }
         [_bookingRecordTableView reloadData];
 //        _palceLab.text=_place.placeName;
 //        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,_place.placeImage]]placeholderImage:kEMPTYIMG completed:nil];
     }];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=NO;
+- (void)requestPlaceList {
     [[WebAPIHelper sharedWebAPIHelper] postPlaceRecordList:nil completion:^(NSDictionary *dic){
         NSMutableArray *array=[dic objectForKey:@"list"];
         dataSource=[PlaceRecord mj_objectArrayWithKeyValuesArray:array];
-//        [_bookingRecordTableView reloadData];
+        //        [_bookingRecordTableView reloadData];
         for (PlaceRecord *palceRecord in dataSource) {
             _placeId=palceRecord.placeId;
             [self requestPlace];
         }
     }];
+}
+
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden=NO;
+    
+    [self requestPlaceList];
     
 //    [[WebAPIHelper sharedWebAPIHelper] postPlaceList:nil completion:^(NSDictionary *dic){
 //        if (dic ==nil) {
