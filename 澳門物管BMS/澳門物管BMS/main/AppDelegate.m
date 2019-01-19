@@ -20,7 +20,13 @@
 #import "UpdateHelper.h"
 #import "SuspensionModel.h"
 #import "SuspensionMenu.h"
-@interface AppDelegate ()<SuspensionMenuDelegate>
+#import "JPUSHService.h"
+
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
+
+@interface AppDelegate ()<SuspensionMenuDelegate,JPUSHRegisterDelegate>
 @property(nonatomic,strong)MMDrawerController *drawer;
 @property (nonatomic,strong) UIButton *centerBtn;
 @property (nonatomic,strong) UIImage *image;
@@ -55,6 +61,39 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    if (@available(iOS 12.0, *)) {
+        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
+    } else {
+        // Fallback on earlier versions
+    }
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加自定义 categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    NSSet *set = [[NSSet alloc]initWithObjects:@"iosdevice", nil];
+    [JPUSHService addTags:set completion:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
+        
+    } seq:0] ;
+    [JPUSHService setupWithOption:launchOptions appKey:JPUSHKEY
+                          channel:@"app store"
+                 apsForProduction:0
+            advertisingIdentifier:@""];
+    
+    //2.1.9版本新增获取registration id block接口。
+    [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
+        if(resCode == 0){
+            NSLog(@"registrationID获取成功：%@",registrationID);
+            
+        }
+        else{
+            NSLog(@"registrationID获取失败，code：%d",resCode);
+        }
+    }];
+    
     if (![[NSUserDefaults standardUserDefaults] objectForKey:AppLanguage]) {
 
         [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hant"  forKey:AppLanguage];
@@ -112,234 +151,18 @@
     return YES;
 }
 
-//- (void) handlePan:(UIPanGestureRecognizer*) recognizer
-//{
-//    CGPoint translation = [recognizer translationInView:self.window.rootViewController.view];
-//    centerX=recognizer.view.center.x+ translation.x;
-//    centerY=recognizer.view.center.y+ translation.y;
-//    theCenterX=centerX;
-//    theCenterY=centerY;
-//    // recognizer.view.center=CGPointMake(centerX,
-//    //                                       recognizer.view.center.y+ translation.y);
-//    recognizer.view.center=CGPointMake(centerX,centerY);
-//    [recognizer setTranslation:CGPointZero inView:self.window.rootViewController.view];
-//    if(recognizer.state==UIGestureRecognizerStateEnded|| recognizer.state==UIGestureRecognizerStateCancelled) {
-//        if(centerX>ScreenWidth/2) {
-//            theCenterX=ScreenWidth-50/2;
-//        }else{
-//            theCenterX=50/2;
-//        }
-//        if (centerY >ScreenHeight-40 ) {
-//            theCenterY=ScreenHeight-60;
-//        }else if(centerY <40){
-//            theCenterY=60;
-//        }
-//        [UIView animateWithDuration:0.3 animations:^{
-//            //            recognizer.view.center=CGPointMake(thecenter,
-//            //                                               recognizer.view.center.y+ translation.y);
-//            recognizer.view.center=CGPointMake(theCenterX,theCenterY);
-//        }];
-//    }
-//
-//}
 
-//-(void)choose:(UIButton *)btn{
-//    if (self.centerBtn.selected) {
-//        self.show=NO;
-//    }else{
-//        self.show=YES;
-//    }
-//}
-
-//- (void)addBtn{
-//    radius=ScreenWidth/2-35-25-10;
-//    _btnArr=[NSMutableArray array];
-//    _labelArr=[NSMutableArray array];
-////    self.arr=[NSMutableArray arrayWithObjects:@"bank",@"three",@"woker",@"tv",@"one",@"two",@"people",@"teacher",@"up",nil];
-//     self.arr=[NSMutableArray arrayWithObjects:@"complain",@"place",@"repairsec",@"settingsec",nil];
-//    int a=360/self.arr.count;
-////    self.labelNameArr=[NSMutableArray arrayWithObjects:@"投訴",@"會所預定",@"報事維修",@"設置", nil];
-//        self.labelNameArr=[NSMutableArray arrayWithObjects:LocalizedString(@"string_complain_title"),LocalizedString(@"string_reservation_place_title"),LocalizedString(@"string_report_maintenance_title"),LocalizedString(@"string_set_title"), nil];
-//
-//    for (int i = 0; i < self.arr.count; i++) {
-////        _label=[[UILabel alloc] init];
-////        _label.font=[UIFont systemFontOfSize:14.0];
-////        _label.text=[self.labelNameArr objectAtIndex:i];
-//        _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-//        _button1.tag = i+1;
-//      //  _button1.layer.cornerRadius = 50/2;
-//      //  _button1.layer.masksToBounds = YES;
-//        _button1.userInteractionEnabled = YES;
-//        NSString *name=[self.arr objectAtIndex:i];
-//        [_button1 setImage:[UIImage imageNamed:name] forState:UIControlStateNormal];
-//         _button1.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 75);
-//         _button1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-//        [_button1 setTitle:self.labelNameArr[i] forState:UIControlStateNormal];
-//        //_button1.titleLabel.textColor=RGB(138, 138, 138);
-//        [_button1 setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
-//        [_button1.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
-//       // [_button1.titleLabel setText:self.labelNameArr[i]];
-//        [_button1 setTitleEdgeInsets:UIEdgeInsetsMake(_button1.imageView.frame.size.height, -_button1.imageView.frame.size.width, 0, 0)];
-//        NSLog(@"值是：：：%f",(_button1.frame.size.height/2-_button1.imageView.frame.size.height/2));
-//        [_button1 setImageEdgeInsets:UIEdgeInsetsMake( -(_button1.frame.size.height/2-_button1.imageView.frame.size.height/2), 0, 0, -_button1.titleLabel.frame.size.width)];
-//        _button1.hidden=NO;
-//
-//
-//      //  _button1.backgroundColor=[UIColor blackColor];
-//
-//        [_button1 addTarget:self action:@selector(handleClick:)forControlEvents:UIControlEventTouchUpInside];
-////        [self.window addSubview:_label];
-//        [self.window addSubview:_button1];
-//
-//        [UIView animateWithDuration:0.5 animations:^{
-//
-//            CGFloat x=[UIScreen mainScreen].bounds.size.width/2-25+radius*cosf((_button1.tag-1)*a*3.1415926/180);
-//            CGFloat y=[UIScreen mainScreen].bounds.size.height/2-37+radius*sinf((_button1.tag-1)*a*3.1415926/180);
-//            _button1.frame=CGRectMake(x, y, 50, 75);
-////            [_label mas_makeConstraints:^(MASConstraintMaker *make){
-////                make.centerX.mas_equalTo(_button1);
-////               make.top.mas_equalTo(_button1.mas_bottom).offset(5);
-////            }];
-//        }completion:^(BOOL finish){
-//
-//            self.centerBtn.userInteractionEnabled=YES;
-//        }];
-//        [_btnArr addObject:_button1];
-////        [_labelArr addObject:_label];
-//        // NSLog(@"%ld",_btnArr.count);
-//    }
-//    NSLog(@"%ld",_btnArr.count);
-//}
-//- (void)setShow:(BOOL)show{
-////     self.centerBtn.userInteractionEnabled=NO;
-//    _show=show;
-//    self.centerBtn.selected=show;
-//
-//
-//    NSLog(@"%ld",_btnArr.count);
-//    //   array=_btnArr;
-//
-//    if (!show) {
-//
-//        if(centerX>ScreenWidth/2) {
-//            theCenterX=ScreenWidth-50/2;
-//        }else{
-//            theCenterX=50/2;
-//        }
-//
-//        if (centerY >ScreenHeight-40 ) {
-//            theCenterY=ScreenHeight-60;
-//        }else if(centerY <40){
-//            theCenterY=60;
-//        }
-//
-//        for (UIButton *btn2 in _btnArr) {
-//            [UIView animateWithDuration:0.5 animations:^{
-//                btn2.frame=CGRectMake(ScreenWidth/2-25, ScreenHeight/2-25, 50, 70);
-//            } completion:^(BOOL finished){
-//                btn2.hidden=YES;
-//
-//                [UIView animateWithDuration:0.5 animations:^{
-//                if (centerX==0 && centerY==0) {
-////                    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-//                    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);
-//                }else{
-//                    self.centerBtn.frame=CGRectMake(theCenterX-25, theCenterY-30, 50, 50);
-//                }
-//                self.centerBtn.layer.cornerRadius=25;
-//                self.centerBtn.layer.masksToBounds=YES;
-////                    self.centerBtn.userInteractionEnabled=NO;
-//                }completion:^(BOOL finished){
-//                  //  self.centerBtn.userInteractionEnabled=YES;
-//                }];
-//            }];
-//        }
-//
-////        for (UILabel *label2 in _labelArr) {
-////            [UIView animateWithDuration:0.5 animations:^{
-////                label2.hidden=YES;
-////
-////            }];
-////        }
-//    }else{
-//        // self.centerBtn.userInteractionEnabled=NO;
-//         [UIView animateWithDuration:0.5 animations:^{
-//        self.centerBtn.frame=CGRectMake(ScreenWidth/2-35, ScreenHeight/2-35, 70, 70);
-//        self.centerBtn.layer.cornerRadius=35;
-//        self.centerBtn.layer.masksToBounds=YES;
-//         }completion:^(BOOL finish){
-//             [self addBtn];
-//
-//         }];
-//    }
-//
-//}
-
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-//    if (![keyPath isEqualToString:@"frame"]) {
-//        return;
-//    }
-//    CGFloat height=self.centerBtn.frame.size.height;
-//    if (height ==50) {
-//        _panGestureRecognizer.enabled=YES;
-//    }else if(height ==70){
-//        _panGestureRecognizer.enabled=NO;
-//    }
-//}
-
-- (void)dealloc {
-//    [self.centerBtn removeObserver:self forKeyPath:@"frame"];
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    /// Required - 注册 DeviceToken
+    [JPUSHService registerDeviceToken:deviceToken];
 }
 
-//-(void)handleClick:(UIButton *)sender{
-//    self.show=false;
-//    BaseViewController *baseVC=[[BaseViewController alloc] init];
-////    baseVC=[UIApplication sharedApplication].keyWindow.rootViewController;
-//    switch (sender.tag) {
-//        case 1:
-////            if (![baseVC login]) {
-//////                [_reportVC setTitle:@"投訴"];
-//////                [_centerNvaVC pushViewController:_reportVC animated:YES];
-////                return;
-////            }
-//            [_reportVC setTitle:LocalizedString(@"string_complain_title")];
-//            [_centerNvaVC pushViewController:_reportVC animated:YES];
-//            break;
-//        case 2:
-////            if (![baseVC login]) {
-//////            [_centerNvaVC pushViewController:_clubVC animated:YES];
-////                return;
-////            }
-//            [_centerNvaVC pushViewController:_clubVC animated:YES];
-//
-//            break;
-//        case 3:
-////            if (![baseVC login]) {
-//////            [_reportVC setTitle:@"報事維修"];
-//////            [_centerNvaVC pushViewController:_reportVC animated:YES];
-////                return;
-////            }
-//            [_reportVC setTitle:LocalizedString(@"string_report_maintenance_title")];
-//            [_centerNvaVC pushViewController:_reportVC animated:YES];
-//            break;
-//        case 4:
-////            if (![baseVC login]) {
-//////            [_centerNvaVC pushViewController:_setVC animated:YES];
-////                return;
-////            }
-//            [_centerNvaVC pushViewController:_setVC animated:YES];
-//            break;
-//        default:
-//            break;
-//    }
-////    MapViewController *map=[[MapViewController alloc]init];
-////    [_sliderNvaVC pushViewController:map animated:YES];
-//}
-
-
-
-
-
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    //Optional
+    NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -372,22 +195,52 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    UITouch *touch=event.allTouches.anyObject;
-//    CGPoint *point=[touch locationInView:self.window.rootViewController.view];
-//}
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    [super touchesBegan:touches withEvent:event];
-//    UITouch *touch=[touches anyObject];
-//    CGPoint point =[touch locationInView:self.window];
-//    if (!CGRectContainsPoint(self.centerBtn.frame, point)) {
-//     //   [self.centerBtn removeFromSuperview];
-//        if (!CGRectContainsPoint(self.button1.frame, point)) {
-//            self.show=NO;
-//        }
-//
-//    }
-//}
+
+
+#pragma mark- JPUSHRegisterDelegate
+
+// iOS 12 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification{
+    if (notification && [notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //从通知界面直接进入应用
+    }else{
+        //从通知设置界面进入应用
+    }
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler();  // 系统要求执行这个方法
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // Required, iOS 7 Support
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required, For systems with less than or equal to iOS 6
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
 
 #pragma suspensionDelegate
 

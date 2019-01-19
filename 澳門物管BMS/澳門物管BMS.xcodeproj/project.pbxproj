@@ -117,6 +117,7 @@
 		323A127F21F06741009891ED /* CircleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleButton.h; sourceTree = "<group>"; };
 		323A128021F06741009891ED /* SuspensionMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspensionMenu.m; sourceTree = "<group>"; };
 		323A128121F06741009891ED /* SuspensionMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspensionMenu.h; sourceTree = "<group>"; };
+		32A8CAA421F305FE0064B553 /* 澳門物管BMS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "澳門物管BMS.entitlements"; sourceTree = "<group>"; };
 		6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.release.xcconfig"; sourceTree = "<group>"; };
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
 		BA04C86021F190D9007A38AF /* UITextView+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+PlaceHolder.h"; sourceTree = "<group>"; };
@@ -729,6 +730,7 @@
 		CB6C9BA621C1672200B5A9E9 /* 澳門物管BMS */ = {
 			isa = PBXGroup;
 			children = (
+				32A8CAA421F305FE0064B553 /* 澳門物管BMS.entitlements */,
 				CB42089321C2B13400980B64 /* common */,
 				CB6C9BD921C16BF500B5A9E9 /* class */,
 				CB42089421C2B13E00980B64 /* main */,
@@ -902,6 +904,11 @@
 				TargetAttributes = {
 					CB6C9BA321C1672200B5A9E9 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					CB6C9BBB21C1672300B5A9E9 = {
 						CreatedOnToolsVersion = 10.1;
@@ -1281,8 +1288,9 @@
 			baseConfigurationReference = 863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "澳門物管BMS/澳門物管BMS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8993J9FQNS;
+				DEVELOPMENT_TEAM = 72XXW98UJB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/澳門物管BMS/main/PropetyManagement-prefix.pch";
 				INFOPLIST_FILE = "澳門物管BMS/Info.plist";
@@ -1291,7 +1299,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gag.BMS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoiba.MacauBMSBeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1302,8 +1310,9 @@
 			baseConfigurationReference = 6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "澳門物管BMS/澳門物管BMS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8993J9FQNS;
+				DEVELOPMENT_TEAM = 72XXW98UJB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/澳門物管BMS/main/PropetyManagement-prefix.pch";
 				INFOPLIST_FILE = "澳門物管BMS/Info.plist";
@@ -1312,7 +1321,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gag.BMS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoiba.MacauBMSBeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

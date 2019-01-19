@@ -9,6 +9,8 @@
 #ifndef StaticString_h
 #define StaticString_h
 
+#define JPUSHKEY @"cd7058db5b5f4fd24e9d7bc4"
+
 #define kEMPTYIMG [UIImage imageNamed:@"headImg"]
 #define kEMPTYIMAGE [UIImage imageNamed:@"empty"]
 
