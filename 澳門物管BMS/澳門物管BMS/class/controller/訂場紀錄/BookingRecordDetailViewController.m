@@ -11,6 +11,8 @@
 #import "Place.h"
 #import "User.h"
 #import <MJExtension/MJExtension.h>
+#import "NoticeSubList.h"
+
 @interface BookingRecordDetailViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *bookingRecordDetailImageView;
 @property (nonatomic,strong)PlaceRecord *palceRecord;
@@ -61,8 +63,32 @@
         }
         _place=[Place mj_setKeyValues:dic];
         _palceLab.text=_place.placeName;
-        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_place.placeImage]]placeholderImage:kEMPTYIMG completed:nil];
+        NSMutableArray *imageUrlArr=[NSMutableArray new];
+        NSMutableArray *imageThumbnailArr=[NSMutableArray new];
+        if (_place.images.count ==0 || _place.images ==nil) {
+            return;
+        }
+        for (NoticeSubList *notice in _place.images) {
+            if (notice.imageUrl !=nil) {
+                [imageUrlArr addObject:notice.imageUrl];
+            }
+            if (notice.imageThumbnail !=nil) {
+                [imageThumbnailArr addObject:notice.imageThumbnail];
+            }
+        }
+        if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
+            return;
+        }
+        if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
+            return;
+        }
+        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:imageUrlArr[0]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:imageThumbnailArr[0]]] placeholderImage:image];
+        }];
+//        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,imageUrlArr[0]]]placeholderImage:kEMPTYIMG completed:nil];
     }];
+
+    
 }
 
 - (void)requestPlaceRecord {

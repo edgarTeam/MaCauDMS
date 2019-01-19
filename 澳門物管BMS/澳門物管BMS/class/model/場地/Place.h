@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "NoticeSubList.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Place : NSObject
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString *placeEnglishName;
 @property (nonatomic,assign)NSInteger placeFarthestOrderDay;
 @property (nonatomic,copy)NSString *placeId;
-@property (nonatomic,copy)NSString *placeImage;
+//@property (nonatomic,copy)NSString *placeImage;
 @property (nonatomic,copy)NSString *placeIntroduction;
 @property (nonatomic,copy)NSString *placeName;
 @property (nonatomic,assign)NSInteger placeNeedOrder;
@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)NSInteger placeUpperLimit;
 @property (nonatomic,copy)NSString *updateTime;
 @property (nonatomic,assign) NSInteger placeStatus;
+@property (nonatomic,copy)NSArray<NoticeSubList *>* images;
 @end
 
 NS_ASSUME_NONNULL_END

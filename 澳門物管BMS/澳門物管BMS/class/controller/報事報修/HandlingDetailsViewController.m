@@ -8,6 +8,7 @@
 
 #import "HandlingDetailsViewController.h"
 #import "ReportMaintenanceDetail.h"
+#import "NoticeSubList.h"
 @interface HandlingDetailsViewController ()
 @property (nonatomic,strong) ReportMaintenanceDetail *complain;
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
@@ -91,10 +92,25 @@
 //        textAttachment.image = [UIImage imageNamed:@""];
 //        NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
 //        [string insertAttributedString:textAttachmentString atIndex:string.length];
-        NSArray *imageArr=[_complain.complainImages componentsSeparatedByString:@","];
-        
-        for ( int i=0; i<imageArr.count; i++) {
-             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageArr[i]]];
+//        NSArray *imageArr=[_complain.complainImages componentsSeparatedByString:@","];
+        NSMutableArray *imageThumbnailArr=[NSMutableArray new];
+        NSMutableArray *imageUrlArr=[NSMutableArray new];
+        if(_complain.images ==nil || _complain.images.count ==0){
+            return;
+        }
+        for (NoticeSubList *notice in _complain.images) {
+            if (notice.imageUrl !=nil) {
+                [imageUrlArr addObject:notice.imageUrl];
+            }
+            if (notice.imageThumbnail !=nil) {
+                [imageThumbnailArr addObject:notice.imageThumbnail];
+            }
+        }
+        if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
+            return;
+        }
+        for ( int i=0; i<imageUrlArr.count; i++) {
+             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrlArr[i]]];
             UIImage *image=[UIImage imageWithData:data];
             textAttachment.image = image;
             NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];

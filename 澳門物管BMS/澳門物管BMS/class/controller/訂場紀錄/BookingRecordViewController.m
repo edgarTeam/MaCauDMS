@@ -92,6 +92,9 @@
             return ;
         }
         _place=[Place mj_setKeyValues:dic];
+        if (_place ==nil) {
+            return;
+        }
         [self.placeArr addObject:_place];
         if (_bookingRecordTableView.mj_header.isRefreshing) {
             [_bookingRecordTableView.mj_header endRefreshing];
@@ -107,6 +110,9 @@
         NSMutableArray *array=[dic objectForKey:@"list"];
         dataSource=[PlaceRecord mj_objectArrayWithKeyValuesArray:array];
         //        [_bookingRecordTableView reloadData];
+        if (dataSource ==nil || dataSource.count==0) {
+            return ;
+        }
         for (PlaceRecord *palceRecord in dataSource) {
             _placeId=palceRecord.placeId;
             [self requestPlace];

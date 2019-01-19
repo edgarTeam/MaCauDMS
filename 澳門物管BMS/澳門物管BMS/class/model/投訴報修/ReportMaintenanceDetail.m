@@ -9,5 +9,8 @@
 #import "ReportMaintenanceDetail.h"
 
 @implementation ReportMaintenanceDetail
-
++ (NSDictionary *)mj_objectClassInArray{
+    return @{ @"images" : [NoticeSubList class]};
+    
+}
 @end

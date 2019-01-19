@@ -93,21 +93,38 @@
 //        indexLast=[resultArr indexOfObject:arr[arr.count-1]];
 //    }
     NSMutableArray *arr=[NSMutableArray new];
-    arr=[_strArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
-        int a=[obj1 intValue];
-        int b=[obj2 intValue];
-        if (a >b) {
-            return NSOrderedDescending;
-        }else{
-            return NSOrderedAscending;
-        }
-    }];
     NSMutableArray *resultArr=[NSMutableArray new];
-    for (int i=0; i<arr.count; i++) {
-        NSString *time=[arr[i] stringByAppendingString:@":00:00"];
-        [resultArr addObject:time];
-        NSLog(@"%@",resultArr[i]);
+    NSString *stratTime;
+    NSString *endTime;
+    if (_strArr.count >=2) {
+        
+        arr=[_strArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
+            int a=[obj1 intValue];
+            int b=[obj2 intValue];
+            if (a >b) {
+                return NSOrderedDescending;
+            }else{
+                return NSOrderedAscending;
+            }
+        }];
+        
+        for (int i=0; i<arr.count; i++) {
+            NSString *time=[arr[i] stringByAppendingString:@":00:00"];
+            [resultArr addObject:time];
+            NSLog(@"%@",resultArr[i]);
+        }
+        stratTime=[resultArr firstObject];
+        endTime=[resultArr lastObject];
+        
+    }else if (_strArr.count ==1){
+        stratTime=[[_strArr lastObject] stringByAppendingString:@":00:00"];
+        int end=[[_strArr lastObject] intValue]+2;
+        endTime=[[NSString stringWithFormat:@"%d",end] stringByAppendingString:@":00:00"];
+    }else{
+        [ZKAlertTool showAlertWithMsg:@"请选择时间"];
+        return;
     }
+
     
 //    for (int j=0; j<arr.count; j++) {
 //        arr[j]=[arr[j] componentsSeparatedByString:@":00:00"];
@@ -118,14 +135,12 @@
     NSDictionary *para=@{
                          @"orderDate":@"2018-08-08 00:00:00",
                          @"placeId":placeId,
-                         @"orderStartTime":[resultArr firstObject],
-                         @"orderEndTime":[resultArr lastObject]
+                         @"orderStartTime":stratTime,
+                         @"orderEndTime":endTime
                          };
-    NSDictionary *dic=@{
-                        @"placeRecord":para
-                        };
+
     NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
    
 //    [[WebAPIHelper sharedWebAPIHelper] postWithUrl:kAddComplain body:dic showLoading:YES success:^(NSDictionary *resultDic){
 //        [CommonUtil isRequestOK:resultDic];
@@ -171,6 +186,9 @@
         placeArr=[Place mj_objectArrayWithKeyValuesArray:array];
         _placeList=[NSMutableArray new];
         _placeIdArr=[NSMutableArray new];
+        if (placeArr.count ==0 || placeArr ==nil) {
+            return;
+        }
         for (Place *place in placeArr) {
             [_placeList addObject:place.placeName];
             [_placeIdArr addObject:place.placeId];

@@ -93,9 +93,24 @@
 - (void)requestAddRepair {
     NSMutableArray *imageThumbnailArr=[NSMutableArray new];
     NSMutableArray *imageUrlArr=[NSMutableArray new];
+    if (_dataSource.count ==0 || _dataSource ==nil || [_dataSource isKindOfClass:[NSNull class]]) {
+        return;
+    }
     for (PictureModel *model in _dataSource) {
-        [imageThumbnailArr addObject:model.thumbnailUrl];
-        [imageUrlArr addObject:model.originalUrl];
+        if (model.thumbnailUrl !=nil) {
+            [imageThumbnailArr addObject:model.thumbnailUrl];
+        }
+        
+        if (model.originalUrl !=nil) {
+            [imageUrlArr addObject:model.originalUrl];
+        }
+        
+    }
+    if (imageThumbnailArr ==nil || imageThumbnailArr.count ==0) {
+        return;
+    }
+    if (imageUrlArr ==nil || imageUrlArr.count ==0) {
+        return;
     }
     NSString *imageThumbnail=[imageThumbnailArr componentsJoinedByString:@","];
     NSString *imageUrl=[imageUrlArr componentsJoinedByString:@","];
@@ -112,13 +127,13 @@
                          @"complainPosition":_communityLab.text,
                          @"complainSpecificPosition":_addressTextField.text,
                          @"complainVoice":self.voiceRemarkUrl==nil?@"":self.voiceRemarkUrl,
-                         @"images":picture
+                         @"images":[NSArray arrayWithObjects:picture]
                          };
-    NSDictionary *dic=@{
-                        @"complain":para
-                        };
+//    NSDictionary *dic=@{
+//                        @"complain":para
+//                        };
     NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
    
     [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:jsonData showLoading:YES success:^(NSDictionary *dicResult){
         if (dicResult ==nil) {
@@ -187,9 +202,15 @@
         _photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
         NSMutableArray *orignalUrlArr=[NSMutableArray new];
         NSMutableArray *thumbnailUrlArr=[NSMutableArray new];
+
         for (PictureModel *model in _dataSource) {
-            [orignalUrlArr addObject:model.originalUrl];
-            [thumbnailUrlArr addObject:model.thumbnailUrl];
+            if (model.originalUrl !=nil) {
+                [orignalUrlArr addObject:model.originalUrl];
+            }
+            if (model.thumbnailUrl !=nil) {
+                [thumbnailUrlArr addObject:model.thumbnailUrl];
+            }
+            
         }
 //        for (PictureModel *model in _dataSource) {
 //            [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:model.originalUrl]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {

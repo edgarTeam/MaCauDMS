@@ -45,6 +45,7 @@
         if (_processingStateTableView.mj_header.isRefreshing) {
             [_processingStateTableView.mj_header endRefreshing];
         }
+
         dataSource=[ReportMaintenanceDetail mj_objectArrayWithKeyValuesArray:array];
         [_processingStateTableView reloadData];
     }];

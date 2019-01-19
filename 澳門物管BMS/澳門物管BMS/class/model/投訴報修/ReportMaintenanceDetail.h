@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "NoticeSubList.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReportMaintenanceDetail : NSObject
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *complainFinishTime;
 @property (nonatomic,copy) NSString *complainHandler;
 @property (nonatomic,copy) NSString *complainId;
-@property (nonatomic,copy) NSString *complainImages;
+//@property (nonatomic,copy) NSString *complainImages;
 @property (nonatomic,copy) NSString *complainLiaisonsEmail;
 @property (nonatomic,copy) NSString *complainLiaisonsName;
 @property (nonatomic,copy) NSString *complainLiaisonsSex;
@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *createTime;
 @property (nonatomic,copy) NSString *updateTime;
 @property (nonatomic,copy) NSString *userId;
+@property (nonatomic,copy) NSArray<NoticeSubList *>* images;
 @end
 
 NS_ASSUME_NONNULL_END

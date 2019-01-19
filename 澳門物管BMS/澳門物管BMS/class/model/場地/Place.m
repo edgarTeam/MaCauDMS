@@ -9,5 +9,8 @@
 #import "Place.h"
 
 @implementation Place
-
++ (NSDictionary *)mj_objectClassInArray{
+    return @{ @"images" : [NoticeSubList class]};
+    
+}
 @end

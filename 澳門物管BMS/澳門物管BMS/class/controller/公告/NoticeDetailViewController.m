@@ -41,7 +41,7 @@
 */
 - (void)requestNotice {
     NSDictionary *para=@{
-                         @"noticeId":@(1)
+                         @"noticeId":_noticeId
                          };
     [[WebAPIHelper sharedWebAPIHelper] postNotice:para completion:^(NSDictionary *dic){
         if (dic ==nil) {

@@ -7,6 +7,7 @@
 //
 
 #import "BookingRecordTableViewCell.h"
+#import "NoticeSubList.h"
 @interface BookingRecordTableViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
@@ -29,9 +30,30 @@
 
 - (void)setUpModel:(Place *)model{
     [_contentLab setText:model.placeIntroduction];
-    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,model.placeImage]];
-    [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMAGE];
-    
+    if (model.images.count==0 || model.images==nil || [model.images isKindOfClass:[NSNull class]]) {
+        return;
+    }
+    NSMutableArray *imageArr=[NSMutableArray new];
+    NSMutableArray *imageThumbnailArr=[NSMutableArray new];
+    for (NoticeSubList *notice in model.images) {
+        if (notice.imageUrl !=nil) {
+            [imageArr addObject:notice.imageUrl];
+        }
+        if (notice.imageThumbnail !=nil) {
+            [imageThumbnailArr addObject:notice.imageThumbnail];
+        }
+    }
+    if (imageArr.count ==0 || imageArr==nil) {
+        return;
+    }
+    if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
+        return;
+    }
+//    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,imageArr[0]]];
+//    [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMAGE];
+    [self.image sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:imageArr[0]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [self.image sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:imageThumbnailArr[0]]] placeholderImage:image];
+    }];
 }
 
 - (void)setUpPlaceRecord:(PlaceRecord *)model{
