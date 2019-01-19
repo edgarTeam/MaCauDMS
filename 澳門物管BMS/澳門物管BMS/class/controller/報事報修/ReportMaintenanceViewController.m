@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
 @property (nonatomic,strong) ReportMaintenanceDetail *reportMaintenance;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
+@property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 
 @end
 
@@ -61,7 +62,7 @@
     flowLayout.minimumLineSpacing=5;
     flowLayout.minimumInteritemSpacing=5;
    // flowLayout.estimatedItemSize=CGSizeMake(40, 40);
-    flowLayout.itemSize=CGSizeMake(40, 40);
+    flowLayout.itemSize=CGSizeMake(80, 80);
     flowLayout.scrollDirection=UICollectionViewScrollDirectionVertical;
     _maintenanceCollectionView.collectionViewLayout=flowLayout;
     _maintenanceCollectionView.delegate=self;
@@ -70,6 +71,7 @@
     
 
     [self requestCommunityList];
+    [self.maintenanceCollectionView reloadData];
 }
 
 
@@ -97,6 +99,11 @@
     }
     NSString *imageThumbnail=[imageThumbnailArr componentsJoinedByString:@","];
     NSString *imageUrl=[imageUrlArr componentsJoinedByString:@","];
+    NSDictionary *picture=@{
+                            @"imageThumbnail":imageThumbnail,
+                            @"imageUrl":imageUrl
+                            };
+    
     NSDictionary *para=@{
                          @"complainPosition":_communityLab.text,
                          @"complainLiaisonsEmail":[User shareUser].email,
@@ -104,7 +111,8 @@
                          @"complainLiaisonsSex":[User shareUser].sex,
                          @"complainPosition":_communityLab.text,
                          @"complainSpecificPosition":_addressTextField.text,
-                         @"complainVoice":self.voiceRemarkUrl
+                         @"complainVoice":self.voiceRemarkUrl==nil?@"":self.voiceRemarkUrl,
+                         @"images":picture
                          };
     NSDictionary *dic=@{
                         @"complain":para
@@ -112,7 +120,7 @@
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
    
-    [[WebAPIHelper sharedWebAPIHelper] postWithUrl:kAddComplain body:jsonData showLoading:YES success:^(NSDictionary *dicResult){
+    [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:jsonData showLoading:YES success:^(NSDictionary *dicResult){
         if (dicResult ==nil) {
             return ;
         }
@@ -177,14 +185,30 @@
 //        PhotpCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
 //        return cell;
         _photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
+        NSMutableArray *orignalUrlArr=[NSMutableArray new];
+        NSMutableArray *thumbnailUrlArr=[NSMutableArray new];
         for (PictureModel *model in _dataSource) {
-            [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:model.originalUrl]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-                [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:model.thumbnailUrl]] placeholderImage:image];
-            }];
+            [orignalUrlArr addObject:model.originalUrl];
+            [thumbnailUrlArr addObject:model.thumbnailUrl];
         }
-//        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:_dataSource[indexPath.row]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//             [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:@""]] placeholderImage:image];
-//        }];
+//        for (PictureModel *model in _dataSource) {
+//            [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:model.originalUrl]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//                [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:model.thumbnailUrl]] placeholderImage:image];
+//            }];
+//            _photoCell.deleteBtnAction = ^{
+//                NSLog(@"%ld",_dataSource.count);
+//                [_dataSource removeObjectAtIndex:indexPath.row-1];
+//                [collectionView reloadData];
+//            };
+//        }
+        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row-1]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+             [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row-1]]] placeholderImage:image];
+        }];
+        _photoCell.deleteBtnAction = ^{
+                            NSLog(@"%ld",_dataSource.count);
+                            [_dataSource removeObjectAtIndex:indexPath.row-1];
+                            [collectionView reloadData];
+                        };
         return _photoCell;
     }
 }
@@ -435,6 +459,7 @@
         NSLog(@"%@--%@",self.recordPath,tipStr);
     }
     self.playBtn.hidden = NO;
+    self.deleteBtn.hidden=NO;
     NSDictionary *dic=@{
                         @"type":@(2)
                         };
@@ -458,6 +483,13 @@
     return _player;
 }
 
+- (IBAction)deleteBtnAction:(id)sender {
+    self.voiceRemarkUrl=@"";
+    self.deleteBtn.hidden=YES;
+}
+- (IBAction)submitAction:(id)sender {
+    [self requestAddRepair];
+}
 
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -466,6 +498,16 @@
     if (![self login]) {
         return;
     }
+    
     [self requestCommunityList];
 }
+
+
+
+//- (void)viewDidDisappear:(BOOL)animated{
+//
+//    [self.communityBtn setTitle:@"" forState:UIControlStateNormal];
+//    self.addressTextField.text=@"";
+//    self.voiceRemarkUrl=@"";
+//}
 @end

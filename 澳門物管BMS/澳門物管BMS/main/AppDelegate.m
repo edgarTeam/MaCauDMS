@@ -21,7 +21,7 @@
 #import "SuspensionModel.h"
 #import "SuspensionMenu.h"
 #import "JPUSHService.h"
-
+#import "AppDelegate+DismissKeyboard.h"
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
@@ -47,6 +47,7 @@
 @property (nonatomic,strong) SettingViewController *setVC;
 @property (nonatomic, strong) NSArray *menuArray;
 @property (nonatomic, strong) SuspensionMenu *suspensionMenu;
+
 @end
 
 @implementation AppDelegate
@@ -61,7 +62,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    [self openTouchOutsideDismissKeyboard];
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
     if (@available(iOS 12.0, *)) {
         entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;

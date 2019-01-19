@@ -408,35 +408,41 @@ static AFHTTPSessionManager *_manager;
     _manager.responseSerializer = responseSerializer;
     [[_manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
-            if([responseObject isKindOfClass:[NSDictionary class]]){
-                NSData *jsonData = nil;
-                if ([responseObject objectForKey:@"data"]  ==nil) {
-                    return ;
-                }
-                
-                if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSString class]]) {
-                    jsonData = [[responseObject objectForKey:@"data"] dataUsingEncoding:NSUTF8StringEncoding];
-                } else if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSDictionary class]]) {
-                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
-                }else if([[responseObject objectForKey:@"data"] isKindOfClass:[NSArray class]]){
-                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
-                }
-                
-                NSLog(@"%@",[[responseObject objectForKey:@"data"] class]);
-                NSError *err;
-                id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                  options:NSJSONReadingAllowFragments
-                                                                    error:&err];
+            if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *jsonDic=[NSJSONSerialization JSONObjectWithData:responseObject
+                                                                      options:NSJSONReadingMutableLeaves
+                                                                        error:nil];
+                success(jsonDic);
+            }
+//            if([responseObject isKindOfClass:[NSDictionary class]]){
+//                NSData *jsonData = nil;
+//                if ([responseObject objectForKey:@"data"]  ==nil) {
+//                    return ;
+//                }
+//
+//                if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSString class]]) {
+//                    jsonData = [[responseObject objectForKey:@"data"] dataUsingEncoding:NSUTF8StringEncoding];
+//                } else if ([[responseObject objectForKey:@"data"] isKindOfClass:[NSDictionary class]]) {
+//                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
+//                }else if([[responseObject objectForKey:@"data"] isKindOfClass:[NSArray class]]){
+//                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
+//                }
+//
+//                NSLog(@"%@",[[responseObject objectForKey:@"data"] class]);
+//                NSError *err;
+//                id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
+//                                                                  options:NSJSONReadingAllowFragments
+//                                                                    error:&err];
 //                id obj = [NSClassFromString(className) mj_objectWithKeyValues:resultObject];
 //                success(obj);
                 //                NSError *err;
                 //                id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
                 //                                                                  options:NSJSONReadingAllowFragments
                 //                                                                    error:&err];
-                success(resultObject);
-                
-            }
-            success(responseObject);
+//                success(resultObject);
+            
+//            }
+//            success(nil);
         }else{
             failure(error);
         }

@@ -23,11 +23,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ3-Xz-TyU">
-                        <rect key="frame" x="42.5" y="-7.5" width="15" height="15"/>
+                        <rect key="frame" x="37.5" y="-2.5" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ZQ3-Xz-TyU" secondAttribute="height" multiplier="1:1" id="ETO-5F-s7h"/>
                             <constraint firstAttribute="width" constant="15" id="NfQ-a8-tAi"/>
                         </constraints>
+                        <state key="normal" backgroundImage="button_del_take-photo"/>
                         <connections>
                             <action selector="deleteBtnAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nm7-A8-Zut"/>
                         </connections>
@@ -35,10 +36,10 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="ZQ3-Xz-TyU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="4s8-rC-oNn"/>
+                <constraint firstItem="ZQ3-Xz-TyU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="trailing" constant="-5" id="4s8-rC-oNn"/>
                 <constraint firstItem="sHB-BQ-NQa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="FKd-Nd-jdN"/>
                 <constraint firstAttribute="bottom" secondItem="sHB-BQ-NQa" secondAttribute="bottom" id="TG5-OK-kL7"/>
-                <constraint firstItem="ZQ3-Xz-TyU" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="top" id="dwi-uW-lCa"/>
+                <constraint firstItem="ZQ3-Xz-TyU" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="dwi-uW-lCa"/>
                 <constraint firstAttribute="trailing" secondItem="sHB-BQ-NQa" secondAttribute="trailing" id="eir-eO-nc7"/>
                 <constraint firstItem="sHB-BQ-NQa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lSf-D8-3Vk"/>
             </constraints>
@@ -49,4 +50,7 @@
             </connections>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="button_del_take-photo" width="22" height="22"/>
+    </resources>
 </document>
