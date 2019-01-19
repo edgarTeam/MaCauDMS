@@ -395,6 +395,7 @@ static AFHTTPSessionManager *_manager;
   
     // 设置body
     [request setValue:[[NSUserDefaults standardUserDefaults] objectForKey:LoginToken] forHTTPHeaderField:@"Authorization"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:body];
     AFJSONResponseSerializer *responseSerializer=[AFJSONResponseSerializer serializer];
    // AFHTTPResponseSerializer *responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -419,10 +420,17 @@ static AFHTTPSessionManager *_manager;
                 }
                 
                 NSLog(@"%@",[[responseObject objectForKey:@"data"] class]);
+                NSError *err;
+                id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                  options:NSJSONReadingAllowFragments
+                                                                    error:&err];
+//                id obj = [NSClassFromString(className) mj_objectWithKeyValues:resultObject];
+//                success(obj);
                 //                NSError *err;
                 //                id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
                 //                                                                  options:NSJSONReadingAllowFragments
                 //                                                                    error:&err];
+                success(resultObject);
                 
             }
             success(responseObject);

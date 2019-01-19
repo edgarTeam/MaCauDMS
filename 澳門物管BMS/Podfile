@@ -2,6 +2,7 @@ platform :ios, '8.0'
 target '澳門物管BMS' do
 pod 'AFNetworking'
 pod 'SDWebImage'
+pod 'JPush'
 pod 'MMDrawerController'
 pod 'MJExtension'
 pod 'pop'

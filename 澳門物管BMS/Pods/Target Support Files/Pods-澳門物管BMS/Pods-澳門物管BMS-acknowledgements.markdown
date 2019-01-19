@@ -29,6 +29,14 @@ THE SOFTWARE.
 Copyright (C) 2017 Tencent Bugly, Inc. All rights reserved.
 
 
+## JCore
+
+Copyright jpush.cn
+
+## JPush
+
+Copyright jiguang.cn
+
 ## MJExtension
 
 Copyright (c) 2013-2015 MJExtension (https://github.com/CoderMJLee/MJExtension)

@@ -516,7 +516,7 @@
 }
 
 - (IBAction)startRecordAction:(id)sender {
-    [self stopRecord];
+    [self startRecord];
 }
 
 - (IBAction)stopRecordAction:(id)sender {
@@ -544,6 +544,25 @@
 }
 
 - (void)startRecord {
+    __block BOOL bCanRecord = YES;
+    if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 7.0) {
+        AVAuthorizationStatus videoAuthStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+        if (videoAuthStatus == AVAuthorizationStatusNotDetermined) {// 未询问用户是否授权
+            AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+            if ([audioSession respondsToSelector:@selector(requestRecordPermission:)]) {
+                [audioSession performSelector:@selector(requestRecordPermission:) withObject:^(BOOL granted) {
+                    if (granted) {
+                        bCanRecord = YES;
+                    } else {
+                        bCanRecord = NO;
+                    }
+                }];
+            }
+            
+        }
+    }
+    
+ //   [ZKAlertTool showAlertWithMsg:@"是否开始录音！"];
     if (self.player.rate != 0) {
         [self.player pause];
     }
@@ -557,24 +576,37 @@
         [session setActive:YES error:nil];
     }
     //设置录音参数
-    NSDictionary *recordSetting = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                   [NSNumber numberWithFloat: 8000.0],AVSampleRateKey,
-                                   [NSNumber numberWithInt: kAudioFormatLinearPCM],AVFormatIDKey,
-                                   [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey,
-                                   [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
-                                   [NSNumber numberWithInt:AVAudioQualityMax],AVEncoderAudioQualityKey,
-                                   nil];
-    NSString *fileName = [NSString stringWithFormat:@"%@.mp3",[NSDate getCurrentTimes]];
+//    NSDictionary *recordSetting = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                                   [NSNumber numberWithFloat: 8000.0],AVSampleRateKey,
+//                                   [NSNumber numberWithInt: kAudioFormatLinearPCM],AVFormatIDKey,
+//                                   [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey,
+//                                   [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
+//                                   [NSNumber numberWithInt:AVAudioQualityMax],AVEncoderAudioQualityKey,
+//                                   nil];
+    NSDictionary *recordSetting = @{
+                                    AVEncoderAudioQualityKey : [NSNumber numberWithInt:AVAudioQualityMin],
+                                    AVEncoderBitRateKey : [NSNumber numberWithInt:16],
+                                    AVFormatIDKey : [NSNumber numberWithInt:kAudioFormatLinearPCM],
+                                    AVNumberOfChannelsKey : @2,
+                                    AVLinearPCMBitDepthKey : @8
+                                    };
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@.wav",[NSDate getCurrentTimes]];
     NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
     self.recordPath = path;
     NSError *initError;
     self.recorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:path]
                                                settings:recordSetting
                                                   error:&initError];
-    if (initError == nil) {
-        [self.recorder prepareToRecord];
-        [self.recorder record];
+//    if (initError == nil) {
+//
+//    }
+    if (!_recorder) {
+        NSLog(@"音频格式和文件存储格式不匹配,无法初始化Recorder");
+        return;
     }
+    [self.recorder prepareToRecord];
+    [self.recorder record];
     playTime = 0;
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(addRecordTime) userInfo:nil repeats:YES];
     
@@ -605,7 +637,8 @@
                         @"type":@(2)
                         };
     [[WebAPIHelper sharedWebAPIHelper] uploadVoice:dic filePath:self.recordPath completion:^(NSDictionary *resultDic){
-        //self.voiceRemarkUrl
+        self.voiceRemarkUrl=[resultDic objectForKey:@"originalUrl"];
+        NSLog(@"%@",self.voiceRemarkUrl);
     }];
 
 }
@@ -615,7 +648,13 @@
 //    dispatch_source_cancel(_timer);
 //}
 
-
+- (AVPlayer *)player {
+    if (_player == nil) {
+        _player = [[AVPlayer alloc] init];
+        _player.volume = 1.0;
+    }
+    return _player;
+}
 
 
 

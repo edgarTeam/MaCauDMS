@@ -40,57 +40,57 @@
     //self.title=@"會所預定";
     self.title=LocalizedString(@"string_reservation_place_title");
 
-    
+    self.edgesForExtendedLayout=UIRectEdgeNone;
+    [self createView];
+}
+
+- (void)createView {
     _strArr=[NSMutableArray new];
     _compareArr=[NSMutableArray new];
     _cancelArr=[NSMutableArray new];
     _selectIndexs=[NSMutableArray new];
     NSArray *source=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00~10:00",@"10:00~12:00",@"12:00~14:00",@"14:00~16:00",@"16:00~18:00",@"18:00~20:00",@"20:00~22:00",@"22:00~00:00"];
     _dataSource=[source mutableCopy];
-   // _dateTableView=[[UITableView alloc] init];
+    // _dateTableView=[[UITableView alloc] init];
     _dateTableView.tableFooterView=[UIView new];
     _dateTableView.delegate=self;
     _dateTableView.dataSource=self;
     [_dateTableView reloadData];
-  //  [self reuqestPlateList];
+    //  [self reuqestPlateList];
     if (![self login]) {
         return;
     }
 }
 
-- (void)createView {
-    
-}
-
 
 - (void)requestAddPlaceRecord{
-    NSMutableArray *resultArr=[NSMutableArray new];
-    for (int i=0; i<_selectIndexs.count; i++) {
-      
-     NSString *str1=  _dataSource[[_selectIndexs[i] intValue]];
-        NSString *str=[str1 stringByReplacingOccurrencesOfString:@"~" withString:@""];
-        NSString *handlerStr=[str stringByReplacingOccurrencesOfString:@":" withString:@""];
-        NSString *resultStr=[handlerStr substringToIndex:2];
-        [resultArr addObject:resultStr];
-    }
-    NSArray *arr=[resultArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
-        int a=[obj1 intValue];
-        int b=[obj2 intValue];
-        if (a >b) {
-            return NSOrderedDescending;
-        }else{
-            return NSOrderedAscending;
-        }
-       
-    }];
-    NSInteger indexFirst = 0;
-    NSInteger indexLast = 0;
-    if ([resultArr containsObject:arr[0]]) {
-        indexFirst=[resultArr indexOfObject:arr[0]];
-    }
-    if ([resultArr containsObject:arr[arr.count-1]]) {
-        indexLast=[resultArr indexOfObject:arr[arr.count-1]];
-    }
+//    NSMutableArray *resultArr=[NSMutableArray new];
+//    for (int i=0; i<_selectIndexs.count; i++) {
+//
+//     NSString *str1=  _dataSource[[_selectIndexs[i] intValue]];
+//        NSString *str=[str1 stringByReplacingOccurrencesOfString:@"~" withString:@""];
+//        NSString *handlerStr=[str stringByReplacingOccurrencesOfString:@":" withString:@""];
+//        NSString *resultStr=[handlerStr substringToIndex:2];
+//        [resultArr addObject:resultStr];
+//    }
+//    NSArray *arr=[resultArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
+//        int a=[obj1 intValue];
+//        int b=[obj2 intValue];
+//        if (a >b) {
+//            return NSOrderedDescending;
+//        }else{
+//            return NSOrderedAscending;
+//        }
+//
+//    }];
+//    NSInteger indexFirst = 0;
+//    NSInteger indexLast = 0;
+//    if ([resultArr containsObject:arr[0]]) {
+//        indexFirst=[resultArr indexOfObject:arr[0]];
+//    }
+//    if ([resultArr containsObject:arr[arr.count-1]]) {
+//        indexLast=[resultArr indexOfObject:arr[arr.count-1]];
+//    }
     
     
     
@@ -100,11 +100,12 @@
                          @"orderStartTime":@"12:00:00",
                          @"orderEndTime":@"14:00:00"
                          };
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
     NSDictionary *dic=@{
-                        @"placeRecord":jsonData
+                        @"placeRecord":para
                         };
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
+   
 //    [[WebAPIHelper sharedWebAPIHelper] postWithUrl:kAddComplain body:dic showLoading:YES success:^(NSDictionary *resultDic){
 //        [CommonUtil isRequestOK:resultDic];
 //        if (resultDic ==nil) {
@@ -114,12 +115,12 @@
 //    } failure:^(NSError *error){
 //        NSLog(@"%@",error);
 //    }];
-    [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:dic showLoading:YES success:^(NSDictionary *resultDic){
+    [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:jsonData showLoading:YES success:^(NSDictionary *resultDic){
                 [CommonUtil isRequestOK:resultDic];
                 if (resultDic ==nil) {
                     return ;
                 }
-                _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
+             //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){
         
     }];
@@ -196,9 +197,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-        [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
+       // [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
+//        [_strArr removeObject:<#(nonnull id)#>];
+            NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
+            NSArray *arr=[_strArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
+                int a=[obj1 intValue];
+                int b=[obj2 intValue];
+                if (a >b) {
+                    return NSOrderedDescending;
+                }else{
+                    return NSOrderedAscending;
+                }
+            }];
+        NSInteger index=[arr indexOfObject:str];
+        NSLog(@"%ld",index);
+        if ([arr[index+1] intValue]-[arr[index-1] intValue]==4) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            [_strArr removeObject:str];
+        }
+        
+      //  [_strArr removeObject:_strArr.lastObject];
 //        NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
 //        NSMutableArray *removeArr=[NSMutableArray new];
 //        removeArr=[_strArr mutableCopy];
@@ -267,24 +290,49 @@
        
         NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
         [_strArr addObject:str];
-        
+      
         if (_strArr.count>=2) {
+          //  int nub=_compareArr[_compareArr.count-_strArr.count];
+           // NSLog(@"个数为%d",nub);
+            [_compareArr removeAllObjects];
             for (int i=0; i<_strArr.count-1; i++) {
                 
                 [_compareArr addObject:[NSString stringWithFormat:@"%d", [_strArr.lastObject intValue]-[_strArr[i] intValue]]];
                 NSLog(@"数组个数%ld",_compareArr.count);
                 NSLog(@"%@",_compareArr[i]);
-                if ([_compareArr containsObject:@"4"] ||[_compareArr containsObject:@"-4"]) {
-                    if ([_compareArr containsObject:@"2"]) {
-                        cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-                    }else{
-                        cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-                        [_compareArr removeObject:_compareArr.lastObject];
-                        [_strArr removeObject:_strArr.lastObject];
-                    }
+                
+//              //  NSString *num=[_compareArr objectAtIndex:_compareArr.lastObject];
+//                NSString *num=[_compareArr lastObject];
+//                NSLog(@"num值为%@",num);
+//                [numArr addObject:num];
+//                NSLog(@"个数是：：：%ld",numArr.count);
+//                NSLog(@"值是%@",numArr[i]);
+//                if ([_compareArr containsObject:@"4"] ||[_compareArr containsObject:@"-4"]) {
+//                    if ([_compareArr containsObject:@"2"]) {
+//                        cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//
+//                    }else{
+//                        cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+//                     //   [_compareArr removeAllObjects];
+//                        [_strArr removeObject:_strArr.lastObject];
+//                    }
+//                }else{
+//                     cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//
+//                }
+            }
+            if ([_compareArr containsObject:@"4"] ||[_compareArr containsObject:@"-4"]) {
+                if ([_compareArr containsObject:@"2"] ||[_compareArr containsObject:@"-2"]) {
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+                    
                 }else{
-                     cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+                    //   [_compareArr removeAllObjects];
+                    [_strArr removeObject:_strArr.lastObject];
                 }
+            }else{
+                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+                
             }
         }else{
              cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
@@ -301,10 +349,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
-    if (![self login]) {
-        return;
-    }
+//    if (![self login]) {
+//        return;
+//    }
 //    [self checkLogin];
+    [self createView];
     [self reuqestPlateList];
 }
 
