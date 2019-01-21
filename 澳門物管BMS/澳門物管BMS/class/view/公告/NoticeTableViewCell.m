@@ -27,14 +27,13 @@
 
 - (void)setUpModel:(Notice *)model{
    // [self.image];
-    _noticeImgArr=[NSMutableArray new];
-    _noticeImgArr=model.noticeImage;
-    if (_noticeImgArr.count==0 || _noticeImgArr==nil || [_noticeImgArr isKindOfClass:[NSNull class]]) {
+
+    if (model.noticeImage.count==0 || model.noticeImage==nil || [model.noticeImage isKindOfClass:[NSNull class]]) {
         return;
     }
     _imageThumbnailArr=[NSMutableArray new];
     _imageUrlArr=[NSMutableArray new];
-    for (NoticeSubList *notice in _noticeImgArr) {
+    for (NoticeSubList *notice in model.noticeImage) {
         [_imageUrlArr addObject:notice.imageUrl];
         [_imageUrlArr addObject:notice.imageThumbnail];
     }

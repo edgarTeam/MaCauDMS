@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticeDetailViewController">
             <connections>
                 <outlet property="createTimeLable" destination="Aga-Ul-GdQ" id="bKA-Li-BrN"/>
-                <outlet property="noticeImageView" destination="MMx-j1-LLD" id="y5z-sS-r2F"/>
+                <outlet property="noticeImageView" destination="nFo-bf-qfc" id="qKd-ox-HFb"/>
                 <outlet property="noticeTextView" destination="97u-Bv-mK9" id="BtB-bB-gAF"/>
                 <outlet property="noticeTitleLab" destination="bGc-SW-4dV" id="1GC-W8-Jgh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,15 +33,15 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MMx-j1-LLD">
-                    <rect key="frame" x="67.5" y="70" width="240" height="100"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFo-bf-qfc" customClass="SDCycleScrollView">
+                    <rect key="frame" x="0.0" y="70" width="375" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="240" id="FY1-Gp-L1k"/>
-                        <constraint firstAttribute="height" constant="100" id="hQT-uC-bQ5"/>
+                        <constraint firstAttribute="width" secondItem="nFo-bf-qfc" secondAttribute="height" multiplier="15:8" id="caY-zN-7xq"/>
                     </constraints>
-                </imageView>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创建时间:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ep-GP-PEe">
-                    <rect key="frame" x="30" y="180" width="80" height="21"/>
+                    <rect key="frame" x="30" y="280" width="80" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="xfz-9U-BFg"/>
                     </constraints>
@@ -50,19 +50,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Ul-GdQ">
-                    <rect key="frame" x="120" y="190.5" width="225" height="0.0"/>
+                    <rect key="frame" x="120" y="290.5" width="225" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公告内容:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDv-Gk-Af4">
-                    <rect key="frame" x="30" y="225" width="80" height="21"/>
+                    <rect key="frame" x="30" y="325" width="80" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="97u-Bv-mK9">
-                    <rect key="frame" x="120" y="225" width="225" height="200"/>
+                    <rect key="frame" x="120" y="325" width="225" height="200"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="Rp5-4Y-Nq2"/>
@@ -75,17 +75,18 @@
             <constraints>
                 <constraint firstItem="97u-Bv-mK9" firstAttribute="leading" secondItem="Aga-Ul-GdQ" secondAttribute="leading" id="26G-Y4-lfH"/>
                 <constraint firstItem="XDv-Gk-Af4" firstAttribute="trailing" secondItem="3Ep-GP-PEe" secondAttribute="trailing" id="2i0-Fq-6rX"/>
-                <constraint firstItem="MMx-j1-LLD" firstAttribute="top" secondItem="bGc-SW-4dV" secondAttribute="bottom" constant="10" id="BoK-9x-7mS"/>
                 <constraint firstItem="XDv-Gk-Af4" firstAttribute="top" secondItem="3Ep-GP-PEe" secondAttribute="bottom" constant="24" id="F3M-s9-wtG"/>
-                <constraint firstItem="3Ep-GP-PEe" firstAttribute="top" secondItem="MMx-j1-LLD" secondAttribute="bottom" constant="10" id="HVh-Wm-FeY"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Aga-Ul-GdQ" secondAttribute="trailing" constant="30" id="Hk3-5q-0nS"/>
                 <constraint firstItem="XDv-Gk-Af4" firstAttribute="leading" secondItem="3Ep-GP-PEe" secondAttribute="leading" id="JQx-bB-fWZ"/>
-                <constraint firstItem="MMx-j1-LLD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Jhm-sT-GAP"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="nFo-bf-qfc" secondAttribute="trailing" id="KQe-5M-3J2"/>
                 <constraint firstItem="Aga-Ul-GdQ" firstAttribute="leading" secondItem="3Ep-GP-PEe" secondAttribute="trailing" constant="10" id="L53-LC-hUy"/>
                 <constraint firstItem="97u-Bv-mK9" firstAttribute="trailing" secondItem="Aga-Ul-GdQ" secondAttribute="trailing" id="MHW-oe-bFx"/>
                 <constraint firstItem="bGc-SW-4dV" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="SeI-xX-N4R"/>
                 <constraint firstItem="bGc-SW-4dV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ur1-KR-4Yj"/>
                 <constraint firstItem="Aga-Ul-GdQ" firstAttribute="centerY" secondItem="3Ep-GP-PEe" secondAttribute="centerY" id="dS0-bK-3XS"/>
+                <constraint firstItem="nFo-bf-qfc" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="oxc-Dm-gi6"/>
+                <constraint firstItem="3Ep-GP-PEe" firstAttribute="top" secondItem="nFo-bf-qfc" secondAttribute="bottom" constant="10" id="pUa-zL-2yl"/>
+                <constraint firstItem="nFo-bf-qfc" firstAttribute="top" secondItem="bGc-SW-4dV" secondAttribute="bottom" constant="10" id="qPs-jn-NtR"/>
                 <constraint firstItem="97u-Bv-mK9" firstAttribute="top" secondItem="XDv-Gk-Af4" secondAttribute="top" id="rq7-jb-PU7"/>
                 <constraint firstItem="3Ep-GP-PEe" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="u9c-Zr-9hm"/>
             </constraints>

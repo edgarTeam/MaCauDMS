@@ -88,7 +88,7 @@
     [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
         if(resCode == 0){
             NSLog(@"registrationID获取成功：%@",registrationID);
-            
+            [[NSUserDefaults standardUserDefaults] setObject:registrationID forKey:RegistrationID];
         }
         else{
             NSLog(@"registrationID获取失败，code：%d",resCode);
