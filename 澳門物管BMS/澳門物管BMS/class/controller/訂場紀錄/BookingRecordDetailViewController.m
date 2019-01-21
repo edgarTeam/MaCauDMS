@@ -61,7 +61,7 @@
         if (dic==nil) {
             return ;
         }
-        _place=[Place mj_setKeyValues:dic];
+        _place=[Place mj_objectWithKeyValues:dic];
         _palceLab.text=_place.placeName;
         NSMutableArray *imageUrlArr=[NSMutableArray new];
         NSMutableArray *imageThumbnailArr=[NSMutableArray new];
@@ -99,7 +99,7 @@
         if (dic==nil) {
             return ;
         }
-        _palceRecord=[PlaceRecord mj_setKeyValues:dic];
+        _palceRecord=[PlaceRecord mj_objectWithKeyValues:dic];
         _statusLab.text=dataSource[[_palceRecord.recordStatus intValue]+1];
         _timeZoneLab.text=[NSString stringWithFormat:@"%@ 至 %@",_palceRecord.orderStartTime,_palceRecord.orderEndTime];
         _clientName.text=[User shareUser].name;

@@ -16,7 +16,8 @@ string_old_psw_alert = "请输入旧密码";
 string_new_psw_alert = "请输入新密码";
 string_confirm_psw_alert = "请再次输入新密码";
 string_psw_difference ="两次输入密码不一致，请查证";
-
+String_tips_input_tel ="请输入账号";
+String_tips_input_password ="请输入密码";
 
 
 string_take_album ="相册";

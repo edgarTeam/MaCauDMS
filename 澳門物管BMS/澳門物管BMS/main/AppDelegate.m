@@ -52,12 +52,7 @@
 
 @implementation AppDelegate
 {
-//    CGFloat theCenterX;
-//    CGFloat theCenterY;
-//    CGFloat centerX;
-//    CGFloat centerY;
-//    CGFloat radius;
-//    int a;
+
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -88,7 +83,7 @@
     [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
         if(resCode == 0){
             NSLog(@"registrationID获取成功：%@",registrationID);
-            [[NSUserDefaults standardUserDefaults] setObject:registrationID forKey:RegistrationID];
+            [[NSUserDefaults standardUserDefaults] setObject:registrationID forKey:@"registrationId"];
         }
         else{
             NSLog(@"registrationID获取失败，code：%d",resCode);

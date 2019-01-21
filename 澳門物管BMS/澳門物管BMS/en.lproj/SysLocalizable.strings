@@ -17,8 +17,8 @@ string_old_psw_alert = "請輸入舊密碼";
 string_new_psw_alert = "請輸入新密碼";
 string_confirm_psw_alert = "請再次輸入新密碼";
 string_psw_difference ="兩次輸入密碼不一致，請查正";
-
-
+String_tips_input_tel ="請輸入帳號";
+String_tips_input_password ="請輸入密碼";
 
 string_take_album ="相冊";
 string_take_photo ="拍照";

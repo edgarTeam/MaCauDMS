@@ -188,9 +188,10 @@
 
 
 - (void)userInfoBtnAction:(UIButton *)btn {
-    if (![self login]) {
-        return;
-    }
+//    if (![self login]) {
+//        return;
+//    }
+    [self checkLogin];
     UserInfoViewController *userVC=[[UserInfoViewController alloc] init];
     UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
     [nav pushViewController:userVC animated:YES];
@@ -226,14 +227,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   //  [self checkLogin];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (![self login]) {
-        return;
-    }
+//    if (![self login]) {
+//        return;
+//    }
     NSArray *array=@[@"BookingRecordViewController",@"ContactUSViewController",@"SettingViewController",@"ProcessingStateViewController"];
     UIViewController *vc=[NSClassFromString(array[indexPath.row]) new];
     UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
-
-
+    if (indexPath.row==0 || indexPath.row==3) {
+        [self checkLogin];
+    }
+    
+    
+    
     [nav pushViewController:vc animated:YES];
 
     [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){

@@ -9,6 +9,7 @@
 #import "HandlingDetailsViewController.h"
 #import "ReportMaintenanceDetail.h"
 #import "NoticeSubList.h"
+#import "ZKAlertTool.h"
 @interface HandlingDetailsViewController ()
 @property (nonatomic,strong) ReportMaintenanceDetail *complain;
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
@@ -21,9 +22,9 @@
 
 @property (nonatomic,strong) NSArray *statusArr;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
-@property (nonatomic,strong) NSURL *voiceUrl;
+//@property (nonatomic,strong) NSURL *voiceUrl;
 @property (nonatomic,strong) AVPlayer *player;
-//@property (nonatomic,strong) NSString *voiceURL;
+@property (nonatomic,strong) NSString *voiceURL;
 @end
 
 @implementation HandlingDetailsViewController
@@ -52,8 +53,12 @@
 
 }
 - (IBAction)playBtnAction:(id)sender {
+    if (_voiceURL.length ==0) {
+        [ZKAlertTool showAlertWithMsg:@"沒有錄音可以播放"];
+        return;
+    }
     
-    AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:self.voiceUrl];
+    AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_voiceURL]]];
     //  播放当前资源
     [self.player replaceCurrentItemWithPlayerItem:playerItem];
     [self.player play];
@@ -83,8 +88,9 @@
         _contactWayLab.text=_complain.complainLiaisonsEmail;
         _createTimeLab.text=_complain.createTime;
         _contentTextView.text=_complain.complainDescribe;
-        _voiceUrl=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_complain.complainVoice]];
-        
+//        _voiceUrl=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_complain.complainVoice]];
+        _voiceURL=_complain.complainVoice;
+         _statusLab.text=_statusArr[[_complain.complainStatus intValue]];
         
         
         NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
@@ -117,7 +123,7 @@
             [string insertAttributedString:textAttachmentString atIndex:string.length];
         }
 //        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:]];
-        _statusLab.text=_statusArr[[_complain.complainStatus intValue]];
+       
 //        dataSource[[_palceRecord.recordStatus intValue]+1];
         
         

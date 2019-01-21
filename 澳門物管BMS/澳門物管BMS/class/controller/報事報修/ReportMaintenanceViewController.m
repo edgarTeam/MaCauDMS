@@ -517,9 +517,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
-    if (![self login]) {
-        return;
-    }
+//    if (![self login]) {
+//        return;
+//    }
+    [self checkLogin];
     
     [self requestCommunityList];
 }

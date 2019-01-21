@@ -71,8 +71,6 @@
         _changePsdBtn.hidden=YES;
         _psdBtnHeight.constant=0;
     }
-//    if (![self login]) {
-//        return;
-//    }
+
 }
 @end

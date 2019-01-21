@@ -20,7 +20,7 @@
 
 #define LoginToken @"loginToken"
 #define AppLanguage @"appLanguage"
-#define RegistrationID @"registrationId"
+
 
 #define CustomLocalizedString(key, comment) \
 [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:@"" table:@"SysLocalizable"]

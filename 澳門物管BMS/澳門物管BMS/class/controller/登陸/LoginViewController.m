@@ -45,7 +45,7 @@
     }else if (_psdTextField.text.length ==0){
           [[[UIAlertView alloc]initWithTitle:@"" message:LocalizedString(@"String_tips_input_password") delegate:nil cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
     }else{
-        NSString *registrationId=[[NSUserDefaults standardUserDefaults] objectForKey:RegistrationID];
+        NSString *registrationId=[[NSUserDefaults standardUserDefaults] objectForKey:@"registrationId"];
         NSDictionary *dic =[NSDictionary  dictionaryWithObjectsAndKeys:_accountTextField.text,@"username",_psdTextField.text,@"password",registrationId,@"registrationId",nil];
         [[WebAPIHelper sharedWebAPIHelper]postUserLogin:dic completion:^(NSDictionary *dic){
             if(dic !=nil){

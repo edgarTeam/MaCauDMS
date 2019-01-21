@@ -91,7 +91,7 @@
         if (dic==nil) {
             return ;
         }
-        _place=[Place mj_setKeyValues:dic];
+        _place=[Place mj_objectWithKeyValues:dic];
         if (_place ==nil) {
             return;
         }

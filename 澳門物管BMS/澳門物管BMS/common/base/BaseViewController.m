@@ -48,7 +48,8 @@
 }
 
 -(void)checkLogin{
-    if (_token!= nil && _token.length > 0) {
+     NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:LoginToken];
+    if (token!= nil && token.length > 0) {
         NSLog(@"已登陆");
     }else{
         UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"String_login_request") preferredStyle:UIAlertControllerStyleAlert];

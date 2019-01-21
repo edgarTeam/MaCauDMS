@@ -27,7 +27,8 @@
 
 - (void)setUpModel:(Notice *)model{
    // [self.image];
-
+    self.timeLab.text=model.createTime;
+    self.contentLab.text=model.noticeTitle;
     if (model.noticeImage.count==0 || model.noticeImage==nil || [model.noticeImage isKindOfClass:[NSNull class]]) {
         return;
     }
@@ -51,7 +52,6 @@
         [self.image sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:_imageThumbnailArr[0]]] placeholderImage:image];
     }];
     
-    self.timeLab.text=model.createTime;
-    self.contentLab.text=model.noticeTitle;
+   
 }
 @end

@@ -58,9 +58,10 @@
     _dateTableView.dataSource=self;
     [_dateTableView reloadData];
     //  [self reuqestPlateList];
-    if (![self login]) {
-        return;
-    }
+    
+//    if (![self login]) {
+//        return;
+//    }
 }
 
 
@@ -403,7 +404,8 @@
 //    if (![self login]) {
 //        return;
 //    }
-//    [self checkLogin];
+
+    [self checkLogin];
     [self createView];
     [self reuqestPlateList];
 }
