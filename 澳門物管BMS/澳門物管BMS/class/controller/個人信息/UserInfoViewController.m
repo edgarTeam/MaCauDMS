@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *telLab;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UIButton *changeBtn;
-
+@property (weak, nonatomic) IBOutlet UIButton *changeSexBtn;
+@property (weak, nonatomic) IBOutlet UIButton *changeTelBtn;
+@property (assign,nonatomic) NSInteger sexId;
 @end
 
 @implementation UserInfoViewController
@@ -188,6 +190,21 @@
     }];
     
 }
+
+- (void)requestChangeInfo {
+    if(self.sexLab.text == LocalizedString(@"string_sex_female")){
+        self.sexId=0;
+    }else if(self.sexLab.text == LocalizedString(@"string_sex_male")){
+        self.sexId=1;
+    }
+//    NSDictionary *dic=@{
+//                        @"sex":@(self.sexId),
+//                        @""
+//                        };
+}
+
+
+
 
 
 

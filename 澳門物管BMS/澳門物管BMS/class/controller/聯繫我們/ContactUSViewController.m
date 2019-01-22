@@ -23,7 +23,7 @@
     self.title=LocalizedString(@"string_contact_us_title");
 }
 - (IBAction)phoneBtnAction:(id)sender {
-    [self callTel:@"835-66223344"];
+    [self callTel:@"853-66223344"];
 }
 
 /*
@@ -35,9 +35,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 -(void)callTel:(NSString *)telString{
     NSString *cmdString = [NSString stringWithFormat:@"tel:%@",telString];
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:cmdString]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:cmdString] options:@{} completionHandler:nil];
 }
 

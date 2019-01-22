@@ -49,7 +49,7 @@
 //    
 //    _contentTextView.attributedText = string;
     
-    _statusArr=@[@"发起",@"收到",@"处理中",@"处理完成"];
+    _statusArr=@[@"發起",@"收到",@"處理中",@"處理完成"];
 
 }
 - (IBAction)playBtnAction:(id)sender {

@@ -61,7 +61,6 @@
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumLineSpacing=5;
     flowLayout.minimumInteritemSpacing=5;
-   // flowLayout.estimatedItemSize=CGSizeMake(40, 40);
     flowLayout.itemSize=CGSizeMake(80, 80);
     flowLayout.scrollDirection=UICollectionViewScrollDirectionVertical;
     _maintenanceCollectionView.collectionViewLayout=flowLayout;
@@ -120,7 +119,7 @@
                             };
     
     NSDictionary *para=@{
-                         @"complainPosition":_communityLab.text,
+                         
                          @"complainLiaisonsEmail":[User shareUser].email,
                          @"complainLiaisonsName":[User shareUser].name,
                          @"complainLiaisonsSex":[User shareUser].sex,

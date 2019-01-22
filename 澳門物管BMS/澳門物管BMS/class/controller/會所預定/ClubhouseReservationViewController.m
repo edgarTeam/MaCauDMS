@@ -130,6 +130,10 @@
 //    for (int j=0; j<arr.count; j++) {
 //        arr[j]=[arr[j] componentsSeparatedByString:@":00:00"];
 //    }
+    if (placeId.length==0) {
+        [ZKAlertTool showAlertWithMsg:@"请选择會所類型"];
+        return;
+    }
     
     
     
