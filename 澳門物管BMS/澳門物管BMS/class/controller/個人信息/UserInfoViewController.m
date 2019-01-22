@@ -13,16 +13,19 @@
 #import "User.h"
 #import "HttpHelper.h"
 #import "CommonUtil.h"
-
+#import "ZKAlertTool.h"
 @interface UserInfoViewController ()<UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UILabel *sexLab;
-@property (weak, nonatomic) IBOutlet UILabel *telLab;
+//@property (weak, nonatomic) IBOutlet UILabel *telLab;
+@property (weak, nonatomic) IBOutlet UITextField *telTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UIButton *changeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *changeSexBtn;
 @property (weak, nonatomic) IBOutlet UIButton *changeTelBtn;
 @property (assign,nonatomic) NSInteger sexId;
+@property (nonatomic,strong) UIButton *btn;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 @end
 
 @implementation UserInfoViewController
@@ -30,6 +33,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=LocalizedString(@"String_info_title");
+    
+    self.btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 40) ];
+    [self.btn setTitle:@"修改" forState:UIControlStateNormal];
+    //[self.btn.titleLabel setTextColor:RGB(77, 77, 77)];
+    [self.btn setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
+    [self.btn addTarget:self action:@selector(changeBtnaction:) forControlEvents:UIControlEventTouchUpInside];
+  //  [self.view addSubview:self.btn];
+    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:_btn];
+    self.navigationItem.rightBarButtonItem=rightItem;
+    
+    
     
     self.headTitleLab.text=LocalizedString(@"String_head_title");
     self.nameTitleLab.text=LocalizedString(@"String_name_title");
@@ -46,7 +60,10 @@
     self.headImage.layer.masksToBounds = YES;
     self.headImage.layer.cornerRadius = self.headImage.frame.size.width/2;
   //  self.sexLab.text=[User shareUser].sex;
-    self.telLab.text=[NSString stringWithFormat:@"%@", [User shareUser].tel ];
+//    self.telLab.text=[NSString stringWithFormat:@"%@", [User shareUser].tel ];
+    self.telTextField.text=[NSString stringWithFormat:@"%@", [User shareUser].tel ];
+    self.telTextField.enabled=NO;
+    self.changeSexBtn.enabled=NO;
     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,[User shareUser].portrait]];
     [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
     
@@ -191,16 +208,45 @@
     
 }
 
+- (void)changeBtnaction:(UIButton *)btn{
+    self.submitBtn.hidden=NO;
+    self.changeSexBtn.enabled=YES;
+    self.telTextField.enabled=YES;
+}
+- (IBAction)submitBtnAction:(id)sender {
+}
+
+
 - (void)requestChangeInfo {
     if(self.sexLab.text == LocalizedString(@"string_sex_female")){
         self.sexId=0;
     }else if(self.sexLab.text == LocalizedString(@"string_sex_male")){
         self.sexId=1;
     }
-//    NSDictionary *dic=@{
-//                        @"sex":@(self.sexId),
-//                        @""
-//                        };
+    NSDictionary *dic=@{
+                        @"sex":@(self.sexId),
+                        @"tel":self.telTextField.text
+                        };
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
+    [[HttpHelper shareHttpHelper] postWithUrl:kUpdateInfo body:jsonData showLoading:YES success:^(NSDictionary *resultDic){
+        [CommonUtil isRequestOK:resultDic];
+        if (resultDic ==nil) {
+            return ;
+        }
+        [CommonUtil clearDefuatUser];
+        User *user=[User shareUser];
+        
+        user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
+        [CommonUtil storeUser];
+        [ZKAlertTool showAlertWithMsg:@"您已經設置成功了"];
+        self.submitBtn.hidden=YES;
+        self.telTextField.enabled=NO;
+        self.changeTelBtn.enabled=NO;
+        //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
+    } failure:^(NSError *error){
+        
+    }];
 }
 
 

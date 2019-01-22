@@ -17,8 +17,8 @@
 #define kUserDetail kBaseUrl @"/api/user/detail"
 //修改密碼
 #define kUpdatePsd kBaseUrl @"/api/user/updatePassword"
-
-
+//更新個人信息
+#define kUpdateInfo kBaseUrl @"/api/user/update"
 
 //報修列表
 #define kComplainList kBaseUrl @"/api/complain/selfList"
