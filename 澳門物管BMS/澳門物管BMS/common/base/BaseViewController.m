@@ -40,7 +40,7 @@
     //[self.btn.titleLabel setTextColor:RGB(77, 77, 77)];
     [self.btn setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
     [self.btn addTarget:self action:@selector(backBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.btn];
+   // [self.view addSubview:self.btn];
     UIBarButtonItem *back=[[UIBarButtonItem alloc]initWithCustomView:_btn];
     self.navigationItem.leftBarButtonItem=back;
  

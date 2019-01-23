@@ -12,6 +12,8 @@
 #import "PlaceRecord.h"
 #import "HttpHelper.h"
 #import "ZKAlertTool.h"
+#import "SelectDatePickerController.h"
+#import "NSDate+Utils.h"
 @interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *plateBtn;
 @property (nonatomic,strong)LSXPopMenu *plateMenu;
@@ -22,11 +24,13 @@
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,strong) PlaceRecord *placeRecord;
 
+@property (weak, nonatomic) IBOutlet UIButton *orderDateBtn;
 
 @property (nonatomic,strong) NSMutableArray *strArr;
 @property (nonatomic,strong) NSMutableArray *compareArr;
 @property (nonatomic,strong) NSMutableArray *cancelArr;
 @property (nonatomic,assign) NSInteger index;
+@property (nonatomic,strong) NSString *dateTimeStr;//预定日期
 @end
 
 @implementation ClubhouseReservationViewController
@@ -122,11 +126,14 @@
         int end=[[_strArr lastObject] intValue]+2;
         endTime=[[NSString stringWithFormat:@"%d",end] stringByAppendingString:@":00:00"];
     }else{
-        [ZKAlertTool showAlertWithMsg:@"请选择时间"];
+        [ZKAlertTool showAlertWithMsg:@"请选择时间分段"];
         return;
     }
 
-    
+    if (_dateTimeStr.length ==0) {
+        [ZKAlertTool showAlertWithMsg:@"請選擇日期"];
+        return;
+    }
 //    for (int j=0; j<arr.count; j++) {
 //        arr[j]=[arr[j] componentsSeparatedByString:@":00:00"];
 //    }
@@ -138,7 +145,7 @@
     
     
     NSDictionary *para=@{
-                         @"orderDate":@"2018-08-08 00:00:00",
+                         @"orderDate":_dateTimeStr,
                          @"placeId":placeId,
                          @"orderStartTime":stratTime,
                          @"orderEndTime":endTime
@@ -146,16 +153,7 @@
 
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
-   
-//    [[WebAPIHelper sharedWebAPIHelper] postWithUrl:kAddComplain body:dic showLoading:YES success:^(NSDictionary *resultDic){
-//        [CommonUtil isRequestOK:resultDic];
-//        if (resultDic ==nil) {
-//            return ;
-//        }
-//        _placeRecord=[PlaceRecord mj_setKeyValues:resultDic[@"data"]];
-//    } failure:^(NSError *error){
-//        NSLog(@"%@",error);
-//    }];
+    
     [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:jsonData showLoading:YES success:^(NSDictionary *resultDic){
                 [CommonUtil isRequestOK:resultDic];
                 if (resultDic ==nil) {
@@ -203,6 +201,16 @@
     
 }
 
+- (IBAction)dateBtnAction:(id)sender {
+    SelectDatePickerController *selectDateVC=[SelectDatePickerController new];
+    [selectDateVC setDidSelectData:^(NSDate *date, NSDate *time, NSString *timeStr) {
+       // _dateTimeStr=timeStr;
+    //    [self.orderDateBtn setTitle:timeStr forState:UIControlStateNormal];
+        _dateTimeStr=[NSDate stringFromDateToDateTimeString:timeStr];
+        [self.orderDateBtn setTitle:[NSDate stringApplyDetailTimeString:timeStr] forState:UIControlStateNormal];
+    }];
+    [self presentViewController:selectDateVC animated:YES completion:nil];
+}
 
 
 /*

@@ -70,4 +70,11 @@
 
 
 +(NSString*)getCurrentTimes;
+
+//转换时间 20131212055012
++ (NSString *)stringNransformDateAndTimeString:(NSString *)time;
+//转换时间 201612120550
++ (NSString *)stringApplyDetailTimeString:(NSString *)time;
+
++ (NSString *)stringFromDateToDateTimeString:(NSString *)time;
 @end

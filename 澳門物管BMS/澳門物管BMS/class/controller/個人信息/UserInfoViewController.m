@@ -22,9 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UIButton *changeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *changeSexBtn;
-@property (weak, nonatomic) IBOutlet UIButton *changeTelBtn;
+//@property (weak, nonatomic) IBOutlet UIButton *changeTelBtn;
 @property (assign,nonatomic) NSInteger sexId;
-@property (nonatomic,strong) UIButton *btn;
+@property (nonatomic,strong) UIButton *rightBtn;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 @end
 
@@ -34,13 +34,13 @@
     [super viewDidLoad];
     self.title=LocalizedString(@"String_info_title");
     
-    self.btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 40) ];
-    [self.btn setTitle:@"修改" forState:UIControlStateNormal];
+    self.rightBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 40) ];
+    [self.rightBtn setTitle:@"修改" forState:UIControlStateNormal];
     //[self.btn.titleLabel setTextColor:RGB(77, 77, 77)];
-    [self.btn setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
-    [self.btn addTarget:self action:@selector(changeBtnaction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.rightBtn setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
+    [self.rightBtn addTarget:self action:@selector(changeBtnaction:) forControlEvents:UIControlEventTouchUpInside];
   //  [self.view addSubview:self.btn];
-    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:_btn];
+    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:_rightBtn];
     self.navigationItem.rightBarButtonItem=rightItem;
     
     
@@ -212,8 +212,10 @@
     self.submitBtn.hidden=NO;
     self.changeSexBtn.enabled=YES;
     self.telTextField.enabled=YES;
+    [ZKAlertTool showAlertWithMsg:@"您已经可以修改个人信息了"];
 }
 - (IBAction)submitBtnAction:(id)sender {
+    [self requestChangeInfo];
 }
 
 
@@ -242,7 +244,7 @@
         [ZKAlertTool showAlertWithMsg:@"您已經設置成功了"];
         self.submitBtn.hidden=YES;
         self.telTextField.enabled=NO;
-        self.changeTelBtn.enabled=NO;
+//        self.changeTelBtn.enabled=NO;
         //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){
         
@@ -261,6 +263,26 @@
 - (IBAction)changeBtnAction:(id)sender {
     [self showChangeAvatarAlert];
 }
+
+- (IBAction)changeSexBtnAction:(id)sender {
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *alertAc1 = [UIAlertAction actionWithTitle:LocalizedString(@"string_sex_male") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+        }];
+    UIAlertAction *alertAc2 = [UIAlertAction actionWithTitle:LocalizedString(@"string_sex_female") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+    }];
+
+    [alertC addAction:alertAc1];
+    [alertC addAction:alertAc2];
+    
+    [self presentViewController:alertC animated:NO completion:nil];
+    
+}
+
+
+
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;

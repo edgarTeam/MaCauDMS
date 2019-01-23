@@ -269,4 +269,60 @@
     return time;
     
 }
+
+
+
+// dateComponents
++ (NSDateComponents *)getDateComponentsWithNumberTime:(NSString *)time format:(NSString *)format{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:format];
+    NSDate *date = [dateFormatter dateFromString:time];
+    return [self getDateComponentsWithDate:date];
+}
+
++ (NSDateComponents *)getDateComponentsWithDate:(NSDate *)date{
+    if (date == nil) {
+        return nil;
+    }
+    NSDateComponents *dateComponents;
+    // 阳历
+    NSCalendar *calender = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    dateComponents = [calender components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitWeekOfMonth|NSCalendarUnitWeekday fromDate:date];
+    
+    return dateComponents;
+}
+
+/// 20121212102044转为2012年12月12日 10:20
++ (NSString *)stringNransformDateAndTimeString:(NSString *)time{
+    if (time == nil || [time isEqualToString:@""]) {
+        return @"";
+    }
+    
+    NSDateComponents *dateComponents = [self getDateComponentsWithNumberTime:time format:@"yyyyMMddHHmmss"];
+    
+    return [NSString stringWithFormat:NSLocalizedString(@"%ld年%02ld月%02ld日 %02ld:%02ld", nil),dateComponents.year,dateComponents.month,dateComponents.day,dateComponents.hour,dateComponents.minute];
+    
+}
+
++ (NSString *)stringApplyDetailTimeString:(NSString *)time {
+    if (time == nil || [time isEqualToString:@""]) {
+        return @"";
+    }
+    
+    NSDateComponents *dateComponents = [self getDateComponentsWithNumberTime:time format:@"yyyyMMddHHmm"];
+    
+    return [NSString stringWithFormat:NSLocalizedString(@"%ld年%02ld月%02ld日 %0ld:%02ld", nil),dateComponents.year,dateComponents.month,dateComponents.day,dateComponents.hour,dateComponents.minute];
+    
+}
+
++ (NSString *)stringFromDateToDateTimeString:(NSString *)time {
+    if (time == nil || [time isEqualToString:@""]) {
+        return @"";
+    }
+    
+    NSDateComponents *dateComponents = [self getDateComponentsWithNumberTime:time format:@"yyyyMMddHHmm"];
+    
+    return [NSString stringWithFormat:NSLocalizedString(@"%ld-%02ld-%02ld %0ld:%02ld", nil),dateComponents.year,dateComponents.month,dateComponents.day,dateComponents.hour,dateComponents.minute];
+    
+}
 @end

@@ -482,6 +482,61 @@ static AFHTTPSessionManager *_manager;
 
 
 
+- (void)getWeatherWithURL:(NSString *)URLString
+  convertClassName:(NSString *)className
+        parameters:(NSDictionary *)parameters
+           isArray:(BOOL)isArray
+          isString:(BOOL)isString
+
+           success:(void (^)(id obj))success
+           failure:(void (^)(NSError *error))failure
+{
+    [_manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [SVProgressHUD dismiss];
+        if ([CommonUtil isRequestWeatherOK:responseObject]) {
+            if (isString) {
+                success([responseObject objectForKey:@"result"]);
+            }else if([responseObject isKindOfClass:[NSDictionary class]]){
+                NSData *jsonData = nil;
+                
+                if ([[responseObject objectForKey:@"result"] isKindOfClass:[NSString class]]) {
+                    jsonData = [[responseObject objectForKey:@"result"] dataUsingEncoding:NSUTF8StringEncoding];
+                } else if ([[responseObject objectForKey:@"result"] isKindOfClass:[NSDictionary class]]) {
+                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"result"] options:NSJSONWritingPrettyPrinted error:nil];
+                }else if([[responseObject objectForKey:@"result"] isKindOfClass:[NSArray class]]){
+                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"result"] options:NSJSONWritingPrettyPrinted error:nil];
+                }
+                
+                NSLog(@"%@",[[responseObject objectForKey:@"result"] class]);
+                NSError *err;
+                id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                  options:NSJSONReadingAllowFragments
+                                                                    error:&err];
+                if (className == nil || [@"" isEqualToString:className]) {
+                    success(resultObject);
+                } else if (isArray) {
+                    NSArray *data = [NSClassFromString(className) mj_objectArrayWithKeyValuesArray:resultObject];
+                    success(data);
+                } else {
+                    id obj = [NSClassFromString(className) mj_objectWithKeyValues:resultObject];
+                    success(obj);
+                }
+                //                }else if (isBody){
+                //
+                //                }
+            }else{
+                [SVProgressHUD dismiss];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD dismiss];
+    }];
+}
+
+
+
+
+
 
 
 @end

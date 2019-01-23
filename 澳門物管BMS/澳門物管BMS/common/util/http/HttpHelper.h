@@ -104,6 +104,19 @@ NS_ASSUME_NONNULL_BEGIN
                   success:(void (^)(id result))success
                   failure:(void (^)(NSError *error))failure;
 
+
+- (void)getWeatherWithURL:(NSString *)URLString
+         convertClassName:(NSString *)className
+               parameters:(NSDictionary *)parameters
+                  isArray:(BOOL)isArray
+                 isString:(BOOL)isString
+
+                  success:(void (^)(id obj))success
+                  failure:(void (^)(NSError *error))failure;
+
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

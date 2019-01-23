@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)dateTimeWithYYMMDDHHMM:(NSDate *)date;
 + (void)addGradientLayerTo:(id)object;
 
-
++(BOOL)isRequestWeatherOK:(id)response;
 @end
 
 NS_ASSUME_NONNULL_END

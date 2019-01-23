@@ -3,6 +3,7 @@ target '澳門物管BMS' do
 pod 'AFNetworking'
 pod 'SDWebImage'
 pod 'JPush'
+pod 'SDAutoLayout'
 pod 'MMDrawerController'
 pod 'MJExtension'
 pod 'pop'

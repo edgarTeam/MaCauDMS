@@ -13,6 +13,9 @@
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
 		BA03620121F322E1008E0B4A /* AppDelegate+DismissKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */; };
 		BA03620421F3322B008E0B4A /* NoticeSubList.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620321F3322B008E0B4A /* NoticeSubList.m */; };
+		BA04405521F8164400B310EB /* BaseAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405421F8164400B310EB /* BaseAlertViewController.m */; };
+		BA04405921F8168900B310EB /* SelectDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405721F8168900B310EB /* SelectDatePickerController.m */; };
+		BA04405D21F84D0D00B310EB /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405C21F84D0D00B310EB /* Weather.m */; };
 		BA04C86221F190D9007A38AF /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */; };
 		BA04C86621F19423007A38AF /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86521F19423007A38AF /* PictureModel.m */; };
 		BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86921F1AE82007A38AF /* NSDate+Utils.m */; };
@@ -126,6 +129,12 @@
 		BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+DismissKeyboard.m"; sourceTree = "<group>"; };
 		BA03620221F3322B008E0B4A /* NoticeSubList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSubList.h; sourceTree = "<group>"; };
 		BA03620321F3322B008E0B4A /* NoticeSubList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSubList.m; sourceTree = "<group>"; };
+		BA04405321F8164400B310EB /* BaseAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAlertViewController.h; sourceTree = "<group>"; };
+		BA04405421F8164400B310EB /* BaseAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAlertViewController.m; sourceTree = "<group>"; };
+		BA04405721F8168900B310EB /* SelectDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDatePickerController.m; sourceTree = "<group>"; };
+		BA04405821F8168900B310EB /* SelectDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDatePickerController.h; sourceTree = "<group>"; };
+		BA04405B21F84D0D00B310EB /* Weather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		BA04405C21F84D0D00B310EB /* Weather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		BA04C86021F190D9007A38AF /* UITextView+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+PlaceHolder.h"; sourceTree = "<group>"; };
 		BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+PlaceHolder.m"; sourceTree = "<group>"; };
 		BA04C86421F19423007A38AF /* PictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureModel.h; sourceTree = "<group>"; };
@@ -345,6 +354,24 @@
 				BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */,
 			);
 			path = KeyBoard;
+			sourceTree = "<group>";
+		};
+		BA04405621F8167800B310EB /* selectDate */ = {
+			isa = PBXGroup;
+			children = (
+				BA04405821F8168900B310EB /* SelectDatePickerController.h */,
+				BA04405721F8168900B310EB /* SelectDatePickerController.m */,
+			);
+			path = selectDate;
+			sourceTree = "<group>";
+		};
+		BA04405A21F84CE800B310EB /* 天气 */ = {
+			isa = PBXGroup;
+			children = (
+				BA04405B21F84D0D00B310EB /* Weather.h */,
+				BA04405C21F84D0D00B310EB /* Weather.m */,
+			);
+			path = "天气";
 			sourceTree = "<group>";
 		};
 		BA04C85F21F19095007A38AF /* UITextView+PlaceHolder */ = {
@@ -651,6 +678,7 @@
 		CB42089521C2B16F00980B64 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BA04405A21F84CE800B310EB /* 天气 */,
 				BA04C86321F193DD007A38AF /* 图片 */,
 				CB02668121D8CFFE00561B1C /* LeftModel */,
 				CB02947721D3A89000FE55A7 /* base */,
@@ -712,6 +740,8 @@
 		CB42089921C2B19C00980B64 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				BA04405321F8164400B310EB /* BaseAlertViewController.h */,
+				BA04405421F8164400B310EB /* BaseAlertViewController.m */,
 				CB18AA0321E6443200B3A232 /* GradientView.h */,
 				CB18AA0221E6443200B3A232 /* GradientView.m */,
 				CB42089A21C2B1BA00980B64 /* BaseViewController.h */,
@@ -808,6 +838,7 @@
 		CBCB79C421CBD2A000BF454D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				BA04405621F8167800B310EB /* selectDate */,
 				BA0361FE21F322CB008E0B4A /* KeyBoard */,
 				BA04C86721F1AE5E007A38AF /* NSDate */,
 				BA04C85F21F19095007A38AF /* UITextView+PlaceHolder */,
@@ -1088,6 +1119,7 @@
 				CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */,
 				323A127C21F06730009891ED /* SuspensionModel.m in Sources */,
 				CB08143421D4F6760018A363 /* LanguageSettingViewController.m in Sources */,
+				BA04405D21F84D0D00B310EB /* Weather.m in Sources */,
 				CBFF233921CA8BD80066E00C /* ProcessingStateViewController.m in Sources */,
 				323A128221F06741009891ED /* CircleButton.m in Sources */,
 				CB04506A21D136FF00EB59D7 /* PlaceList.m in Sources */,
@@ -1097,6 +1129,7 @@
 				CBCB79C221CBD28500BF454D /* HandlingDetailsViewController.m in Sources */,
 				CB02668D21D9069700561B1C /* UIViewController+Additions.m in Sources */,
 				CBFE45C321C9557A00DD80E4 /* ContactUSViewController.m in Sources */,
+				BA04405921F8168900B310EB /* SelectDatePickerController.m in Sources */,
 				CB05465721C6B1FC008BE895 /* AnnouncementViewController.m in Sources */,
 				CBFFF13821CF9F68008BA2A0 /* CommonUtil.m in Sources */,
 				CB05464721C6A43F008BE895 /* MainViewController.m in Sources */,
@@ -1106,6 +1139,7 @@
 				CB18AA0421E6443200B3A232 /* GradientView.m in Sources */,
 				CB04506221D122CE00EB59D7 /* Notice.m in Sources */,
 				CB04506D21D1374D00EB59D7 /* Place.m in Sources */,
+				BA04405521F8164400B310EB /* BaseAlertViewController.m in Sources */,
 				CB6C9BB721C1672300B5A9E9 /* main.m in Sources */,
 				CB019E9821F0B382004A88D8 /* RequestResultModel.m in Sources */,
 				CB5C392F21E39A8C008E3A64 /* NoticeDetailViewController.m in Sources */,

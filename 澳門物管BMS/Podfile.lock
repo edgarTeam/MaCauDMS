@@ -34,6 +34,7 @@ PODS:
   - MMDrawerController/Subclass (0.6.0):
     - MMDrawerController/Core
   - pop (1.0.12)
+  - SDAutoLayout (2.2.1)
   - SDCycleScrollView (1.75):
     - SDWebImage (>= 4.0.0)
   - SDWebImage (4.4.3):
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - MJRefresh
   - MMDrawerController
   - pop
+  - SDAutoLayout
   - SDCycleScrollView
   - SDWebImage
   - SVProgressHUD
@@ -65,6 +67,7 @@ SPEC REPOS:
     - MJRefresh
     - MMDrawerController
     - pop
+    - SDAutoLayout
     - SDCycleScrollView
     - SDWebImage
     - SVProgressHUD
@@ -79,10 +82,11 @@ SPEC CHECKSUMS:
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: f74e046a5c2acd70a82faad117845ea4e52b1346
+PODFILE CHECKSUM: 0631e5c069c5e000b9bb1ae3726324be494ba967
 
 COCOAPODS: 1.5.3

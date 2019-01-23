@@ -306,4 +306,63 @@
         [view addSubview:layerView];
     }
 }
+
++ (BOOL)isRequestWeatherOK:(id)response {
+    if ([response isKindOfClass: [NSDictionary class]]){
+        NSDictionary *dictResp = (NSDictionary *)response;
+       // NSLog(@"信息%@",[dictResp objectForKey:@"msg"] );
+       // NSLog(@"%d",[[dictResp objectForKey:@"code"] intValue]);
+        switch ([[dictResp objectForKey:@"resultcode"] intValue]) {
+            case 100:
+            {
+               // [ZKAlertTool showAlertWithMsg:@"未登录/登陆缓存已过期，请重新登陆"];
+                return  NO;
+            }
+            case 102: //没有这条纪录
+            { NSLog(@"Util Response ,  No record");
+                return NO;}
+            case 103: //非法操作
+            {
+                return  NO;
+            }
+            case 104: //被删除
+            {
+                return  NO;
+            }
+            case 301:{
+                
+                return  NO;
+                ;
+            }
+            case 200:{
+                
+                return  YES;
+                
+            }
+            case 105:{
+             //   [ZKAlertTool showAlertWithMsg:@"账号或者密码不对"];
+                return NO;
+            }
+                //            case 401:{
+                //                //        storyBoard_ = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                //                LoginNavigationController *loginVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+                //                                                      instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+                //                [[UIApplication sharedApplication].keyWindow setRootViewController:loginVc];
+                //
+                //                [[UIApplication sharedApplication].keyWindow makeToast:@"登入信息失效，請重新登入" duration:3.0 position:@"CSToastPositionBottom"];
+                //                return  NO;
+                //            }
+                
+            default:
+                NSLog(@"Util Response ,  No this error code");
+                return NO;
+        }
+    } else{
+        NSLog(@"Util Response , missing key code");
+        return NO;
+    }
+}
+
+
+
 @end

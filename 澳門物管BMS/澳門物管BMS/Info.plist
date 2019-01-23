@@ -25,6 +25,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>是否允许app访问您的位置</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>是否允许app访问您的位置</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>是否允许app在使用期间访问您的位置</string>
 	<key>NSCameraUsageDescription</key>
 	<string>是否允许访问相机</string>
 	<key>NSMicrophoneUsageDescription</key>

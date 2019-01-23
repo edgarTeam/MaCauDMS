@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClubhouseReservationViewController">
             <connections>
                 <outlet property="dateTableView" destination="tmE-ZP-U8U" id="Bzq-uy-NZa"/>
+                <outlet property="orderDateBtn" destination="Vgg-Dd-xuh" id="Rtn-AP-KRu"/>
                 <outlet property="plateBtn" destination="wsl-b2-5qZ" id="9Xo-Lo-GF9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -57,6 +58,9 @@
                     <state key="normal" title="確認時間">
                         <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="dateBtnAction:" destination="-1" eventType="touchUpInside" id="l2q-3o-zlv"/>
+                    </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tmE-ZP-U8U">
                     <rect key="frame" x="67.5" y="115.5" width="240" height="496.5"/>
