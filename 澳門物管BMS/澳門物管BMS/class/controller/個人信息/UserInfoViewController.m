@@ -51,7 +51,7 @@
     self.telTitleLab.text=LocalizedString(@"String_tel_title");
     
     self.edgesForExtendedLayout=UIRectEdgeNone;
-    self.nameLab.text=[User shareUser].username;
+    self.nameLab.text=[User shareUser].name;
     if ([[User shareUser].sex integerValue]==0) {
         self.sexLab.text = LocalizedString(@"string_sex_female");
     }else if ([[User shareUser].sex integerValue] ==1){
@@ -267,10 +267,10 @@
 - (IBAction)changeSexBtnAction:(id)sender {
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *alertAc1 = [UIAlertAction actionWithTitle:LocalizedString(@"string_sex_male") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-
+        self.sexLab.text=LocalizedString(@"string_sex_male");
         }];
     UIAlertAction *alertAc2 = [UIAlertAction actionWithTitle:LocalizedString(@"string_sex_female") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-
+        self.sexLab.text=LocalizedString(@"string_sex_female");
     }];
 
     [alertC addAction:alertAc1];

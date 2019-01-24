@@ -287,7 +287,7 @@
     NSDateComponents *dateComponents;
     // 阳历
     NSCalendar *calender = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    dateComponents = [calender components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitWeekOfMonth|NSCalendarUnitWeekday fromDate:date];
+    dateComponents = [calender components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond|NSCalendarUnitWeekOfMonth|NSCalendarUnitWeekday fromDate:date];
     
     return dateComponents;
 }
@@ -300,7 +300,7 @@
     
     NSDateComponents *dateComponents = [self getDateComponentsWithNumberTime:time format:@"yyyyMMddHHmmss"];
     
-    return [NSString stringWithFormat:NSLocalizedString(@"%ld年%02ld月%02ld日 %02ld:%02ld", nil),dateComponents.year,dateComponents.month,dateComponents.day,dateComponents.hour,dateComponents.minute];
+    return [NSString stringWithFormat:NSLocalizedString(@"%ld年%02ld月%02ld日 %02ld:%02ld:%02ld", nil),dateComponents.year,dateComponents.month,dateComponents.day,dateComponents.hour,dateComponents.minute,dateComponents.second];
     
 }
 
@@ -320,9 +320,9 @@
         return @"";
     }
     
-    NSDateComponents *dateComponents = [self getDateComponentsWithNumberTime:time format:@"yyyyMMddHHmm"];
+    NSDateComponents *dateComponents = [self getDateComponentsWithNumberTime:time format:@"yyyyMMddHHmmss"];
     
-    return [NSString stringWithFormat:NSLocalizedString(@"%ld-%02ld-%02ld %0ld:%02ld", nil),dateComponents.year,dateComponents.month,dateComponents.day,dateComponents.hour,dateComponents.minute];
+    return [NSString stringWithFormat:NSLocalizedString(@"%ld-%02ld-%02ld %0ld:%02ld:%02ld", nil),dateComponents.year,dateComponents.month,dateComponents.day,dateComponents.hour,dateComponents.minute,dateComponents.second];
     
 }
 @end

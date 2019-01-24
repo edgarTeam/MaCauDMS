@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="209.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="K0E-KX-4xl">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="K0E-KX-4xl">
                         <rect key="frame" x="20" y="5" width="280" height="121.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="K0E-KX-4xl" secondAttribute="height" multiplier="3:1.3" id="aEl-VC-Ydu"/>
@@ -52,6 +52,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="map" width="1064" height="928"/>
+        <image name="empty" width="72" height="72"/>
     </resources>
 </document>

@@ -39,7 +39,7 @@
     _contentTextView.layer.masksToBounds=YES;
     _contentTextView.layer.cornerRadius=7.0;
     _contentTextView.layer.borderWidth=0.5;
-    _contentTextView.layer.borderColor=RGB(170, 170, 170).CGColor;
+    _contentTextView.layer.borderColor=RGB(63, 114, 156).CGColor;
     _contentTextView.editable=NO;
 //    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
 //    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;

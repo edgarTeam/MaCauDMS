@@ -66,10 +66,10 @@
         }
         for (NoticeSubList *notice in self.notice.noticeImage) {
             if (notice.imageThumbnail !=nil) {
-                [_imageThumbnailArr addObject:notice.imageThumbnail];
+                [_imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
             }
             if (notice.imageUrl !=nil) {
-                [_imageUrlArr addObject:notice.imageUrl];
+                [_imageUrlArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageUrl]];
             }
         }
         if (_imageThumbnailArr.count !=0 && _imageThumbnailArr !=nil) {

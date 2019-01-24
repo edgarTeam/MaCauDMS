@@ -156,7 +156,7 @@
 
 - (void)submitAction:(UIButton *)button {
     NSString *dateStr = [self stringFormDate:self.datePicker.date format:NSLocalizedString(@"yyyyMMdd", nil)];
-    NSString *timeStr = [self stringFormDate:self.timePicker.date format:NSLocalizedString(@"HHmm", nil)];
+    NSString *timeStr = [self stringFormDate:self.timePicker.date format:NSLocalizedString(@"HHmmss", nil)];
     NSString *string = [dateStr stringByAppendingString:timeStr];
     if (self.didSelectData != nil) {
         self.didSelectData(self.datePicker.date,self.timePicker.date,string);

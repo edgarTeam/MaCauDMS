@@ -384,12 +384,12 @@ static AFHTTPSessionManager *_manager;
 - (void)postWithUrl:(NSString *)url body:(NSData *)body showLoading:(BOOL)show success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure
 {
     
-    // NSString *requestUrl = [NSString stringWithFormat:@"%@%@", kBaseUrl, url];
-   // AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-
+     NSString *requestUrl = [NSString stringWithFormat:@"%@", url];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:requestUrl parameters:nil error:nil];
    
 
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:nil error:nil];
+//    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:nil error:nil];
     
  
   
@@ -405,8 +405,8 @@ static AFHTTPSessionManager *_manager;
                                                  @"text/javascript",
                                                  @"text/plain",
                                                  nil];
-    _manager.responseSerializer = responseSerializer;
-    [[_manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+    manager.responseSerializer = responseSerializer;
+    [[manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (!error) {
             if ([responseObject isKindOfClass:[NSData class]]) {
                 NSDictionary *jsonDic=[NSJSONSerialization JSONObjectWithData:responseObject

@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="329" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l4K-hC-QPa">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="l4K-hC-QPa">
                         <rect key="frame" x="10" y="10" width="126" height="75.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="l4K-hC-QPa" secondAttribute="height" multiplier="5:3" id="W4e-SD-b3P"/>
@@ -64,4 +64,7 @@
             <point key="canvasLocation" x="144.80000000000001" y="134.93253373313345"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="empty" width="72" height="72"/>
+    </resources>
 </document>

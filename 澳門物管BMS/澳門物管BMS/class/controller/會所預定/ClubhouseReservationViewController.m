@@ -151,7 +151,7 @@
                          @"orderEndTime":endTime
                          };
 
-    NSError *error;
+    NSError *error =nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
     
     [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:jsonData showLoading:YES success:^(NSDictionary *resultDic){
@@ -207,7 +207,7 @@
        // _dateTimeStr=timeStr;
     //    [self.orderDateBtn setTitle:timeStr forState:UIControlStateNormal];
         _dateTimeStr=[NSDate stringFromDateToDateTimeString:timeStr];
-        [self.orderDateBtn setTitle:[NSDate stringApplyDetailTimeString:timeStr] forState:UIControlStateNormal];
+        [self.orderDateBtn setTitle:[NSDate stringNransformDateAndTimeString:timeStr] forState:UIControlStateNormal];
     }];
     [self presentViewController:selectDateVC animated:YES completion:nil];
 }
