@@ -115,8 +115,11 @@
         if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
             return;
         }
-        for ( int i=0; i<imageUrlArr.count; i++) {
-             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrlArr[i]]];
+        if (imageThumbnailArr.count ==0 || imageThumbnailArr ==nil) {
+            return;
+        }
+        for ( int i=0; i<imageThumbnailArr.count; i++) {
+             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageThumbnailArr[i]]];
             UIImage *image=[UIImage imageWithData:data];
             textAttachment.image = image;
             NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];

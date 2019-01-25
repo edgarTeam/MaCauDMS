@@ -29,7 +29,7 @@
    //self.title=@"公告";
     self.title=LocalizedString(@"String_notice_title");
     self.edgesForExtendedLayout=UIRectEdgeNone;
-    _tableView.separatorColor=[UIColor clearColor];
+    //_tableView.separatorColor=[UIColor clearColor];
     _tableView.tableFooterView=[UIView new];
     _tableView.delegate=self;
     _tableView.dataSource=self;

@@ -35,7 +35,7 @@
     _noticeTextView.layer.cornerRadius=7.0;
     _noticeTextView.layer.borderWidth=0.5;
     _noticeTextView.layer.borderColor=RGB(170, 170, 170).CGColor;
-    
+    [_noticeTextView setEditable:NO];
     _imageThumbnailArr=[NSMutableArray new];
     _imageUrlArr=[NSMutableArray new];
 }

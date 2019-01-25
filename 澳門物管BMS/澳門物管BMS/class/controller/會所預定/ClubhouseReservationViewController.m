@@ -151,13 +151,13 @@
                          @"orderEndTime":endTime
                          };
 
-    NSString *temp=[NSString stringWithFormat:@"{\"orderDate\":\"%@\",\"placeId\":\"%@\",\"orderStartTime\":\"%@\",\"orderEndTime\":\"%@\"}",_dateTimeStr,placeId,stratTime,endTime];
-    NSData *data=[temp dataUsingEncoding:NSUTF8StringEncoding];
+//    NSString *temp=[NSString stringWithFormat:@"{\"orderDate\":\"%@\",\"placeId\":\"%@\",\"orderStartTime\":\"%@\",\"orderEndTime\":\"%@\"}",_dateTimeStr,placeId,stratTime,endTime];
+//    NSData *jsonData=[temp dataUsingEncoding:NSUTF8StringEncoding];
     
-//    NSError *error =nil;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
+    NSError *error =nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
     
-    [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:data showLoading:YES success:^(NSDictionary *resultDic){
+    [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:jsonData showLoading:YES success:^(NSDictionary *resultDic){
                 [CommonUtil isRequestOK:resultDic];
                 if (resultDic ==nil) {
                     return ;
