@@ -159,6 +159,7 @@
                 if (resultDic ==nil) {
                     return ;
                 }
+        [ZKAlertTool showAlertWithMsg:@"您已經成功預定了會所"];
              //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){
         
@@ -239,6 +240,7 @@
     if (cell == nil) {
         cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDentified];
     }
+    cell.accessoryType = UITableViewCellAccessoryNone;
     cell.textLabel.text=_dataSource[indexPath.row];
     NSLog(@"%@",cell.textLabel.text);
 
@@ -413,6 +415,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+
 //    if (![self login]) {
 //        return;
 //    }

@@ -44,12 +44,20 @@
     if (_imageUrlArr.count ==0 || _imageUrlArr ==nil || [_imageUrlArr isKindOfClass:[NSNull class]]) {
         return;
     }
+    NSString *imageStr=[_imageUrlArr componentsJoinedByString:@","];
+    NSString *imageThumbStr=[_imageThumbnailArr componentsJoinedByString:@","];
+    
+    
+    NSArray *imageSegmentArr=[imageStr componentsSeparatedByString:@","];
+    NSArray *imageThumbSegmentArr=[imageThumbStr componentsSeparatedByString:@","];
+    
+    
 //    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_imageUrlArr[0]]];
 //    [self.image sd_setImageWithURL:url placeholderImage:kEMPTYIMAGE];
    // [self.imageView setImage:[UIImage imageNamed:model.noticeImage]];
     
-    [self.image sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:_imageUrlArr[0]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        [self.image sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:_imageThumbnailArr[0]]] placeholderImage:image];
+    [self.image sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:imageSegmentArr[0]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [self.image sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:imageThumbSegmentArr[0]]] placeholderImage:image];
     }];
     
    

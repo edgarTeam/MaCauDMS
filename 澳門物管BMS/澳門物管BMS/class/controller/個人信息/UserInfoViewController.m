@@ -15,17 +15,18 @@
 #import "CommonUtil.h"
 #import "ZKAlertTool.h"
 @interface UserInfoViewController ()<UIImagePickerControllerDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *nameLab;
-@property (weak, nonatomic) IBOutlet UILabel *sexLab;
+//@property (weak, nonatomic) IBOutlet UILabel *nameLab;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField; //姓名
+@property (weak, nonatomic) IBOutlet UILabel *sexLab; //性别
 //@property (weak, nonatomic) IBOutlet UILabel *telLab;
-@property (weak, nonatomic) IBOutlet UITextField *telTextField;
-@property (weak, nonatomic) IBOutlet UIImageView *headImage;
-@property (weak, nonatomic) IBOutlet UIButton *changeBtn;
-@property (weak, nonatomic) IBOutlet UIButton *changeSexBtn;
+@property (weak, nonatomic) IBOutlet UITextField *telTextField; //联系方式
+@property (weak, nonatomic) IBOutlet UIImageView *headImage; //头像
+@property (weak, nonatomic) IBOutlet UIButton *changeBtn;//头像按钮
+@property (weak, nonatomic) IBOutlet UIButton *changeSexBtn; //性别按钮
 //@property (weak, nonatomic) IBOutlet UIButton *changeTelBtn;
-@property (assign,nonatomic) NSInteger sexId;
-@property (nonatomic,strong) UIButton *rightBtn;
-@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (assign,nonatomic) NSInteger sexId; //性别index
+@property (nonatomic,strong) UIButton *rightBtn; //修改按钮
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn; //提交按钮（点击修改才会出现，提交完成后消失）
 @end
 
 @implementation UserInfoViewController
@@ -51,7 +52,8 @@
     self.telTitleLab.text=LocalizedString(@"String_tel_title");
     
     self.edgesForExtendedLayout=UIRectEdgeNone;
-    self.nameLab.text=[User shareUser].name;
+    //self.nameLab.text=[User shareUser].name;
+    self.nameTextField.text=[User shareUser].name;
     if ([[User shareUser].sex integerValue]==0) {
         self.sexLab.text = LocalizedString(@"string_sex_female");
     }else if ([[User shareUser].sex integerValue] ==1){
@@ -62,7 +64,9 @@
   //  self.sexLab.text=[User shareUser].sex;
 //    self.telLab.text=[NSString stringWithFormat:@"%@", [User shareUser].tel ];
     self.telTextField.text=[NSString stringWithFormat:@"%@", [User shareUser].tel ];
+    self.changeBtn.enabled=NO;
     self.telTextField.enabled=NO;
+    self.nameTextField.enabled=NO;
     self.changeSexBtn.enabled=NO;
     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,[User shareUser].portrait]];
     [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
@@ -209,9 +213,12 @@
 }
 
 - (void)changeBtnaction:(UIButton *)btn{
+   
     self.submitBtn.hidden=NO;
+     self.changeBtn.enabled=YES;
     self.changeSexBtn.enabled=YES;
     self.telTextField.enabled=YES;
+    self.nameTextField.enabled=YES;
     [ZKAlertTool showAlertWithMsg:@"您已经可以修改个人信息了"];
 }
 - (IBAction)submitBtnAction:(id)sender {
@@ -227,7 +234,8 @@
     }
     NSDictionary *dic=@{
                         @"sex":@(self.sexId),
-                        @"tel":self.telTextField.text
+                        @"tel":self.telTextField.text,
+                        @"name":self.nameTextField.text
                         };
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
@@ -244,6 +252,9 @@
         [ZKAlertTool showAlertWithMsg:@"您已經設置成功了"];
         self.submitBtn.hidden=YES;
         self.telTextField.enabled=NO;
+        self.nameTextField.enabled=NO;
+        self.changeBtn.enabled=NO;
+        self.changeSexBtn.enabled=NO;
 //        self.changeTelBtn.enabled=NO;
         //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){

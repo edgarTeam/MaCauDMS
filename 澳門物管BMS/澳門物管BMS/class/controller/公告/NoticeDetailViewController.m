@@ -19,6 +19,7 @@
 
 @property (nonatomic,strong) NSMutableArray *imageThumbnailArr;//缩略图数组
 @property (nonatomic,strong) NSMutableArray *imageUrlArr; //图片数组
+@property (nonatomic,strong) NSMutableArray *turnImageArr;  //轮播图数组
 @property (nonatomic,strong) Notice *notice;
 @end
 
@@ -66,20 +67,26 @@
         }
         for (NoticeSubList *notice in self.notice.noticeImage) {
             if (notice.imageThumbnail !=nil) {
-                [_imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
+                [_imageThumbnailArr addObject:[NSString stringWithFormat:@"%@",notice.imageThumbnail]];
             }
             if (notice.imageUrl !=nil) {
-                [_imageUrlArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageUrl]];
+                [_imageUrlArr addObject:[NSString stringWithFormat:@"%@",notice.imageUrl]];
             }
         }
-        if (_imageThumbnailArr.count !=0 && _imageThumbnailArr !=nil) {
-             NSArray *imageThumbArr=[_imageThumbnailArr[0] componentsSeparatedByString:@","];
-        }
+//        if (_imageThumbnailArr.count !=0 && _imageThumbnailArr !=nil) {
+//             NSArray *imageThumbArr=[_imageThumbnailArr[0] componentsSeparatedByString:@","];
+//        }
         if (_imageUrlArr.count ==0 || _imageUrlArr ==nil) {
             return;
         }
-        NSArray *imageArr=[_imageUrlArr[0] componentsSeparatedByString:@","];
-        _noticeImageView.imageURLStringsGroup = imageArr;
+        NSString *imageStr=[_imageUrlArr componentsJoinedByString:@","];
+        NSArray *imageArr=[imageStr componentsSeparatedByString:@","];
+        _turnImageArr=[NSMutableArray new];
+        for (int i=0; i <imageArr.count; i++) {
+            [_turnImageArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,imageArr[i]]];
+           
+        }
+        _noticeImageView.imageURLStringsGroup = _turnImageArr;
         _noticeImageView.autoScrollTimeInterval = 4.0f;
 //        _noticeImageView.currentPageDotColor
         
