@@ -69,13 +69,7 @@
 //        [self.navigationController pushViewController:loginVC animated:YES];
     }
 }
-//-(void)checkLogin{
-//    if ([User shareUser].tel!= nil && [User shareUser].tel .length > 0) {
-//
-//    }else{
-//        [[[UIAlertView alloc] initWithTitle:@"" message:LocalizedString(@"String_login_request") delegate:self cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
-//    }
-//}
+
 - (BOOL)login{
      NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:LoginToken];
     if (token!= nil && token.length > 0) {
@@ -96,14 +90,6 @@
         }];
         [alert addAction:alertAc];
         [self presentViewController:alert animated:YES completion:nil];
-//        LoginViewController *loginVC=[[LoginViewController alloc] init];
-//        UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
-//
-//
-//        [nav pushViewController:loginVC animated:YES];
-//        [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
-//            [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-//        }];
         return NO;
     }
 }

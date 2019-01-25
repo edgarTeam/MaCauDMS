@@ -151,10 +151,13 @@
                          @"orderEndTime":endTime
                          };
 
-    NSError *error =nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *temp=[NSString stringWithFormat:@"{\"orderDate\":\"%@\",\"placeId\":\"%@\",\"orderStartTime\":\"%@\",\"orderEndTime\":\"%@\"}",_dateTimeStr,placeId,stratTime,endTime];
+    NSData *data=[temp dataUsingEncoding:NSUTF8StringEncoding];
     
-    [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:jsonData showLoading:YES success:^(NSDictionary *resultDic){
+//    NSError *error =nil;
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
+    
+    [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:data showLoading:YES success:^(NSDictionary *resultDic){
                 [CommonUtil isRequestOK:resultDic];
                 if (resultDic ==nil) {
                     return ;
