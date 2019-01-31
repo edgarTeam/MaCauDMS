@@ -86,8 +86,8 @@
         NSString *imageThumbStr=[imageThumbnailArr componentsJoinedByString:@","];
         NSArray *imageArr=[imageStr componentsSeparatedByString:@","];
         NSArray *imageThumbArr=[imageThumbStr componentsSeparatedByString:@","];
-        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:imageArr[0]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:imageThumbArr[0]]] placeholderImage:image];
+        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:imageThumbArr[0]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:imageArr[0]]] placeholderImage:image];
         }];
 //        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,imageUrlArr[0]]]placeholderImage:kEMPTYIMG completed:nil];
     }];

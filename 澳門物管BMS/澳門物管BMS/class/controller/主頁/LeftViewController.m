@@ -30,7 +30,7 @@
 @property (nonatomic,strong) UILabel *versionlab;
 @property (nonatomic,strong) UILabel *weatherLab;
 @property (nonatomic,strong) NSString *cityName;
-
+@property (nonatomic,strong) UIImageView *weatherImg;//天气图片
 @end
 
 @implementation LeftViewController
@@ -129,10 +129,22 @@
     _weatherLab.textAlignment=NSTextAlignmentCenter;
     [self.view addSubview:_weatherLab];
     [_weatherLab mas_makeConstraints:^(MASConstraintMaker *make){
-        make.bottom.mas_equalTo(_loginOutBtn.mas_top);
-        make.left.mas_equalTo(10);
+        make.bottom.mas_equalTo(_loginOutBtn.mas_top).offset(-10);
+        make.left.mas_equalTo(50);
         make.right.mas_equalTo(-10);
     }];
+    
+    _weatherImg=[[UIImageView alloc] init];
+    [self.view addSubview:_weatherImg];
+    [_weatherImg mas_makeConstraints:^(MASConstraintMaker *make){
+        make.bottom.mas_equalTo(_loginOutBtn.mas_top).offset(-10);
+       // make.left.mas_equalTo(10);
+        make.width.mas_equalTo(30);
+        make.right.mas_equalTo(_weatherLab.mas_left).offset(0);
+        make.height.mas_equalTo(_weatherImg.mas_width);
+    }];
+    
+    
     
     LeftModel *model1=[LeftModel new];
     model1.title=LocalizedString(@"string_booking_record_title");
@@ -190,7 +202,19 @@
             return ;
         }
         Weather *weather=[Weather mj_objectWithKeyValues:[dic objectForKey:@"today"]];
-        _weatherLab.text=[NSString stringWithFormat:@"%@ %@",weather.weather,weather.temperature];
+        if ([weather.weather rangeOfString:@"晴"].location !=NSNotFound) {
+            [_weatherImg setImage:[UIImage imageNamed:@"fine"]];
+        }else if([weather.weather rangeOfString:@"多云"].location !=NSNotFound){
+            [_weatherImg setImage:[UIImage imageNamed:@"cloudy"]];
+        }else if ([weather.weather rangeOfString:@"雷"].location !=NSNotFound){
+            [_weatherImg setImage:[UIImage imageNamed:@"thunder"]];
+        }else if ([weather.weather rangeOfString:@"雨"].location !=NSNotFound){
+            [_weatherImg setImage:[UIImage imageNamed:@"rain"]];
+        }else{
+            [_weatherImg setImage:[UIImage imageNamed:@"overcast"]];
+        }
+        
+        _weatherLab.text=[NSString stringWithFormat:@" %@",weather.temperature];
     } failure:^(NSError *error){
         NSLog(@"%@",error);
     }];
@@ -356,7 +380,7 @@
                 currentCity = @"无法定位当前城市";
             }
             NSLog(@"%@",currentCity); //这就是当前的城市
-            [self requestWeather];
+          //  [self requestWeather];
            // NSLog(@"%@",placeMark.name);//具体地址:  xx市xx区xx街道
         }
         else if (error == nil && placemarks.count == 0) {

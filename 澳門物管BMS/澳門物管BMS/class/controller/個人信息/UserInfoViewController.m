@@ -37,6 +37,7 @@
     
     self.rightBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 40) ];
     [self.rightBtn setTitle:@"修改" forState:UIControlStateNormal];
+    self.rightBtn.hidden=NO;
     //[self.btn.titleLabel setTextColor:RGB(77, 77, 77)];
     [self.rightBtn setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
     [self.rightBtn addTarget:self action:@selector(changeBtnaction:) forControlEvents:UIControlEventTouchUpInside];
@@ -64,6 +65,9 @@
   //  self.sexLab.text=[User shareUser].sex;
 //    self.telLab.text=[NSString stringWithFormat:@"%@", [User shareUser].tel ];
     self.telTextField.text=[NSString stringWithFormat:@"%@", [User shareUser].tel ];
+    self.nameTextField.textColor=RGB(130, 130, 130);
+    self.sexLab.textColor=RGB(130, 130, 130);
+    self.telTextField.textColor=RGB(130, 130, 130);
     self.changeBtn.enabled=NO;
     self.telTextField.enabled=NO;
     self.nameTextField.enabled=NO;
@@ -219,7 +223,12 @@
     self.changeSexBtn.enabled=YES;
     self.telTextField.enabled=YES;
     self.nameTextField.enabled=YES;
-    [ZKAlertTool showAlertWithMsg:@"您已经可以修改个人信息了"];
+    
+    self.nameTextField.textColor=RGB(230, 230, 230);
+    self.sexLab.textColor=RGB(230, 230, 230);
+    self.telTextField.textColor=RGB(230, 230, 230);
+    self.rightBtn.hidden=YES;
+ //   [ZKAlertTool showAlertWithMsg:@"您已经可以修改个人信息了"];
 }
 - (IBAction)submitBtnAction:(id)sender {
     [self requestChangeInfo];
@@ -255,6 +264,7 @@
         self.nameTextField.enabled=NO;
         self.changeBtn.enabled=NO;
         self.changeSexBtn.enabled=NO;
+        self.rightBtn.hidden=NO;
 //        self.changeTelBtn.enabled=NO;
         //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){

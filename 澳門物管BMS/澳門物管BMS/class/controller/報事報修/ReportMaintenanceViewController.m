@@ -48,7 +48,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事維修";
+    [self createView];
+    
+}
 
+- (void)createView {
+   
+    self.addressTextField.text=@"";
+    self.maintenanceTextView.text=@"";
+    self.dataSource=nil;
+    self.voiceRemarkUrl=@"";
+    
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.headView.hidden=YES;
     self.dataSource=[NSMutableArray new];
@@ -81,12 +91,10 @@
     
     
     
-
+    
     [self requestCommunityList];
     [self.maintenanceCollectionView reloadData];
 }
-
-
 
 
 
@@ -256,8 +264,9 @@
 //                [collectionView reloadData];
 //            };
 //        }
-        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row-1]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-             [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row-1]]] placeholderImage:image];
+        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row-1]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+             [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row-1]]] placeholderImage:image];
+            _photoCell.deleteBtn.hidden=NO;
         }];
         _photoCell.deleteBtnAction = ^{
                             NSLog(@"%ld",_dataSource.count);
@@ -555,16 +564,16 @@
 //        return;
 //    }
     [self checkLogin];
-    
+  //  [self createView];
     [self requestCommunityList];
 }
 
 
 
-//- (void)viewDidDisappear:(BOOL)animated{
-//
-//    [self.communityBtn setTitle:@"" forState:UIControlStateNormal];
-//    self.addressTextField.text=@"";
-//    self.voiceRemarkUrl=@"";
-//}
+- (void)viewDidDisappear:(BOOL)animated{
+
+    [self.communityBtn setTitle:@"" forState:UIControlStateNormal];
+    self.addressTextField.text=@"";
+    self.voiceRemarkUrl=@"";
+}
 @end

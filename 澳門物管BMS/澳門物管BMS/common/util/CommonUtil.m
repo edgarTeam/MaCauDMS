@@ -42,7 +42,7 @@
                 //                return NO;}
             case 100:
             {
-                [ZKAlertTool showAlertWithMsg:@"string_request_login_miss_code"];
+                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_request_login_miss_code")];
                 return  NO;
             }
             case 102: //没有这条纪录
@@ -67,11 +67,11 @@
                 
             }
             case 105:{
-                [ZKAlertTool showAlertWithMsg:@"string_request_login_error_code"];
+                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_request_login_error_code")];
                 return NO;
             }
             case 401:{
-                [ZKAlertTool showAlertWithMsg:@"string_requset_place_erroe_code"];
+                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_requset_place_erroe_code")];
                 return NO;
             }
                 //            case 401:{

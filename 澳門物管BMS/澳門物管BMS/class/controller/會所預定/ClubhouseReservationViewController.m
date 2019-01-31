@@ -241,6 +241,8 @@
     if (cell == nil) {
         cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDentified];
     }
+    cell.backgroundColor=[UIColor clearColor];
+    cell.textLabel.textColor=RGB(230, 230, 230);
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.textLabel.text=_dataSource[indexPath.row];
     NSLog(@"%@",cell.textLabel.text);

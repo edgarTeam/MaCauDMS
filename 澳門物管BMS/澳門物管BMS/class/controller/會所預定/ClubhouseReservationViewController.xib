@@ -66,11 +66,8 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tmE-ZP-U8U">
-                    <rect key="frame" x="67.5" y="152" width="240" height="460"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="240" id="qqR-BF-VlE"/>
-                    </constraints>
+                    <rect key="frame" x="20" y="152" width="335" height="460"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pC0-xP-aQT">
                     <rect key="frame" x="137.5" y="622" width="100" height="30"/>
@@ -106,6 +103,7 @@
                 <constraint firstItem="wsl-b2-5qZ" firstAttribute="centerY" secondItem="DM4-bE-E1w" secondAttribute="centerY" id="Hgf-Hx-lsN"/>
                 <constraint firstItem="DM4-bE-E1w" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="LOT-J2-Zse"/>
                 <constraint firstItem="2s5-iR-Bpt" firstAttribute="trailing" secondItem="DM4-bE-E1w" secondAttribute="trailing" id="SBT-EE-wDX"/>
+                <constraint firstItem="tmE-ZP-U8U" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="UWc-8S-Ow6"/>
                 <constraint firstItem="Vgg-Dd-xuh" firstAttribute="leading" secondItem="2s5-iR-Bpt" secondAttribute="trailing" constant="10" id="Xg1-gp-BNl"/>
                 <constraint firstItem="wsl-b2-5qZ" firstAttribute="leading" secondItem="DM4-bE-E1w" secondAttribute="trailing" constant="10" id="atZ-Ne-CQ1"/>
                 <constraint firstItem="DM4-bE-E1w" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="gsg-lc-SRk"/>
