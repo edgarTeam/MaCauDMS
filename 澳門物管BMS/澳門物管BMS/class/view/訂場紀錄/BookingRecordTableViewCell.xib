@@ -26,8 +26,8 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deE-xV-AmD">
                         <rect key="frame" x="26" y="136.5" width="268" height="63"/>
-                        <string key="text">集團的內地投資物業以國際金融中心系列為主導，各項目均座落所在城市的中央商務區或新中央商務區的核心地帶。憑藉其優越位置、卓越規劃及設計、零售商及消費者的群聚效應以及頂尖的管理，各國際金融中心項目均定位為當地市場的潮流指標式地標。集團旗下國際金融中心系列將於往後數年進一步鞏固集團的經常性收入基礎。
-
+                        <string key="text" base64-UTF8="YES">
+Cgo
 </string>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>

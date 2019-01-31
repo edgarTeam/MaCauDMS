@@ -43,6 +43,7 @@
             case 100:
             {
                 [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_request_login_miss_code")];
+                
                 return  NO;
             }
             case 102: //没有这条纪录
