@@ -12,5 +12,5 @@
 @property(nonatomic,strong)UIDatePicker *datePicker;
 @property(nonatomic,strong)UIDatePicker *timePicker;
 @property(nonatomic,strong)void (^didSelectData)(NSDate *date,NSDate *time,NSString *timeStr);
-
+@property(nonatomic,strong)void (^selectDate)(NSDate *date,NSString *timeStr);
 @end

@@ -129,10 +129,10 @@
         return;
     }
     
-    
+    NSString *orderDateStr=[NSString stringWithFormat:@"%@ %@",_dateTimeStr,stratTime];
     
     NSDictionary *para=@{
-                         @"orderDate":_dateTimeStr,
+                         @"orderDate":orderDateStr,
                          @"placeId":placeId,
                          @"orderStartTime":stratTime,
                          @"orderEndTime":endTime
@@ -205,11 +205,15 @@
 
 - (IBAction)dateBtnAction:(id)sender {
     SelectDatePickerController *selectDateVC=[SelectDatePickerController new];
-    [selectDateVC setDidSelectData:^(NSDate *date, NSDate *time, NSString *timeStr) {
-       // _dateTimeStr=timeStr;
-    //    [self.orderDateBtn setTitle:timeStr forState:UIControlStateNormal];
-        _dateTimeStr=[NSDate stringFromDateToDateTimeString:timeStr];
-        [self.orderDateBtn setTitle:[NSDate stringNransformDateAndTimeString:timeStr] forState:UIControlStateNormal];
+//    [selectDateVC setDidSelectData:^(NSDate *date, NSDate *time, NSString *timeStr) {
+//       // _dateTimeStr=timeStr;
+//    //    [self.orderDateBtn setTitle:timeStr forState:UIControlStateNormal];
+//        _dateTimeStr=[NSDate stringFromDateToDateTimeString:timeStr];
+//        [self.orderDateBtn setTitle:[NSDate stringNransformDateAndTimeString:timeStr] forState:UIControlStateNormal];
+//    }];
+    [selectDateVC setSelectDate:^(NSDate *date,NSString *timeStr){
+        _dateTimeStr=[NSDate stringFromDateToDateString:timeStr];
+        [self.orderDateBtn setTitle:[NSDate stringNransformDateString:timeStr] forState:UIControlStateNormal];
     }];
     [self presentViewController:selectDateVC animated:YES completion:nil];
 }

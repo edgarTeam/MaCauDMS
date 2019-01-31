@@ -77,4 +77,9 @@
 + (NSString *)stringApplyDetailTimeString:(NSString *)time;
 
 + (NSString *)stringFromDateToDateTimeString:(NSString *)time;
+
+//转换时间 20131212
++ (NSString *)stringNransformDateString:(NSString *)time;
+
++ (NSString *)stringFromDateToDateString:(NSString *)time;
 @end

@@ -46,11 +46,16 @@
     [timeButton setTitle:NSLocalizedString(@"時間", nil) forState:UIControlStateNormal];
     _timeButton = timeButton;
     
-    [topView sd_addSubviews:@[dateButton,timeButton]];
+//    [topView sd_addSubviews:@[dateButton,timeButton]];
+//    dateButton.sd_layout.heightIs(30);
+//    timeButton.sd_layout.heightIs(30);
+//    [topView setupAutoWidthFlowItems:@[dateButton,timeButton] withPerRowItemsCount:2 verticalMargin:0 horizontalMargin:0 verticalEdgeInset:0 horizontalEdgeInset:0];
+    
+    [topView sd_addSubviews:@[dateButton]];
     dateButton.sd_layout.heightIs(30);
-    timeButton.sd_layout.heightIs(30);
-    [topView setupAutoWidthFlowItems:@[dateButton,timeButton] withPerRowItemsCount:2 verticalMargin:0 horizontalMargin:0 verticalEdgeInset:0 horizontalEdgeInset:0];
-     
+   // timeButton.sd_layout.heightIs(30);
+    [topView setupAutoWidthFlowItems:@[dateButton] withPerRowItemsCount:1 verticalMargin:0 horizontalMargin:0 verticalEdgeInset:0 horizontalEdgeInset:0];
+    
     
 //    UIImageView *line = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"yellowLine"]];
     UIImageView *line = [[UIImageView alloc]init];
@@ -158,8 +163,12 @@
     NSString *dateStr = [self stringFormDate:self.datePicker.date format:NSLocalizedString(@"yyyyMMdd", nil)];
     NSString *timeStr = [self stringFormDate:self.timePicker.date format:NSLocalizedString(@"HHmmss", nil)];
     NSString *string = [dateStr stringByAppendingString:timeStr];
-    if (self.didSelectData != nil) {
-        self.didSelectData(self.datePicker.date,self.timePicker.date,string);
+//    if (self.didSelectData != nil) {
+//        self.didSelectData(self.datePicker.date,self.timePicker.date,string);
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+    if (self.selectDate != nil) {
+        self.selectDate(self.datePicker.date, dateStr);
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }

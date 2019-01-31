@@ -99,10 +99,10 @@
             return;
         }
         [self.placeArr addObject:_place];
-        if (_bookingRecordTableView.mj_header.isRefreshing) {
-            [_bookingRecordTableView.mj_header endRefreshing];
-        }
-        [_bookingRecordTableView reloadData];
+//        if (_bookingRecordTableView.mj_header.isRefreshing) {
+//            [_bookingRecordTableView.mj_header endRefreshing];
+//        }
+//        [_bookingRecordTableView reloadData];
 //        _palceLab.text=_place.placeName;
 //        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,_place.placeImage]]placeholderImage:kEMPTYIMG completed:nil];
     }];
@@ -119,7 +119,13 @@
         }
         for (PlaceRecord *palceRecord in dataSource) {
             _placeId=palceRecord.placeId;
-            [self requestPlace];
+            if (_placeId !=nil) {
+                [self requestPlace];
+            }
+            if (_bookingRecordTableView.mj_header.isRefreshing) {
+                [_bookingRecordTableView.mj_header endRefreshing];
+            }
+            [_bookingRecordTableView reloadData];
         }
     }];
 }

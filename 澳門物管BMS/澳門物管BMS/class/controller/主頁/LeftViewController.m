@@ -208,8 +208,12 @@
             [_weatherImg setImage:[UIImage imageNamed:@"cloudy"]];
         }else if ([weather.weather rangeOfString:@"雷"].location !=NSNotFound){
             [_weatherImg setImage:[UIImage imageNamed:@"thunder"]];
-        }else if ([weather.weather rangeOfString:@"雨"].location !=NSNotFound){
-            [_weatherImg setImage:[UIImage imageNamed:@"rain"]];
+        }else if ([weather.weather rangeOfString:@"小雨"].location !=NSNotFound){
+            [_weatherImg setImage:[UIImage imageNamed:@"light_rain"]];
+        }else if ([weather.weather rangeOfString:@"中雨"].location !=NSNotFound){
+            [_weatherImg setImage:[UIImage imageNamed:@"moderate_rain"]];
+        }else if ([weather.weather rangeOfString:@"大雨"].location !=NSNotFound){
+            [_weatherImg setImage:[UIImage imageNamed:@"heavy_rain"]];
         }else{
             [_weatherImg setImage:[UIImage imageNamed:@"overcast"]];
         }

@@ -82,6 +82,7 @@
     flowLayout.minimumLineSpacing=5;
     flowLayout.minimumInteritemSpacing=5;
     flowLayout.itemSize=CGSizeMake(80, 80);
+    flowLayout.sectionInset=UIEdgeInsetsMake(0, 10, 0, 10);
     flowLayout.scrollDirection=UICollectionViewScrollDirectionVertical;
     _maintenanceCollectionView.collectionViewLayout=flowLayout;
     _maintenanceCollectionView.delegate=self;
@@ -601,6 +602,7 @@
 
     [self.communityBtn setTitle:@"" forState:UIControlStateNormal];
     self.addressTextField.text=@"";
+    self.maintenanceTextView.text=@"";
     self.voiceRemarkUrl=@"";
 }
 @end

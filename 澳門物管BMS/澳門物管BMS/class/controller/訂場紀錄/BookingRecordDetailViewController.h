@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BookingRecordDetailViewController : UIViewController
+@interface BookingRecordDetailViewController : BaseViewController
 @property (nonatomic,strong)NSString *recordId;
 //@property (nonatomic,strong)NSString *placeId;
 @end

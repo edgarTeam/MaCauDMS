@@ -71,7 +71,8 @@
                 return NO;
             }
             case 401:{
-                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_requset_place_erroe_code")];
+//                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_requset_place_erroe_code")];
+                [ZKAlertTool showAlertWithMsg:[dictResp objectForKey:@"msg"]];
                 return NO;
             }
                 //            case 401:{

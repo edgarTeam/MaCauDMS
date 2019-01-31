@@ -325,4 +325,24 @@
     return [NSString stringWithFormat:NSLocalizedString(@"%ld-%02ld-%02ld %0ld:%02ld:%02ld", nil),dateComponents.year,dateComponents.month,dateComponents.day,dateComponents.hour,dateComponents.minute,dateComponents.second];
     
 }
+
++ (NSString *)stringNransformDateString:(NSString *)time {
+    if (time == nil || [time isEqualToString:@""]) {
+        return @"";
+    }
+    
+    NSDateComponents *dateComponents = [self getDateComponentsWithNumberTime:time format:@"yyyyMMdd"];
+    
+    return [NSString stringWithFormat:NSLocalizedString(@"%ld年%02ld月%02ld日", nil),dateComponents.year,dateComponents.month,dateComponents.day];
+}
+
++ (NSString *)stringFromDateToDateString:(NSString *)time {
+    if (time == nil || [time isEqualToString:@""]) {
+        return @"";
+    }
+    
+    NSDateComponents *dateComponents = [self getDateComponentsWithNumberTime:time format:@"yyyyMMdd"];
+    
+    return [NSString stringWithFormat:NSLocalizedString(@"%ld-%02ld-%02ld", nil),dateComponents.year,dateComponents.month,dateComponents.day];
+}
 @end
