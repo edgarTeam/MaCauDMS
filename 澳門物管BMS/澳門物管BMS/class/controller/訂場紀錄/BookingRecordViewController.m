@@ -56,7 +56,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return dataSource.count;
-  
+//  return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -65,7 +65,10 @@
         cell=[[[NSBundle mainBundle] loadNibNamed:@"BookingRecordTableViewCell" owner:self options:nil] lastObject];
     }
    // [cell setUpPlaceRecord:[dataSource objectAtIndex:indexPath.row]];
-    [cell setUpModel:[_placeArr objectAtIndex:indexPath.row]];
+    if (_placeArr.count !=0) {
+         [cell setUpModel:[_placeArr objectAtIndex:indexPath.row]];
+    }
+   
     return cell;
 }
 
@@ -107,10 +110,11 @@
 
 - (void)requestPlaceList {
     [[WebAPIHelper sharedWebAPIHelper] postPlaceRecordList:nil completion:^(NSDictionary *dic){
-        NSMutableArray *array=[dic objectForKey:@"list"];
+        NSArray *array=[dic objectForKey:@"list"];
         dataSource=[PlaceRecord mj_objectArrayWithKeyValuesArray:array];
         //        [_bookingRecordTableView reloadData];
         if (dataSource ==nil || dataSource.count==0) {
+            
             return ;
         }
         for (PlaceRecord *palceRecord in dataSource) {

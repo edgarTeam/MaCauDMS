@@ -9,6 +9,11 @@
 #import "NoticeTableViewCell.h"
 #import "Notice.h"
 #import "NoticeSubList.h"
+#import "NSDate+Utils.h"
+@interface NoticeTableViewCell()
+@property (nonatomic,strong) NSString *timeStr;
+@end
+
 @implementation NoticeTableViewCell
 
 - (void)awakeFromNib {
@@ -27,7 +32,14 @@
 
 - (void)setUpModel:(Notice *)model{
    // [self.image];
-    self.timeLab.text=model.createTime;
+    if ([model.createTime rangeOfString:@"T"].location !=NSNotFound) {
+        _timeStr=[model.createTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    }
+    if (_timeStr.length !=0) {
+         _timeStr=[_timeStr substringToIndex:19];
+    }
+   
+    self.timeLab.text=_timeStr;
     self.contentLab.text=model.noticeTitle;
     if (model.noticeImage.count==0 || model.noticeImage==nil || [model.noticeImage isKindOfClass:[NSNull class]]) {
         return;

@@ -25,6 +25,7 @@
 //@property (nonatomic,strong) NSURL *voiceUrl;
 @property (nonatomic,strong) AVPlayer *player;
 @property (nonatomic,strong) NSString *voiceURL;
+@property (nonatomic,strong) NSString *timeStr; //時間
 @end
 
 @implementation HandlingDetailsViewController
@@ -82,11 +83,19 @@
             return ;
         }
         _complain=[ReportMaintenanceDetail mj_objectWithKeyValues:dic];
+        if ([_complain.createTime rangeOfString:@"T"].location !=NSNotFound) {
+            _timeStr=[_complain.createTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+        }
+        if (_timeStr.length !=0) {
+            _timeStr=[_timeStr substringToIndex:19];
+        }
+        
         _titleLab.text=_complain.complainClassType;
         _positionLab.text=[NSString stringWithFormat:@"%@,%@",_complain.complainPosition,_complain.complainSpecificPosition];
         _nameLab.text=_complain.complainLiaisonsName;
         _contactWayLab.text=_complain.complainLiaisonsEmail;
-        _createTimeLab.text=_complain.createTime;
+      //  _createTimeLab.text=_complain.createTime;
+        _createTimeLab.text=_timeStr;
         _contentTextView.text=_complain.complainDescribe;
 //        _voiceUrl=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_complain.complainVoice]];
         _voiceURL=_complain.complainVoice;

@@ -15,8 +15,8 @@
 
 @interface BookingRecordDetailViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *bookingRecordDetailImageView;
-@property (nonatomic,strong)PlaceRecord *palceRecord;
-@property (weak, nonatomic) IBOutlet UILabel *timeZoneLab;
+@property (nonatomic,strong)PlaceRecord *placeRecord;
+@property (weak, nonatomic) IBOutlet UILabel *timeZoneLab;//時間段
 @property (weak, nonatomic) IBOutlet UILabel *clientName;
 @property (weak, nonatomic) IBOutlet UILabel *statusLab;
 @property (weak, nonatomic) IBOutlet UILabel *palceLab;
@@ -55,7 +55,7 @@
 
 - (void)requestPlace {
     NSDictionary *para=@{
-                         @"placeId" :_palceRecord.placeId
+                         @"placeId" :_placeRecord.placeId
                          };
     [[WebAPIHelper sharedWebAPIHelper] postPlace:para completion:^(NSDictionary *dic){
         if (dic==nil) {
@@ -103,9 +103,13 @@
         if (dic==nil) {
             return ;
         }
-        _palceRecord=[PlaceRecord mj_objectWithKeyValues:dic];
-        _statusLab.text=dataSource[[_palceRecord.recordStatus intValue]+1];
-        _timeZoneLab.text=[NSString stringWithFormat:@"%@ 至 %@",_palceRecord.orderStartTime,_palceRecord.orderEndTime];
+        NSString *timeStr;
+        _placeRecord=[PlaceRecord mj_objectWithKeyValues:dic];
+        if (_placeRecord.orderDate.length >10) {
+            timeStr=[_placeRecord.orderDate substringToIndex:10];
+        }
+        _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
+        _timeZoneLab.text=[NSString stringWithFormat:@"%@ %@ 至 %@",timeStr,_placeRecord.orderStartTime,_placeRecord.orderEndTime];
         _clientName.text=[User shareUser].name;
         [self requestPlace];
     }];

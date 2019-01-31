@@ -22,13 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic,copy)NSString *placeImage;
 @property (nonatomic,copy)NSString *placeIntroduction;
 @property (nonatomic,copy)NSString *placeName;
-@property (nonatomic,assign)NSInteger placeNeedOrder;
+@property (nonatomic,assign)NSInteger placeNeedOrder; //需要预定（0否 1是）
 @property (nonatomic,copy)NSString *placeStartTime;
 @property (nonatomic,copy)NSString *placeTraditionalIntroduction;
 @property (nonatomic,copy)NSString *placeTraditionalName;
 @property (nonatomic,assign)NSInteger placeUpperLimit;
 @property (nonatomic,copy)NSString *updateTime;
-@property (nonatomic,assign) NSInteger placeStatus;
+@property (nonatomic,assign) NSInteger placeStatus; //场所状态（0未开放 1开放）
 @property (nonatomic,copy)NSArray<NoticeSubList *>* images;
 @end
 

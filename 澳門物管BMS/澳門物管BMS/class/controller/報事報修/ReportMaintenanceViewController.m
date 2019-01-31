@@ -19,6 +19,7 @@
 #import "ReportMaintenanceDetail.h"
 #import "PictureModel.h"
 #import "NSDate+Utils.h"
+#import "ZKAlertTool.h"
 @interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *maintenanceTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *maintenanceCollectionView;
@@ -52,6 +53,14 @@
     self.headView.hidden=YES;
     self.dataSource=[NSMutableArray new];
     self.communityList=[NSMutableArray new];
+    
+    _communityBtn.layer.masksToBounds = YES;
+    _communityBtn.layer.cornerRadius = 5.0;
+    _communityBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
+    _communityBtn.layer.borderWidth =1.0;
+    
+    
+    
     _maintenanceTextView.placeHoldString=@"请输入报修内容";
     _maintenanceTextView.layer.masksToBounds=YES;
     _maintenanceTextView.layer.cornerRadius=7.0;
@@ -67,6 +76,10 @@
     _maintenanceCollectionView.delegate=self;
     _maintenanceCollectionView.dataSource=self;
     _maintenanceCollectionView.alwaysBounceVertical=YES;
+    
+    
+    
+    
     
 
     [self requestCommunityList];
@@ -92,7 +105,16 @@
 - (void)requestAddRepair {
     NSMutableArray *imageThumbnailArr=[NSMutableArray new];
     NSMutableArray *imageUrlArr=[NSMutableArray new];
+    if (_communityLab.text.length ==0) {
+        [ZKAlertTool showAlertWithMsg:@"请选择社区"];
+        return;
+    }
+    if (_addressTextField.text.length ==0) {
+        [ZKAlertTool showAlertWithMsg:@"请填写地址"];
+        return;
+    }
     if (_dataSource.count ==0 || _dataSource ==nil || [_dataSource isKindOfClass:[NSNull class]]) {
+        [ZKAlertTool showAlertWithMsg:@"请您拍好照片"];
         return;
     }
     for (PictureModel *model in _dataSource) {
@@ -117,7 +139,8 @@
                             @"imageThumbnail":imageThumbnail,
                             @"imageUrl":imageUrl
                             };
-    
+    NSMutableArray *mutArr=[NSMutableArray new];
+    [mutArr addObject:picture];
     NSDictionary *para=@{
                          
                          @"complainLiaisonsEmail":[User shareUser].email,
@@ -126,7 +149,8 @@
                          @"complainPosition":_communityLab.text,
                          @"complainSpecificPosition":_addressTextField.text,
                          @"complainVoice":self.voiceRemarkUrl==nil?@"":self.voiceRemarkUrl,
-                         @"images":[NSArray arrayWithObjects:picture]
+                       //  @"images":[NSArray arrayWithObjects:picture]
+                         @"images":mutArr
                          };
 //    NSDictionary *dic=@{
 //                        @"complain":para
@@ -138,7 +162,18 @@
         if (dicResult ==nil) {
             return ;
         }
+        [CommonUtil isRequestOK:dicResult];
+        int code=[[dicResult objectForKey:@"code"] intValue];
+        if (code !=200) {
+            return ;
+        }
         _reportMaintenance=[ReportMaintenanceDetail mj_setKeyValues:dicResult[@"data"]];
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"string_add_maintenance_title") preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        [alert addAction:alertAc];
+        [self presentViewController:alert animated:YES completion:nil];
     } failure:^(NSError *error){
         NSLog(@"%@",error);
     }];

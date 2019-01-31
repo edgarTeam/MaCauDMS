@@ -21,6 +21,7 @@
    // self.title=LocalizedString(@"聯繫我們");
  //   self.title=@"聯繫我們";
     self.title=LocalizedString(@"string_contact_us_title");
+    _phoneBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;//让电话居左
 }
 - (IBAction)phoneBtnAction:(id)sender {
     [self callTel:@"853-66223344"];

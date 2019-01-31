@@ -86,7 +86,10 @@
             break;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-        
+//        MainViewController *mainVC=[[MainViewController alloc] init];
+//        self.mm_drawerController.centerViewController=mainVC;
+//        [UIApplication sharedApplication].keyWindow.rootViewController =mainVC;
+     
 //        [UIApplication sharedApplication].keyWindow.rootViewController = [[MainViewController alloc] init];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         });

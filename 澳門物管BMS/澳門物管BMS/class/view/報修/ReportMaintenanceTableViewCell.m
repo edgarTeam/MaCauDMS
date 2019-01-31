@@ -24,8 +24,17 @@
     // Configure the view for the selected state
 }
 - (void)setUpModel:(ReportMaintenanceDetail *)model{
+    if ([model.createTime rangeOfString:@"T"].location !=NSNotFound) {
+        _timeStr=[model.createTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    }
+    if (_timeStr.length !=0) {
+        _timeStr=[_timeStr substringToIndex:19];
+    }
+    
+    
     [self.titleLab setText:model.complainClassType];
-    [self.timeLab setText:model.createTime];
+  //  [self.timeLab setText:model.createTime];
+    [self.timeLab setText:_timeStr];
     [self.contentLab setText:model.complainDescribe];
     [self.stateLab setText:model.complainType];
 }

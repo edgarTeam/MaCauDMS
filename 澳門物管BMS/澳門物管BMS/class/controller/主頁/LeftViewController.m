@@ -30,6 +30,7 @@
 @property (nonatomic,strong) UILabel *versionlab;
 @property (nonatomic,strong) UILabel *weatherLab;
 @property (nonatomic,strong) NSString *cityName;
+
 @end
 
 @implementation LeftViewController
@@ -38,6 +39,8 @@
     NSArray *imgArrar;
     CLLocationManager * locationManager;
     NSString * currentCity; //当前城市
+    NSString *lonStr;//经度
+    NSString *latStr;//纬度
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -98,9 +101,11 @@
     [_versionlab mas_makeConstraints:^(MASConstraintMaker *make){
         make.bottom.mas_offset(0);
 //        make.left.mas_offset(20);
-        make.width.mas_offset(100);
-        make.height.mas_offset(20);
-        make.centerX.mas_equalTo(self.view);
+      //  make.width.mas_offset(100);
+        make.left.mas_equalTo(10);
+        make.right.mas_equalTo(-10);
+        make.height.mas_equalTo(20);
+      //  make.centerX.mas_equalTo(self.view);
     }];
     
 
@@ -125,8 +130,8 @@
     [self.view addSubview:_weatherLab];
     [_weatherLab mas_makeConstraints:^(MASConstraintMaker *make){
         make.bottom.mas_equalTo(_loginOutBtn.mas_top);
-        make.left.mas_equalTo(20);
-        make.right.mas_equalTo(20);
+        make.left.mas_equalTo(10);
+        make.right.mas_equalTo(-10);
     }];
     
     LeftModel *model1=[LeftModel new];
@@ -163,16 +168,21 @@
 
 - (void)requestWeather {
     
-    if (currentCity.length==0) {
+//    if (currentCity.length==0) {
+//        return;
+//    }
+//    if ([currentCity hasSuffix:@"市"]) {
+//        _cityName=[currentCity substringToIndex:currentCity.length-1];
+//    }else{
+//        _cityName=currentCity;
+//    }
+    if (lonStr.length ==0 || latStr.length ==0) {
         return;
     }
-    if ([currentCity hasSuffix:@"市"]) {
-        _cityName=[currentCity substringToIndex:currentCity.length-1];
-    }else{
-        _cityName=currentCity;
-    }
     NSDictionary *para=@{
-                         @"cityname" :_cityName,
+                        // @"cityname" :_cityName,
+                         @"lon":lonStr,
+                         @"lat" :latStr,
                          @"key" :key
                          };
     [[HttpHelper shareHttpHelper] getWeatherWithURL:Kweather convertClassName:nil parameters:para isArray:NO isString:NO success:^(NSDictionary *dic){
@@ -337,12 +347,16 @@
     [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (placemarks.count > 0) {
             CLPlacemark *placeMark = placemarks[0];
+          //  placeMark.location.coordinate.latitude//纬度
+           //   placeMark.location.coordinate.longitude //经度
+            lonStr=[NSString stringWithFormat:@"%f",placeMark.location.coordinate.longitude];
+            latStr=[NSString stringWithFormat:@"%f",placeMark.location.coordinate.latitude];
             currentCity = placeMark.locality;
             if (!currentCity) {
                 currentCity = @"无法定位当前城市";
             }
             NSLog(@"%@",currentCity); //这就是当前的城市
-         //   [self requestWeather];
+            [self requestWeather];
            // NSLog(@"%@",placeMark.name);//具体地址:  xx市xx区xx街道
         }
         else if (error == nil && placemarks.count == 0) {

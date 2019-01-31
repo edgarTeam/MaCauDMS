@@ -30,18 +30,28 @@
 
 </string>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNc-VI-xhh">
+                        <rect key="frame" x="26" y="199.5" width="268" height="1"/>
+                        <color key="backgroundColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="drM-gP-r8U"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="deE-xV-AmD" firstAttribute="trailing" secondItem="fNc-VI-xhh" secondAttribute="trailing" id="6DJ-Ne-Vzo"/>
                     <constraint firstItem="deE-xV-AmD" firstAttribute="top" secondItem="K0E-KX-4xl" secondAttribute="bottom" constant="10" id="Gfb-W9-hta"/>
                     <constraint firstAttribute="bottom" secondItem="deE-xV-AmD" secondAttribute="bottom" constant="10" id="Ok1-p0-2xk"/>
                     <constraint firstItem="deE-xV-AmD" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="gdb-W2-bDL"/>
                     <constraint firstItem="K0E-KX-4xl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="j9e-Nr-Pai"/>
+                    <constraint firstItem="fNc-VI-xhh" firstAttribute="top" secondItem="deE-xV-AmD" secondAttribute="bottom" id="lGY-DA-R62"/>
                     <constraint firstItem="K0E-KX-4xl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="oc7-g8-4f7"/>
                     <constraint firstItem="K0E-KX-4xl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="p4Z-vi-vfL"/>
                     <constraint firstItem="deE-xV-AmD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="us4-RF-s03"/>
+                    <constraint firstItem="deE-xV-AmD" firstAttribute="leading" secondItem="fNc-VI-xhh" secondAttribute="leading" id="x8A-2T-K76"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -21,6 +21,7 @@
 @property (nonatomic,strong) NSMutableArray *imageUrlArr; //图片数组
 @property (nonatomic,strong) NSMutableArray *turnImageArr;  //轮播图数组
 @property (nonatomic,strong) Notice *notice;
+@property (nonatomic,strong) NSString *timeStr;//時間
 @end
 
 @implementation NoticeDetailViewController
@@ -34,10 +35,11 @@
     _noticeTextView.layer.masksToBounds=YES;
     _noticeTextView.layer.cornerRadius=7.0;
     _noticeTextView.layer.borderWidth=0.5;
-    _noticeTextView.layer.borderColor=RGB(170, 170, 170).CGColor;
+    _noticeTextView.layer.borderColor=RGB(138, 138, 138).CGColor;
     [_noticeTextView setEditable:NO];
     _imageThumbnailArr=[NSMutableArray new];
     _imageUrlArr=[NSMutableArray new];
+    _noticeImageView.backgroundColor=[UIColor clearColor];
 }
 
 /*
@@ -59,8 +61,15 @@
             return ;
         }
         self.notice=[Notice mj_objectWithKeyValues:dic];
+        if ([self.notice.createTime rangeOfString:@"T"].location !=NSNotFound) {
+            _timeStr=[self.notice.createTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+        }
+        if (_timeStr.length !=0) {
+            _timeStr=[_timeStr substringToIndex:19];
+        }
+        self.createTimeLable.text=_timeStr;
         self.noticeTitleLab.text=self.notice.noticeTitle;
-        self.createTimeLable.text=self.notice.createTime;
+       // self.createTimeLable.text=self.notice.createTime;
         self.noticeTextView.text=self.notice.noticeDetails;
         if (self.notice.noticeImage.count ==0 || self.notice.noticeImage ==nil ) {
             return;

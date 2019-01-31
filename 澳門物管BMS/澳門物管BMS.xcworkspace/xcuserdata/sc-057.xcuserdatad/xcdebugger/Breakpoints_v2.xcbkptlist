@@ -9,1287 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
-            timestampString = "570118187.6168801"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/view/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordTableViewCell.m"
+            timestampString = "570596300.325698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
-            timestampString = "570118187.617094"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
-            timestampString = "570118187.617216"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.61734"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
-            landmarkName = "-postUploadImagesWithUrl:parameters:images:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.617579"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "334"
-            endingLineNumber = "334"
-            landmarkName = "-postUploadImagesWithUrl:parameters:images:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.282636"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[WebAPIHelper postWithUrl:body:showLoading:success:failure:]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "570119401.131815"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "263"
-                  endingLineNumber = "263"
-                  offsetFromSymbolStart = "807">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__61-[WebAPIHelper postWithUrl:body:showLoading:success:failure:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "570119401.133373"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "264"
-                  endingLineNumber = "264"
-                  offsetFromSymbolStart = "103">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.165"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "570119401.135772"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "263"
-                  endingLineNumber = "263"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.282751"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.2834671"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.28354"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.284026"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.284098"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.28422"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.284319"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.618507"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HttpHelper postWithUrl:body:showLoading:success:failure:]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "570119401.1735049"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "409"
-                  endingLineNumber = "409"
-                  offsetFromSymbolStart = "1041">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__59-[HttpHelper postWithUrl:body:showLoading:success:failure:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "570119401.1751"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "410"
-                  endingLineNumber = "410"
-                  offsetFromSymbolStart = "100">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.204"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "570119401.177056"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "409"
-                  endingLineNumber = "409"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.618608"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "447"
-            endingLineNumber = "447"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.6187"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "436"
-            endingLineNumber = "436"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.618776"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.61889"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.619066"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
-            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ReportMaintenanceViewController.m"
-            timestampString = "570114616.6454149"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "465"
-            endingLineNumber = "465"
-            landmarkName = "-addRecordTime"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ReportMaintenanceViewController.m"
-            timestampString = "570114616.645564"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "-showImagePickerForSourceType:andCameraCaptureMode:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ReportMaintenanceViewController.m"
-            timestampString = "570114616.645682"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
-            landmarkName = "-showImagePickerForSourceType:andCameraCaptureMode:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.2878211"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "-postUpdatePsd:completion:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[WebAPIHelper postUpdatePsd:completion:]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "570119401.221529"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "70">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[WebAPIHelper postUpdatePsd:completion:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "570119401.22339"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "51">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.6194479"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HttpHelper postWithURL:parameters:convertClassName:isArray:isString:success:failure:]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "570119401.2298011"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "274">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__87-[HttpHelper postWithURL:parameters:convertClassName:isArray:isString:success:failure:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "570119401.231481"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.88"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "570119401.233286"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.619542"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.619638"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.619699"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.619769"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x516c;&#x544a;/AnnouncementViewController.m"
-            timestampString = "570118187.619856"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-requestNoticeList"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x516c;&#x544a;/AnnouncementViewController.m"
-            timestampString = "570118187.6199059"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-requestNoticeList"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AnnouncementViewController requestNoticeList]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%85%AC%E5%91%8A/AnnouncementViewController.m"
-                  timestampString = "570119401.386253"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__47-[AnnouncementViewController requestNoticeList]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%85%AC%E5%91%8A/AnnouncementViewController.m"
-                  timestampString = "570119401.38787"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.98"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%85%AC%E5%91%8A/AnnouncementViewController.m"
-                  timestampString = "570119401.389802"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.290306"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-postNoticeList:completion:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[WebAPIHelper postNoticeList:completion:]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "570119401.397022"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
-                  offsetFromSymbolStart = "77">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__42-[WebAPIHelper postNoticeList:completion:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "570119401.399083"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.41"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "570119401.400985"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "122"
-                  endingLineNumber = "122"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.2903759"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "-postNoticeList:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.2904201"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "-postNoticeList:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.290463"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "295"
-            endingLineNumber = "295"
-            landmarkName = "-uploadVoice:filePath:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.290516"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "-uploadVoice:filePath:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.290583"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "-uploadVoice:filePath:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "570118187.620411"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-requestAddPlaceRecord"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "570118187.620537"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-requestAddPlaceRecord"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "570118187.6206141"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "-requestAddPlaceRecord"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ReportMaintenanceViewController.m"
-            timestampString = "570114616.650985"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-requestAddRepair"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ReportMaintenanceViewController.m"
-            timestampString = "570114616.651139"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-requestAddRepair"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ReportMaintenanceViewController.m"
-            timestampString = "570114616.651239"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ReportMaintenanceViewController.m"
-            timestampString = "570114616.651332"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "331"
-            endingLineNumber = "331"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/HandlingDetailsViewController.m"
-            timestampString = "570118187.621014"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-requestComplain"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x516c;&#x544a;/AnnouncementViewController.m"
-            timestampString = "570118187.621079"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "-requestNoticeList"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569588106.2919"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-postNoticeList:completion:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.62123"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.6213"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "+allocWithZone:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "570118187.62138"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "+allocWithZone:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x4e3b;&#x9801;/LeftViewController.m"
-            timestampString = "570118187.621473"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "-requestWeather"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LeftViewController requestWeather]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E4%B8%BB%E9%A0%81/LeftViewController.m"
-                  timestampString = "570119401.502838"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "178"
-                  endingLineNumber = "178"
-                  offsetFromSymbolStart = "406">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[LeftViewController requestWeather]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E4%B8%BB%E9%A0%81/LeftViewController.m"
-                  timestampString = "570119401.505164"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "179"
-                  endingLineNumber = "179"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.209"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E4%B8%BB%E9%A0%81/LeftViewController.m"
-                  timestampString = "570119401.507138"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "178"
-                  endingLineNumber = "178"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x767b;&#x9678;/LoginViewController.m"
-            timestampString = "569933103.69638"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-requestLogin"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
-            timestampString = "570118187.621603"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "-changeBtnaction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
-            timestampString = "570118187.62168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "-changeBtnaction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
-            timestampString = "570118187.621753"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
-            landmarkName = "-changeBtnaction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
-            timestampString = "570118187.621829"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
-            landmarkName = "-changeBtnAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "570118187.621929"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "-dateBtnAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "570118187.622041"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "-dateBtnAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "570118187.622126"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-requestAddPlaceRecord"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/NSDate/NSDate+Utils.m"
-            timestampString = "570115817.817541"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
-            landmarkName = "+stringFromDateToDateTimeString:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/NSDate/NSDate+Utils.m"
-            timestampString = "570115817.8176301"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
-            landmarkName = "+stringFromDateToDateTimeString:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/NSDate/NSDate+Utils.m"
-            timestampString = "570115817.817673"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "+stringFromDateToDateTimeString:"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-setUpModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1300,7 +26,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordViewController.m"
-            timestampString = "570118187.62242"
+            timestampString = "570609112.834309"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-requestPlaceList"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[BookingRecordViewController requestPlaceList]_block_invoke"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordViewController.m"
+                  timestampString = "570609152.769183"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "332">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[BookingRecordViewController requestPlaceList]_block_invoke"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordViewController.m"
+                  timestampString = "570609152.770869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "351">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordViewController.m"
+            timestampString = "570609112.8344001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
@@ -1316,11 +90,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordViewController.m"
-            timestampString = "570118187.6225179"
+            timestampString = "570609112.8344491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-requestPlace"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordViewController.m"
+            timestampString = "570609112.834493"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-requestPlace"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordViewController.m"
+            timestampString = "570609112.834535"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-requestPlaceList"
             landmarkType = "7">
          </BreakpointContent>
@@ -1332,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordViewController.m"
-            timestampString = "570118187.622606"
+            timestampString = "570609112.834576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-requestPlaceList"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-requestPlace"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1347,8 +153,738 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordDetailViewController.m"
+            timestampString = "570596657.982336"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-requestPlaceRecord"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordDetailViewController.m"
+            timestampString = "570596657.982641"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-requestPlace"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordDetailViewController.m"
+            timestampString = "570596657.982867"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-requestPlace"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[BookingRecordDetailViewController requestPlace]"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordDetailViewController.m"
+                  timestampString = "570609152.797582"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "170">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__49-[BookingRecordDetailViewController requestPlace]_block_invoke"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordDetailViewController.m"
+                  timestampString = "570609152.7991461"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "79">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.102"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordDetailViewController.m"
+                  timestampString = "570609152.800693"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordDetailViewController.m"
+            timestampString = "570596657.98308"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-requestPlaceRecord"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[BookingRecordDetailViewController requestPlaceRecord]"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordDetailViewController.m"
+                  timestampString = "570609152.806125"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "159">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[BookingRecordDetailViewController requestPlaceRecord]_block_invoke"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordDetailViewController.m"
+                  timestampString = "570609152.807695"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "47">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.136"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordDetailViewController.m"
+                  timestampString = "570609152.8093131"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordDetailViewController.m"
+            timestampString = "570596657.983294"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-requestPlaceRecord"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[BookingRecordDetailViewController requestPlaceRecord]"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordDetailViewController.m"
+                  timestampString = "570609152.814489"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "159">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[BookingRecordDetailViewController requestPlaceRecord]_block_invoke"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordDetailViewController.m"
+                  timestampString = "570609152.816061"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "47">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.136"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordDetailViewController.m"
+                  timestampString = "570609152.817644"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordDetailViewController.m"
+            timestampString = "570596657.983505"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordDetailViewController.m"
+            timestampString = "570596657.983785"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-requestPlaceRecord"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
+            timestampString = "570597687.624885"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "-requestChangeInfo"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[UserInfoViewController requestChangeInfo]"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%80%8B%E4%BA%BA%E4%BF%A1%E6%81%AF/UserInfoViewController.m"
+                  timestampString = "570609152.829361"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "1872">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[UserInfoViewController requestChangeInfo]_block_invoke"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%80%8B%E4%BA%BA%E4%BF%A1%E6%81%AF/UserInfoViewController.m"
+                  timestampString = "570609152.8309259"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "243"
+                  endingLineNumber = "243"
+                  offsetFromSymbolStart = "47">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.276"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%80%8B%E4%BA%BA%E4%BF%A1%E6%81%AF/UserInfoViewController.m"
+                  timestampString = "570609152.832497"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
+            timestampString = "570597689.603845"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "-requestChangeInfo"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
+            timestampString = "570597690.1536959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "-requestChangeInfo"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x500b;&#x4eba;&#x4fe1;&#x606f;/UserInfoViewController.m"
+            timestampString = "570597690.6860811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "-requestChangeInfo"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
+            timestampString = "570609112.835439"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
+            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
+            timestampString = "570609112.835601"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "416"
+            endingLineNumber = "416"
+            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
+            timestampString = "570609112.835701"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
+            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
+            timestampString = "570609112.8357871"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
+            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
+            timestampString = "570609112.835901"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "-requestAddPlaceRecord"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ClubhouseReservationViewController requestAddPlaceRecord]"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E6%9C%83%E6%89%80%E9%A0%90%E5%AE%9A/ClubhouseReservationViewController.m"
+                  timestampString = "570609152.860957"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "1571">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[ClubhouseReservationViewController requestAddPlaceRecord]_block_invoke_2"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E6%9C%83%E6%89%80%E9%A0%90%E5%AE%9A/ClubhouseReservationViewController.m"
+                  timestampString = "570609152.862589"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "47">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.168"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E6%9C%83%E6%89%80%E9%A0%90%E5%AE%9A/ClubhouseReservationViewController.m"
+                  timestampString = "570609152.8641551"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/CommonUtil.m"
+            timestampString = "570609112.836102"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "+isRequestOK:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/CommonUtil.m"
+            timestampString = "570609112.836183"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "+isRequestOK:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
+            timestampString = "570609112.836266"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-requestAddPlaceRecord"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
+            timestampString = "570609112.83638"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "448"
+            endingLineNumber = "448"
+            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
+            timestampString = "570609112.8364559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "452"
+            endingLineNumber = "452"
+            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[HttpHelper postWithUrl:body:showLoading:success:failure:]_block_invoke"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
+                  timestampString = "570609152.88192"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "452"
+                  endingLineNumber = "452"
+                  offsetFromSymbolStart = "1304">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.203"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
+                  timestampString = "570609152.883517"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "409"
+                  endingLineNumber = "409"
+                  offsetFromSymbolStart = "21">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
+            timestampString = "570609112.836556"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "443"
+            endingLineNumber = "443"
+            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
+            timestampString = "570609112.83665"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "418"
+            endingLineNumber = "418"
+            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
+            timestampString = "570609112.836731"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
+            landmarkName = "-postWithUrl:body:showLoading:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
+            timestampString = "570609112.836816"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-requestAddPlaceRecord"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ReportMaintenanceViewController.m"
+            timestampString = "570609112.836902"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "-requestAddRepair"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ReportMaintenanceViewController requestAddRepair]"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%A0%B1%E4%BA%8B%E5%A0%B1%E4%BF%AE/ReportMaintenanceViewController.m"
+                  timestampString = "570609152.900561"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "2926">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__51-[ReportMaintenanceViewController requestAddRepair]_block_invoke"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%A0%B1%E4%BA%8B%E5%A0%B1%E4%BF%AE/ReportMaintenanceViewController.m"
+                  timestampString = "570609152.902128"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "47">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.188"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%A0%B1%E4%BA%8B%E5%A0%B1%E4%BF%AE/ReportMaintenanceViewController.m"
+                  timestampString = "570609152.9036421"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordViewController.m"
-            timestampString = "570118187.622694"
+            timestampString = "570609196.3757811"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
@@ -1363,172 +899,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "570118187.622806"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x8a02;&#x5834;&#x7d00;&#x9304;/BookingRecordViewController.m"
+            timestampString = "570609196.925922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-reuqestPlateList"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "570118187.622885"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "-reuqestPlateList"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ClubhouseReservationViewController reuqestPlateList]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E6%9C%83%E6%89%80%E9%A0%90%E5%AE%9A/ClubhouseReservationViewController.m"
-                  timestampString = "570119402.471765"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "186"
-                  endingLineNumber = "186"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__54-[ClubhouseReservationViewController reuqestPlateList]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E6%9C%83%E6%89%80%E9%A0%90%E5%AE%9A/ClubhouseReservationViewController.m"
-                  timestampString = "570119402.4754651"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "187"
-                  endingLineNumber = "187"
-                  offsetFromSymbolStart = "79">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E6%9C%83%E6%89%80%E9%A0%90%E5%AE%9A/ClubhouseReservationViewController.m"
-                  timestampString = "570119402.480389"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "186"
-                  endingLineNumber = "186"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "570118187.622983"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "-createView"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "570118187.623094"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-requestAddPlaceRecord"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ClubhouseReservationViewController requestAddPlaceRecord]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E6%9C%83%E6%89%80%E9%A0%90%E5%AE%9A/ClubhouseReservationViewController.m"
-                  timestampString = "570119402.494084"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
-                  offsetFromSymbolStart = "1494">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__59-[ClubhouseReservationViewController requestAddPlaceRecord]_block_invoke_2"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sc-057/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E6%9C%83%E6%89%80%E9%A0%90%E5%AE%9A/ClubhouseReservationViewController.m"
-                  timestampString = "570119402.497889"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "161"
-                  endingLineNumber = "161"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/HandlingDetailsViewController.m"
-            timestampString = "570118187.623157"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-playBtnAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/HandlingDetailsViewController.m"
-            timestampString = "570118187.6232311"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-playBtnAction:"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-requestPlaceList"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

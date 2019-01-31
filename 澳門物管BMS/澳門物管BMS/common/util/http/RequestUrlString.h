@@ -47,7 +47,7 @@
 //添加訂場
 #define kAddPlaceRecord kBaseUrl @"/api/placeRecord/add"
 
-#define Kweather @"http://v.juhe.cn/weather/index"
+#define Kweather @"http://v.juhe.cn/weather/geo"
 
 #define CHECK_UPDATE_URL @"http://47.107.131.1:8080/app/app/system/version" //检查更新
 #define UPDATE_WEB_URL @"" //更新内容网址

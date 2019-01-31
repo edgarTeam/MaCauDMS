@@ -30,6 +30,7 @@
     self.title=LocalizedString(@"String_notice_title");
     self.edgesForExtendedLayout=UIRectEdgeNone;
     //_tableView.separatorColor=[UIColor clearColor];
+    _tableView.separatorInset=UIEdgeInsetsZero;
     _tableView.tableFooterView=[UIView new];
     _tableView.delegate=self;
     _tableView.dataSource=self;

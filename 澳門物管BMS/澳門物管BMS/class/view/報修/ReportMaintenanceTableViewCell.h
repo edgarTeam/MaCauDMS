@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
 @property (weak, nonatomic) IBOutlet UILabel *stateLab;
 @property (weak, nonatomic) IBOutlet UIView *centerView;
-
+@property (nonatomic,strong) NSString *timeStr;
 - (void)setUpModel:(ReportMaintenanceDetail *)model;
 @end
 

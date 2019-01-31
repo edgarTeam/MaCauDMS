@@ -49,3 +49,10 @@ string_login_in = "登入";
 string_forget_psd_title = "忘记密码";
 string_sex_female ="女";
 string_sex_male ="男";
+
+string_add_maintenance_title ="您已经添加成功，我们会尽快处理";
+string_add_record_title = "您已经成功预定了会所";
+
+string_request_login_error_code = "账号或者密码不对";
+string_requset_place_erroe_code ="该场地暂未开放";
+string_request_login_miss_code = "未登录/登录缓存已过期，请重新登录";

@@ -42,7 +42,7 @@
                 //                return NO;}
             case 100:
             {
-                [ZKAlertTool showAlertWithMsg:@"未登录/登陆缓存已过期，请重新登陆"];
+                [ZKAlertTool showAlertWithMsg:@"string_request_login_miss_code"];
                 return  NO;
             }
             case 102: //没有这条纪录
@@ -67,7 +67,11 @@
                 
             }
             case 105:{
-                [ZKAlertTool showAlertWithMsg:@"账号或者密码不对"];
+                [ZKAlertTool showAlertWithMsg:@"string_request_login_error_code"];
+                return NO;
+            }
+            case 401:{
+                [ZKAlertTool showAlertWithMsg:@"string_requset_place_erroe_code"];
                 return NO;
             }
                 //            case 401:{

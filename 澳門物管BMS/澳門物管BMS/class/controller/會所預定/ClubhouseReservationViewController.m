@@ -56,6 +56,18 @@
     _selectIndexs=[NSMutableArray new];
     NSArray *source=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00~10:00",@"10:00~12:00",@"12:00~14:00",@"14:00~16:00",@"16:00~18:00",@"18:00~20:00",@"20:00~22:00",@"22:00~00:00"];
     _dataSource=[source mutableCopy];
+    
+    
+    _orderDateBtn.layer.masksToBounds = YES;
+    _orderDateBtn.layer.cornerRadius = 5.0;
+    _orderDateBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
+    _orderDateBtn.layer.borderWidth =1.0;
+    _plateBtn.layer.masksToBounds = YES;
+    _plateBtn.layer.cornerRadius = 5.0;
+    _plateBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
+    _plateBtn.layer.borderWidth =1.0;
+    
+    
     // _dateTableView=[[UITableView alloc] init];
     _dateTableView.tableFooterView=[UIView new];
     _dateTableView.delegate=self;
@@ -70,33 +82,7 @@
 
 
 - (void)requestAddPlaceRecord{
-//    NSMutableArray *resultArr=[NSMutableArray new];
-//    for (int i=0; i<_selectIndexs.count; i++) {
-//
-//     NSString *str1=  _dataSource[[_selectIndexs[i] intValue]];
-//        NSString *str=[str1 stringByReplacingOccurrencesOfString:@"~" withString:@""];
-//        NSString *handlerStr=[str stringByReplacingOccurrencesOfString:@":" withString:@""];
-//        NSString *resultStr=[handlerStr substringToIndex:2];
-//        [resultArr addObject:resultStr];
-//    }
-//    NSArray *arr=[resultArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
-//        int a=[obj1 intValue];
-//        int b=[obj2 intValue];
-//        if (a >b) {
-//            return NSOrderedDescending;
-//        }else{
-//            return NSOrderedAscending;
-//        }
-//
-//    }];
-//    NSInteger indexFirst = 0;
-//    NSInteger indexLast = 0;
-//    if ([resultArr containsObject:arr[0]]) {
-//        indexFirst=[resultArr indexOfObject:arr[0]];
-//    }
-//    if ([resultArr containsObject:arr[arr.count-1]]) {
-//        indexLast=[resultArr indexOfObject:arr[arr.count-1]];
-//    }
+
     NSMutableArray *arr=[NSMutableArray new];
     NSMutableArray *resultArr=[NSMutableArray new];
     NSString *stratTime;
@@ -123,8 +109,9 @@
         
     }else if (_strArr.count ==1){
         stratTime=[[_strArr lastObject] stringByAppendingString:@":00:00"];
-        int end=[[_strArr lastObject] intValue]+2;
-        endTime=[[NSString stringWithFormat:@"%d",end] stringByAppendingString:@":00:00"];
+        int end=[[_strArr lastObject] intValue]+02;
+        NSString *timeStr=[@"0" stringByAppendingString:[NSString stringWithFormat:@"%d",end]];
+        endTime=[timeStr stringByAppendingString:@":00:00"];
     }else{
         [ZKAlertTool showAlertWithMsg:@"请选择时间分段"];
         return;
@@ -157,13 +144,24 @@
     NSError *error =nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
     
-    [[HttpHelper shareHttpHelper] postWithUrl:kAddComplain body:jsonData showLoading:YES success:^(NSDictionary *resultDic){
+    [[HttpHelper shareHttpHelper] postWithUrl:kAddPlaceRecord body:jsonData showLoading:YES success:^(NSDictionary *resultDic){
+        if (resultDic ==nil) {
+            return ;
+        }
                 [CommonUtil isRequestOK:resultDic];
-                if (resultDic ==nil) {
+        int code=[[resultDic objectForKey:@"code"] intValue];
+                if (code !=200) {
                     return ;
                 }
-        [ZKAlertTool showAlertWithMsg:@"您已經成功預定了會所"];
-             //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"string_add_record_title") preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        [alert addAction:alertAc];
+        [self presentViewController:alert animated:YES completion:nil];
+//        [ZKAlertTool showAlertWithMsg:@"您已經成功預定了會所"];
+//             //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
+//        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error){
         
     }];
@@ -419,9 +417,6 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
 
-//    if (![self login]) {
-//        return;
-//    }
 
     [self checkLogin];
     [self createView];

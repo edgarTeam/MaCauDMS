@@ -20,6 +20,7 @@
     // Initialization code
     _image.layer.masksToBounds=YES;
     _image.layer.cornerRadius=10.0;
+    self.backgroundColor=[UIColor clearColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

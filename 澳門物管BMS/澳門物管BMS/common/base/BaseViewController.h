@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GradientView.h"
+#import "UIViewController+MMDrawerController.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseViewController : UIViewController
