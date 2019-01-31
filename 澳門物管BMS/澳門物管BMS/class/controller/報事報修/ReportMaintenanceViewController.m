@@ -20,6 +20,7 @@
 #import "PictureModel.h"
 #import "NSDate+Utils.h"
 #import "ZKAlertTool.h"
+#import "UUProgressHUD.h"
 @interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *maintenanceTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *maintenanceCollectionView;
@@ -88,7 +89,9 @@
     _maintenanceCollectionView.alwaysBounceVertical=YES;
     
     
-    
+    [_recordBtn addTarget:self action:@selector(cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
+    [_recordBtn addTarget:self action:@selector(RemindDragExit:) forControlEvents:UIControlEventTouchDragExit];
+    [_recordBtn addTarget:self action:@selector(RemindDragEnter:) forControlEvents:UIControlEventTouchDragEnter];
     
     
     
@@ -409,8 +412,32 @@
     [self startRecord];
 }
 
+
+- (void)cancelRecordVoice:(UIButton *)button
+{
+    if (_timer) {
+        [_recorder stop];
+        [_recorder deleteRecording];
+        [_timer invalidate];
+        _timer = nil;
+    }
+    [UUProgressHUD dismissWithError: LocalizedString(@"String_cancel")];
+}
+
+- (void)RemindDragExit:(UIButton *)button
+{
+    [UUProgressHUD changeSubTitle:LocalizedString(@"String_release_to_cancel")];
+}
+
+- (void)RemindDragEnter:(UIButton *)button
+{
+    [UUProgressHUD changeSubTitle:LocalizedString(@"String_slide_up_to_cancel")];
+}
+
+
 - (IBAction)stopRecordAction:(id)sender {
     [self stopRecord];
+     [UUProgressHUD dismissWithSuccess:@"Success"];
 }
 
 - (IBAction)playBtnAction:(id)sender {
@@ -499,7 +526,7 @@
     [self.recorder record];
     playTime = 0;
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(addRecordTime) userInfo:nil repeats:YES];
-    
+      [UUProgressHUD show];
     
 }
 

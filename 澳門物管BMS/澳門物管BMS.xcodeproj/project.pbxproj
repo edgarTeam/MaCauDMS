@@ -10,6 +10,11 @@
 		323A127C21F06730009891ED /* SuspensionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A127B21F06730009891ED /* SuspensionModel.m */; };
 		323A128221F06741009891ED /* CircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A127E21F06741009891ED /* CircleButton.m */; };
 		323A128321F06741009891ED /* SuspensionMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 323A128021F06741009891ED /* SuspensionMenu.m */; };
+		32B0FA122202F6B3000621DE /* UUProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B0FA112202F6B3000621DE /* UUProgressHUD.m */; };
+		32B0FA1A2202F9C0000621DE /* UUChatCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B0FA192202F9C0000621DE /* UUChatCategory.m */; };
+		32B0FA1D2202FA52000621DE /* UUMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B0FA1B2202FA52000621DE /* UUMessage.m */; };
+		32B0FA202202FA5C000621DE /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B0FA1E2202FA5C000621DE /* NSDate+Utils.m */; };
+		32B0FA222202FCA4000621DE /* Chat_record_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B0FA212202FCA4000621DE /* Chat_record_circle.png */; };
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
 		BA03620121F322E1008E0B4A /* AppDelegate+DismissKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */; };
 		BA03620421F3322B008E0B4A /* NoticeSubList.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620321F3322B008E0B4A /* NoticeSubList.m */; };
@@ -123,6 +128,15 @@
 		323A128021F06741009891ED /* SuspensionMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspensionMenu.m; sourceTree = "<group>"; };
 		323A128121F06741009891ED /* SuspensionMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspensionMenu.h; sourceTree = "<group>"; };
 		32A8CAA421F305FE0064B553 /* 澳門物管BMS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "澳門物管BMS.entitlements"; sourceTree = "<group>"; };
+		32B0FA102202F6B3000621DE /* UUProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUProgressHUD.h; sourceTree = "<group>"; };
+		32B0FA112202F6B3000621DE /* UUProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUProgressHUD.m; sourceTree = "<group>"; };
+		32B0FA182202F9C0000621DE /* UUChatCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCategory.h; sourceTree = "<group>"; };
+		32B0FA192202F9C0000621DE /* UUChatCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCategory.m; sourceTree = "<group>"; };
+		32B0FA1B2202FA52000621DE /* UUMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMessage.m; sourceTree = "<group>"; };
+		32B0FA1C2202FA52000621DE /* UUMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMessage.h; sourceTree = "<group>"; };
+		32B0FA1E2202FA5C000621DE /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		32B0FA1F2202FA5C000621DE /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		32B0FA212202FCA4000621DE /* Chat_record_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chat_record_circle.png; sourceTree = "<group>"; };
 		6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.release.xcconfig"; sourceTree = "<group>"; };
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
 		BA0361FF21F322E0008E0B4A /* AppDelegate+DismissKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DismissKeyboard.h"; sourceTree = "<group>"; };
@@ -665,6 +679,7 @@
 		CB42089421C2B13E00980B64 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				32B0FA212202FCA4000621DE /* Chat_record_circle.png */,
 				CB6C9BA721C1672200B5A9E9 /* AppDelegate.h */,
 				CB6C9BA821C1672200B5A9E9 /* AppDelegate.m */,
 				CB6C9BAA21C1672200B5A9E9 /* ViewController.h */,
@@ -740,10 +755,18 @@
 		CB42089921C2B19C00980B64 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				32B0FA1F2202FA5C000621DE /* NSDate+Utils.h */,
+				32B0FA1E2202FA5C000621DE /* NSDate+Utils.m */,
+				32B0FA1C2202FA52000621DE /* UUMessage.h */,
+				32B0FA1B2202FA52000621DE /* UUMessage.m */,
 				BA04405321F8164400B310EB /* BaseAlertViewController.h */,
 				BA04405421F8164400B310EB /* BaseAlertViewController.m */,
+				32B0FA182202F9C0000621DE /* UUChatCategory.h */,
+				32B0FA192202F9C0000621DE /* UUChatCategory.m */,
 				CB18AA0321E6443200B3A232 /* GradientView.h */,
 				CB18AA0221E6443200B3A232 /* GradientView.m */,
+				32B0FA102202F6B3000621DE /* UUProgressHUD.h */,
+				32B0FA112202F6B3000621DE /* UUProgressHUD.m */,
 				CB42089A21C2B1BA00980B64 /* BaseViewController.h */,
 				CB42089B21C2B1BA00980B64 /* BaseViewController.m */,
 				CB42089D21C2B1E600980B64 /* BaseNavigationViewController.h */,
@@ -1019,6 +1042,7 @@
 				CB6C9BB121C1672300B5A9E9 /* Assets.xcassets in Resources */,
 				CBFE45B521C9541C00DD80E4 /* ReportMaintenanceViewController.xib in Resources */,
 				CB6C9BAF21C1672200B5A9E9 /* Main.storyboard in Resources */,
+				32B0FA222202FCA4000621DE /* Chat_record_circle.png in Resources */,
 				CB05465821C6B1FC008BE895 /* AnnouncementViewController.xib in Resources */,
 				CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */,
 				CB05F36121E1AB4200208C5E /* AddCollectionViewCell.xib in Resources */,
@@ -1099,6 +1123,7 @@
 				CB04505F21D122A000EB59D7 /* NoticeList.m in Sources */,
 				CB02947A21D3A90500FE55A7 /* BaseModel.m in Sources */,
 				CB02668721D9057000561B1C /* ZKAlertTool.m in Sources */,
+				32B0FA202202FA5C000621DE /* NSDate+Utils.m in Sources */,
 				CBCB79BD21CBCA6300BF454D /* ReportMaintenanceTableViewCell.m in Sources */,
 				CB02668A21D9059A00561B1C /* LSXPopMenu.m in Sources */,
 				CBFFF13521CF9E48008BA2A0 /* WebAPIHelper.m in Sources */,
@@ -1113,6 +1138,7 @@
 				CB42089F21C2B1E600980B64 /* BaseNavigationViewController.m in Sources */,
 				CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */,
 				CB05F35B21E1AB2D00208C5E /* PhotpCollectionViewCell.m in Sources */,
+				32B0FA1D2202FA52000621DE /* UUMessage.m in Sources */,
 				CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */,
 				BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */,
 				BA03620121F322E1008E0B4A /* AppDelegate+DismissKeyboard.m in Sources */,
@@ -1122,6 +1148,7 @@
 				BA04405D21F84D0D00B310EB /* Weather.m in Sources */,
 				CBFF233921CA8BD80066E00C /* ProcessingStateViewController.m in Sources */,
 				323A128221F06741009891ED /* CircleButton.m in Sources */,
+				32B0FA1A2202F9C0000621DE /* UUChatCategory.m in Sources */,
 				CB04506A21D136FF00EB59D7 /* PlaceList.m in Sources */,
 				CB02667F21D8CF3F00561B1C /* LeftViewTableViewCell.m in Sources */,
 				CB05465C21C6B223008BE895 /* ComplainViewController.m in Sources */,
@@ -1140,6 +1167,7 @@
 				CB04506221D122CE00EB59D7 /* Notice.m in Sources */,
 				CB04506D21D1374D00EB59D7 /* Place.m in Sources */,
 				BA04405521F8164400B310EB /* BaseAlertViewController.m in Sources */,
+				32B0FA122202F6B3000621DE /* UUProgressHUD.m in Sources */,
 				CB6C9BB721C1672300B5A9E9 /* main.m in Sources */,
 				CB019E9821F0B382004A88D8 /* RequestResultModel.m in Sources */,
 				CB5C392F21E39A8C008E3A64 /* NoticeDetailViewController.m in Sources */,
@@ -1344,7 +1372,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "澳門物管BMS/澳門物管BMS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8993J9FQNS;
+				DEVELOPMENT_TEAM = 72XXW98UJB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/澳門物管BMS/main/PropetyManagement-prefix.pch";
 				INFOPLIST_FILE = "澳門物管BMS/Info.plist";
@@ -1353,7 +1381,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gag.MacauBMSBeta;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoiba.MacauBMSBeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1366,7 +1394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "澳門物管BMS/澳門物管BMS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8993J9FQNS;
+				DEVELOPMENT_TEAM = 72XXW98UJB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/澳門物管BMS/main/PropetyManagement-prefix.pch";
 				INFOPLIST_FILE = "澳門物管BMS/Info.plist";
@@ -1375,7 +1403,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gag.MacauBMSBeta;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoiba.MacauBMSBeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

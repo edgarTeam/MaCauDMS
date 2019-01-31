@@ -56,3 +56,9 @@ string_add_record_title = "您已經成功預定了會所";
 string_request_login_error_code = "帳號或者密碼不对";
 string_requset_place_erroe_code ="該場地暫未開放";
 string_request_login_miss_code = "未登錄/登錄緩存已過期，請重新登錄";
+
+
+String_slide_up_to_cancel ="上滑取消錄音";
+String_release_to_cancel ="松開取消錄音";
+
+String_time_limit ="錄音時長";
