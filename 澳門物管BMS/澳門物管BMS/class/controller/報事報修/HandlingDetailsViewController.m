@@ -137,8 +137,9 @@
             textAttachment.bounds=CGRectMake(0, 0, 80, 80);
             NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
             [string insertAttributedString:textAttachmentString atIndex:string.length];
-        _contentTextView.attributedText=string;
+//        _contentTextView.attributedText=string;
         }
+         _contentTextView.attributedText=string;
 //        [textAttachment setImage:[UIImage imageNamed:@"rain"]];
 //        NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
 //        [string insertAttributedString:textAttachmentString atIndex:string.length];

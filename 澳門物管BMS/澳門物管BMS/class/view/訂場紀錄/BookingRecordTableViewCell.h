@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BookingRecordTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *numberLab;
 
 - (void)setUpModel:(Place *)model;
 - (void)setUpPlaceRecord:(PlaceRecord *)model;

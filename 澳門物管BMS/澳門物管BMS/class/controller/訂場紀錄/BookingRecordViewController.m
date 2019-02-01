@@ -33,7 +33,8 @@
     // Do any additional setup after loading the view from its nib.
     _bookingRecordTableView.delegate=self;
     _bookingRecordTableView.dataSource=self;
-    _bookingRecordTableView.separatorColor=[UIColor clearColor];
+    _bookingRecordTableView.separatorColor=RGB(178, 178, 178);
+    _bookingRecordTableView.separatorInset=UIEdgeInsetsZero;
     _bookingRecordTableView.tableFooterView=[UIView new];
     _bookingRecordTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self requestPlaceList];
@@ -64,16 +65,17 @@
     if (cell == nil) {
         cell=[[[NSBundle mainBundle] loadNibNamed:@"BookingRecordTableViewCell" owner:self options:nil] lastObject];
     }
-   // [cell setUpPlaceRecord:[dataSource objectAtIndex:indexPath.row]];
-    if (_placeArr.count !=0) {
-         [cell setUpModel:[_placeArr objectAtIndex:indexPath.row]];
-    }
+    cell.numberLab.text=[NSString stringWithFormat:@"%ld",indexPath.row+1];
+    [cell setUpPlaceRecord:[dataSource objectAtIndex:indexPath.row]];
+//    if (_placeArr.count !=0) {
+//         [cell setUpModel:[_placeArr objectAtIndex:indexPath.row]];
+//    }
    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 200;
+    return 120;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -113,20 +115,21 @@
         NSArray *array=[dic objectForKey:@"list"];
         dataSource=[PlaceRecord mj_objectArrayWithKeyValuesArray:array];
         //        [_bookingRecordTableView reloadData];
-        if (dataSource ==nil || dataSource.count==0) {
-            
-            return ;
+//        if (dataSource ==nil || dataSource.count==0) {
+//
+//            return ;
+//        }
+//        for (PlaceRecord *palceRecord in dataSource) {
+//            _placeId=palceRecord.placeId;
+//            if (_placeId !=nil) {
+//                [self requestPlace];
+//            }
+//
+//        }
+        if (_bookingRecordTableView.mj_header.isRefreshing) {
+            [_bookingRecordTableView.mj_header endRefreshing];
         }
-        for (PlaceRecord *palceRecord in dataSource) {
-            _placeId=palceRecord.placeId;
-            if (_placeId !=nil) {
-                [self requestPlace];
-            }
-            if (_bookingRecordTableView.mj_header.isRefreshing) {
-                [_bookingRecordTableView.mj_header endRefreshing];
-            }
-            [_bookingRecordTableView reloadData];
-        }
+        [_bookingRecordTableView reloadData];
     }];
 }
 

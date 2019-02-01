@@ -603,11 +603,11 @@
 
 
 
-- (void)viewDidDisappear:(BOOL)animated{
-
-    [self.communityBtn setTitle:@"" forState:UIControlStateNormal];
-    self.addressTextField.text=@"";
-    self.maintenanceTextView.text=@"";
-    self.voiceRemarkUrl=@"";
-}
+//- (void)viewDidDisappear:(BOOL)animated{
+//
+//    [self.communityBtn setTitle:@"" forState:UIControlStateNormal];
+//    self.addressTextField.text=@"";
+//    self.maintenanceTextView.text=@"";
+//    self.voiceRemarkUrl=@"";
+//}
 @end

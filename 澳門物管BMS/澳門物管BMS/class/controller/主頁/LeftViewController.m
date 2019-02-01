@@ -126,12 +126,14 @@
     _weatherLab=[[UILabel alloc] init];
     _weatherLab.textColor=RGB(138, 138, 138);
     _weatherLab.font=[UIFont systemFontOfSize:16];
-    _weatherLab.textAlignment=NSTextAlignmentCenter;
+    _weatherLab.textAlignment=NSTextAlignmentLeft;
     [self.view addSubview:_weatherLab];
     [_weatherLab mas_makeConstraints:^(MASConstraintMaker *make){
         make.bottom.mas_equalTo(_loginOutBtn.mas_top).offset(-10);
         make.left.mas_equalTo(50);
         make.right.mas_equalTo(-10);
+        make.height.mas_equalTo(20);
+        
     }];
     
     _weatherImg=[[UIImageView alloc] init];
@@ -139,7 +141,7 @@
     [_weatherImg mas_makeConstraints:^(MASConstraintMaker *make){
         make.bottom.mas_equalTo(_loginOutBtn.mas_top).offset(-10);
        // make.left.mas_equalTo(10);
-        make.width.mas_equalTo(30);
+        make.width.mas_equalTo(20);
         make.right.mas_equalTo(_weatherLab.mas_left).offset(0);
         make.height.mas_equalTo(_weatherImg.mas_width);
     }];

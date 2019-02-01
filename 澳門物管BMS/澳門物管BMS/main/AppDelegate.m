@@ -96,7 +96,7 @@
     }
     _complainVC=[[ComplainViewController alloc] init];
     _clubVC=[[ClubhouseReservationViewController alloc] init];
-    _reportVC=[[ReportMaintenanceViewController alloc] init];
+//    _reportVC=[[ReportMaintenanceViewController alloc] init];
     _setVC=[[SettingViewController alloc] init];
     MainViewController *mainVC=[[MainViewController alloc] init];
     LeftViewController *leftVC=[[LeftViewController alloc] init];
@@ -241,6 +241,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 #pragma suspensionDelegate
 
 -(void)selectMenuAtIndex:(NSInteger)index{
+     _reportVC=[[ReportMaintenanceViewController alloc] init];
     switch (index) {
     case 3:
             
@@ -250,6 +251,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         ////                [_centerNvaVC pushViewController:_reportVC animated:YES];
         //                return;
         //            }
+           
         [_reportVC setTitle:LocalizedString(@"string_complain_title")];
         [_centerNvaVC pushViewController:_reportVC animated:YES];
         break;
@@ -267,7 +269,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         ////            [_centerNvaVC pushViewController:_reportVC animated:YES];
         //                return;
         //            }
-           
+          // _reportVC=[[ReportMaintenanceViewController alloc] init];
         [_reportVC setTitle:LocalizedString(@"string_report_maintenance_title")];
         [_centerNvaVC pushViewController:_reportVC animated:YES];
         break;

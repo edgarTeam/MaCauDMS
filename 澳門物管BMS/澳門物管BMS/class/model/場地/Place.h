@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NoticeSubList.h"
-NS_ASSUME_NONNULL_BEGIN
+//NS_ASSUME_NONNULL_BEGIN
 
 @interface Place : NSObject
 @property (nonatomic,copy)NSString *communityId;
@@ -30,6 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString *updateTime;
 @property (nonatomic,assign) NSInteger placeStatus; //场所状态（0未开放 1开放）
 @property (nonatomic,copy)NSArray<NoticeSubList *>* images;
+- (instancetype) initWithDictionary:(NSDictionary *)dict;
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key;
+
 @end
 
-NS_ASSUME_NONNULL_END
+//NS_ASSUME_NONNULL_END

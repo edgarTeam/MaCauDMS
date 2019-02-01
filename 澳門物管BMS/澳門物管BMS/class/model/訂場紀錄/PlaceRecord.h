@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Place.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PlaceRecord : NSObject
@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString *recordStatus;//预定状态（-1预约取消 0开始发起 1预约成功 2预约失败）
 @property (nonatomic,copy)NSString *updateTime;
 @property (nonatomic,copy)NSString *userId;
+@property (nonatomic,strong)Place *place;
+- (instancetype) initWithDictionary:(NSDictionary *)dict;
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,5 +9,12 @@
 #import "PlaceRecord.h"
 
 @implementation PlaceRecord
+- (instancetype)initWithDictionary:(NSDictionary *)dict{
+//    self = [super init]; 
+    return  self;
+}
 
+- (void)setValue:(id)value forUndefinedKey:(nonnull NSString *)key{
+    
+}
 @end
