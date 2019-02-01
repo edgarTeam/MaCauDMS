@@ -129,6 +129,10 @@
         [ZKAlertTool showAlertWithMsg:@"请您拍好照片"];
         return;
     }
+    if (_maintenanceTextView.text.length ==0) {
+        [ZKAlertTool showAlertWithMsg:@"请填写描述"];
+        return;
+    }
     for (PictureModel *model in _dataSource) {
         if (model.thumbnailUrl !=nil) {
             [imageThumbnailArr addObject:model.thumbnailUrl];
@@ -161,6 +165,7 @@
                          @"complainPosition":_communityLab.text,
                          @"complainSpecificPosition":_addressTextField.text,
                          @"complainVoice":self.voiceRemarkUrl==nil?@"":self.voiceRemarkUrl,
+                         @"complainDescribe":self.maintenanceTextView.text,
                        //  @"images":[NSArray arrayWithObjects:picture]
                          @"images":mutArr
                          };

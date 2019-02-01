@@ -85,7 +85,10 @@
         _complain=[ReportMaintenanceDetail mj_objectWithKeyValues:dic];
         if ([_complain.createTime rangeOfString:@"T"].location !=NSNotFound) {
             _timeStr=[_complain.createTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+        }else{
+            _timeStr=_complain.createTime;
         }
+        
         if (_timeStr.length !=0) {
             _timeStr=[_timeStr substringToIndex:19];
         }
@@ -128,12 +131,18 @@
             return;
         }
         for ( int i=0; i<imageThumbnailArr.count; i++) {
-             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageThumbnailArr[i]]];
+             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,imageThumbnailArr[i]]]];
             UIImage *image=[UIImage imageWithData:data];
             textAttachment.image = image;
+            textAttachment.bounds=CGRectMake(0, 0, 80, 80);
             NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
             [string insertAttributedString:textAttachmentString atIndex:string.length];
+        _contentTextView.attributedText=string;
         }
+//        [textAttachment setImage:[UIImage imageNamed:@"rain"]];
+//        NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+//        [string insertAttributedString:textAttachmentString atIndex:string.length];
+//        _contentTextView.attributedText=string;
 //        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:]];
        
 //        dataSource[[_palceRecord.recordStatus intValue]+1];

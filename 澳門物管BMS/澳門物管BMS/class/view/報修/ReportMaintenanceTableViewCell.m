@@ -26,6 +26,8 @@
 - (void)setUpModel:(ReportMaintenanceDetail *)model{
     if ([model.createTime rangeOfString:@"T"].location !=NSNotFound) {
         _timeStr=[model.createTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    }else{
+        _timeStr=model.createTime;
     }
     if (_timeStr.length !=0) {
         _timeStr=[_timeStr substringToIndex:19];
