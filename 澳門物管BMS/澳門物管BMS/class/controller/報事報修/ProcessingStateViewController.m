@@ -29,6 +29,8 @@
     _processingStateTableView.dataSource=self;
     _processingStateTableView.separatorColor=[UIColor clearColor];
     _processingStateTableView.tableFooterView=[UIView new];
+    _processingStateTableView.estimatedRowHeight = 120;
+    _processingStateTableView.rowHeight = UITableViewAutomaticDimension;
     _processingStateTableView.backgroundColor=[UIColor clearColor];
     _processingStateTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self requestComplainList];
@@ -88,8 +90,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 120;
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 120;
+//}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

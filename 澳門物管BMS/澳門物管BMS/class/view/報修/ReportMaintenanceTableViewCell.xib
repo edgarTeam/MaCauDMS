@@ -71,8 +71,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqj-QB-BJx">
-                                        <rect key="frame" x="60" y="21" width="240" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqj-QB-BJx">
+                                        <rect key="frame" x="60" y="8.5" width="240" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="hlB-3O-5ZR"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -128,13 +131,12 @@
                             <constraint firstItem="JO5-e1-rF5" firstAttribute="leading" secondItem="Jqj-QB-BJx" secondAttribute="leading" id="EVa-24-2TK"/>
                             <constraint firstItem="YHO-KM-Tww" firstAttribute="top" secondItem="ka4-5c-awc" secondAttribute="bottom" id="QdO-9d-i4O"/>
                             <constraint firstAttribute="trailing" secondItem="ka4-5c-awc" secondAttribute="trailing" id="bir-AU-fVG"/>
-                            <constraint firstItem="ka4-5c-awc" firstAttribute="height" secondItem="CzH-mu-lq3" secondAttribute="height" id="e83-RD-SO1"/>
                             <constraint firstAttribute="trailing" secondItem="YHO-KM-Tww" secondAttribute="trailing" id="enR-YD-fJB"/>
                             <constraint firstItem="YHO-KM-Tww" firstAttribute="leading" secondItem="uzS-IL-zEq" secondAttribute="leading" id="gI5-Oi-Vzv"/>
                             <constraint firstItem="ka4-5c-awc" firstAttribute="leading" secondItem="uzS-IL-zEq" secondAttribute="leading" id="hug-Nr-0Om"/>
-                            <constraint firstItem="YHO-KM-Tww" firstAttribute="height" secondItem="ka4-5c-awc" secondAttribute="height" id="k4f-te-zmf"/>
                             <constraint firstAttribute="bottom" secondItem="CzH-mu-lq3" secondAttribute="bottom" multiplier="3:1" id="qwl-xZ-XCl"/>
                             <constraint firstItem="CzH-mu-lq3" firstAttribute="top" secondItem="uzS-IL-zEq" secondAttribute="top" id="rra-vR-JIP"/>
+                            <constraint firstItem="YHO-KM-Tww" firstAttribute="height" secondItem="CzH-mu-lq3" secondAttribute="height" id="uU4-lO-Zd4"/>
                             <constraint firstItem="vSr-nb-Nm8" firstAttribute="leading" secondItem="pPU-zA-iDJ" secondAttribute="leading" id="vtn-gJ-lOO"/>
                             <constraint firstAttribute="trailing" secondItem="CzH-mu-lq3" secondAttribute="trailing" id="xGn-UU-tnw"/>
                         </constraints>
