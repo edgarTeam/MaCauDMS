@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController">
             <connections>
+                <outlet property="AboutUsBtn" destination="1eT-dc-qM1" id="4Cg-kK-nut"/>
+                <outlet property="changeLanguageBtn" destination="guS-gM-rDK" id="daR-f7-Yg8"/>
                 <outlet property="changePsdBtn" destination="nCY-sy-3ix" id="8dr-ub-odC"/>
                 <outlet property="psdBtnHeight" destination="NXA-pP-PI5" id="ZZ4-qA-2Iw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

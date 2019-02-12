@@ -13,6 +13,8 @@
 @interface SettingViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *changePsdBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *psdBtnHeight;
+@property (weak, nonatomic) IBOutlet UIButton *changeLanguageBtn;
+@property (weak, nonatomic) IBOutlet UIButton *AboutUsBtn;
 
 
 
@@ -28,8 +30,10 @@
 //        return;
 //    }
     
-    self.title=@"設定";
-    
+    self.title=LocalizedString(@"string_setting_title");
+    [self.changePsdBtn setTitle:LocalizedString(@"string_change_psd_btn_title") forState:UIControlStateNormal];
+    [self.changeLanguageBtn setTitle:LocalizedString(@"string_change_language_btn_title") forState:UIControlStateNormal];
+    [self.AboutUsBtn setTitle:LocalizedString(@"string_about_us_title") forState:UIControlStateNormal];
 }
 - (IBAction)chooseBtnAction:(UIButton *)sender {
     switch (sender.tag) {

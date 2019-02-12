@@ -247,7 +247,10 @@
     }
     cell.backgroundColor=[UIColor clearColor];
     cell.textLabel.textColor=RGB(230, 230, 230);
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    if (_strArr.count==0 || _strArr==nil) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+   // cell.accessoryType = UITableViewCellAccessoryNone;
     cell.textLabel.text=_dataSource[indexPath.row];
     NSLog(@"%@",cell.textLabel.text);
 

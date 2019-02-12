@@ -22,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=@"語言設定";
-    self.title=LocalizedString(@"string_setting_title");
+    self.title=LocalizedString(@"string_language_setting_title");
 
     NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
     
@@ -88,9 +88,9 @@
     dispatch_async(dispatch_get_main_queue(), ^{
 //        MainViewController *mainVC=[[MainViewController alloc] init];
 //        self.mm_drawerController.centerViewController=mainVC;
-//        [UIApplication sharedApplication].keyWindow.rootViewController =mainVC;
-     
-//        [UIApplication sharedApplication].keyWindow.rootViewController = [[MainViewController alloc] init];
+//        [UIApplication sharedApplication].keyWindow.rootViewController =self.mm_drawerController.centerViewController;
+      //  [UIApplication sharedApplication].keyWindow.rootViewController = [[MainViewController alloc] init];
+    
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         });
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"String_Alert_title")];

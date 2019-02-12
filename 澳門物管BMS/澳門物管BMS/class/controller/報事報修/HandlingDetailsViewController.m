@@ -10,7 +10,7 @@
 #import "ReportMaintenanceDetail.h"
 #import "NoticeSubList.h"
 #import "ZKAlertTool.h"
-@interface HandlingDetailsViewController ()
+@interface HandlingDetailsViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong) ReportMaintenanceDetail *complain;
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
 @property (weak, nonatomic) IBOutlet UILabel *positionLab;
@@ -37,11 +37,15 @@
     self.title=LocalizedString(@"string_report_maintenance_detail_title");
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.view.backgroundColor=[UIColor clearColor];
+    UIGestureRecognizer *gesture=[[UIGestureRecognizer alloc] init];
+    gesture.delegate=self;
+    [self.contentTextView addGestureRecognizer:gesture];
     _contentTextView.layer.masksToBounds=YES;
     _contentTextView.layer.cornerRadius=7.0;
     _contentTextView.layer.borderWidth=0.5;
     _contentTextView.layer.borderColor=RGB(63, 114, 156).CGColor;
     _contentTextView.editable=NO;
+    _contentTextView.scrollEnabled=YES;
 //    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
 //    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
 //    textAttachment.image = [UIImage imageNamed:@""];
@@ -100,13 +104,14 @@
       //  _createTimeLab.text=_complain.createTime;
         _createTimeLab.text=_timeStr;
         _contentTextView.text=_complain.complainDescribe;
+
 //        _voiceUrl=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_complain.complainVoice]];
         _voiceURL=_complain.complainVoice;
          _statusLab.text=_statusArr[[_complain.complainStatus intValue]];
         
         
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
-        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+//        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
+//        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
 //        textAttachment.image = [UIImage imageNamed:@""];
 //        NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
 //        [string insertAttributedString:textAttachmentString atIndex:string.length];
@@ -130,16 +135,22 @@
         if (imageThumbnailArr.count ==0 || imageThumbnailArr ==nil) {
             return;
         }
+        
+         UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc] init];
+        tap.delegate=self;
         for ( int i=0; i<imageThumbnailArr.count; i++) {
+            NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
+            NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
              NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,imageThumbnailArr[i]]]];
             UIImage *image=[UIImage imageWithData:data];
+           
             textAttachment.image = image;
             textAttachment.bounds=CGRectMake(0, 0, 80, 80);
             NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
             [string insertAttributedString:textAttachmentString atIndex:string.length];
-//        _contentTextView.attributedText=string;
+        _contentTextView.attributedText=string;
         }
-         _contentTextView.attributedText=string;
+       //  _contentTextView.attributedText=string;
 //        [textAttachment setImage:[UIImage imageNamed:@"rain"]];
 //        NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
 //        [string insertAttributedString:textAttachmentString atIndex:string.length];

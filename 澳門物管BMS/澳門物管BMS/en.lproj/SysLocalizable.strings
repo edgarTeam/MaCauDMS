@@ -31,7 +31,7 @@ String_sex_title = "性別";
 String_tel_title = "電話";
 
 String_change_psd_title ="修改密碼";
-string_setting_title ="語言設定";
+string_language_setting_title ="語言設定";
 string_notice_detail_title ="公告詳情";
 string_report_maintenance_list ="報修紀錄";
 string_report_maintenance_detail_title ="報事詳情";
@@ -58,3 +58,13 @@ string_request_login_error_code = "帳號或者密碼不对";
 string_requset_place_erroe_code ="該場地暫未開放";
 string_request_login_miss_code = "未登錄/登錄緩存已過期，請重新登錄";
 
+String_slide_up_to_cancel ="上滑取消錄音";
+String_release_to_cancel ="松開取消錄音";
+
+String_time_limit ="錄音時長";
+
+
+string_about_us_title = "關於我們";
+string_change_psd_btn_title = "修改密碼";
+string_change_language_btn_title = "語言設定";
+string_setting_title = "設定";
