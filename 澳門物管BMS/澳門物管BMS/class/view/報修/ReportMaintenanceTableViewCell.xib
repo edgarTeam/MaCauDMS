@@ -153,6 +153,8 @@
             <connections>
                 <outlet property="centerView" destination="uzS-IL-zEq" id="jtl-yV-DeZ"/>
                 <outlet property="contentLab" destination="Jqj-QB-BJx" id="fcL-Z6-3Uq"/>
+                <outlet property="repairDescribeTitleLab" destination="pPU-zA-iDJ" id="IVD-zv-M5U"/>
+                <outlet property="repairStatusTitleLab" destination="vSr-nb-Nm8" id="YTg-eA-EHG"/>
                 <outlet property="stateLab" destination="JO5-e1-rF5" id="hXe-op-e8P"/>
                 <outlet property="timeLab" destination="Kma-2Q-O4F" id="Mc0-84-ljZ"/>
                 <outlet property="titleLab" destination="SAO-xB-y8n" id="gT3-Bf-M5e"/>

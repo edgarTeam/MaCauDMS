@@ -26,6 +26,13 @@
 @property (nonatomic,strong) AVPlayer *player;
 @property (nonatomic,strong) NSString *voiceURL;
 @property (nonatomic,strong) NSString *timeStr; //時間
+@property (weak, nonatomic) IBOutlet UILabel *repairCommunityNameTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairClientNameTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairContactTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairCreateTimeTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairDiscribeTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairVoiceTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairProgressTitleLab;
 @end
 
 @implementation HandlingDetailsViewController
@@ -46,6 +53,15 @@
     _contentTextView.layer.borderColor=RGB(63, 114, 156).CGColor;
     _contentTextView.editable=NO;
     _contentTextView.scrollEnabled=YES;
+    
+    _repairCommunityNameTitleLab.text=LocalizedString(@"string_repair_community_name_title");
+    _repairClientNameTitleLab.text=LocalizedString(@"string_repair_detail_client_name_title");
+    _repairContactTitleLab.text=LocalizedString(@"string_repair_detail_contact_title");
+    _repairCreateTimeTitleLab.text=LocalizedString(@"string_repair_detail_create_time_title");
+    _repairDiscribeTitleLab.text=LocalizedString(@"string_repair_describe_title");
+    _repairVoiceTitleLab.text=LocalizedString(@"string_repair_detail_voice_title");
+    _repairProgressTitleLab.text=LocalizedString(@"string_repair_progress_title");
+    
 //    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
 //    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
 //    textAttachment.image = [UIImage imageNamed:@""];
@@ -59,7 +75,7 @@
 }
 - (IBAction)playBtnAction:(id)sender {
     if (_voiceURL.length ==0) {
-        [ZKAlertTool showAlertWithMsg:@"沒有錄音可以播放"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_voice_title")];
         return;
     }
     

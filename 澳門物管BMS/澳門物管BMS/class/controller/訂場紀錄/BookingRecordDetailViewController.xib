@@ -15,6 +15,10 @@
                 <outlet property="bookingRecordDetailImageView" destination="1F1-Cb-16h" id="jZG-bb-42K"/>
                 <outlet property="clientName" destination="31o-FL-iRp" id="TX4-Y6-mbM"/>
                 <outlet property="palceLab" destination="FqQ-bj-Oef" id="trm-IM-0hp"/>
+                <outlet property="placeClientNameTitleLab" destination="lIC-3g-Nu7" id="TFW-PC-fUr"/>
+                <outlet property="placeNameTitleLab" destination="Iu1-ke-gel" id="h7A-0B-gHl"/>
+                <outlet property="placeOrderTimeTitleLab" destination="Zcv-52-WNE" id="xlb-Nh-hDY"/>
+                <outlet property="placeStatusTitleLab" destination="9gC-nR-vc8" id="E7o-US-6Vq"/>
                 <outlet property="statusLab" destination="4vf-SH-cex" id="EM8-dX-Kak"/>
                 <outlet property="timeZoneLab" destination="MQM-e8-Hkb" id="7e1-k3-xXa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -21,6 +21,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLab;
 @property (weak, nonatomic) IBOutlet UILabel *palceLab;
 @property (nonatomic,strong)Place *place;
+@property (weak, nonatomic) IBOutlet UILabel *placeNameTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *placeOrderTimeTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *placeClientNameTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *placeStatusTitleLab;
 @end
 
 @implementation BookingRecordDetailViewController
@@ -36,6 +40,11 @@
     _bookingRecordDetailImageView.layer.masksToBounds=YES;
     _bookingRecordDetailImageView.layer.cornerRadius=10.0;
     dataSource=@[@"預約取消",@"開始發起",@"預約成功",@"預約失敗"];
+    
+    _placeNameTitleLab.text=LocalizedString(@"string_plate_detail_name_title");
+    _placeOrderTimeTitleLab.text=LocalizedString(@"string_plate_detail_order_time_title");
+    _placeClientNameTitleLab.text=LocalizedString(@"string_plate_detail_client_name_title");
+    _placeStatusTitleLab.text=LocalizedString(@"string_plate_detail_status_title");
     //[self requestBookingRecord];
 //    [self requestPlace];
 }

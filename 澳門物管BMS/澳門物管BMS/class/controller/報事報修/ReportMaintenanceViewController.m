@@ -37,6 +37,9 @@
 @property (nonatomic,strong) ReportMaintenanceDetail *reportMaintenance;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (weak, nonatomic) IBOutlet UILabel *communityTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairAddressTitleLab;
 
 @end
 
@@ -70,6 +73,8 @@
     _communityBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
     _communityBtn.layer.borderWidth =1.0;
     
+    _submitBtn.layer.masksToBounds=YES;
+    _submitBtn.layer.cornerRadius=5.0;
     
     
     _maintenanceTextView.placeHoldString=@"请输入报修内容";
@@ -88,7 +93,11 @@
     _maintenanceCollectionView.delegate=self;
     _maintenanceCollectionView.dataSource=self;
     _maintenanceCollectionView.alwaysBounceVertical=YES;
+    _maintenanceCollectionView.layer.masksToBounds=YES;
+    _maintenanceCollectionView.layer.cornerRadius=7.0;
     
+    _communityTitleLab.text=LocalizedString(@"string_repair_community_name_title");
+    _repairAddressTitleLab.text=LocalizedString(@"string_repair_address_title");
     
     [_recordBtn addTarget:self action:@selector(cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
     [_recordBtn addTarget:self action:@selector(RemindDragExit:) forControlEvents:UIControlEventTouchDragExit];
@@ -118,19 +127,19 @@
     NSMutableArray *imageThumbnailArr=[NSMutableArray new];
     NSMutableArray *imageUrlArr=[NSMutableArray new];
     if (_communityLab.text.length ==0) {
-        [ZKAlertTool showAlertWithMsg:@"请选择社区"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
         return;
     }
     if (_addressTextField.text.length ==0) {
-        [ZKAlertTool showAlertWithMsg:@"请填写地址"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_address_title")];
         return;
     }
     if (_dataSource.count ==0 || _dataSource ==nil || [_dataSource isKindOfClass:[NSNull class]]) {
-        [ZKAlertTool showAlertWithMsg:@"请您拍好照片"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_photo_title")];
         return;
     }
     if (_maintenanceTextView.text.length ==0) {
-        [ZKAlertTool showAlertWithMsg:@"请填写描述"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_describe_title")];
         return;
     }
     for (PictureModel *model in _dataSource) {
@@ -273,9 +282,11 @@
 //                [collectionView reloadData];
 //            };
 //        }
+        [_photoCell.activityIndicatorView startAnimating];
         [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row-1]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
              [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row-1]]] placeholderImage:image];
             _photoCell.deleteBtn.hidden=NO;
+            [_photoCell.activityIndicatorView stopAnimating];
         }];
         _photoCell.deleteBtnAction = ^{
                             NSLog(@"%ld",_dataSource.count);

@@ -95,9 +95,9 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hant"  forKey:AppLanguage];
     }
     _complainVC=[[ComplainViewController alloc] init];
-    _clubVC=[[ClubhouseReservationViewController alloc] init];
+//    _clubVC=[[ClubhouseReservationViewController alloc] init];
 //    _reportVC=[[ReportMaintenanceViewController alloc] init];
-    _setVC=[[SettingViewController alloc] init];
+//    _setVC=[[SettingViewController alloc] init];
     MainViewController *mainVC=[[MainViewController alloc] init];
     LeftViewController *leftVC=[[LeftViewController alloc] init];
     _centerNvaVC= [[UINavigationController alloc]initWithRootViewController:mainVC];
@@ -260,6 +260,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         ////            [_centerNvaVC pushViewController:_clubVC animated:YES];
         //                return;
         //            }
+            _clubVC=[[ClubhouseReservationViewController alloc] init];
         [_centerNvaVC pushViewController:_clubVC animated:YES];
         
         break;
@@ -278,6 +279,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         ////            [_centerNvaVC pushViewController:_setVC animated:YES];
         //                return;
         //            }
+            _setVC=[[SettingViewController alloc] init];
         [_centerNvaVC pushViewController:_setVC animated:YES];
         break;
     default:

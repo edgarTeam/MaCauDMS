@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLab;
 @property (weak, nonatomic) IBOutlet UILabel *orderDateLab;
 @property (weak, nonatomic) IBOutlet UILabel *updateDateLab;
+@property (weak, nonatomic) IBOutlet UILabel *placeOrderTimeTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *placeUpdateTimeTitleLab;
 
 @property (nonatomic,strong) NSArray *statusArr;
 @end
@@ -27,6 +29,8 @@
 //    _image.layer.cornerRadius=10.0;
     _statusArr=@[@"預約取消",@"開始發起",@"預約成功",@"預約失敗"];
     self.backgroundColor=[UIColor clearColor];
+    _placeOrderTimeTitleLab.text=LocalizedString(@"string_plate_order_time_title");
+    _placeUpdateTimeTitleLab.text=LocalizedString(@"string_plate_update_time_title");
 //    self.layer.borderWidth=0.5;
 //    self.layer.borderColor=RGB(130, 130, 130).CGColor;
 }

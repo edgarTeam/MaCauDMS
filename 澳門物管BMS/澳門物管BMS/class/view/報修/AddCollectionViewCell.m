@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [self.addImageVIew setImage:[UIImage imageNamed:@"add"]];
+  //  [self.addImageVIew setImage:[UIImage imageNamed:@"add"]];
 }
 
 @end

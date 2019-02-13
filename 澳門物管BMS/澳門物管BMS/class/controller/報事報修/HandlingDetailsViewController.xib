@@ -18,6 +18,13 @@
                 <outlet property="nameLab" destination="hls-g4-0dX" id="LLG-fF-pE2"/>
                 <outlet property="playBtn" destination="CP7-rJ-Qpz" id="K9a-BP-4XZ"/>
                 <outlet property="positionLab" destination="Opi-LT-ILZ" id="2Ki-Dl-YUk"/>
+                <outlet property="repairClientNameTitleLab" destination="2aY-qV-1QD" id="AkS-Ef-d7U"/>
+                <outlet property="repairCommunityNameTitleLab" destination="GDN-m3-2fH" id="XSF-Nr-Ji4"/>
+                <outlet property="repairContactTitleLab" destination="8vg-St-ZKN" id="Jz8-tx-9tO"/>
+                <outlet property="repairCreateTimeTitleLab" destination="KPb-UU-UPZ" id="XuM-VH-NEn"/>
+                <outlet property="repairDiscribeTitleLab" destination="ex1-7k-RJO" id="bbq-Vy-5oG"/>
+                <outlet property="repairProgressTitleLab" destination="3yB-B7-4ia" id="Flx-rX-WTJ"/>
+                <outlet property="repairVoiceTitleLab" destination="weI-Yq-gJB" id="QDq-i0-4RR"/>
                 <outlet property="statusLab" destination="dxc-Md-TY0" id="gD1-gG-n1H"/>
                 <outlet property="titleLab" destination="Eet-q2-llB" id="xjh-v8-yMf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -30,9 +30,9 @@
 //        return;
 //    }
     
-    self.title=LocalizedString(@"string_setting_title");
-    [self.changePsdBtn setTitle:LocalizedString(@"string_change_psd_btn_title") forState:UIControlStateNormal];
-    [self.changeLanguageBtn setTitle:LocalizedString(@"string_change_language_btn_title") forState:UIControlStateNormal];
+    self.title=LocalizedString(@"string_set_title");
+    [self.changePsdBtn setTitle:LocalizedString(@"String_change_psd_title") forState:UIControlStateNormal];
+    [self.changeLanguageBtn setTitle:LocalizedString(@"string_language_setting_title") forState:UIControlStateNormal];
     [self.AboutUsBtn setTitle:LocalizedString(@"string_about_us_title") forState:UIControlStateNormal];
 }
 - (IBAction)chooseBtnAction:(UIButton *)sender {

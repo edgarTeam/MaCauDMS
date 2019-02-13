@@ -33,18 +33,24 @@
                             <action selector="deleteBtnAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nm7-A8-Zut"/>
                         </connections>
                     </button>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zl4-9Q-MU6">
+                        <rect key="frame" x="15" y="15" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="zl4-9Q-MU6" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="1Qv-1X-kpH"/>
                 <constraint firstItem="ZQ3-Xz-TyU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="trailing" constant="-10" id="4s8-rC-oNn"/>
                 <constraint firstItem="sHB-BQ-NQa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="FKd-Nd-jdN"/>
                 <constraint firstAttribute="bottom" secondItem="sHB-BQ-NQa" secondAttribute="bottom" id="TG5-OK-kL7"/>
                 <constraint firstItem="ZQ3-Xz-TyU" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="dwi-uW-lCa"/>
                 <constraint firstAttribute="trailing" secondItem="sHB-BQ-NQa" secondAttribute="trailing" id="eir-eO-nc7"/>
+                <constraint firstItem="zl4-9Q-MU6" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="gKO-PD-X7v"/>
                 <constraint firstItem="sHB-BQ-NQa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lSf-D8-3Vk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <connections>
+                <outlet property="activityIndicatorView" destination="zl4-9Q-MU6" id="ffF-ZB-3Tz"/>
                 <outlet property="deleteBtn" destination="ZQ3-Xz-TyU" id="wta-0P-a6L"/>
                 <outlet property="photoImageView" destination="sHB-BQ-NQa" id="rbM-gg-los"/>
             </connections>

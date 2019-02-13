@@ -258,7 +258,8 @@
         
         user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
         [CommonUtil storeUser];
-        [ZKAlertTool showAlertWithMsg:@"您已經設置成功了"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_change_info_alert_title")];
+        
         self.submitBtn.hidden=YES;
         self.telTextField.enabled=NO;
         self.nameTextField.enabled=NO;

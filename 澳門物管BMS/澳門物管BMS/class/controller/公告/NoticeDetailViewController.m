@@ -22,6 +22,8 @@
 @property (nonatomic,strong) NSMutableArray *turnImageArr;  //轮播图数组
 @property (nonatomic,strong) Notice *notice;
 @property (nonatomic,strong) NSString *timeStr;//時間
+@property (weak, nonatomic) IBOutlet UILabel *noticeTimeTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *noticeConventTitleLab;
 @end
 
 @implementation NoticeDetailViewController
@@ -40,6 +42,9 @@
     _imageThumbnailArr=[NSMutableArray new];
     _imageUrlArr=[NSMutableArray new];
     _noticeImageView.backgroundColor=[UIColor clearColor];
+    
+    _noticeTimeTitleLab.text=LocalizedString(@"string_notice_time_title");
+    _noticeConventTitleLab.text=LocalizedString(@"string_notice_convent_title");
 }
 
 /*
