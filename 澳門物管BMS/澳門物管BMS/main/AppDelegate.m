@@ -22,12 +22,14 @@
 #import "SuspensionMenu.h"
 #import "JPUSHService.h"
 #import "AppDelegate+DismissKeyboard.h"
+#import "DrawerViewController.h"
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
 
 @interface AppDelegate ()<SuspensionMenuDelegate,JPUSHRegisterDelegate>
-@property(nonatomic,strong)MMDrawerController *drawer;
+//@property(nonatomic,strong)MMDrawerController *drawer;
+@property (nonatomic,strong) DrawerViewController *drawer;
 @property (nonatomic,strong) UIButton *centerBtn;
 @property (nonatomic,strong) UIImage *image;
 @property (nonatomic,strong) NSMutableArray *arr;

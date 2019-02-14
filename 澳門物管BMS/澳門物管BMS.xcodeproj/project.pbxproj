@@ -24,6 +24,7 @@
 		BA04C86221F190D9007A38AF /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */; };
 		BA04C86621F19423007A38AF /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86521F19423007A38AF /* PictureModel.m */; };
 		BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86921F1AE82007A38AF /* NSDate+Utils.m */; };
+		BA09BB4E22154BE40092BDED /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09BB4D22154BE40092BDED /* DrawerViewController.m */; };
 		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
 		CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */; };
 		CB019E9821F0B382004A88D8 /* RequestResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB019E9721F0B382004A88D8 /* RequestResultModel.m */; };
@@ -155,6 +156,8 @@
 		BA04C86521F19423007A38AF /* PictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureModel.m; sourceTree = "<group>"; };
 		BA04C86821F1AE82007A38AF /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		BA04C86921F1AE82007A38AF /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		BA09BB4C22154BE40092BDED /* DrawerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawerViewController.h; sourceTree = "<group>"; };
+		BA09BB4D22154BE40092BDED /* DrawerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawerViewController.m; sourceTree = "<group>"; };
 		CB017BC521DB294C00BB6BFD /* UserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
@@ -413,6 +416,15 @@
 				BA04C86921F1AE82007A38AF /* NSDate+Utils.m */,
 			);
 			path = NSDate;
+			sourceTree = "<group>";
+		};
+		BA09BB4B22154B980092BDED /* MMDrawerController */ = {
+			isa = PBXGroup;
+			children = (
+				BA09BB4C22154BE40092BDED /* DrawerViewController.h */,
+				BA09BB4D22154BE40092BDED /* DrawerViewController.m */,
+			);
+			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
 		CB017BC021DB17BD00BB6BFD /* 悬浮 */ = {
@@ -723,6 +735,7 @@
 		CB42089721C2B17D00980B64 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				BA09BB4B22154B980092BDED /* MMDrawerController */,
 				CB017BC421DB28FF00BB6BFD /* 個人信息 */,
 				CB08143E21D5179B0018A363 /* 修改密碼 */,
 				CB08143021D4F63A0018A363 /* 語言設定 */,
@@ -1147,6 +1160,7 @@
 				CB08143421D4F6760018A363 /* LanguageSettingViewController.m in Sources */,
 				BA04405D21F84D0D00B310EB /* Weather.m in Sources */,
 				CBFF233921CA8BD80066E00C /* ProcessingStateViewController.m in Sources */,
+				BA09BB4E22154BE40092BDED /* DrawerViewController.m in Sources */,
 				323A128221F06741009891ED /* CircleButton.m in Sources */,
 				32B0FA1A2202F9C0000621DE /* UUChatCategory.m in Sources */,
 				CB04506A21D136FF00EB59D7 /* PlaceList.m in Sources */,

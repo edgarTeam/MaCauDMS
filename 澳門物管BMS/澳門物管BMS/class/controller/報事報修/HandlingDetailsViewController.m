@@ -33,6 +33,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *repairDiscribeTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *repairVoiceTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *repairProgressTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairHandlerTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *handlerNameLab;
+
 @end
 
 @implementation HandlingDetailsViewController
@@ -61,6 +64,7 @@
     _repairDiscribeTitleLab.text=LocalizedString(@"string_repair_describe_title");
     _repairVoiceTitleLab.text=LocalizedString(@"string_repair_detail_voice_title");
     _repairProgressTitleLab.text=LocalizedString(@"string_repair_progress_title");
+    _repairHandlerTitleLab.text=LocalizedString(@"string_repair_handler_title");
     
 //    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
 //    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
@@ -115,6 +119,7 @@
         
         _titleLab.text=_complain.complainClassType;
         _positionLab.text=[NSString stringWithFormat:@"%@,%@",_complain.complainPosition,_complain.complainSpecificPosition];
+        _handlerNameLab.text=_complain.complainHandler;
         _nameLab.text=_complain.complainLiaisonsName;
         _contactWayLab.text=_complain.complainLiaisonsEmail;
       //  _createTimeLab.text=_complain.createTime;

@@ -228,7 +228,7 @@
 
 
 - (IBAction)communityBtnAction:(id)sender {
-    self.communityMenu=[LSXPopMenu showRelyOnView:sender titles:self.communityList icons:nil menuWidth:100 isShowTriangle:YES delegate:self];
+    self.communityMenu=[LSXPopMenu showRelyOnView:sender titles:self.communityList icons:nil menuWidth:200 isShowTriangle:YES delegate:self];
 }
 
 -(void)LSXPopupMenuDidSelectedAtIndex:(NSInteger)index LSXPopupMenu:(LSXPopMenu *)LSXPopupMenu{
@@ -299,6 +299,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row ==0) {
+        
         [self showChangeAvatarAlert];
     }
 }
@@ -315,13 +316,15 @@
         [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera andCameraCaptureMode:UIImagePickerControllerCameraCaptureModePhoto];
         
     }];
-    UIAlertAction *alertAc3 = [UIAlertAction actionWithTitle:LocalizedString(@"String_cancel") style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *alertAc3 = [UIAlertAction actionWithTitle:LocalizedString(@"String_cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+      //  self.maintenanceCollectionView.allowsSelection=YES;
+    }];
     [alertC addAction:alertAc1];
     [alertC addAction:alertAc2];
     [alertC addAction:alertAc3];
     
     [self presentViewController:alertC animated:NO completion:nil];
-    
+  //  self.maintenanceCollectionView.allowsSelection=NO;
 }
 
 - (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType andCameraCaptureMode:(UIImagePickerControllerCameraCaptureMode)mode{
@@ -403,6 +406,7 @@
 }
 
 - (void)requestUploadImage:(NSData *)data{
+//    self.maintenanceCollectionView.allowsSelection=NO;
     NSDictionary *dic=@{
                         @"type":@(0)
                         };
@@ -415,6 +419,7 @@
                    // [_dataSource addObject:picture.originalUrl];
                     [_dataSource addObject:picture];
                     [self.maintenanceCollectionView reloadData];
+//                    self.maintenanceCollectionView.allowsSelection=YES;
                 }
                 
             }

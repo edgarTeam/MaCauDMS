@@ -105,3 +105,4 @@ string_repair_detail_contact_title = "聯繫方式";
 string_repair_detail_create_time_title = "報修時間";
 string_repair_detail_voice_title = "錄音";
 string_repair_progress_title = "報修進度";
+string_repair_handler_title = "處理人";
