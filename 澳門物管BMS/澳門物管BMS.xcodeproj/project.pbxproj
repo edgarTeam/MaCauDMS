@@ -25,6 +25,10 @@
 		BA04C86621F19423007A38AF /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86521F19423007A38AF /* PictureModel.m */; };
 		BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86921F1AE82007A38AF /* NSDate+Utils.m */; };
 		BA09BB4E22154BE40092BDED /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09BB4D22154BE40092BDED /* DrawerViewController.m */; };
+		BA0F84C822165BD800EE6F0E /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0F84C622165BD800EE6F0E /* PlaceViewController.m */; };
+		BA0F84C922165BD800EE6F0E /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */; };
+		BAA96DD72216CB24008CE03C /* PlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA96DD52216CB24008CE03C /* PlaceTableViewCell.m */; };
+		BAA96DD82216CB24008CE03C /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */; };
 		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
 		CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */; };
 		CB019E9821F0B382004A88D8 /* RequestResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB019E9721F0B382004A88D8 /* RequestResultModel.m */; };
@@ -158,6 +162,12 @@
 		BA04C86921F1AE82007A38AF /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
 		BA09BB4C22154BE40092BDED /* DrawerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawerViewController.h; sourceTree = "<group>"; };
 		BA09BB4D22154BE40092BDED /* DrawerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawerViewController.m; sourceTree = "<group>"; };
+		BA0F84C522165BD800EE6F0E /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
+		BA0F84C622165BD800EE6F0E /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
+		BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
+		BAA96DD42216CB24008CE03C /* PlaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceTableViewCell.h; sourceTree = "<group>"; };
+		BAA96DD52216CB24008CE03C /* PlaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceTableViewCell.m; sourceTree = "<group>"; };
+		BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
 		CB017BC521DB294C00BB6BFD /* UserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
@@ -425,6 +435,26 @@
 				BA09BB4D22154BE40092BDED /* DrawerViewController.m */,
 			);
 			path = MMDrawerController;
+			sourceTree = "<group>";
+		};
+		BA0F84C422165BA300EE6F0E /* 场地 */ = {
+			isa = PBXGroup;
+			children = (
+				BA0F84C522165BD800EE6F0E /* PlaceViewController.h */,
+				BA0F84C622165BD800EE6F0E /* PlaceViewController.m */,
+				BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */,
+			);
+			path = "场地";
+			sourceTree = "<group>";
+		};
+		BAA96DD32216CAFC008CE03C /* 场地 */ = {
+			isa = PBXGroup;
+			children = (
+				BAA96DD42216CB24008CE03C /* PlaceTableViewCell.h */,
+				BAA96DD52216CB24008CE03C /* PlaceTableViewCell.m */,
+				BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */,
+			);
+			path = "场地";
 			sourceTree = "<group>";
 		};
 		CB017BC021DB17BD00BB6BFD /* 悬浮 */ = {
@@ -723,6 +753,7 @@
 		CB42089621C2B17600980B64 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				BAA96DD32216CAFC008CE03C /* 场地 */,
 				CB017BC021DB17BD00BB6BFD /* 悬浮 */,
 				CB02667B21D8CEFC00561B1C /* LeftViewCell */,
 				CB02948621D3B93E00FE55A7 /* 公告 */,
@@ -735,6 +766,7 @@
 		CB42089721C2B17D00980B64 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				BA0F84C422165BA300EE6F0E /* 场地 */,
 				BA09BB4B22154B980092BDED /* MMDrawerController */,
 				CB017BC421DB28FF00BB6BFD /* 個人信息 */,
 				CB08143E21D5179B0018A363 /* 修改密碼 */,
@@ -1040,6 +1072,7 @@
 				CBCB79BE21CBCA6300BF454D /* ReportMaintenanceTableViewCell.xib in Resources */,
 				CB08144321D517F80018A363 /* ChangePswViewController.xib in Resources */,
 				CBFFF13E21CFD7FA008BA2A0 /* ForgetPswViewController.xib in Resources */,
+				BA0F84C922165BD800EE6F0E /* PlaceViewController.xib in Resources */,
 				CBFE45C421C9557A00DD80E4 /* ContactUSViewController.xib in Resources */,
 				CBCB79C321CBD28500BF454D /* HandlingDetailsViewController.xib in Resources */,
 				CBFE45C921C955D600DD80E4 /* BookingRecordViewController.xib in Resources */,
@@ -1052,6 +1085,7 @@
 				CB08143521D4F6760018A363 /* LanguageSettingViewController.xib in Resources */,
 				CBFE45BA21C9547600DD80E4 /* ClubhouseReservationViewController.xib in Resources */,
 				CB6C9BB421C1672300B5A9E9 /* LaunchScreen.storyboard in Resources */,
+				BAA96DD82216CB24008CE03C /* PlaceTableViewCell.xib in Resources */,
 				CB6C9BB121C1672300B5A9E9 /* Assets.xcassets in Resources */,
 				CBFE45B521C9541C00DD80E4 /* ReportMaintenanceViewController.xib in Resources */,
 				CB6C9BAF21C1672200B5A9E9 /* Main.storyboard in Resources */,
@@ -1136,6 +1170,7 @@
 				CB04505F21D122A000EB59D7 /* NoticeList.m in Sources */,
 				CB02947A21D3A90500FE55A7 /* BaseModel.m in Sources */,
 				CB02668721D9057000561B1C /* ZKAlertTool.m in Sources */,
+				BAA96DD72216CB24008CE03C /* PlaceTableViewCell.m in Sources */,
 				32B0FA202202FA5C000621DE /* NSDate+Utils.m in Sources */,
 				CBCB79BD21CBCA6300BF454D /* ReportMaintenanceTableViewCell.m in Sources */,
 				CB02668A21D9059A00561B1C /* LSXPopMenu.m in Sources */,
@@ -1156,6 +1191,7 @@
 				BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */,
 				BA03620121F322E1008E0B4A /* AppDelegate+DismissKeyboard.m in Sources */,
 				CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */,
+				BA0F84C822165BD800EE6F0E /* PlaceViewController.m in Sources */,
 				323A127C21F06730009891ED /* SuspensionModel.m in Sources */,
 				CB08143421D4F6760018A363 /* LanguageSettingViewController.m in Sources */,
 				BA04405D21F84D0D00B310EB /* Weather.m in Sources */,

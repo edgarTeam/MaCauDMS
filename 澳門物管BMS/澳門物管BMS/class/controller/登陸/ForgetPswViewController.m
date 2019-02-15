@@ -20,6 +20,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=LocalizedString(@"string_forget_psd_title");
+    _submitBtn.layer.masksToBounds=YES;
+    _submitBtn.layer.cornerRadius=5.0;
+    [_submitBtn setTitle:LocalizedString(@"string_confirm_reset_psd_title") forState:UIControlStateNormal];
     
 }
 - (IBAction)submitBtnAction:(id)sender {

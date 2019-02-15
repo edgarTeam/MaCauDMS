@@ -75,6 +75,11 @@
     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,[User shareUser].portrait]];
     [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
     
+    
+    _submitBtn.layer.masksToBounds=YES;
+    _submitBtn.layer.cornerRadius=5.0;
+    
+    
     // Do any additional setup after loading the view from its nib.
    // self.title=LocalizedString(@"");
 }
