@@ -42,4 +42,6 @@
     [self.contentLab setText:model.complainDescribe];
     [self.stateLab setText:model.complainType];
 }
+
+
 @end
