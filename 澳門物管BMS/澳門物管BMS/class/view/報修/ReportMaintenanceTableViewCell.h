@@ -18,8 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *centerView;
 @property (weak, nonatomic) IBOutlet UILabel *repairDescribeTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *repairStatusTitleLab;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentLabHeight;
 @property (nonatomic,strong) NSString *timeStr;
 - (void)setUpModel:(ReportMaintenanceDetail *)model;
+
+- (CGFloat) getlabelHeiight:(NSString *)labelText label:(UILabel *)label;
 @end
+
+
 
 NS_ASSUME_NONNULL_END
