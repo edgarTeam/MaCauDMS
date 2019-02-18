@@ -62,6 +62,7 @@
         NSLog(@"%@",result);
 //        [ZKAlertTool showAlertWithMsg:result];
         [ZKAlertTool showAlertWithMsg:@"修改成功！"];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
 }
 - (void)viewWillAppear:(BOOL)animated{

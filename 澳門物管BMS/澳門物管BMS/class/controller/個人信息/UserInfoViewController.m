@@ -253,18 +253,41 @@
         if (resultDic ==nil) {
             return ;
         }
-        [CommonUtil clearDefuatUser];
+//        [CommonUtil clearDefuatUser];
         User *user=[User shareUser];
+//        NSDictionary *userDic = [dic objectForKey:@"user"];
+//
+        if( dic) {
+            if ([dic objectForKey:@"sex"]) {
+                user.sex =[dic objectForKey:@"sex"];
+                if ([[User shareUser].sex integerValue]==0) {
+                    self.sexLab.text = LocalizedString(@"string_sex_female");
+                }else if ([[User shareUser].sex integerValue] ==1){
+                    self.sexLab.text = LocalizedString(@"string_sex_male");
+                }
+            }
+            if ([dic objectForKey:@"name"]) {
+                user.name =[dic objectForKey:@"name"];
+                self.nameTextField.text=[User shareUser].name;
+            }
+            if ([dic objectForKey:@"tel"]) {
+                user.tel = [dic objectForKey:@"tel"];
+                 self.telTextField.text=[User shareUser].tel;
+            }
+        }
         
-        user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
+        
+       
+//        user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
         [CommonUtil storeUser];
-        [ZKAlertTool showAlertWithMsg:@"您已經設置成功了"];
+        [ZKAlertTool showAlertWithMsg:@"修改成功"];
         self.submitBtn.hidden=YES;
         self.telTextField.enabled=NO;
         self.nameTextField.enabled=NO;
         self.changeBtn.enabled=NO;
         self.changeSexBtn.enabled=NO;
         self.rightBtn.hidden=NO;
+        
 //        self.changeTelBtn.enabled=NO;
         //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){
