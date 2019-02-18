@@ -105,8 +105,8 @@
          _statusLab.text=_statusArr[[_complain.complainStatus intValue]];
         
         
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
-        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+//        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
+//        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
 //        textAttachment.image = [UIImage imageNamed:@""];
 //        NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
 //        [string insertAttributedString:textAttachmentString atIndex:string.length];
@@ -131,15 +131,17 @@
             return;
         }
         for ( int i=0; i<imageThumbnailArr.count; i++) {
+            NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
+            NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
              NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,imageThumbnailArr[i]]]];
             UIImage *image=[UIImage imageWithData:data];
             textAttachment.image = image;
             textAttachment.bounds=CGRectMake(0, 0, 80, 80);
             NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
             [string insertAttributedString:textAttachmentString atIndex:string.length];
-//        _contentTextView.attributedText=string;
+       _contentTextView.attributedText=string;
         }
-         _contentTextView.attributedText=string;
+       //  _contentTextView.attributedText=string;
 //        [textAttachment setImage:[UIImage imageNamed:@"rain"]];
 //        NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
 //        [string insertAttributedString:textAttachmentString atIndex:string.length];

@@ -249,22 +249,22 @@
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     [[HttpHelper shareHttpHelper] postWithUrl:kUpdateInfo body:jsonData showLoading:YES success:^(NSDictionary *resultDic){
-        [CommonUtil isRequestOK:resultDic];
-        if (resultDic ==nil) {
-            return ;
-        }
-        [CommonUtil clearDefuatUser];
-        User *user=[User shareUser];
-        
-        user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
-        [CommonUtil storeUser];
-        [ZKAlertTool showAlertWithMsg:@"您已經設置成功了"];
-        self.submitBtn.hidden=YES;
-        self.telTextField.enabled=NO;
-        self.nameTextField.enabled=NO;
-        self.changeBtn.enabled=NO;
-        self.changeSexBtn.enabled=NO;
-        self.rightBtn.hidden=NO;
+//        [CommonUtil isRequestOK:resultDic];
+//        if (resultDic ==nil) {
+//            return ;
+//        }
+//        [CommonUtil clearDefuatUser];
+//        User *user=[User shareUser];
+//        
+//        user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
+//        [CommonUtil storeUser];
+//        [ZKAlertTool showAlertWithMsg:@"您已經設置成功了"];
+//        self.submitBtn.hidden=YES;
+//        self.telTextField.enabled=NO;
+//        self.nameTextField.enabled=NO;
+//        self.changeBtn.enabled=NO;
+//        self.changeSexBtn.enabled=NO;
+//        self.rightBtn.hidden=NO;
 //        self.changeTelBtn.enabled=NO;
         //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){

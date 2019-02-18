@@ -68,10 +68,12 @@
     _plateBtn.layer.borderWidth =1.0;
     
     
-    // _dateTableView=[[UITableView alloc] init];
+//     _dateTableView=[[UITableView alloc] initWithFrame:<#(CGRect)#> style:<#(UITableViewStyle)#>];
     _dateTableView.tableFooterView=[UIView new];
     _dateTableView.delegate=self;
     _dateTableView.dataSource=self;
+    
+    NSLog(@"%lu",_strArr.count);
     [_dateTableView reloadData];
     //  [self reuqestPlateList];
     
@@ -247,7 +249,10 @@
     }
     cell.backgroundColor=[UIColor clearColor];
     cell.textLabel.textColor=RGB(230, 230, 230);
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    if (_strArr.count==0) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+   // cell.accessoryType = UITableViewCellAccessoryNone;
     cell.textLabel.text=_dataSource[indexPath.row];
     NSLog(@"%@",cell.textLabel.text);
 

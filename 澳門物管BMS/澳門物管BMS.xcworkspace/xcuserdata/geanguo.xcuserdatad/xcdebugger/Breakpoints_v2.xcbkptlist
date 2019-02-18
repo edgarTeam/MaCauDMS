@@ -10,60 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x767b;&#x9678;/LoginViewController.m"
-            timestampString = "569264860.786904"
+            timestampString = "571159087.6336631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
             endingLineNumber = "49"
             landmarkName = "-requestLogin"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LoginViewController loginBtnAction:]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E7%99%BB%E9%99%B8/LoginViewController.m"
-                  timestampString = "569599934.198355"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "2909">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__38-[LoginViewController loginBtnAction:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E7%99%BB%E9%99%B8/LoginViewController.m"
-                  timestampString = "569599934.2077121"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E7%99%BB%E9%99%B8/LoginViewController.m"
-                  timestampString = "569599934.2111911"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,38 +33,6 @@
             endingLineNumber = "172"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__78-[UserInfoViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%80%8B%E4%BA%BA%E4%BF%A1%E6%81%AF/UserInfoViewController.m"
-                  timestampString = "569599934.234617"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "172"
-                  endingLineNumber = "172"
-                  offsetFromSymbolStart = "816">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.166"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%80%8B%E4%BA%BA%E4%BF%A1%E6%81%AF/UserInfoViewController.m"
-                  timestampString = "569599934.239796"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -153,7 +74,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.263924"
+                  timestampString = "571159087.925791"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
@@ -168,7 +89,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.271455"
+                  timestampString = "571159087.9299819"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "123"
@@ -183,7 +104,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.27753"
+                  timestampString = "571159087.9331"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
@@ -200,7 +121,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x767b;&#x9678;/LoginViewController.m"
-            timestampString = "569264860.787478"
+            timestampString = "571159087.633876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -296,7 +217,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x767b;&#x9678;/LoginViewController.m"
-            timestampString = "569264860.788017"
+            timestampString = "571159087.634117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -312,7 +233,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x767b;&#x9678;/LoginViewController.m"
-            timestampString = "569264860.788097"
+            timestampString = "571159087.634181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -351,6 +272,38 @@
             endingLineNumber = "110"
             landmarkName = "-requestPlaceList"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[BookingRecordViewController requestPlace]_block_invoke"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordViewController.m"
+                  timestampString = "571159087.981554"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "278">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.106"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E8%A8%82%E5%A0%B4%E7%B4%80%E9%8C%84/BookingRecordViewController.m"
+                  timestampString = "571159087.9835989"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -392,7 +345,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.359724"
+                  timestampString = "571159087.993369"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -407,7 +360,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.3631051"
+                  timestampString = "571159087.995391"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "146"
@@ -422,7 +375,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.3675931"
+                  timestampString = "571159087.9973201"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -487,13 +440,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/CommonUtil.m"
-            timestampString = "569433409.610679"
+            timestampString = "571159087.634492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "209"
             endingLineNumber = "209"
-            landmarkName = "+loadDefuatUser"
-            landmarkType = "7">
+            landmarkName = "CommonUtil"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -503,92 +456,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/CommonUtil.m"
-            timestampString = "569433409.61076"
+            timestampString = "571159087.6345561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"
             endingLineNumber = "210"
-            landmarkName = "+loadDefuatUser"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.610833"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HttpHelper postWithURL:parameters:convertClassName:isArray:isString:success:failure:]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "569599934.407969"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "274">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__87-[HttpHelper postWithURL:parameters:convertClassName:isArray:isString:success:failure:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "569599934.411157"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.88"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "569599934.415216"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.611342"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
+            landmarkName = "CommonUtil"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -614,7 +488,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ProcessingStateViewController.m"
-            timestampString = "569599933.639732"
+            timestampString = "571195671.153579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -630,7 +504,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ProcessingStateViewController.m"
-            timestampString = "569599933.640512"
+            timestampString = "571195671.159093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -646,13 +520,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x5831;&#x4e8b;&#x5831;&#x4fee;/ProcessingStateViewController.m"
-            timestampString = "569599933.6411"
+            timestampString = "571195671.15955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
             endingLineNumber = "37"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__44-[ProcessingStateViewController viewDidLoad]_block_invoke"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%A0%B1%E4%BA%8B%E5%A0%B1%E4%BF%AE/ProcessingStateViewController.m"
+                  timestampString = "571159088.025342"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "39">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_"
+                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%A0%B1%E4%BA%8B%E5%A0%B1%E4%BF%AE/ProcessingStateViewController.m"
+                  timestampString = "571159088.0273449"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -678,7 +584,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.453872"
+                  timestampString = "571159088.03251"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "97"
@@ -693,7 +599,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.456048"
+                  timestampString = "571159088.0344599"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "98"
@@ -717,53 +623,6 @@
             endingLineNumber = "46"
             landmarkName = "-requestNotice"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[NoticeDetailViewController requestNotice]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%85%AC%E5%91%8A/NoticeDetailViewController.m"
-                  timestampString = "569599934.471374"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "126">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__43-[NoticeDetailViewController requestNotice]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%85%AC%E5%91%8A/NoticeDetailViewController.m"
-                  timestampString = "569599934.47487"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "47">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%85%AC%E5%91%8A/NoticeDetailViewController.m"
-                  timestampString = "569599934.479237"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -965,11 +824,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "569599933.647976"
+            timestampString = "571159087.635237"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "-requestAddPlaceRecord"
             landmarkType = "7">
          </BreakpointContent>
@@ -981,11 +840,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "569599933.648424"
+            timestampString = "571159087.635311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "-requestAddPlaceRecord"
             landmarkType = "7">
          </BreakpointContent>
@@ -997,27 +856,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "569599933.648759"
+            timestampString = "571159087.635379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "-requestAddPlaceRecord"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "569599933.649062"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "-requestAddPlaceRecord"
             landmarkType = "7">
          </BreakpointContent>
@@ -1029,11 +872,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "569599933.649351"
+            timestampString = "571159087.635445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-requestAddPlaceRecord"
             landmarkType = "7">
             <Locations>
@@ -1091,91 +934,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/webAPI/WebAPIHelper.m"
-            timestampString = "569433409.613465"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-postPlaceList:completion:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[WebAPIHelper postPlaceList:completion:]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.5794899"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "77">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__41-[WebAPIHelper postPlaceList:completion:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.583197"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "169"
-                  endingLineNumber = "169"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.74"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.58647"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "569599933.64978"
+            timestampString = "571159087.635511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "-requestAddPlaceRecord"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "569599933.650214"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "-requestAddPlaceRecord"
             landmarkType = "7">
          </BreakpointContent>
@@ -1187,13 +951,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
-            timestampString = "569599933.650641"
+            timestampString = "571159087.635576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "ClubhouseReservationViewController"
-            landmarkType = "3">
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "-dateBtnAction:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1384,7 +1148,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
             endingLineNumber = "222"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            landmarkName = "-communityBtnAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1400,55 +1164,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
             endingLineNumber = "224"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ReportMaintenanceViewController collectionView:cellForItemAtIndexPath:]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%A0%B1%E4%BA%8B%E5%A0%B1%E4%BF%AE/ReportMaintenanceViewController.m"
-                  timestampString = "569599934.695627"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "225"
-                  endingLineNumber = "225"
-                  offsetFromSymbolStart = "1609">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__73-[ReportMaintenanceViewController collectionView:cellForItemAtIndexPath:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%A0%B1%E4%BA%8B%E5%A0%B1%E4%BF%AE/ReportMaintenanceViewController.m"
-                  timestampString = "569599934.697965"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "225"
-                  endingLineNumber = "225"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.194"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%A0%B1%E4%BA%8B%E5%A0%B1%E4%BF%AE/ReportMaintenanceViewController.m"
-                  timestampString = "569599934.700395"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "225"
-                  endingLineNumber = "225"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
+            landmarkName = "ReportMaintenanceViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1463,7 +1180,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "226"
             endingLineNumber = "226"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            landmarkName = "-LSXPopupMenuDidSelectedAtIndex:LSXPopupMenu:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1479,40 +1196,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "227"
             endingLineNumber = "227"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            landmarkName = "-LSXPopupMenuDidSelectedAtIndex:LSXPopupMenu:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__73-[ReportMaintenanceViewController collectionView:cellForItemAtIndexPath:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%A0%B1%E4%BA%8B%E5%A0%B1%E4%BF%AE/ReportMaintenanceViewController.m"
-                  timestampString = "569599934.7158149"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "227"
-                  endingLineNumber = "227"
-                  offsetFromSymbolStart = "422">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.193"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/class/controller/%E5%A0%B1%E4%BA%8B%E5%A0%B1%E4%BF%AE/ReportMaintenanceViewController.m"
-                  timestampString = "569599934.71928"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "225"
-                  endingLineNumber = "225"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1527,8 +1212,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "230"
             endingLineNumber = "230"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
-            landmarkType = "7">
+            landmarkName = "ReportMaintenanceViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1554,7 +1239,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.735119"
+                  timestampString = "571159088.199425"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "127"
@@ -1569,7 +1254,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.738325"
+                  timestampString = "571159088.201605"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
@@ -1584,7 +1269,7 @@
                   moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/webAPI/WebAPIHelper.m"
-                  timestampString = "569599934.741017"
+                  timestampString = "571159088.203642"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "128"
@@ -1617,7 +1302,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/CommonUtil.m"
-            timestampString = "569433409.6150481"
+            timestampString = "571159087.636279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -1633,60 +1318,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/CommonUtil.m"
-            timestampString = "569433409.615113"
+            timestampString = "571159087.63634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
             endingLineNumber = "48"
             landmarkName = "+isRequestOK:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/CommonUtil.m"
-            timestampString = "569433409.6151741"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "+isRequestOK:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.615238"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.61569"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1792,13 +1429,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.617292"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
+            timestampString = "571159087.636603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-createView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1808,158 +1445,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.6176291"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/class/controller/&#x6703;&#x6240;&#x9810;&#x5b9a;/ClubhouseReservationViewController.m"
+            timestampString = "571159087.63667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.617961"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.6182899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.618619"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.61895"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.619282"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.619612"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "569433409.6199729"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__87-[HttpHelper postWithURL:parameters:convertClassName:isArray:isString:success:failure:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "569599934.85251"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "1424">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__87-[HttpHelper postWithURL:parameters:convertClassName:isArray:isString:success:failure:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geanguo/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "569599934.855788"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "1432">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
