@@ -9,9 +9,13 @@
 #import "LanguageSettingViewController.h"
 #import "MainViewController.h"
 #import "ZKAlertTool.h"
+#import "DrawerViewController.h"
+#import "LeftViewController.h"
+#import "MainViewController.h"
 @interface LanguageSettingViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *imageArray;
-
+@property (nonatomic,strong) UINavigationController *centerNvaVC;
+@property (nonatomic,strong) UINavigationController *leftNvaVC;
 @end
 
 @implementation LanguageSettingViewController
@@ -22,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=@"語言設定";
-    self.title=LocalizedString(@"string_setting_title");
+    self.title=LocalizedString(@"string_language_setting_title");
 
     NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
     
@@ -86,12 +90,21 @@
             break;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-        MainViewController *mainVC=[[MainViewController alloc] init];
-        self.mm_drawerController.centerViewController=mainVC;
-        [UIApplication sharedApplication].keyWindow.rootViewController =mainVC;
-     
-//        [UIApplication sharedApplication].keyWindow.rootViewController = [[MainViewController alloc] init];
+//        MainViewController *mainVC=[[MainViewController alloc] init];
+//        self.mm_drawerController.centerViewController=mainVC;
 //        [UIApplication sharedApplication].keyWindow.rootViewController =self.mm_drawerController.centerViewController;
+      //  [UIApplication sharedApplication].keyWindow.rootViewController = [[MainViewController alloc] init];
+        MainViewController *mainVC=[[MainViewController alloc] init];
+        LeftViewController *leftVC=[[LeftViewController alloc] init];
+        _centerNvaVC= [[UINavigationController alloc]initWithRootViewController:mainVC];
+        _leftNvaVC = [[UINavigationController alloc]initWithRootViewController:leftVC];
+        DrawerViewController *drawer = [[MMDrawerController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];
+        drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+        drawer.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
+        drawer.maximumLeftDrawerWidth = ScreenWidth/2;
+        drawer.maximumRightDrawerWidth = ScreenWidth/2;
+       // DrawerViewController *drawer=[[DrawerViewController alloc] init];
+        [UIApplication sharedApplication].keyWindow.rootViewController =drawer;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         });
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"String_Alert_title")];

@@ -29,6 +29,8 @@
     _headImg.layer.masksToBounds=YES;
     _headImg.layer.cornerRadius=40;
     
+    _loginBtn.layer.masksToBounds=YES;
+    _loginBtn.layer.cornerRadius=5.0;
 }
 
 /*

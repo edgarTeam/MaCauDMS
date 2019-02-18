@@ -19,12 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="rl2-UI-OjX">
-                        <rect key="frame" x="10" y="10" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="rl2-UI-OjX" secondAttribute="height" multiplier="1:1" id="gd0-2z-epQ"/>
-                            <constraint firstAttribute="width" constant="30" id="tHc-t6-rfB"/>
-                        </constraints>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_photo_new" translatesAutoresizingMaskIntoConstraints="NO" id="rl2-UI-OjX">
+                        <rect key="frame" x="-5" y="-5" width="60" height="60"/>
                     </imageView>
                 </subviews>
             </view>
@@ -40,6 +36,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="add" width="30" height="30"/>
+        <image name="add_photo_new" width="60" height="60"/>
     </resources>
 </document>

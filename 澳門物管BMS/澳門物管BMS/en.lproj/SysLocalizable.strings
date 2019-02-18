@@ -31,7 +31,7 @@ String_sex_title = "性別";
 String_tel_title = "電話";
 
 String_change_psd_title ="修改密碼";
-string_setting_title ="語言設定";
+string_language_setting_title ="語言設定";
 string_notice_detail_title ="公告詳情";
 string_report_maintenance_list ="報修紀錄";
 string_report_maintenance_detail_title ="報事詳情";
@@ -58,3 +58,56 @@ string_request_login_error_code = "帳號或者密碼不对";
 string_requset_place_erroe_code ="該場地暫未開放";
 string_request_login_miss_code = "未登錄/登錄緩存已過期，請重新登錄";
 
+String_slide_up_to_cancel ="上滑取消錄音";
+String_release_to_cancel ="松開取消錄音";
+
+String_time_limit ="錄音時長";
+
+
+string_about_us_title = "關於我們";
+//string_change_psd_btn_title = "修改密碼";
+//string_change_language_btn_title = "語言設定";
+//string_setting_title = "設定";
+
+
+string_place_alert_time_title = "請選擇時間分段";
+string_place_alert_date_title = "請選擇日期";
+string_place_alert_place_title = "請選擇會所類型";
+string_place_alert_time_cancel_title = "您不能取消這行，因為間隔了2小時";
+string_place_alert_time_choose_title = "您不能選擇這行，因為間隔了2小時";
+
+string_repair_alert_community_title = "請選擇社區";
+string_repair_alert_address_title = "請填寫地址";
+string_repair_alert_photo_title = "請您拍好照片";
+string_repair_alert_describe_title = "請填寫描述";
+string_repair_alert_voice_title = "沒有錄音可以播放";
+
+string_change_psd_alert_title = "修改成功";
+string_change_info_alert_title = "您已經設置成功了";
+
+
+string_notice_time_title = "創建時間";
+string_notice_convent_title = "公告內容";
+
+string_plate_name_title = "會所類型";
+string_plate_order_date_title = "預定日期";
+string_plate_choose_time_title = "請勾選下面時間段";
+string_plate_order_time_title = "預定時段";
+string_plate_update_time_title = "更新日期";
+string_plate_detail_name_title = "場地";
+string_plate_detail_order_time_title = "時間段";
+string_plate_detail_client_name_title = "客戶姓名";
+string_plate_detail_status_title = "預定狀態";
+
+string_repair_community_name_title = "小區";
+string_repair_address_title = "地址";
+string_repair_describe_title = "描述";
+string_repair_status_title = "類型";
+string_repair_detail_client_name_title = "報修人姓名";
+string_repair_detail_contact_title = "聯繫方式";
+string_repair_detail_create_time_title = "報修時間";
+string_repair_detail_voice_title = "錄音";
+string_repair_progress_title = "報修進度";
+string_repair_handler_title = "處理人";
+string_confirm_reset_psd_title = "確認重置密碼";
+string_choose_plate_alert_title = "請您點擊下面場地，并確認您的選擇";

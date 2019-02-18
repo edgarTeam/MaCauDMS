@@ -13,8 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticeDetailViewController">
             <connections>
                 <outlet property="createTimeLable" destination="Aga-Ul-GdQ" id="bKA-Li-BrN"/>
+                <outlet property="noticeConventTitleLab" destination="XDv-Gk-Af4" id="Ity-x7-Fcl"/>
                 <outlet property="noticeImageView" destination="nFo-bf-qfc" id="qKd-ox-HFb"/>
                 <outlet property="noticeTextView" destination="97u-Bv-mK9" id="BtB-bB-gAF"/>
+                <outlet property="noticeTimeTitleLab" destination="3Ep-GP-PEe" id="qPh-0k-BkT"/>
                 <outlet property="noticeTitleLab" destination="bGc-SW-4dV" id="1GC-W8-Jgh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

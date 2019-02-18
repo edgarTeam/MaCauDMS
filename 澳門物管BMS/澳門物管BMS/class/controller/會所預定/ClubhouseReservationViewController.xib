@@ -15,6 +15,10 @@
                 <outlet property="dateTableView" destination="tmE-ZP-U8U" id="Bzq-uy-NZa"/>
                 <outlet property="orderDateBtn" destination="Vgg-Dd-xuh" id="Rtn-AP-KRu"/>
                 <outlet property="plateBtn" destination="wsl-b2-5qZ" id="9Xo-Lo-GF9"/>
+                <outlet property="plateChooseTimeLab" destination="6QN-Pw-cqt" id="ANH-yB-13O"/>
+                <outlet property="plateNameTitleLab" destination="DM4-bE-E1w" id="OK0-MU-Gf8"/>
+                <outlet property="plateOrderDateLab" destination="2s5-iR-Bpt" id="gYW-vd-Y75"/>
+                <outlet property="submitBtn" destination="pC0-xP-aQT" id="0pa-fg-uDW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,7 +53,7 @@
                         <action selector="plateBtnAction:" destination="-1" eventType="touchUpInside" id="Uci-WC-Bqa"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間段:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2s5-iR-Bpt">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預定日期:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2s5-iR-Bpt">
                     <rect key="frame" x="10" y="80" width="80" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>

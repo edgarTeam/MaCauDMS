@@ -95,6 +95,8 @@
                 <outlet property="numberLab" destination="RF4-xI-iVS" id="UOq-qy-83C"/>
                 <outlet property="orderDateLab" destination="cHG-2k-sNi" id="WOb-MP-KO6"/>
                 <outlet property="placeNameLab" destination="171-cb-2tk" id="ccb-mT-rfY"/>
+                <outlet property="placeOrderTimeTitleLab" destination="F7i-CI-bFj" id="FLq-yM-osY"/>
+                <outlet property="placeUpdateTimeTitleLab" destination="ZOP-b1-AHS" id="GKl-eg-XK5"/>
                 <outlet property="statusLab" destination="5XY-lJ-dDg" id="W5m-B0-Q7o"/>
                 <outlet property="updateDateLab" destination="Ktt-wr-r7e" id="IvE-Sn-0tu"/>
             </connections>

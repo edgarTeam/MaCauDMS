@@ -22,12 +22,14 @@
 #import "SuspensionMenu.h"
 #import "JPUSHService.h"
 #import "AppDelegate+DismissKeyboard.h"
+#import "DrawerViewController.h"
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
 
 @interface AppDelegate ()<SuspensionMenuDelegate,JPUSHRegisterDelegate>
-@property(nonatomic,strong)MMDrawerController *drawer;
+//@property(nonatomic,strong)MMDrawerController *drawer;
+@property (nonatomic,strong) DrawerViewController *drawer;
 @property (nonatomic,strong) UIButton *centerBtn;
 @property (nonatomic,strong) UIImage *image;
 @property (nonatomic,strong) NSMutableArray *arr;
@@ -95,9 +97,9 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hant"  forKey:AppLanguage];
     }
     _complainVC=[[ComplainViewController alloc] init];
-    _clubVC=[[ClubhouseReservationViewController alloc] init];
+//    _clubVC=[[ClubhouseReservationViewController alloc] init];
 //    _reportVC=[[ReportMaintenanceViewController alloc] init];
-    _setVC=[[SettingViewController alloc] init];
+//    _setVC=[[SettingViewController alloc] init];
     MainViewController *mainVC=[[MainViewController alloc] init];
     LeftViewController *leftVC=[[LeftViewController alloc] init];
     _centerNvaVC= [[UINavigationController alloc]initWithRootViewController:mainVC];
@@ -161,9 +163,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 }
 
 
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    [JPUSHService setBadge:0];
 }
 
 
@@ -175,6 +179,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [JPUSHService setBadge:0];
 }
 
 
@@ -182,7 +187,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
   //  [[UpdateHelper shareUpdateHelper] checkUpdateInfo];
     //[[UpdateHelper shareUpdateHelper] checkUpdateInfo];
     [CommonUtil loadDefuatUser];
-    
+    [JPUSHService setBadge:0];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -260,6 +265,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         ////            [_centerNvaVC pushViewController:_clubVC animated:YES];
         //                return;
         //            }
+            _clubVC=[[ClubhouseReservationViewController alloc] init];
         [_centerNvaVC pushViewController:_clubVC animated:YES];
         
         break;
@@ -278,6 +284,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         ////            [_centerNvaVC pushViewController:_setVC animated:YES];
         //                return;
         //            }
+            _setVC=[[SettingViewController alloc] init];
         [_centerNvaVC pushViewController:_setVC animated:YES];
         break;
     default:

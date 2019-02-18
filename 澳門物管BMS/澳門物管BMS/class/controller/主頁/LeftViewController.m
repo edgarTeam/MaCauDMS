@@ -386,7 +386,7 @@
                 currentCity = @"无法定位当前城市";
             }
             NSLog(@"%@",currentCity); //这就是当前的城市
-           // [self requestWeather];
+          //  [self requestWeather];
            // NSLog(@"%@",placeMark.name);//具体地址:  xx市xx区xx街道
         }
         else if (error == nil && placemarks.count == 0) {

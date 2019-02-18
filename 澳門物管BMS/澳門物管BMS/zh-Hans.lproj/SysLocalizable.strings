@@ -31,7 +31,7 @@ String_sex_title = "性别";
 String_tel_title = "电话";
 
 String_change_psd_title ="修改密码";
-string_setting_title ="语言设定";
+string_language_setting_title ="语言设定";
 string_notice_detail_title ="公告详情";
 string_report_maintenance_list ="报修记录";
 string_report_maintenance_detail_title ="报事详情";
@@ -56,3 +56,55 @@ string_add_record_title = "您已经成功预定了会所";
 string_request_login_error_code = "账号或者密码不对";
 string_requset_place_erroe_code ="该场地暂未开放";
 string_request_login_miss_code = "未登录/登录缓存已过期，请重新登录";
+
+String_slide_up_to_cancel ="上滑取消录音";
+String_release_to_cancel ="松开取消录音";
+
+String_time_limit ="录音时长";
+
+
+string_about_us_title = "关于我们";
+//string_change_psd_btn_title = "修改密码";
+//string_change_language_btn_title = "语言设定";
+//string_setting_title = "设定";
+
+string_place_alert_time_title = "请选择时间分段";
+string_place_alert_date_title = "请选择日期";
+string_place_alert_place_title = "请选择会所类型";
+string_place_alert_time_cancel_title = "您不能取消这行，因为间隔了2小时";
+string_place_alert_time_choose_title = "您不能选择这行，因为间隔了2小时";
+
+string_repair_alert_community_title = "请选择社区";
+string_repair_alert_address_title = "请填写地址";
+string_repair_alert_photo_title = "请您拍好照片";
+string_repair_alert_describe_title = "请填写描述";
+string_repair_alert_voice_title = "没有录音可以播放";
+
+string_change_psd_alert_title = "修改成功";
+string_change_info_alert_title = "您已经设置成功了";
+
+string_notice_time_title = "创建时间";
+string_notice_convent_title = "公告内容";
+
+string_plate_name_title = "会所类型";
+string_plate_order_date_title = "预定日期";
+string_plate_choose_time_title = "请勾选下面时间段";
+string_plate_order_time_title = "预定时段";
+string_plate_update_time_title = "更新日期";
+string_plate_detail_name_title = "场地";
+string_plate_detail_order_time_title = "时间段";
+string_plate_detail_client_name_title = "客户姓名";
+string_plate_detail_status_title = "预定状态";
+
+string_repair_community_name_title = "小区";
+string_repair_address_title = "地址";
+string_repair_describe_title = "描述";
+string_repair_status_title = "类型";
+string_repair_detail_client_name_title = "报修人姓名";
+string_repair_detail_contact_title = "联系方式";
+string_repair_detail_create_time_title = "报修时间";
+string_repair_detail_voice_title = "录音";
+string_repair_progress_title = "报修进度";
+string_repair_handler_title = "处理人";
+string_confirm_reset_psd_title = "确认重置密码";
+string_choose_plate_alert_title = "请您点击下面场地，并确认您的选择";

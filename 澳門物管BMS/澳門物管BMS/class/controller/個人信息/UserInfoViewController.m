@@ -75,6 +75,11 @@
     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,[User shareUser].portrait]];
     [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
     
+    
+    _submitBtn.layer.masksToBounds=YES;
+    _submitBtn.layer.cornerRadius=5.0;
+    
+    
     // Do any additional setup after loading the view from its nib.
    // self.title=LocalizedString(@"");
 }
@@ -249,22 +254,23 @@
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     [[HttpHelper shareHttpHelper] postWithUrl:kUpdateInfo body:jsonData showLoading:YES success:^(NSDictionary *resultDic){
-//        [CommonUtil isRequestOK:resultDic];
-//        if (resultDic ==nil) {
-//            return ;
-//        }
-//        [CommonUtil clearDefuatUser];
-//        User *user=[User shareUser];
-//        
-//        user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
-//        [CommonUtil storeUser];
-//        [ZKAlertTool showAlertWithMsg:@"您已經設置成功了"];
-//        self.submitBtn.hidden=YES;
-//        self.telTextField.enabled=NO;
-//        self.nameTextField.enabled=NO;
-//        self.changeBtn.enabled=NO;
-//        self.changeSexBtn.enabled=NO;
-//        self.rightBtn.hidden=NO;
+        [CommonUtil isRequestOK:resultDic];
+        if (resultDic ==nil) {
+            return ;
+        }
+        [CommonUtil clearDefuatUser];
+        User *user=[User shareUser];
+        
+        user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
+        [CommonUtil storeUser];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_change_info_alert_title")];
+        
+        self.submitBtn.hidden=YES;
+        self.telTextField.enabled=NO;
+        self.nameTextField.enabled=NO;
+        self.changeBtn.enabled=NO;
+        self.changeSexBtn.enabled=NO;
+        self.rightBtn.hidden=NO;
 //        self.changeTelBtn.enabled=NO;
         //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){

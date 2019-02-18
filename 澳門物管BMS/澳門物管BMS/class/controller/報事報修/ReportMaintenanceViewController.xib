@@ -14,12 +14,15 @@
                 <outlet property="addressTextField" destination="8GX-HR-Nx4" id="kCd-WJ-Kvr"/>
                 <outlet property="communityBtn" destination="xvY-4L-Crn" id="scl-dT-a37"/>
                 <outlet property="communityLab" destination="gdw-aN-Cfc" id="ha0-AI-UPW"/>
+                <outlet property="communityTitleLab" destination="KdK-g4-HNH" id="a4t-d4-LhB"/>
                 <outlet property="deleteBtn" destination="6cy-0P-Mdk" id="q9y-WH-bTm"/>
                 <outlet property="headView" destination="Pb5-iU-eqb" id="Vha-Yl-ain"/>
                 <outlet property="maintenanceCollectionView" destination="IaJ-gD-HuE" id="dSK-9a-FRi"/>
                 <outlet property="maintenanceTextView" destination="Mms-pl-Z3s" id="0u6-5S-CQQ"/>
                 <outlet property="playBtn" destination="jLi-9J-hod" id="7hL-66-1vz"/>
                 <outlet property="recordBtn" destination="bMD-xk-VZ6" id="fed-7u-5sN"/>
+                <outlet property="repairAddressTitleLab" destination="jlC-LL-6Ms" id="dMq-Mk-qBY"/>
+                <outlet property="submitBtn" destination="Tqd-A0-Ylh" id="eah-zm-nyf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

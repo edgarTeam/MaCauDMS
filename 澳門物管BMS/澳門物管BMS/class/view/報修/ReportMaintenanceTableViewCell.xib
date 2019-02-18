@@ -71,11 +71,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqj-QB-BJx">
-                                        <rect key="frame" x="60" y="8.5" width="240" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="hlB-3O-5ZR"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqj-QB-BJx">
+                                        <rect key="frame" x="60" y="21" width="240" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -153,6 +150,8 @@
             <connections>
                 <outlet property="centerView" destination="uzS-IL-zEq" id="jtl-yV-DeZ"/>
                 <outlet property="contentLab" destination="Jqj-QB-BJx" id="fcL-Z6-3Uq"/>
+                <outlet property="repairDescribeTitleLab" destination="pPU-zA-iDJ" id="IVD-zv-M5U"/>
+                <outlet property="repairStatusTitleLab" destination="vSr-nb-Nm8" id="YTg-eA-EHG"/>
                 <outlet property="stateLab" destination="JO5-e1-rF5" id="hXe-op-e8P"/>
                 <outlet property="timeLab" destination="Kma-2Q-O4F" id="Mc0-84-ljZ"/>
                 <outlet property="titleLab" destination="SAO-xB-y8n" id="gT3-Bf-M5e"/>

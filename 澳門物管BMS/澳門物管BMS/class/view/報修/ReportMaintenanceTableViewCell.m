@@ -16,6 +16,8 @@
     self.backgroundColor=[UIColor clearColor];
     self.centerView.layer.masksToBounds=YES;
     self.centerView.layer.cornerRadius=7.0;
+    _repairDescribeTitleLab.text=LocalizedString(@"string_repair_describe_title");
+    _repairStatusTitleLab.text=LocalizedString(@"string_repair_status_title");
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -40,4 +42,6 @@
     [self.contentLab setText:model.complainDescribe];
     [self.stateLab setText:model.complainType];
 }
+
+
 @end

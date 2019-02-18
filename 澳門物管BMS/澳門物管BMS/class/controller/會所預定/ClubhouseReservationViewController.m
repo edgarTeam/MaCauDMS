@@ -14,6 +14,7 @@
 #import "ZKAlertTool.h"
 #import "SelectDatePickerController.h"
 #import "NSDate+Utils.h"
+#import "PlaceViewController.h"
 @interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *plateBtn;
 @property (nonatomic,strong)LSXPopMenu *plateMenu;
@@ -25,12 +26,16 @@
 @property (nonatomic,strong) PlaceRecord *placeRecord;
 
 @property (weak, nonatomic) IBOutlet UIButton *orderDateBtn;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 
 @property (nonatomic,strong) NSMutableArray *strArr;
 @property (nonatomic,strong) NSMutableArray *compareArr;
 @property (nonatomic,strong) NSMutableArray *cancelArr;
 @property (nonatomic,assign) NSInteger index;
 @property (nonatomic,strong) NSString *dateTimeStr;//预定日期
+@property (weak, nonatomic) IBOutlet UILabel *plateNameTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *plateOrderDateLab;
+@property (weak, nonatomic) IBOutlet UILabel *plateChooseTimeLab;
 @end
 
 @implementation ClubhouseReservationViewController
@@ -57,6 +62,9 @@
     NSArray *source=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00~10:00",@"10:00~12:00",@"12:00~14:00",@"14:00~16:00",@"16:00~18:00",@"18:00~20:00",@"20:00~22:00",@"22:00~00:00"];
     _dataSource=[source mutableCopy];
     
+    _plateNameTitleLab.text=LocalizedString(@"string_plate_name_title");
+    _plateOrderDateLab.text=LocalizedString(@"string_plate_order_date_title");
+    _plateChooseTimeLab.text=LocalizedString(@"string_plate_choose_time_title");
     
     _orderDateBtn.layer.masksToBounds = YES;
     _orderDateBtn.layer.cornerRadius = 5.0;
@@ -67,6 +75,8 @@
     _plateBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
     _plateBtn.layer.borderWidth =1.0;
     
+    _submitBtn.layer.masksToBounds=YES;
+    _submitBtn.layer.cornerRadius=5.0;
     
 //     _dateTableView=[[UITableView alloc] initWithFrame:<#(CGRect)#> style:<#(UITableViewStyle)#>];
     _dateTableView.tableFooterView=[UIView new];
@@ -115,19 +125,19 @@
         NSString *timeStr=[@"0" stringByAppendingString:[NSString stringWithFormat:@"%d",end]];
         endTime=[timeStr stringByAppendingString:@":00:00"];
     }else{
-        [ZKAlertTool showAlertWithMsg:@"请选择时间分段"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_title")];
         return;
     }
 
     if (_dateTimeStr.length ==0) {
-        [ZKAlertTool showAlertWithMsg:@"請選擇日期"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_date_title")];
         return;
     }
 //    for (int j=0; j<arr.count; j++) {
 //        arr[j]=[arr[j] componentsSeparatedByString:@":00:00"];
 //    }
     if (placeId.length==0) {
-        [ZKAlertTool showAlertWithMsg:@"请选择會所類型"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_place_title")];
         return;
     }
     
@@ -171,7 +181,14 @@
 
 
 - (IBAction)plateBtnAction:(UIButton *)sender {
-    self.plateMenu=[LSXPopMenu showRelyOnView:sender titles:_placeList icons:nil menuWidth:100 isShowTriangle:YES delegate:self];
+    
+   // self.plateMenu=[LSXPopMenu showRelyOnView:sender titles:_placeList icons:nil menuWidth:100 isShowTriangle:YES delegate:self];
+    PlaceViewController *placeVC=[PlaceViewController new];
+    placeVC.placeNameBlock=^(NSString *placeName, NSString *placeID){
+        placeId=placeID;
+        [self.plateBtn setTitle:placeName forState:UIControlStateNormal];
+    };
+    [self presentViewController:placeVC animated:YES completion:nil];
 }
 
 - (IBAction)submitBtn:(id)sender {
@@ -236,7 +253,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-     NSLog(@"data的個數%ld",_dataSource.count);
+    // NSLog(@"data的個數%ld",_dataSource.count);
     return _dataSource.count;
    
 }
@@ -249,7 +266,7 @@
     }
     cell.backgroundColor=[UIColor clearColor];
     cell.textLabel.textColor=RGB(230, 230, 230);
-    if (_strArr.count==0) {
+    if (_strArr.count==0 || _strArr==nil) {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
    // cell.accessoryType = UITableViewCellAccessoryNone;
@@ -292,7 +309,7 @@
         }
         if ([arr[index+1] intValue]-[arr[index-1] intValue]==4) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            [ZKAlertTool showAlertWithMsg:@"您不能取消这行，因为间隔了2小时"];
+            [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_cancel_title")];
         }else{
             cell.accessoryType = UITableViewCellAccessoryNone;
             [_strArr removeObject:str];
@@ -375,8 +392,8 @@
             for (int i=0; i<_strArr.count-1; i++) {
                 
                 [_compareArr addObject:[NSString stringWithFormat:@"%d", [_strArr.lastObject intValue]-[_strArr[i] intValue]]];
-                NSLog(@"数组个数%ld",_compareArr.count);
-                NSLog(@"%@",_compareArr[i]);
+            //    NSLog(@"数组个数%ld",_compareArr.count);
+            //    NSLog(@"%@",_compareArr[i]);
                 
 //              //  NSString *num=[_compareArr objectAtIndex:_compareArr.lastObject];
 //                NSString *num=[_compareArr lastObject];
@@ -405,7 +422,7 @@
                 }else{
                     cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
                     //   [_compareArr removeAllObjects];
-                    [ZKAlertTool showAlertWithMsg:@"您不能选择这行，因为间隔了2小时"];
+                    [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_choose_title")];
                     [_strArr removeObject:_strArr.lastObject];
                 }
             }else{

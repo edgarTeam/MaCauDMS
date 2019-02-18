@@ -61,7 +61,7 @@
 //        }
         NSLog(@"%@",result);
 //        [ZKAlertTool showAlertWithMsg:result];
-        [ZKAlertTool showAlertWithMsg:@"修改成功！"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_change_psd_alert_title")];
     }];
 }
 - (void)viewWillAppear:(BOOL)animated{
