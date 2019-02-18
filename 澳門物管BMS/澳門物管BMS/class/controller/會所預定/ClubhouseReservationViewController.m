@@ -14,6 +14,7 @@
 #import "ZKAlertTool.h"
 #import "SelectDatePickerController.h"
 #import "NSDate+Utils.h"
+#import "PlaceViewController.h"
 @interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *plateBtn;
 @property (nonatomic,strong)LSXPopMenu *plateMenu;
@@ -178,7 +179,14 @@
 
 
 - (IBAction)plateBtnAction:(UIButton *)sender {
-    self.plateMenu=[LSXPopMenu showRelyOnView:sender titles:_placeList icons:nil menuWidth:100 isShowTriangle:YES delegate:self];
+    
+   // self.plateMenu=[LSXPopMenu showRelyOnView:sender titles:_placeList icons:nil menuWidth:100 isShowTriangle:YES delegate:self];
+    PlaceViewController *placeVC=[PlaceViewController new];
+    placeVC.placeNameBlock=^(NSString *placeName, NSString *placeID){
+        placeId=placeID;
+        [self.plateBtn setTitle:placeName forState:UIControlStateNormal];
+    };
+    [self presentViewController:placeVC animated:YES completion:nil];
 }
 
 - (IBAction)submitBtn:(id)sender {

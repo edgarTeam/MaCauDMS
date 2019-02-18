@@ -25,11 +25,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.placeAlertLab.text=LocalizedString(@"string_choose_plate_alert_title");
     [self.submitBtn setTitle:LocalizedString(@"String_confirm") forState:UIControlStateNormal];
+    [self.cancelBtn setTitle:LocalizedString(@"String_cancel") forState:UIControlStateNormal];
     [self createView];
     
 }
 - (void)createView {
+    _cancelBtn.layer.masksToBounds=YES;
+    _cancelBtn.layer.cornerRadius=5.0;
+    _submitBtn.layer.masksToBounds=YES;
+    _submitBtn.layer.cornerRadius=5.0;
+    
+    _placeTableView.backgroundColor=[UIColor clearColor];
     _placeTableView.delegate=self;
     _placeTableView.dataSource=self;
     _placeTableView.separatorColor=[UIColor clearColor];
@@ -70,22 +78,28 @@
         cell=[[[NSBundle mainBundle] loadNibNamed:@"PlaceTableViewCell" owner:self options:nil] lastObject];
     }
     [cell setUpModel:[dataSource objectAtIndex:indexPath.row]];
-    
     return cell;
 }
+
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    return 120;
 //}
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    _placeName=@"";
-    _placeId=@"";
-    Place *place=[dataSource objectAtIndex:indexPath.row];
-    _placeName=place.placeName;
-    _placeId=place.placeId;
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    PlaceTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"PlaceTableViewCell"];
+////     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+////
+////
+////    cell.chooseImage.hidden=NO;
+////     }
+//    _placeName=@"";
+//    _placeId=@"";
+//    Place *place=[dataSource objectAtIndex:indexPath.row];
+//    _placeName=place.placeName;
+//    _placeId=place.placeId;
+//}
 /*
 #pragma mark - Navigation
 

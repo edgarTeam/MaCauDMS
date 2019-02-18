@@ -13,10 +13,27 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _chooseImage.hidden=YES;
+    self.backgroundColor=[UIColor clearColor];
+    self.centerView.layer.masksToBounds=YES;
+    self.centerView.layer.cornerRadius=5.0;
+}
+- (IBAction)chooseBtnAction:(UIButton *)btn {
+//    if (btn.selected==YES) {
+//        _chooseImage.hidden=NO;
+//    }else{
+//        _chooseImage.hidden=YES;
+//    }
+    [self.delegate didClickBtn:btn];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+//    if (selected) {
+//        _chooseImage.hidden=NO;
+//    }else{
+//        _chooseImage.hidden=YES;
+//    }
 
     // Configure the view for the selected state
 }
