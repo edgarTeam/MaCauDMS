@@ -89,9 +89,15 @@
 //    return 6;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 120;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    ReportMaintenanceTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"ReportMaintenanceTableViewCell"];
+    if (cell == nil) {
+        cell=[[[NSBundle mainBundle] loadNibNamed:@"ReportMaintenanceTableViewCell" owner:self options:nil] lastObject];
+    }
+    ReportMaintenanceDetail *model =[dataSource objectAtIndex:indexPath.row];
+    CGFloat labelHeight = [cell getlabelHeiight:model.complainDescribe label:cell.contentLab];
+    return 136-21.5+labelHeight;
+}
 
 //- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    return 120;
