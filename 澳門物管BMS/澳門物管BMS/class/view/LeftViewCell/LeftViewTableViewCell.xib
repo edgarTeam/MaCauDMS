@@ -20,14 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ygl-Q0-l5T">
-                        <rect key="frame" x="10" y="4" width="40" height="36"/>
+                        <rect key="frame" x="10" y="8" width="30.5" height="27.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="W2l-DK-Bz8"/>
                             <constraint firstAttribute="width" secondItem="Ygl-Q0-l5T" secondAttribute="height" multiplier="1:0.9" id="sIP-0M-phR"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fL3-8C-Dug">
-                        <rect key="frame" x="65" y="12" width="39.5" height="19.5"/>
+                        <rect key="frame" x="55.5" y="12" width="39.5" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.24705882352941178" green="0.44705882352941173" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -35,6 +34,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="fL3-8C-Dug" firstAttribute="leading" secondItem="Ygl-Q0-l5T" secondAttribute="trailing" constant="15" id="7wc-0T-kEs"/>
+                    <constraint firstItem="Ygl-Q0-l5T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="M7I-2U-DMz"/>
                     <constraint firstItem="Ygl-Q0-l5T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Vyb-yB-EFb"/>
                     <constraint firstItem="Ygl-Q0-l5T" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="sOX-YP-B8c"/>
                     <constraint firstItem="fL3-8C-Dug" firstAttribute="centerY" secondItem="Ygl-Q0-l5T" secondAttribute="centerY" id="zPH-Gr-Md2"/>

@@ -66,7 +66,7 @@
     [_headBtn addTarget:self action:@selector(userInfoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_headBtn];
     [_headBtn mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.mas_equalTo(60);
+        make.top.mas_equalTo(30);
      //   make.centerX.mas_equalTo(self.view);
         make.left.mas_equalTo(ScreenWidth/4-40);
        // make.left.mas_equalTo(0);
@@ -174,7 +174,7 @@
     _table.dataSource=self;
     [self.view addSubview:_table];
     [_table mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.mas_equalTo(_headBtn.mas_bottom).offset(30);
+        make.top.mas_equalTo(_headBtn.mas_bottom).offset(15);
         make.bottom.mas_equalTo(_loginOutBtn.mas_top).offset(-20);
         make.left.and.right.mas_equalTo(0);
     }];
@@ -282,7 +282,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

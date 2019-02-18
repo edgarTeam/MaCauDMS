@@ -19,14 +19,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="329" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="l4K-hC-QPa">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l4K-hC-QPa">
                         <rect key="frame" x="10" y="10" width="126" height="75.5"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="75.5" id="QHT-U3-fcR"/>
                             <constraint firstAttribute="width" secondItem="l4K-hC-QPa" secondAttribute="height" multiplier="5:3" id="W4e-SD-b3P"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBE-JA-YaD">
-                        <rect key="frame" x="319" y="10" width="0.0" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBE-JA-YaD">
+                        <rect key="frame" x="146" y="65.5" width="173" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="TCz-1R-aEJ"/>
                         </constraints>
@@ -34,23 +35,22 @@
                         <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vb-e0-q4o">
-                        <rect key="frame" x="146" y="40" width="173" height="45.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vb-e0-q4o">
+                        <rect key="frame" x="146" y="10" width="173" height="45.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="l4K-hC-QPa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="444-rR-JZ3"/>
-                    <constraint firstItem="0Vb-e0-q4o" firstAttribute="top" secondItem="EBE-JA-YaD" secondAttribute="bottom" constant="10" id="9XN-Kf-QEM"/>
+                    <constraint firstAttribute="bottom" secondItem="EBE-JA-YaD" secondAttribute="bottom" constant="10" id="5s6-lS-OKo"/>
                     <constraint firstItem="0Vb-e0-q4o" firstAttribute="leading" secondItem="l4K-hC-QPa" secondAttribute="trailing" constant="10" id="C3b-9S-7gk"/>
-                    <constraint firstAttribute="bottom" secondItem="0Vb-e0-q4o" secondAttribute="bottom" constant="10" id="E4X-it-SHD"/>
-                    <constraint firstAttribute="bottom" secondItem="l4K-hC-QPa" secondAttribute="bottom" constant="10" id="LSi-TQ-st5"/>
+                    <constraint firstItem="EBE-JA-YaD" firstAttribute="top" secondItem="0Vb-e0-q4o" secondAttribute="bottom" constant="10" id="CK1-NA-3Kd"/>
+                    <constraint firstItem="EBE-JA-YaD" firstAttribute="leading" secondItem="0Vb-e0-q4o" secondAttribute="leading" id="IPd-B9-RY4"/>
                     <constraint firstAttribute="trailing" secondItem="0Vb-e0-q4o" secondAttribute="trailing" constant="10" id="ccd-Xq-BTp"/>
                     <constraint firstItem="l4K-hC-QPa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gfj-cz-IQb"/>
                     <constraint firstAttribute="trailing" secondItem="EBE-JA-YaD" secondAttribute="trailing" constant="10" id="hNx-s8-pNq"/>
-                    <constraint firstItem="EBE-JA-YaD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="rd7-Lk-Qvi"/>
+                    <constraint firstItem="0Vb-e0-q4o" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ukD-7E-cCo"/>
                     <constraint firstItem="l4K-hC-QPa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zAp-5o-R8C"/>
                 </constraints>
             </tableViewCellContentView>
@@ -59,12 +59,10 @@
             <connections>
                 <outlet property="contentLab" destination="0Vb-e0-q4o" id="5Fu-tO-vd6"/>
                 <outlet property="image" destination="l4K-hC-QPa" id="QD3-Et-HB9"/>
+                <outlet property="imageHeight" destination="QHT-U3-fcR" id="Eb6-Qj-aFW"/>
                 <outlet property="timeLab" destination="EBE-JA-YaD" id="S5t-Eb-7kr"/>
             </connections>
             <point key="canvasLocation" x="144.80000000000001" y="134.93253373313345"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="empty" width="72" height="72"/>
-    </resources>
 </document>

@@ -21,6 +21,7 @@
 #import "NSDate+Utils.h"
 #import "ZKAlertTool.h"
 #import "UUProgressHUD.h"
+#import "PickViewController.h"
 @interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *maintenanceTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *maintenanceCollectionView;
@@ -228,7 +229,13 @@
 
 
 - (IBAction)communityBtnAction:(id)sender {
-    self.communityMenu=[LSXPopMenu showRelyOnView:sender titles:self.communityList icons:nil menuWidth:200 isShowTriangle:YES delegate:self];
+//    self.communityMenu=[LSXPopMenu showRelyOnView:sender titles:self.communityList icons:nil menuWidth:200 isShowTriangle:YES delegate:self];
+    PickViewController *pickVC=[[PickViewController alloc] init];
+    pickVC.backBlock = ^(NSString *title){
+        [self.communityBtn setTitle:title forState:UIControlStateNormal];
+    };
+    
+    [self presentViewController:pickVC animated:YES completion:nil];
 }
 
 -(void)LSXPopupMenuDidSelectedAtIndex:(NSInteger)index LSXPopupMenu:(LSXPopMenu *)LSXPopupMenu{
