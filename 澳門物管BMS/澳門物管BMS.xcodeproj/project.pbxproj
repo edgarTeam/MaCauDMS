@@ -64,6 +64,8 @@
 		CB08143521D4F6760018A363 /* LanguageSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB08143321D4F6760018A363 /* LanguageSettingViewController.xib */; };
 		CB08144221D517F80018A363 /* ChangePswViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB08144021D517F80018A363 /* ChangePswViewController.m */; };
 		CB08144321D517F80018A363 /* ChangePswViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB08144121D517F80018A363 /* ChangePswViewController.xib */; };
+		CB0BCD6A221AF6B500596E1B /* PickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0BCD68221AF6B500596E1B /* PickViewController.m */; };
+		CB0BCD6B221AF6B500596E1B /* PickViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0BCD69221AF6B500596E1B /* PickViewController.xib */; };
 		CB118E6D21EB8C2500F25522 /* UpdateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CB118E6C21EB8C2500F25522 /* UpdateHelper.m */; };
 		CB18AA0421E6443200B3A232 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB18AA0221E6443200B3A232 /* GradientView.m */; };
 		CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB42089B21C2B1BA00980B64 /* BaseViewController.m */; };
@@ -236,6 +238,9 @@
 		CB08143F21D517F80018A363 /* ChangePswViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePswViewController.h; sourceTree = "<group>"; };
 		CB08144021D517F80018A363 /* ChangePswViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePswViewController.m; sourceTree = "<group>"; };
 		CB08144121D517F80018A363 /* ChangePswViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePswViewController.xib; sourceTree = "<group>"; };
+		CB0BCD67221AF6B500596E1B /* PickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickViewController.h; sourceTree = "<group>"; };
+		CB0BCD68221AF6B500596E1B /* PickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickViewController.m; sourceTree = "<group>"; };
+		CB0BCD69221AF6B500596E1B /* PickViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickViewController.xib; sourceTree = "<group>"; };
 		CB118E6B21EB8C2500F25522 /* UpdateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateHelper.h; sourceTree = "<group>"; };
 		CB118E6C21EB8C2500F25522 /* UpdateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateHelper.m; sourceTree = "<group>"; };
 		CB18AA0221E6443200B3A232 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
@@ -700,6 +705,16 @@
 			path = "修改密碼";
 			sourceTree = "<group>";
 		};
+		CB0BCD66221AF66600596E1B /* pickView */ = {
+			isa = PBXGroup;
+			children = (
+				CB0BCD67221AF6B500596E1B /* PickViewController.h */,
+				CB0BCD68221AF6B500596E1B /* PickViewController.m */,
+				CB0BCD69221AF6B500596E1B /* PickViewController.xib */,
+			);
+			path = pickView;
+			sourceTree = "<group>";
+		};
 		CB118E6A21EB8BFB00F25522 /* updateHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -906,6 +921,7 @@
 		CBCB79C421CBD2A000BF454D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				CB0BCD66221AF66600596E1B /* pickView */,
 				BA04405621F8167800B310EB /* selectDate */,
 				BA0361FE21F322CB008E0B4A /* KeyBoard */,
 				BA04C86721F1AE5E007A38AF /* NSDate */,
@@ -1071,6 +1087,7 @@
 				CB4208A421C2B20600980B64 /* LoginViewController.xib in Resources */,
 				CBCB79BE21CBCA6300BF454D /* ReportMaintenanceTableViewCell.xib in Resources */,
 				CB08144321D517F80018A363 /* ChangePswViewController.xib in Resources */,
+				CB0BCD6B221AF6B500596E1B /* PickViewController.xib in Resources */,
 				CBFFF13E21CFD7FA008BA2A0 /* ForgetPswViewController.xib in Resources */,
 				BA0F84C922165BD800EE6F0E /* PlaceViewController.xib in Resources */,
 				CBFE45C421C9557A00DD80E4 /* ContactUSViewController.xib in Resources */,
@@ -1171,6 +1188,7 @@
 				CB02947A21D3A90500FE55A7 /* BaseModel.m in Sources */,
 				CB02668721D9057000561B1C /* ZKAlertTool.m in Sources */,
 				BAA96DD72216CB24008CE03C /* PlaceTableViewCell.m in Sources */,
+				CB0BCD6A221AF6B500596E1B /* PickViewController.m in Sources */,
 				32B0FA202202FA5C000621DE /* NSDate+Utils.m in Sources */,
 				CBCB79BD21CBCA6300BF454D /* ReportMaintenanceTableViewCell.m in Sources */,
 				CB02668A21D9059A00561B1C /* LSXPopMenu.m in Sources */,

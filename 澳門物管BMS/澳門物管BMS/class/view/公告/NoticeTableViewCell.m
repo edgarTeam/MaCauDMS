@@ -12,6 +12,7 @@
 #import "NSDate+Utils.h"
 @interface NoticeTableViewCell()
 @property (nonatomic,strong) NSString *timeStr;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeight;
 @end
 
 @implementation NoticeTableViewCell
@@ -44,6 +45,8 @@
     self.timeLab.text=_timeStr;
     self.contentLab.text=model.noticeTitle;
     if (model.noticeImage.count==0 || model.noticeImage==nil || [model.noticeImage isKindOfClass:[NSNull class]]) {
+        //self.image.hidden=YES;
+        _imageHeight.constant=0;
         return;
     }
     _imageThumbnailArr=[NSMutableArray new];

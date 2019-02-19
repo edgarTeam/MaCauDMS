@@ -78,10 +78,12 @@
     _submitBtn.layer.masksToBounds=YES;
     _submitBtn.layer.cornerRadius=5.0;
     
-    // _dateTableView=[[UITableView alloc] init];
+//     _dateTableView=[[UITableView alloc] initWithFrame:<#(CGRect)#> style:<#(UITableViewStyle)#>];
     _dateTableView.tableFooterView=[UIView new];
     _dateTableView.delegate=self;
     _dateTableView.dataSource=self;
+    
+    NSLog(@"%lu",_strArr.count);
     [_dateTableView reloadData];
     //  [self reuqestPlateList];
     
