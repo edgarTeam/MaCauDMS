@@ -96,7 +96,7 @@
     }
     ReportMaintenanceDetail *model =[dataSource objectAtIndex:indexPath.row];
     CGFloat labelHeight = [cell getlabelHeiight:model.complainDescribe label:cell.contentLab];
-    return 136-21.5+labelHeight;
+    return 178-21.5+labelHeight;
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{

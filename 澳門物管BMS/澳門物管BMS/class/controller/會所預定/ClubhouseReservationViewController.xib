@@ -44,9 +44,7 @@
                         <constraint firstAttribute="width" constant="120" id="N83-fL-yVB"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="會所選擇" image="choose_blue">
+                    <state key="normal" title="請選擇會所">
                         <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -60,17 +58,20 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgg-Dd-xuh">
-                    <rect key="frame" x="100" y="74" width="70" height="33"/>
+                    <rect key="frame" x="100" y="74" width="120" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="9w1-m6-31B"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="選擇日期">
-                        <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="請選擇日期">
+                        <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="dateBtnAction:" destination="-1" eventType="touchUpInside" id="l2q-3o-zlv"/>
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tmE-ZP-U8U">
-                    <rect key="frame" x="20" y="152" width="335" height="460"/>
+                    <rect key="frame" x="10" y="152" width="355" height="460"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pC0-xP-aQT">
@@ -107,7 +108,7 @@
                 <constraint firstItem="wsl-b2-5qZ" firstAttribute="centerY" secondItem="DM4-bE-E1w" secondAttribute="centerY" id="Hgf-Hx-lsN"/>
                 <constraint firstItem="DM4-bE-E1w" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="LOT-J2-Zse"/>
                 <constraint firstItem="2s5-iR-Bpt" firstAttribute="trailing" secondItem="DM4-bE-E1w" secondAttribute="trailing" id="SBT-EE-wDX"/>
-                <constraint firstItem="tmE-ZP-U8U" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="UWc-8S-Ow6"/>
+                <constraint firstItem="tmE-ZP-U8U" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="UWc-8S-Ow6"/>
                 <constraint firstItem="Vgg-Dd-xuh" firstAttribute="leading" secondItem="2s5-iR-Bpt" secondAttribute="trailing" constant="10" id="Xg1-gp-BNl"/>
                 <constraint firstItem="wsl-b2-5qZ" firstAttribute="leading" secondItem="DM4-bE-E1w" secondAttribute="trailing" constant="10" id="atZ-Ne-CQ1"/>
                 <constraint firstItem="DM4-bE-E1w" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="gsg-lc-SRk"/>
@@ -120,7 +121,4 @@
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
         </view>
     </objects>
-    <resources>
-        <image name="choose_blue" width="20" height="20"/>
-    </resources>
 </document>

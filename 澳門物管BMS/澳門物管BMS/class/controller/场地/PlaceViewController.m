@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view from its nib.
     self.placeAlertLab.text=LocalizedString(@"string_choose_plate_alert_title");
     [self.submitBtn setTitle:LocalizedString(@"String_confirm") forState:UIControlStateNormal];
-    [self.cancelBtn setTitle:LocalizedString(@"String_cancel") forState:UIControlStateNormal];
+ //   [self.cancelBtn setTitle:LocalizedString(@"String_cancel") forState:UIControlStateNormal];
     [self createView];
     
 }
@@ -86,20 +86,23 @@
 //    return 120;
 //}
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    PlaceTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"PlaceTableViewCell"];
-////     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-////
-////
-////    cell.chooseImage.hidden=NO;
-////     }
+//     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+//
+//
+//    cell.chooseImage.hidden=NO;
+//     }
 //    _placeName=@"";
 //    _placeId=@"";
-//    Place *place=[dataSource objectAtIndex:indexPath.row];
-//    _placeName=place.placeName;
-//    _placeId=place.placeId;
-//}
+    Place *place=[dataSource objectAtIndex:indexPath.row];
+    _placeName=place.placeName;
+    _placeId=place.placeId;
+    [self dismissViewControllerAnimated:YES completion:^{
+        self.placeNameBlock(_placeName,_placeId);
+    }];
+}
 /*
 #pragma mark - Navigation
 

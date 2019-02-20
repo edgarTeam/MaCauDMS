@@ -45,7 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self creatView];
+   // [self creatView];
     [self locate];
 }
 
@@ -66,12 +66,21 @@
     [_headBtn addTarget:self action:@selector(userInfoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_headBtn];
     [_headBtn mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.mas_equalTo(30);
+        if (@available(iOS 11.0,*)) {
+           // make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(20);
+            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(20);
+            make.left.mas_equalTo(ScreenWidth/4-40);
+            // make.left.mas_equalTo(0);
+            make.width.mas_equalTo(80);
+            make.height.mas_equalTo(_headBtn.mas_width);
+        }else{
+        make.top.mas_equalTo(self.view).offset(20);
      //   make.centerX.mas_equalTo(self.view);
         make.left.mas_equalTo(ScreenWidth/4-40);
        // make.left.mas_equalTo(0);
         make.width.mas_equalTo(80);
         make.height.mas_equalTo(_headBtn.mas_width);
+        }
     }];
     
 
@@ -332,7 +341,9 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+
     [self setUpLoginBtn];
+    [self creatView];
 }
 
 

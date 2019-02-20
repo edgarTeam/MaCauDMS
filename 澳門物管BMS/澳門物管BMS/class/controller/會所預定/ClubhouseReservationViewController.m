@@ -80,6 +80,7 @@
     
 //     _dateTableView=[[UITableView alloc] initWithFrame:<#(CGRect)#> style:<#(UITableViewStyle)#>];
     _dateTableView.tableFooterView=[UIView new];
+    _dateTableView.separatorInset=UIEdgeInsetsZero;
     _dateTableView.delegate=self;
     _dateTableView.dataSource=self;
     
@@ -264,6 +265,7 @@
     if (cell == nil) {
         cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDentified];
     }
+    
     cell.backgroundColor=[UIColor clearColor];
     cell.textLabel.textColor=RGB(230, 230, 230);
     if (_strArr.count==0 || _strArr==nil) {
@@ -392,42 +394,29 @@
             for (int i=0; i<_strArr.count-1; i++) {
                 
                 [_compareArr addObject:[NSString stringWithFormat:@"%d", [_strArr.lastObject intValue]-[_strArr[i] intValue]]];
-            //    NSLog(@"数组个数%ld",_compareArr.count);
-            //    NSLog(@"%@",_compareArr[i]);
-                
-//              //  NSString *num=[_compareArr objectAtIndex:_compareArr.lastObject];
-//                NSString *num=[_compareArr lastObject];
-//                NSLog(@"num值为%@",num);
-//                [numArr addObject:num];
-//                NSLog(@"个数是：：：%ld",numArr.count);
-//                NSLog(@"值是%@",numArr[i]);
-//                if ([_compareArr containsObject:@"4"] ||[_compareArr containsObject:@"-4"]) {
-//                    if ([_compareArr containsObject:@"2"]) {
-//                        cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-//
-//                    }else{
-//                        cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-//                     //   [_compareArr removeAllObjects];
-//                        [_strArr removeObject:_strArr.lastObject];
-//                    }
-//                }else{
-//                     cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-//
-//                }
+
             }
-            if ([_compareArr containsObject:@"4"] ||[_compareArr containsObject:@"-4"]) {
-                if ([_compareArr containsObject:@"2"] ||[_compareArr containsObject:@"-2"]) {
-                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-                    
-                }else{
-                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-                    //   [_compareArr removeAllObjects];
-                    [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_choose_title")];
-                    [_strArr removeObject:_strArr.lastObject];
-                }
-            }else{
+//            if ([_compareArr containsObject:@"4"] ||[_compareArr containsObject:@"-4"]) {
+//                if ([_compareArr containsObject:@"2"] ||[_compareArr containsObject:@"-2"]) {
+//                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//                    
+//                }else{
+//                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+//                    //   [_compareArr removeAllObjects];
+//                    [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_choose_title")];
+//                    [_strArr removeObject:_strArr.lastObject];
+//                }
+//            }else{
+//                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//                
+//            }
+            if ([_compareArr containsObject:@"2"] ||[_compareArr containsObject:@"-2"]) {
                 cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-                
+            }else{
+                cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+                //   [_compareArr removeAllObjects];
+                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_choose_title")];
+                [_strArr removeObject:_strArr.lastObject];
             }
         }else{
              cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
