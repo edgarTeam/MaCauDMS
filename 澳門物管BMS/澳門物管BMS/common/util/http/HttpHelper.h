@@ -114,7 +114,14 @@ NS_ASSUME_NONNULL_BEGIN
                   success:(void (^)(id obj))success
                   failure:(void (^)(NSError *error))failure;
 
+- (void)getMapWithURL:(NSString *)URLString
+         convertClassName:(NSString *)className
+               parameters:(NSDictionary *)parameters
+                  isArray:(BOOL)isArray
+                 isString:(BOOL)isString
 
+                  success:(void (^)(id obj))success
+                  failure:(void (^)(NSError *error))failure;
 
 
 @end

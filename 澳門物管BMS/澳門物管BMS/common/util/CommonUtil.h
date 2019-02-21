@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)addGradientLayerTo:(id)object;
 
 +(BOOL)isRequestWeatherOK:(id)response;
+
++(BOOL)isRequestMapOK:(id)response;
 @end
 
 NS_ASSUME_NONNULL_END

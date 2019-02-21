@@ -88,8 +88,8 @@
                         <action selector="submitBtn:" destination="-1" eventType="touchUpInside" id="LhA-02-2hU"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請勾選下面時間段" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QN-Pw-cqt">
-                    <rect key="frame" x="118" y="117" width="139" height="25"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請勾選時間段" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QN-Pw-cqt">
+                    <rect key="frame" x="135.5" y="117" width="104" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="73H-vD-ei6"/>
                     </constraints>

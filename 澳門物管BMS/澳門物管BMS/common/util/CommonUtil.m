@@ -369,6 +369,31 @@
     }
 }
 
-
++ (BOOL)isRequestMapOK:(id)response{
+    if ([response isKindOfClass: [NSDictionary class]]){
+        NSDictionary *dictResp = (NSDictionary *)response;
+//        if ([[dictResp objectForKey:@"info"] isEqualToString:@"OK"]) {
+//            return YES;
+//        }else{
+//            return NO;
+//        }
+        switch ([[dictResp objectForKey:@"infocode"] intValue]) {
+            case 10000:
+            {
+                return  YES;
+            }
+            case 10009:
+            {
+                return  NO;
+            }
+            default:
+                NSLog(@"Util Response ,  No this error code");
+                return NO;
+        }
+    } else{
+        NSLog(@"Util Response , missing key code");
+        return NO;
+    }
+}
 
 @end

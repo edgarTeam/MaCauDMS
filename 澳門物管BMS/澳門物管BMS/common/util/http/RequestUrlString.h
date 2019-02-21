@@ -52,6 +52,10 @@
 
 #define Kweather @"http://v.juhe.cn/weather/geo"
 
+
+#define IOSMap @"https://restapi.amap.com/v3/geocode/regeo"
+#define IOSWeather @"https://restapi.amap.com/v3/weather/weatherInfo"
+
 #define CHECK_UPDATE_URL @"http://47.107.131.1:8080/app/app/system/version" //检查更新
 #define UPDATE_WEB_URL @"" //更新内容网址
 #define UPDATE_URL @""
