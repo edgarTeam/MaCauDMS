@@ -56,6 +56,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (void)uploadVoice:(NSDictionary *)para filePath:(NSString *)filePath completion:(void(^)(NSDictionary *dic))completion;
+
+#pragma mark   建筑列表
+- (void)postBuildingList:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 @end
 
 NS_ASSUME_NONNULL_END

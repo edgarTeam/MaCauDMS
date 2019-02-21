@@ -299,4 +299,15 @@ static AFHTTPSessionManager *_manager;
         NSLog(@"%@",error);
     }];
 }
+
+- (void)postBuildingList:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion {
+    [self.httpHelper postDicWithURL:kBuildingList parameters:parameters  needLoading:YES success:^(NSDictionary *dic){
+        if (dic == nil) {
+            return ;
+        }
+        completion(dic);
+    } failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
 @end

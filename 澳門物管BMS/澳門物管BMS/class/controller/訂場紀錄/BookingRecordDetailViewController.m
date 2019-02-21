@@ -117,7 +117,10 @@
         if (_placeRecord.orderDate.length >10) {
             timeStr=[_placeRecord.orderDate substringToIndex:10];
         }
-        _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
+        if (_placeRecord.recordStatus !=nil) {
+             _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
+        }
+       // _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
         _timeZoneLab.text=[NSString stringWithFormat:@"%@ %@ 至 %@",timeStr,_placeRecord.orderStartTime,_placeRecord.orderEndTime];
         _clientName.text=[User shareUser].name;
         [self requestPlace];

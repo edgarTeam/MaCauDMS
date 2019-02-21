@@ -21,6 +21,8 @@
 		BA04405521F8164400B310EB /* BaseAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405421F8164400B310EB /* BaseAlertViewController.m */; };
 		BA04405921F8168900B310EB /* SelectDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405721F8168900B310EB /* SelectDatePickerController.m */; };
 		BA04405D21F84D0D00B310EB /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405C21F84D0D00B310EB /* Weather.m */; };
+		BA047989221D2A20006AF8FD /* UILabel+LabelHeightAndWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = BA047987221D2A20006AF8FD /* UILabel+LabelHeightAndWidth.m */; };
+		BA04798D221D8B34006AF8FD /* BuildingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04798C221D8B34006AF8FD /* BuildingModel.m */; };
 		BA04C86221F190D9007A38AF /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */; };
 		BA04C86621F19423007A38AF /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86521F19423007A38AF /* PictureModel.m */; };
 		BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86921F1AE82007A38AF /* NSDate+Utils.m */; };
@@ -156,6 +158,10 @@
 		BA04405821F8168900B310EB /* SelectDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDatePickerController.h; sourceTree = "<group>"; };
 		BA04405B21F84D0D00B310EB /* Weather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
 		BA04405C21F84D0D00B310EB /* Weather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
+		BA047987221D2A20006AF8FD /* UILabel+LabelHeightAndWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LabelHeightAndWidth.m"; sourceTree = "<group>"; };
+		BA047988221D2A20006AF8FD /* UILabel+LabelHeightAndWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LabelHeightAndWidth.h"; sourceTree = "<group>"; };
+		BA04798B221D8B34006AF8FD /* BuildingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildingModel.h; sourceTree = "<group>"; };
+		BA04798C221D8B34006AF8FD /* BuildingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildingModel.m; sourceTree = "<group>"; };
 		BA04C86021F190D9007A38AF /* UITextView+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+PlaceHolder.h"; sourceTree = "<group>"; };
 		BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+PlaceHolder.m"; sourceTree = "<group>"; };
 		BA04C86421F19423007A38AF /* PictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureModel.h; sourceTree = "<group>"; };
@@ -404,6 +410,24 @@
 				BA04405C21F84D0D00B310EB /* Weather.m */,
 			);
 			path = "天气";
+			sourceTree = "<group>";
+		};
+		BA047986221D2A03006AF8FD /* label */ = {
+			isa = PBXGroup;
+			children = (
+				BA047988221D2A20006AF8FD /* UILabel+LabelHeightAndWidth.h */,
+				BA047987221D2A20006AF8FD /* UILabel+LabelHeightAndWidth.m */,
+			);
+			path = label;
+			sourceTree = "<group>";
+		};
+		BA04798A221D8B08006AF8FD /* 建筑 */ = {
+			isa = PBXGroup;
+			children = (
+				BA04798B221D8B34006AF8FD /* BuildingModel.h */,
+				BA04798C221D8B34006AF8FD /* BuildingModel.m */,
+			);
+			path = "建筑";
 			sourceTree = "<group>";
 		};
 		BA04C85F21F19095007A38AF /* UITextView+PlaceHolder */ = {
@@ -750,6 +774,7 @@
 		CB42089521C2B16F00980B64 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BA04798A221D8B08006AF8FD /* 建筑 */,
 				BA04405A21F84CE800B310EB /* 天气 */,
 				BA04C86321F193DD007A38AF /* 图片 */,
 				CB02668121D8CFFE00561B1C /* LeftModel */,
@@ -921,6 +946,7 @@
 		CBCB79C421CBD2A000BF454D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				BA047986221D2A03006AF8FD /* label */,
 				CB0BCD66221AF66600596E1B /* pickView */,
 				BA04405621F8167800B310EB /* selectDate */,
 				BA0361FE21F322CB008E0B4A /* KeyBoard */,
@@ -1198,6 +1224,7 @@
 				CBFE45C821C955D600DD80E4 /* BookingRecordViewController.m in Sources */,
 				CB6C9BAC21C1672200B5A9E9 /* ViewController.m in Sources */,
 				CB02948A21D3B99000FE55A7 /* NoticeTableViewCell.m in Sources */,
+				BA047989221D2A20006AF8FD /* UILabel+LabelHeightAndWidth.m in Sources */,
 				CB05464A21C6A4BB008BE895 /* LeftViewController.m in Sources */,
 				CBCB79C821CBD68500BF454D /* BookingRecordDetailViewController.m in Sources */,
 				CBFE45BE21C954DE00DD80E4 /* SettingViewController.m in Sources */,
@@ -1251,6 +1278,7 @@
 				CBFF233F21CAA2110066E00C /* BookingRecordTableViewCell.m in Sources */,
 				CB05F36021E1AB4200208C5E /* AddCollectionViewCell.m in Sources */,
 				CB08144221D517F80018A363 /* ChangePswViewController.m in Sources */,
+				BA04798D221D8B34006AF8FD /* BuildingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

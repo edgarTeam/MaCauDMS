@@ -33,7 +33,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE9-j7-gsv">
-                                <rect key="frame" x="0.0" y="125" width="300" height="31.5"/>
+                                <rect key="frame" x="0.0" y="120" width="300" height="41.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -48,8 +48,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KE9-j7-gsv" firstAttribute="top" secondItem="5te-Vx-tIr" secondAttribute="bottom" constant="5" id="1J9-LZ-vrm"/>
-                            <constraint firstAttribute="bottom" secondItem="KE9-j7-gsv" secondAttribute="bottom" constant="5" id="8PY-8p-5xU"/>
+                            <constraint firstItem="KE9-j7-gsv" firstAttribute="top" secondItem="5te-Vx-tIr" secondAttribute="bottom" id="1J9-LZ-vrm"/>
+                            <constraint firstAttribute="bottom" secondItem="KE9-j7-gsv" secondAttribute="bottom" id="8PY-8p-5xU"/>
                             <constraint firstAttribute="trailing" secondItem="KE9-j7-gsv" secondAttribute="trailing" id="BsI-lU-gKe"/>
                             <constraint firstAttribute="trailing" secondItem="5te-Vx-tIr" secondAttribute="trailing" id="GhY-l5-bVF"/>
                             <constraint firstAttribute="trailing" secondItem="TVB-Bj-ePZ" secondAttribute="trailing" id="I3j-lP-zo8"/>

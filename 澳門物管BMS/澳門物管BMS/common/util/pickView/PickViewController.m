@@ -30,7 +30,7 @@
     self.view.backgroundColor=[UIColor colorWithWhite:0 alpha:0.2];
     
     
-    self.dataSource=@[@"11",@"22"];
+   // self.dataSource=@[@"11",@"22"];
     self.pickView.delegate=self;
     self.pickView.dataSource=self;
 }

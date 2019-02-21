@@ -22,6 +22,7 @@
 #import "ZKAlertTool.h"
 #import "UUProgressHUD.h"
 #import "PickViewController.h"
+#import "BuildingModel.h"
 @interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *maintenanceTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *maintenanceCollectionView;
@@ -41,7 +42,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 @property (weak, nonatomic) IBOutlet UILabel *communityTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *repairAddressTitleLab;
-
+@property (weak, nonatomic) IBOutlet UIButton *repairTypeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *chooseBuildingBtn;
+@property (nonatomic,strong) NSMutableArray *buildingList;
 @end
 
 @implementation ReportMaintenanceViewController
@@ -68,11 +71,23 @@
     self.headView.hidden=YES;
     self.dataSource=[NSMutableArray new];
     self.communityList=[NSMutableArray new];
+    self.buildingList=[NSMutableArray new];
     
     _communityBtn.layer.masksToBounds = YES;
     _communityBtn.layer.cornerRadius = 5.0;
     _communityBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
     _communityBtn.layer.borderWidth =1.0;
+    
+    _repairTypeBtn.layer.masksToBounds = YES;
+    _repairTypeBtn.layer.cornerRadius = 5.0;
+    _repairTypeBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
+    _repairTypeBtn.layer.borderWidth =1.0;
+    
+    _chooseBuildingBtn.layer.masksToBounds = YES;
+    _chooseBuildingBtn.layer.cornerRadius = 5.0;
+    _chooseBuildingBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
+    _chooseBuildingBtn.layer.borderWidth =1.0;
+    
     
     _submitBtn.layer.masksToBounds=YES;
     _submitBtn.layer.cornerRadius=5.0;
@@ -97,7 +112,7 @@
     _maintenanceCollectionView.layer.masksToBounds=YES;
     _maintenanceCollectionView.layer.cornerRadius=7.0;
     
-    _communityTitleLab.text=LocalizedString(@"string_repair_community_name_title");
+    _communityTitleLab.text=LocalizedString(@"string_repair_type_title");
     _repairAddressTitleLab.text=LocalizedString(@"string_repair_address_title");
     
     [_recordBtn addTarget:self action:@selector(cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
@@ -127,9 +142,21 @@
 - (void)requestAddRepair {
     NSMutableArray *imageThumbnailArr=[NSMutableArray new];
     NSMutableArray *imageUrlArr=[NSMutableArray new];
-    if (_communityLab.text.length ==0) {
-        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
+//    if (_communityLab.text.length ==0) {
+//        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
+//        return;
+//    }
+    if (_communityBtn.titleLabel.text.length==0) {
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_theme_title")];
         return;
+    }
+    if (_repairTypeBtn.titleLabel.text.length ==0) {
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_type_title")];
+        return;
+    }
+    if (_chooseBuildingBtn.titleLabel.text.length==0) {
+                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
+                return;
     }
     if (_addressTextField.text.length ==0) {
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_address_title")];
@@ -172,10 +199,13 @@
                          @"complainLiaisonsEmail":[User shareUser].email,
                          @"complainLiaisonsName":[User shareUser].name,
                          @"complainLiaisonsSex":[User shareUser].sex,
-                         @"complainPosition":_communityLab.text,
+                         @"complainPosition":_chooseBuildingBtn.titleLabel.text,
                          @"complainSpecificPosition":_addressTextField.text,
                          @"complainVoice":self.voiceRemarkUrl==nil?@"":self.voiceRemarkUrl,
                          @"complainDescribe":self.maintenanceTextView.text,
+                         @"complainClassType":_communityBtn.titleLabel.text,
+                         @"complainType":_repairTypeBtn.titleLabel.text,
+                         @"complainId":[User shareUser].communityId,
                        //  @"images":[NSArray arrayWithObjects:picture]
                          @"images":mutArr
                          };
@@ -227,12 +257,53 @@
     }];
 }
 
+- (void)requestBuildingList {
+    [[WebAPIHelper sharedWebAPIHelper] postBuildingList:nil completion:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
+        NSMutableArray *array=[dic objectForKey:@"list"];
+        NSMutableArray *buildingArr=[NSMutableArray new];
+        buildingArr=[BuildingModel mj_objectArrayWithKeyValuesArray:array];
+        if (buildingArr.count==0) {
+            return;
+        }
+        for (BuildingModel * model in buildingArr) {
+            [self.buildingList addObject:model.buildingName];
+        }
+    }];
+}
+
+
+- (IBAction)chooseBuildingBtnAction:(id)sender {
+    PickViewController *pickVC=[[PickViewController alloc] init];
+    pickVC.dataSource=self.buildingList;
+    pickVC.backBlock = ^(NSString *title){
+        [self.chooseBuildingBtn setTitle:title forState:UIControlStateNormal];
+        
+    };
+    
+    [self presentViewController:pickVC animated:YES completion:nil];
+}
+
+- (IBAction)repairTypeBtnAction:(id)sender {
+    PickViewController *pickVC=[[PickViewController alloc] init];
+    pickVC.dataSource=@[@"土木工程",@"清潔",@"保安"];
+    pickVC.backBlock = ^(NSString *title){
+        [self.repairTypeBtn setTitle:title forState:UIControlStateNormal];
+        
+    };
+    
+    [self presentViewController:pickVC animated:YES completion:nil];
+}
 
 - (IBAction)communityBtnAction:(id)sender {
 //    self.communityMenu=[LSXPopMenu showRelyOnView:sender titles:self.communityList icons:nil menuWidth:200 isShowTriangle:YES delegate:self];
     PickViewController *pickVC=[[PickViewController alloc] init];
+    pickVC.dataSource=@[@"供電系統",@"發動機"];
     pickVC.backBlock = ^(NSString *title){
         [self.communityBtn setTitle:title forState:UIControlStateNormal];
+       
     };
     
     [self presentViewController:pickVC animated:YES completion:nil];
@@ -622,6 +693,7 @@
     [self checkLogin];
   //  [self createView];
     [self requestCommunityList];
+    [self requestBuildingList];
 }
 
 
