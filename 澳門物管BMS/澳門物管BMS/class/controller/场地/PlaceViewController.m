@@ -10,6 +10,7 @@
 #import "PlaceTableViewCell.h"
 #import <MJExtension/MJExtension.h>
 #import "Place.h"
+#import "PlaceDetailViewController.h"
 @interface PlaceViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *placeTableView;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
@@ -99,9 +100,12 @@
     Place *place=[dataSource objectAtIndex:indexPath.row];
     _placeName=place.placeName;
     _placeId=place.placeId;
-    [self dismissViewControllerAnimated:YES completion:^{
-        self.placeNameBlock(_placeName,_placeId);
-    }];
+    PlaceDetailViewController *placeDetailVC=[[PlaceDetailViewController alloc] init];
+    placeDetailVC.placeID=_placeId;
+    [self presentViewController:placeDetailVC animated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        self.placeNameBlock(_placeName,_placeId);
+//    }];
 }
 /*
 #pragma mark - Navigation

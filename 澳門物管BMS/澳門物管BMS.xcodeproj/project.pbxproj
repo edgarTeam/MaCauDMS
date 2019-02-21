@@ -69,6 +69,8 @@
 		CB08144321D517F80018A363 /* ChangePswViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB08144121D517F80018A363 /* ChangePswViewController.xib */; };
 		CB0BCD6A221AF6B500596E1B /* PickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0BCD68221AF6B500596E1B /* PickViewController.m */; };
 		CB0BCD6B221AF6B500596E1B /* PickViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0BCD69221AF6B500596E1B /* PickViewController.xib */; };
+		CB0BCD6F221EE48600596E1B /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0BCD6D221EE48600596E1B /* PlaceDetailViewController.m */; };
+		CB0BCD70221EE48600596E1B /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0BCD6E221EE48600596E1B /* PlaceDetailViewController.xib */; };
 		CB118E6D21EB8C2500F25522 /* UpdateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CB118E6C21EB8C2500F25522 /* UpdateHelper.m */; };
 		CB18AA0421E6443200B3A232 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB18AA0221E6443200B3A232 /* GradientView.m */; };
 		CB42089C21C2B1BA00980B64 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB42089B21C2B1BA00980B64 /* BaseViewController.m */; };
@@ -250,6 +252,9 @@
 		CB0BCD67221AF6B500596E1B /* PickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickViewController.h; sourceTree = "<group>"; };
 		CB0BCD68221AF6B500596E1B /* PickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickViewController.m; sourceTree = "<group>"; };
 		CB0BCD69221AF6B500596E1B /* PickViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickViewController.xib; sourceTree = "<group>"; };
+		CB0BCD6C221EE48600596E1B /* PlaceDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
+		CB0BCD6D221EE48600596E1B /* PlaceDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
+		CB0BCD6E221EE48600596E1B /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailViewController.xib; sourceTree = "<group>"; };
 		CB118E6B21EB8C2500F25522 /* UpdateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateHelper.h; sourceTree = "<group>"; };
 		CB118E6C21EB8C2500F25522 /* UpdateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateHelper.m; sourceTree = "<group>"; };
 		CB18AA0221E6443200B3A232 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
@@ -475,6 +480,9 @@
 				BA0F84C522165BD800EE6F0E /* PlaceViewController.h */,
 				BA0F84C622165BD800EE6F0E /* PlaceViewController.m */,
 				BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */,
+				CB0BCD6C221EE48600596E1B /* PlaceDetailViewController.h */,
+				CB0BCD6D221EE48600596E1B /* PlaceDetailViewController.m */,
+				CB0BCD6E221EE48600596E1B /* PlaceDetailViewController.xib */,
 			);
 			path = "场地";
 			sourceTree = "<group>";
@@ -1138,6 +1146,7 @@
 				CBFF233A21CA8BD80066E00C /* ProcessingStateViewController.xib in Resources */,
 				CB05F35C21E1AB2D00208C5E /* PhotpCollectionViewCell.xib in Resources */,
 				CBFF234021CAA2110066E00C /* BookingRecordTableViewCell.xib in Resources */,
+				CB0BCD70221EE48600596E1B /* PlaceDetailViewController.xib in Resources */,
 				CB08143521D4F6760018A363 /* LanguageSettingViewController.xib in Resources */,
 				CBFE45BA21C9547600DD80E4 /* ClubhouseReservationViewController.xib in Resources */,
 				CB6C9BB421C1672300B5A9E9 /* LaunchScreen.storyboard in Resources */,
@@ -1291,6 +1300,7 @@
 				CBFFF13221CF9E2A008BA2A0 /* HttpHelper.m in Sources */,
 				CBFF233F21CAA2110066E00C /* BookingRecordTableViewCell.m in Sources */,
 				CB05F36021E1AB4200208C5E /* AddCollectionViewCell.m in Sources */,
+				CB0BCD6F221EE48600596E1B /* PlaceDetailViewController.m in Sources */,
 				CB08144221D517F80018A363 /* ChangePswViewController.m in Sources */,
 				BA04798D221D8B34006AF8FD /* BuildingModel.m in Sources */,
 			);

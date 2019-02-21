@@ -24,7 +24,7 @@
 #import "PickViewController.h"
 #import "BuildingModel.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-@interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate>
+@interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *maintenanceTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *maintenanceCollectionView;
 @property (weak, nonatomic) IBOutlet UIView *headView;
@@ -69,6 +69,10 @@
     self.maintenanceTextView.text=@"";
     self.dataSource=nil;
     self.voiceRemarkUrl=@"";
+    
+    _addressTextField.delegate=self;
+    _repairTitleTextField.delegate=self;
+    _repairTypeTextField.delegate=self;
     
    // self.edgesForExtendedLayout=UIRectEdgeNone;
     self.headView.hidden=YES;
@@ -271,6 +275,7 @@
 }
 
 - (void)requestBuildingList {
+    [self.buildingList removeAllObjects];
     [[WebAPIHelper sharedWebAPIHelper] postBuildingList:nil completion:^(NSDictionary *dic){
         if (dic ==nil) {
             return ;
@@ -716,7 +721,10 @@
     [self requestBuildingList];
 }
 
-
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+//    [self isFirstResponder];
+//    return YES;
+//}
 
 //- (void)viewDidDisappear:(BOOL)animated{
 //
