@@ -50,7 +50,7 @@
     //self.title=@"會所預定";
     self.title=LocalizedString(@"string_reservation_place_title");
 
-    self.edgesForExtendedLayout=UIRectEdgeNone;
+   // self.edgesForExtendedLayout=UIRectEdgeNone;
     [self createView];
 }
 

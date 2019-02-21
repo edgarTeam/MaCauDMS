@@ -33,7 +33,7 @@
     // Do any additional setup after loading the view from its nib.
  //   self.title=@"公告詳情";
     self.title=LocalizedString(@"string_notice_detail_title");
-    self.edgesForExtendedLayout=UIRectEdgeNone;
+ //   self.edgesForExtendedLayout=UIRectEdgeNone;
     _noticeTextView.layer.masksToBounds=YES;
     _noticeTextView.layer.cornerRadius=7.0;
     _noticeTextView.layer.borderWidth=0.5;

@@ -23,7 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _gradientView=[[GradientView alloc] init];
-
+//self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : RGB(230, 230, 230),NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:17]}];
+ //   self.navigationController.navigationBar.translucent = YES;
     [self.view addSubview:_gradientView];
     [_gradientView mas_makeConstraints:^(MASConstraintMaker *make){
         make.edges.mas_equalTo(UIEdgeInsetsZero);

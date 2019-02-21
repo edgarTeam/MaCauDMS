@@ -70,7 +70,7 @@
     self.dataSource=nil;
     self.voiceRemarkUrl=@"";
     
-    self.edgesForExtendedLayout=UIRectEdgeNone;
+   // self.edgesForExtendedLayout=UIRectEdgeNone;
     self.headView.hidden=YES;
     self.dataSource=[NSMutableArray new];
     self.communityList=[NSMutableArray new];

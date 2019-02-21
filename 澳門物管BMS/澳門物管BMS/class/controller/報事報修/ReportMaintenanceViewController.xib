@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -33,7 +34,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pb5-iU-eqb">
-                    <rect key="frame" x="20" y="0.0" width="335" height="0.0"/>
+                    <rect key="frame" x="20" y="20" width="335" height="0.0"/>
                     <subviews>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4R-X6-JAB">
                             <rect key="frame" x="20" y="-15" width="80" height="30"/>
@@ -64,7 +65,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxp-HU-aD4">
-                    <rect key="frame" x="20" y="50" width="335" height="40"/>
+                    <rect key="frame" x="20" y="70" width="335" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="報修標題" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdK-g4-HNH">
                             <rect key="frame" x="0.0" y="9.5" width="80" height="21"/>
@@ -95,7 +96,7 @@
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-pl-Z3s">
-                    <rect key="frame" x="20" y="175" width="335" height="189.5"/>
+                    <rect key="frame" x="20" y="195" width="335" height="179.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -115,7 +116,7 @@
                     </connections>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IaJ-gD-HuE">
-                    <rect key="frame" x="20" y="372.5" width="335" height="189.5"/>
+                    <rect key="frame" x="20" y="382.5" width="335" height="179.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="igN-SL-Mlo">
                         <size key="itemSize" width="50" height="50"/>
@@ -125,7 +126,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地        址" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlC-LL-6Ms">
-                    <rect key="frame" x="20" y="137.5" width="80" height="25"/>
+                    <rect key="frame" x="20" y="157.5" width="80" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="uaI-fc-I7z"/>
                     </constraints>
@@ -134,7 +135,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入詳細地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8GX-HR-Nx4">
-                    <rect key="frame" x="110" y="135" width="245" height="30"/>
+                    <rect key="frame" x="110" y="155" width="245" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="pIh-mo-1Pc"/>
                     </constraints>
@@ -168,25 +169,25 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="報修類型" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kv-v0-JgM">
-                    <rect key="frame" x="20" y="100" width="80" height="20.5"/>
+                    <rect key="frame" x="20" y="120" width="80" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="建        筑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3P-yI-6u9">
-                    <rect key="frame" x="20" y="14.5" width="80" height="21"/>
+                    <rect key="frame" x="20" y="34.5" width="80" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入报修类型" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1eJ-Ma-8UW">
-                    <rect key="frame" x="110" y="95" width="245" height="30"/>
+                    <rect key="frame" x="110" y="115" width="245" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3U2-af-1gt">
-                    <rect key="frame" x="110" y="10" width="245" height="30"/>
+                    <rect key="frame" x="110" y="30" width="245" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="0Oc-SX-b3Q"/>
                     </constraints>
@@ -232,9 +233,9 @@
                 <constraint firstItem="Mms-pl-Z3s" firstAttribute="top" secondItem="8GX-HR-Nx4" secondAttribute="bottom" constant="10" id="cPb-Pg-05V"/>
                 <constraint firstItem="1eJ-Ma-8UW" firstAttribute="leading" secondItem="gWb-Se-OHq" secondAttribute="leading" id="fLH-k8-DH3"/>
                 <constraint firstItem="8GX-HR-Nx4" firstAttribute="centerY" secondItem="jlC-LL-6Ms" secondAttribute="centerY" id="fuG-KJ-rso"/>
+                <constraint firstItem="Rhj-5G-lgj" firstAttribute="top" secondItem="Pb5-iU-eqb" secondAttribute="bottom" id="hH9-w1-7OB"/>
                 <constraint firstItem="8kv-v0-JgM" firstAttribute="leading" secondItem="KdK-g4-HNH" secondAttribute="leading" id="hxS-w7-gWJ"/>
                 <constraint firstItem="mxp-HU-aD4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="jdL-rF-mSP"/>
-                <constraint firstItem="Pb5-iU-eqb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kes-dK-20Z"/>
                 <constraint firstItem="1eJ-Ma-8UW" firstAttribute="top" secondItem="mxp-HU-aD4" secondAttribute="bottom" constant="5" id="nR9-7n-Oeo"/>
                 <constraint firstItem="mxp-HU-aD4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oXs-8S-tYA"/>
                 <constraint firstItem="8GX-HR-Nx4" firstAttribute="trailing" secondItem="mxp-HU-aD4" secondAttribute="trailing" id="qPM-ls-vAy"/>
@@ -242,6 +243,8 @@
                 <constraint firstItem="Tqd-A0-Ylh" firstAttribute="top" secondItem="bMD-xk-VZ6" secondAttribute="bottom" constant="15" id="tkh-Ob-Lml"/>
                 <constraint firstItem="8GX-HR-Nx4" firstAttribute="leading" secondItem="3U2-af-1gt" secondAttribute="leading" id="zrp-E7-FmV"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="Rhj-5G-lgj"/>
+            <point key="canvasLocation" x="138.40000000000001" y="112.89355322338831"/>
         </view>
     </objects>
     <resources>
