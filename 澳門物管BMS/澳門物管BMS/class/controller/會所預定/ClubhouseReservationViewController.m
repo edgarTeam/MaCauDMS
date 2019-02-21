@@ -50,7 +50,7 @@
     //self.title=@"會所預定";
     self.title=LocalizedString(@"string_reservation_place_title");
 
-    self.edgesForExtendedLayout=UIRectEdgeNone;
+   // self.edgesForExtendedLayout=UIRectEdgeNone;
     [self createView];
 }
 
@@ -100,6 +100,7 @@
     NSMutableArray *resultArr=[NSMutableArray new];
     NSString *stratTime;
     NSString *endTime;
+    
     if (_strArr.count >=2) {
         
         arr=[_strArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
@@ -111,15 +112,26 @@
                 return NSOrderedAscending;
             }
         }];
-        
+//        int time=[[arr lastObject] intValue]+2;
+//        NSString *lastTime=[NSString stringWithFormat:@"%d",time];
+//        NSString *resultStr=[NSString stringWithFormat:@"0%@",lastTime];
+//        [arr addObject:resultStr];
         for (int i=0; i<arr.count; i++) {
             NSString *time=[arr[i] stringByAppendingString:@":00:00"];
             [resultArr addObject:time];
             NSLog(@"%@",resultArr[i]);
         }
         stratTime=[resultArr firstObject];
-        endTime=[resultArr lastObject];
-        
+        NSString *lastTime= [[resultArr lastObject] substringToIndex:2];
+        int time=[lastTime intValue]+2;
+        NSString *resultStr=[NSString stringWithFormat:@"%d",time];
+        if (resultStr.length==1) {
+            endTime=[NSString stringWithFormat:@"0%@:00:00",resultStr];
+        }else{
+            endTime=[resultStr stringByAppendingString:@":00:00"];
+        }
+      //  endTime=[resultArr lastObject];
+//        endTime=[resultStr stringByAppendingString:@":00:00"];
     }else if (_strArr.count ==1){
         stratTime=[[_strArr lastObject] stringByAppendingString:@":00:00"];
         int end=[[_strArr lastObject] intValue]+02;
@@ -436,7 +448,7 @@
 
 
     [self checkLogin];
-    [self createView];
+  //  [self createView];
     [self reuqestPlateList];
 }
 

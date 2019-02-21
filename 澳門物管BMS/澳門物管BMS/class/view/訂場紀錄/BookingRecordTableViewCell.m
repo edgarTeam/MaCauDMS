@@ -96,4 +96,23 @@
     }
     
 }
+
+- (CGFloat) getlabelHeiight:(NSString *)labelText label:(UILabel *)label{
+    UILabel *tempLabel = [[UILabel alloc]init];
+    tempLabel.numberOfLines = 0;
+    tempLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    tempLabel.textAlignment = NSTextAlignmentLeft;
+    tempLabel.text = labelText;
+    tempLabel.font = label.font;
+    CGSize labelSize = [tempLabel sizeThatFits:CGSizeMake(label.frame.size.width, MAXFLOAT)];
+    CGFloat height = ceil(labelSize.height)+1;
+    if (height> label.frame.size.height) {
+        return height;
+    } else{
+        return  label.frame.size.height;
+        
+    }
+}
+
+
 @end

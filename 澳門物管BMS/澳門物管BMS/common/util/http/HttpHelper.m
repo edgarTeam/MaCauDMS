@@ -494,21 +494,20 @@ static AFHTTPSessionManager *_manager;
 {
     [_manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [SVProgressHUD dismiss];
-        if ([CommonUtil isRequestWeatherOK:responseObject]) {
-            if (isString) {
-                success([responseObject objectForKey:@"result"]);
-            }else if([responseObject isKindOfClass:[NSDictionary class]]){
+        if ([CommonUtil isRequestMapOK:responseObject]) {
+           
+           if([responseObject isKindOfClass:[NSDictionary class]]){
                 NSData *jsonData = nil;
                 
-                if ([[responseObject objectForKey:@"result"] isKindOfClass:[NSString class]]) {
-                    jsonData = [[responseObject objectForKey:@"result"] dataUsingEncoding:NSUTF8StringEncoding];
-                } else if ([[responseObject objectForKey:@"result"] isKindOfClass:[NSDictionary class]]) {
-                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"result"] options:NSJSONWritingPrettyPrinted error:nil];
-                }else if([[responseObject objectForKey:@"result"] isKindOfClass:[NSArray class]]){
-                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"result"] options:NSJSONWritingPrettyPrinted error:nil];
+                if ([[responseObject objectForKey:@"lives"] isKindOfClass:[NSString class]]) {
+                    jsonData = [[responseObject objectForKey:@"lives"] dataUsingEncoding:NSUTF8StringEncoding];
+                } else if ([[responseObject objectForKey:@"lives"] isKindOfClass:[NSDictionary class]]) {
+                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"lives"] options:NSJSONWritingPrettyPrinted error:nil];
+                }else if([[responseObject objectForKey:@"lives"] isKindOfClass:[NSArray class]]){
+                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"lives"] options:NSJSONWritingPrettyPrinted error:nil];
                 }
                 
-                NSLog(@"%@",[[responseObject objectForKey:@"result"] class]);
+                NSLog(@"%@",[[responseObject objectForKey:@"lives"] class]);
                 NSError *err;
                 id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
                                                                   options:NSJSONReadingAllowFragments
@@ -535,7 +534,63 @@ static AFHTTPSessionManager *_manager;
 }
 
 
-
+- (void)getMapWithURL:(NSString *)URLString convertClassName:(NSString *)className parameters:(NSDictionary *)parameters isArray:(BOOL)isArray isString:(BOOL)isString success:(void (^)(id _Nonnull))success failure:(void (^)(NSError * _Nonnull))failure{
+    [_manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [SVProgressHUD dismiss];
+       // if ([CommonUtil isRequestWeatherOK:responseObject]) {
+        if ([CommonUtil isRequestMapOK:responseObject]) {
+            if (isString) {
+                success([responseObject objectForKey:@"regeocode"]);
+            }else if([responseObject isKindOfClass:[NSDictionary class]]){
+                NSData *jsonData = nil;
+                
+                if ([[responseObject objectForKey:@"regeocode"] isKindOfClass:[NSString class]]) {
+                    jsonData = [[responseObject objectForKey:@"regeocode"] dataUsingEncoding:NSUTF8StringEncoding];
+                } else if ([[responseObject objectForKey:@"regeocode"] isKindOfClass:[NSDictionary class]]) {
+                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"regeocode"] options:NSJSONWritingPrettyPrinted error:nil];
+                }else if([[responseObject objectForKey:@"regeocode"] isKindOfClass:[NSArray class]]){
+                    jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"regeocode"] options:NSJSONWritingPrettyPrinted error:nil];
+                }
+                
+                NSLog(@"%@",[[responseObject objectForKey:@"regeocode"] class]);
+                NSError *err;
+//                if (jsonData !=nil) {
+//                    id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
+//                                                                      options:NSJSONReadingAllowFragments
+//                                                                        error:&err];
+//                    if (className == nil || [@"" isEqualToString:className]) {
+//                        success(resultObject);
+//                    } else if (isArray) {
+//                        NSArray *data = [NSClassFromString(className) mj_objectArrayWithKeyValuesArray:resultObject];
+//                        success(data);
+//                    } else {
+//                        id obj = [NSClassFromString(className) mj_objectWithKeyValues:resultObject];
+//                        success(obj);
+//                    }
+//                }
+                id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                  options:NSJSONReadingAllowFragments
+                                                                    error:&err];
+                if (className == nil || [@"" isEqualToString:className]) {
+                    success(resultObject);
+                } else if (isArray) {
+                    NSArray *data = [NSClassFromString(className) mj_objectArrayWithKeyValuesArray:resultObject];
+                    success(data);
+                } else {
+                    id obj = [NSClassFromString(className) mj_objectWithKeyValues:resultObject];
+                    success(obj);
+                }
+                //                }else if (isBody){
+                //
+                //                }
+            }else{
+                [SVProgressHUD dismiss];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD dismiss];
+    }];
+}
 
 
 

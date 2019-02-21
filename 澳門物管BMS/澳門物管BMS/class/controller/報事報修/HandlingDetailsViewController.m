@@ -56,7 +56,7 @@
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事詳情";
     self.title=LocalizedString(@"string_report_maintenance_detail_title");
-    self.edgesForExtendedLayout=UIRectEdgeNone;
+   // self.edgesForExtendedLayout=UIRectEdgeNone;
     self.view.backgroundColor=[UIColor clearColor];
     
     //self.scrollView.contentSize=CGSizeMake(0, scrollerHeight);
@@ -94,13 +94,13 @@
     _imageCollectionView.layer.borderColor=RGB(63, 114, 156).CGColor;
     _imageCollectionView.scrollEnabled=NO;
     
-    _repairCommunityNameTitleLab.text=LocalizedString(@"string_repair_community_name_title");
-    _repairClientNameTitleLab.text=LocalizedString(@"string_repair_detail_client_name_title");
-    _repairContactTitleLab.text=LocalizedString(@"string_repair_detail_contact_sec_title");
-    _repairCreateTimeTitleLab.text=LocalizedString(@"string_repair_detail_create_time_sec_title");
-    _repairDiscribeTitleLab.text=LocalizedString(@"string_repair_describe_sec_title");
-    _repairVoiceTitleLab.text=LocalizedString(@"string_repair_detail_voice_sec_title");
-    _repairProgressTitleLab.text=LocalizedString(@"string_repair_progress_sec_title");
+    _repairCommunityNameTitleLab.text=LocalizedString(@"string_repair_community_name_third_title");
+    _repairClientNameTitleLab.text=LocalizedString(@"sreing_repair_detail_client_name_third_title");
+    _repairContactTitleLab.text=LocalizedString(@"string_repair_detail_contact_third_title");
+    _repairCreateTimeTitleLab.text=LocalizedString(@"string_repair_detail_create_time_third_title");
+    _repairDiscribeTitleLab.text=LocalizedString(@"string_repair_describe_third_title");
+    _repairVoiceTitleLab.text=LocalizedString(@"string_repair_detail_voice_third_title");
+    _repairProgressTitleLab.text=LocalizedString(@"string_repair_progress_third_title");
    // _repairHandlerTitleLab.text=LocalizedString(@"string_repair_handler_title");
     
    // _positionLab.text=@"sfdgdgtr看到過大過天後研究研究的風格桃花源地方很高";
@@ -161,8 +161,8 @@
         _positionLab.text=[NSString stringWithFormat:@"%@,%@",_complain.complainPosition,_complain.complainSpecificPosition];
       //  _handlerNameLab.text=_complain.complainHandler;
         _nameLab.text=_complain.complainLiaisonsName;
-//        _contactWayLab.text=_complain.complainLiaisonsEmail;
-          _contactWayLab.text=@"asssssddfggfhrd官方的客戶";
+        _contactWayLab.text=_complain.complainLiaisonsEmail;
+//          _contactWayLab.text=@"asssssddfggfhrd官方的客戶";
       //  _createTimeLab.text=_complain.createTime;
         _createTimeLab.text=_timeStr;
         _characterDescriptionLab.text=_complain.complainDescribe;

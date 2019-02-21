@@ -76,7 +76,7 @@
                         <constraint firstAttribute="height" constant="30" id="VWk-Z5-geA"/>
                         <constraint firstAttribute="width" constant="30" id="gJY-OI-7i9"/>
                     </constraints>
-                    <state key="normal" backgroundImage="button_del_take-photo">
+                    <state key="normal" backgroundImage="icon_delete">
                         <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -102,6 +102,6 @@
         </view>
     </objects>
     <resources>
-        <image name="button_del_take-photo" width="22" height="22"/>
+        <image name="icon_delete" width="20" height="20"/>
     </resources>
 </document>

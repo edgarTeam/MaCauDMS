@@ -28,12 +28,13 @@
     // Do any additional setup after loading the view from its nib.
    //self.title=@"公告";
     self.title=LocalizedString(@"String_notice_title");
-    self.edgesForExtendedLayout=UIRectEdgeNone;
+   // self.edgesForExtendedLayout=UIRectEdgeNone;
     //_tableView.separatorColor=[UIColor clearColor];
     _tableView.separatorInset=UIEdgeInsetsZero;
     _tableView.tableFooterView=[UIView new];
     _tableView.delegate=self;
     _tableView.dataSource=self;
+    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self requestNoticeList];
     }];

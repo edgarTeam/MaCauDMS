@@ -52,7 +52,7 @@
     self.sexTitleLab.text=LocalizedString(@"String_sex_title");
     self.telTitleLab.text=LocalizedString(@"String_tel_title");
     
-    self.edgesForExtendedLayout=UIRectEdgeNone;
+    //self.edgesForExtendedLayout=UIRectEdgeNone;
     //self.nameLab.text=[User shareUser].name;
     self.nameTextField.text=[User shareUser].name;
     if ([[User shareUser].sex integerValue]==0) {

@@ -29,6 +29,7 @@
 		BA09BB4E22154BE40092BDED /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09BB4D22154BE40092BDED /* DrawerViewController.m */; };
 		BA0F84C822165BD800EE6F0E /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0F84C622165BD800EE6F0E /* PlaceViewController.m */; };
 		BA0F84C922165BD800EE6F0E /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */; };
+		BA585C08221EA7EF002C26B8 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA585C07221EA7EE002C26B8 /* AddressModel.m */; };
 		BAA96DD72216CB24008CE03C /* PlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA96DD52216CB24008CE03C /* PlaceTableViewCell.m */; };
 		BAA96DD82216CB24008CE03C /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */; };
 		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
@@ -173,6 +174,8 @@
 		BA0F84C522165BD800EE6F0E /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		BA0F84C622165BD800EE6F0E /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
+		BA585C06221EA7EE002C26B8 /* AddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		BA585C07221EA7EE002C26B8 /* AddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
 		BAA96DD42216CB24008CE03C /* PlaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceTableViewCell.h; sourceTree = "<group>"; };
 		BAA96DD52216CB24008CE03C /* PlaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceTableViewCell.m; sourceTree = "<group>"; };
 		BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
@@ -476,6 +479,15 @@
 			path = "场地";
 			sourceTree = "<group>";
 		};
+		BA585C05221EA7D1002C26B8 /* 地理 */ = {
+			isa = PBXGroup;
+			children = (
+				BA585C06221EA7EE002C26B8 /* AddressModel.h */,
+				BA585C07221EA7EE002C26B8 /* AddressModel.m */,
+			);
+			path = "地理";
+			sourceTree = "<group>";
+		};
 		BAA96DD32216CAFC008CE03C /* 场地 */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,6 +786,7 @@
 		CB42089521C2B16F00980B64 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BA585C05221EA7D1002C26B8 /* 地理 */,
 				BA04798A221D8B08006AF8FD /* 建筑 */,
 				BA04405A21F84CE800B310EB /* 天气 */,
 				BA04C86321F193DD007A38AF /* 图片 */,
@@ -1228,6 +1241,7 @@
 				CB05464A21C6A4BB008BE895 /* LeftViewController.m in Sources */,
 				CBCB79C821CBD68500BF454D /* BookingRecordDetailViewController.m in Sources */,
 				CBFE45BE21C954DE00DD80E4 /* SettingViewController.m in Sources */,
+				BA585C08221EA7EF002C26B8 /* AddressModel.m in Sources */,
 				CB42089F21C2B1E600980B64 /* BaseNavigationViewController.m in Sources */,
 				CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */,
 				CB05F35B21E1AB2D00208C5E /* PhotpCollectionViewCell.m in Sources */,

@@ -6,6 +6,8 @@
 //  Copyright © 2018 geanguo_lucky. All rights reserved.
 //
 #define key @"b69afc34386eb6a0ea9a75cb492e5994"
+#define MapKey @"500ef4c149e398552d28ec9119aa826f"
+#define WeatherKey @"e6dd07561726c896670bb09a33d6e1e4"
 #import "UIViewController+MMDrawerController.h"
 #import "LeftViewController.h"
 #import <Masonry/Masonry.h>
@@ -22,6 +24,8 @@
 #import "HttpHelper.h"
 #import "Weather.h"
 #import <CoreLocation/CoreLocation.h>
+#import "AddressModel.h"
+
 @interface LeftViewController ()<UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate>
 
 @property (nonatomic,strong) UITableView *table;
@@ -41,11 +45,12 @@
     NSString * currentCity; //当前城市
     NSString *lonStr;//经度
     NSString *latStr;//纬度
+    NSString *adcode;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-   // [self creatView];
+    [self creatView];
     [self locate];
 }
 
@@ -55,6 +60,7 @@
     self.view.backgroundColor=[UIColor whiteColor];
     _headBtn=[UIButton buttonWithType:UIButtonTypeCustom];
    // _headBtn.backgroundColor=[UIColor redColor];
+    _headBtn.backgroundColor=[UIColor clearColor];
     _headBtn.layer.masksToBounds=YES;
     _headBtn.layer.cornerRadius=40;
    // [_headBtn setImage:[UIImage iSuspensionView.hmageNamed:@"work"] forState:UIControlStateNormal];
@@ -133,13 +139,14 @@
       [_loginOutBtn addTarget:self action:@selector(loginInBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self setUpLoginBtn];
     _weatherLab=[[UILabel alloc] init];
-    _weatherLab.textColor=RGB(138, 138, 138);
+   // _weatherLab.textColor=RGB(138, 138, 138);
+    _weatherLab.textColor=[UIColor blueColor];
     _weatherLab.font=[UIFont systemFontOfSize:16];
     _weatherLab.textAlignment=NSTextAlignmentLeft;
     [self.view addSubview:_weatherLab];
     [_weatherLab mas_makeConstraints:^(MASConstraintMaker *make){
         make.bottom.mas_equalTo(_loginOutBtn.mas_top).offset(-10);
-        make.left.mas_equalTo(50);
+        make.left.mas_equalTo(ScreenWidth/4-10);
         make.right.mas_equalTo(-10);
         make.height.mas_equalTo(20);
         
@@ -204,15 +211,16 @@
     }
     NSDictionary *para=@{
                         // @"cityname" :_cityName,
-                         @"lon":lonStr,
-                         @"lat" :latStr,
-                         @"key" :key
+                         @"city":adcode,
+                         @"key" :MapKey
                          };
-    [[HttpHelper shareHttpHelper] getWeatherWithURL:Kweather convertClassName:nil parameters:para isArray:NO isString:NO success:^(NSDictionary *dic){
+    [[HttpHelper shareHttpHelper] getWeatherWithURL:IOSWeather convertClassName:nil parameters:para isArray:NO isString:NO success:^(NSArray *dic){
         if (dic ==nil) {
             return ;
         }
-        Weather *weather=[Weather mj_objectWithKeyValues:[dic objectForKey:@"today"]];
+        NSMutableArray *weatherArr=[NSMutableArray new];
+         weatherArr=[Weather mj_objectArrayWithKeyValuesArray:dic];
+        Weather *weather=weatherArr[0];
         if ([weather.weather rangeOfString:@"晴"].location !=NSNotFound) {
             [_weatherImg setImage:[UIImage imageNamed:@"fine"]];
         }else if([weather.weather rangeOfString:@"多云"].location !=NSNotFound){
@@ -229,7 +237,7 @@
             [_weatherImg setImage:[UIImage imageNamed:@"overcast"]];
         }
         
-        _weatherLab.text=[NSString stringWithFormat:@" %@",weather.temperature];
+        _weatherLab.text=[NSString stringWithFormat:@" %@℃",weather.temperature];
     } failure:^(NSError *error){
         NSLog(@"%@",error);
     }];
@@ -343,7 +351,8 @@
     self.navigationController.navigationBar.hidden = YES;
 
     [self setUpLoginBtn];
-    [self creatView];
+   // [self creatView];
+   // [self requestMap];
 }
 
 
@@ -398,6 +407,7 @@
             }
             NSLog(@"%@",currentCity); //这就是当前的城市
           //  [self requestWeather];
+            [self requestMap];
            // NSLog(@"%@",placeMark.name);//具体地址:  xx市xx区xx街道
         }
         else if (error == nil && placemarks.count == 0) {
@@ -411,9 +421,32 @@
 }
 
 
+- (void)requestMap {
+    NSString *location=[NSString stringWithFormat:@"%@,%@",lonStr,latStr];
+    NSDictionary *para=@{
+                         @"location":location,
+                         @"key" :MapKey,
+                         @"output":@"JSON"
+                         
+                         };
+    [[HttpHelper shareHttpHelper] getMapWithURL:IOSMap convertClassName:nil parameters:para isArray:NO isString:NO success:^(NSDictionary *dic){
+        if (dic==nil) {
+            return ;
+        }
+        
+        AddressModel *model=[AddressModel mj_objectWithKeyValues:[dic objectForKey:@"addressComponent"]];
+        adcode=model.adcode;
+        [self requestWeather];
+     //   NSLog(@"%@",idcode);
+    } failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
 
 
-
+- (void)requestIOSWeather {
+    
+}
 
 
 

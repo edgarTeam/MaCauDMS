@@ -23,6 +23,7 @@
 #import "UUProgressHUD.h"
 #import "PickViewController.h"
 #import "BuildingModel.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 @interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *maintenanceTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *maintenanceCollectionView;
@@ -45,6 +46,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *repairTypeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *chooseBuildingBtn;
 @property (nonatomic,strong) NSMutableArray *buildingList;
+@property (weak, nonatomic) IBOutlet UITextField *repairTypeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *repairTitleTextField;
 @end
 
 @implementation ReportMaintenanceViewController
@@ -67,7 +70,7 @@
     self.dataSource=nil;
     self.voiceRemarkUrl=@"";
     
-    self.edgesForExtendedLayout=UIRectEdgeNone;
+   // self.edgesForExtendedLayout=UIRectEdgeNone;
     self.headView.hidden=YES;
     self.dataSource=[NSMutableArray new];
     self.communityList=[NSMutableArray new];
@@ -112,7 +115,7 @@
     _maintenanceCollectionView.layer.masksToBounds=YES;
     _maintenanceCollectionView.layer.cornerRadius=7.0;
     
-    _communityTitleLab.text=LocalizedString(@"string_repair_type_title");
+    _communityTitleLab.text=LocalizedString(@"string_repair_theme_title");
     _repairAddressTitleLab.text=LocalizedString(@"string_repair_address_title");
     
     [_recordBtn addTarget:self action:@selector(cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
@@ -146,14 +149,24 @@
 //        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
 //        return;
 //    }
-    if (_communityBtn.titleLabel.text.length==0) {
+//    if (_communityBtn.titleLabel.text.length==0) {
+//        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_theme_title")];
+//        return;
+//    }
+//    if (_repairTypeBtn.titleLabel.text.length ==0) {
+//        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_type_title")];
+//        return;
+//    }
+    if (_repairTitleTextField.text.length==0) {
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_theme_title")];
         return;
     }
-    if (_repairTypeBtn.titleLabel.text.length ==0) {
+    
+    if (_repairTypeTextField.text.length==0) {
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_type_title")];
         return;
     }
+    
     if (_chooseBuildingBtn.titleLabel.text.length==0) {
                 [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
                 return;
@@ -203,8 +216,8 @@
                          @"complainSpecificPosition":_addressTextField.text,
                          @"complainVoice":self.voiceRemarkUrl==nil?@"":self.voiceRemarkUrl,
                          @"complainDescribe":self.maintenanceTextView.text,
-                         @"complainClassType":_communityBtn.titleLabel.text,
-                         @"complainType":_repairTypeBtn.titleLabel.text,
+                         @"complainClassType":_repairTitleTextField.text,
+                         @"complainType":_repairTypeTextField.text,
                          @"complainId":[User shareUser].communityId,
                        //  @"images":[NSArray arrayWithObjects:picture]
                          @"images":mutArr
@@ -371,8 +384,12 @@
                             [_dataSource removeObjectAtIndex:indexPath.row-1];
                             [collectionView reloadData];
                         };
+//        [collectionView layoutIfNeeded];
+//        NSInteger index=indexPath.row;
+//            [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
         return _photoCell;
     }
+
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -485,15 +502,18 @@
 
 - (void)requestUploadImage:(NSData *)data{
 //    self.maintenanceCollectionView.allowsSelection=NO;
+    [SVProgressHUD show];
     NSDictionary *dic=@{
                         @"type":@(0)
                         };
     [[HttpHelper shareHttpHelper] postUploadImagesWithUrl:kUploadImg parameters:dic images:[NSArray arrayWithObject:[UIImage imageWithData:data]] completion:^(NSDictionary * info){
         if ([CommonUtil isRequestOK:info]) {
+            [SVProgressHUD dismiss];
             if ([[info allKeys]containsObject:@"data"]) {
                 NSDictionary *dic=[info objectForKey:@"data"];
                  PictureModel *picture=[PictureModel mj_objectWithKeyValues:dic];
                 if (picture.originalUrl!=nil) {
+                    [ZKAlertTool showAlertWithMsg:@"上传成功"];
                    // [_dataSource addObject:picture.originalUrl];
                     [_dataSource addObject:picture];
                     [self.maintenanceCollectionView reloadData];

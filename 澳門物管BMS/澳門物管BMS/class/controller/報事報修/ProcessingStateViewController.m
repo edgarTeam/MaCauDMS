@@ -24,7 +24,7 @@
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事狀態";
     self.title=LocalizedString(@"string_report_maintenance_list");
-    self.edgesForExtendedLayout=UIRectEdgeNone;
+   // self.edgesForExtendedLayout=UIRectEdgeNone;
     _processingStateTableView.delegate=self;
     _processingStateTableView.dataSource=self;
     _processingStateTableView.separatorColor=[UIColor clearColor];
