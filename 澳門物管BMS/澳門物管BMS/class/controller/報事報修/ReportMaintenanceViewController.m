@@ -216,8 +216,8 @@
                          @"complainSpecificPosition":_addressTextField.text,
                          @"complainVoice":self.voiceRemarkUrl==nil?@"":self.voiceRemarkUrl,
                          @"complainDescribe":self.maintenanceTextView.text,
-                         @"complainClassType":_communityBtn.titleLabel.text,
-                         @"complainType":_repairTypeBtn.titleLabel.text,
+                         @"complainClassType":_repairTitleTextField.text,
+                         @"complainType":_repairTypeTextField.text,
                          @"complainId":[User shareUser].communityId,
                        //  @"images":[NSArray arrayWithObjects:picture]
                          @"images":mutArr
