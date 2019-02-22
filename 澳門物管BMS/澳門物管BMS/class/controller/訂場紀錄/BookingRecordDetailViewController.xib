@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="bookingRecordDetailImageView" destination="1F1-Cb-16h" id="jZG-bb-42K"/>
                 <outlet property="clientName" destination="31o-FL-iRp" id="TX4-Y6-mbM"/>
+                <outlet property="imageViewHeight" destination="rVW-CY-Mdc" id="GXh-E1-gOx"/>
                 <outlet property="palceLab" destination="FqQ-bj-Oef" id="trm-IM-0hp"/>
                 <outlet property="placeClientNameTitleLab" destination="lIC-3g-Nu7" id="TFW-PC-fUr"/>
                 <outlet property="placeNameTitleLab" destination="Iu1-ke-gel" id="h7A-0B-gHl"/>
@@ -29,15 +30,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="1F1-Cb-16h">
-                    <rect key="frame" x="67.5" y="40" width="240" height="128"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1F1-Cb-16h">
+                    <rect key="frame" x="67.5" y="40" width="240" height="140"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="1F1-Cb-16h" secondAttribute="height" multiplier="15:8" id="Ll1-Tn-gyl"/>
                         <constraint firstAttribute="width" constant="240" id="qf2-mO-gEI"/>
+                        <constraint firstAttribute="height" constant="140" id="rVW-CY-Mdc"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O72-BB-tD7">
-                    <rect key="frame" x="30" y="188" width="315" height="469"/>
+                    <rect key="frame" x="30" y="200" width="315" height="457"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="場地:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iu1-ke-gel">
                             <rect key="frame" x="10" y="10" width="80" height="21"/>
@@ -134,7 +136,4 @@
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
         </view>
     </objects>
-    <resources>
-        <image name="empty" width="72" height="72"/>
-    </resources>
 </document>

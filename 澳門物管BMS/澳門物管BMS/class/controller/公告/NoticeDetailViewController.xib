@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticeDetailViewController">
             <connections>
                 <outlet property="createTimeLable" destination="Aga-Ul-GdQ" id="bKA-Li-BrN"/>
+                <outlet property="imageViewHeight" destination="hnR-et-uMC" id="rD6-9T-egB"/>
                 <outlet property="noticeConventTitleLab" destination="XDv-Gk-Af4" id="Ity-x7-Fcl"/>
                 <outlet property="noticeImageView" destination="nFo-bf-qfc" id="qKd-ox-HFb"/>
                 <outlet property="noticeTextView" destination="97u-Bv-mK9" id="BtB-bB-gAF"/>
@@ -39,7 +40,7 @@
                     <rect key="frame" x="0.0" y="70" width="375" height="200"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="nFo-bf-qfc" secondAttribute="height" multiplier="15:8" id="caY-zN-7xq"/>
+                        <constraint firstAttribute="height" constant="200" id="hnR-et-uMC"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创建时间:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ep-GP-PEe">

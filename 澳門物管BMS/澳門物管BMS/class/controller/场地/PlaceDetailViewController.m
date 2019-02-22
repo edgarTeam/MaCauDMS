@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIView *plateOpenView;
 @property (weak, nonatomic) IBOutlet UIView *plateContentView;
 @property (weak, nonatomic) IBOutlet UIImageView *openImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeight;
 
 @property (nonatomic,strong)Place *place;
 @end
@@ -105,6 +106,7 @@
         NSMutableArray *imageUrlArr=[NSMutableArray new];
         NSMutableArray *imageThumbnailArr=[NSMutableArray new];
         if (_place.images.count ==0 || _place.images ==nil) {
+            _imageViewHeight.constant=0;
             return;
         }
         for (NoticeSubList *notice in _place.images) {

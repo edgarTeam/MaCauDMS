@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeOrderTimeTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *placeClientNameTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *placeStatusTitleLab;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeight;
 @end
 
 @implementation BookingRecordDetailViewController
@@ -75,6 +76,7 @@
         NSMutableArray *imageUrlArr=[NSMutableArray new];
         NSMutableArray *imageThumbnailArr=[NSMutableArray new];
         if (_place.images.count ==0 || _place.images ==nil) {
+             self.imageViewHeight.constant=0;
             return;
         }
         for (NoticeSubList *notice in _place.images) {
@@ -86,6 +88,7 @@
             }
         }
         if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
+            self.imageViewHeight.constant=0;
             return;
         }
         if (imageUrlArr.count ==0 || imageUrlArr ==nil) {

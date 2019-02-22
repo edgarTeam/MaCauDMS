@@ -24,6 +24,7 @@
 @property (nonatomic,strong) NSString *timeStr;//時間
 @property (weak, nonatomic) IBOutlet UILabel *noticeTimeTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *noticeConventTitleLab;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeight;
 @end
 
 @implementation NoticeDetailViewController
@@ -77,6 +78,7 @@
        // self.createTimeLable.text=self.notice.createTime;
         self.noticeTextView.text=self.notice.noticeDetails;
         if (self.notice.noticeImage.count ==0 || self.notice.noticeImage ==nil ) {
+            _imageViewHeight.constant=0;
             return;
         }
         for (NoticeSubList *notice in self.notice.noticeImage) {
