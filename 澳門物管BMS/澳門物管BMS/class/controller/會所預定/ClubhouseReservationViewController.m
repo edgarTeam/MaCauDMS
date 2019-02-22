@@ -36,12 +36,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *plateNameTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *plateOrderDateLab;
 @property (weak, nonatomic) IBOutlet UILabel *plateChooseTimeLab;
+
 @end
 
 @implementation ClubhouseReservationViewController
 {
     //NSArray *dataSource;
-    NSString *placeId;
+    //NSString *placeId;
 //    NSArray *placeList;
 }
 - (void)viewDidLoad {
@@ -149,7 +150,7 @@
 //    for (int j=0; j<arr.count; j++) {
 //        arr[j]=[arr[j] componentsSeparatedByString:@":00:00"];
 //    }
-    if (placeId.length==0) {
+    if (_placeId.length==0) {
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_place_title")];
         return;
     }
@@ -158,7 +159,7 @@
     
     NSDictionary *para=@{
                          @"orderDate":orderDateStr,
-                         @"placeId":placeId,
+                         @"placeId":_placeId,
                          @"orderStartTime":stratTime,
                          @"orderEndTime":endTime
                          };
@@ -196,11 +197,12 @@
 - (IBAction)plateBtnAction:(UIButton *)sender {
     
    // self.plateMenu=[LSXPopMenu showRelyOnView:sender titles:_placeList icons:nil menuWidth:100 isShowTriangle:YES delegate:self];
+    
     PlaceViewController *placeVC=[PlaceViewController new];
-    placeVC.placeNameBlock=^(NSString *placeName, NSString *placeID){
-        placeId=placeID;
-        [self.plateBtn setTitle:placeName forState:UIControlStateNormal];
-    };
+//    placeVC.placeNameBlock=^(NSString *placeName, NSString *placeID){
+//        placeId=placeID;
+//        [self.plateBtn setTitle:placeName forState:UIControlStateNormal];
+//    };
     [self presentViewController:placeVC animated:YES completion:nil];
 }
 
@@ -445,7 +447,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
-
+[self.plateBtn setTitle:_placeName forState:UIControlStateNormal];
 
     [self checkLogin];
   //  [self createView];
@@ -455,6 +457,6 @@
 #pragma mark LSXPopMenuDelegate
 - (void)LSXPopupMenuDidSelectedAtIndex:(NSInteger)index LSXPopupMenu:(LSXPopMenu *)LSXPopupMenu{
     [self.plateBtn setTitle:_placeList[index] forState:UIControlStateNormal];
-    placeId=_placeIdArr[index];
+    _placeId=_placeIdArr[index];
 }
 @end

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ClubhouseReservationViewController : BaseViewController
 @property (nonatomic,strong)NSString *keyword;
+@property (nonatomic,strong) NSString *placeId;
+@property (nonatomic,strong) NSString *placeName;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -31,6 +31,8 @@
     
     _loginBtn.layer.masksToBounds=YES;
     _loginBtn.layer.cornerRadius=5.0;
+    _accountTextField.delegate=self;
+    _psdTextField.delegate=self;
 }
 
 /*
@@ -83,6 +85,10 @@
 - (IBAction)forgetBtnAction:(id)sender {
     ForgetPswViewController *forgetVC=[[ForgetPswViewController alloc] init];
     [self.navigationController pushViewController:forgetVC animated:YES];
+}
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_psdTextField resignFirstResponder];
+    [_accountTextField resignFirstResponder];
 }
 
 

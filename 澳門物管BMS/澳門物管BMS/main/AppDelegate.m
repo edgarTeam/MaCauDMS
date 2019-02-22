@@ -25,6 +25,7 @@
 #import "DrawerViewController.h"
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
+#import "BaseNavigationViewController.h"
 #endif
 
 @interface AppDelegate ()<SuspensionMenuDelegate,JPUSHRegisterDelegate>
@@ -38,8 +39,8 @@
 @property (nonatomic,strong)  UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic) BOOL show;
 @property (nonatomic,strong) NSMutableArray *btnArr;
-@property (nonatomic,strong) UINavigationController *centerNvaVC;
-@property (nonatomic,strong) UINavigationController *leftNvaVC;
+@property (nonatomic,strong) BaseNavigationViewController *centerNvaVC;
+@property (nonatomic,strong) BaseNavigationViewController *leftNvaVC;
 @property (nonatomic,strong) NSMutableArray *labelArr;
 @property (nonatomic,strong) NSMutableArray *labelNameArr;
 
@@ -59,7 +60,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [self openTouchOutsideDismissKeyboard];
+   // [self openTouchOutsideDismissKeyboard];
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
     if (@available(iOS 12.0, *)) {
         entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
@@ -102,9 +103,10 @@
 //    _setVC=[[SettingViewController alloc] init];
     MainViewController *mainVC=[[MainViewController alloc] init];
     LeftViewController *leftVC=[[LeftViewController alloc] init];
-    _centerNvaVC= [[UINavigationController alloc]initWithRootViewController:mainVC];
-    _leftNvaVC = [[UINavigationController alloc]initWithRootViewController:leftVC];
+    _centerNvaVC= [[BaseNavigationViewController alloc]initWithRootViewController:mainVC];
+    _leftNvaVC = [[BaseNavigationViewController alloc]initWithRootViewController:leftVC];
      self.drawer = [[MMDrawerController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];
+    
     self.drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     self.drawer.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
     self.drawer.maximumLeftDrawerWidth = ScreenWidth/2;

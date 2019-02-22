@@ -8,7 +8,7 @@
 
 #import "ChangePswViewController.h"
 #import "ZKAlertTool.h"
-@interface ChangePswViewController ()
+@interface ChangePswViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *oldPsdTextField;
 @property (weak, nonatomic) IBOutlet UITextField *changePsdTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPsdTextField;
@@ -23,6 +23,9 @@
     // Do any additional setup after loading the view from its nib.
     self.title=LocalizedString(@"String_change_psd_title");
     [_confirmBtn setTitle:LocalizedString(@"String_confirm") forState:UIControlStateNormal];
+    _oldPsdTextField.delegate=self;
+    _changePsdTextField.delegate=self;
+    _confirmPsdTextField.delegate=self;
 }
 
 /*
@@ -34,7 +37,7 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)confirmBtnAction:(UIButton *)sender {
+- (void)requestChangePSD {
     if (_oldPsdTextField.text.length ==0) {
         [[[UIAlertView alloc] initWithTitle:nil message:LocalizedString(@"string_old_psw_alert") delegate:nil cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles:nil] show];
         return;
@@ -56,13 +59,29 @@
                          @"newpassword":_changePsdTextField.text
                          };
     [[WebAPIHelper sharedWebAPIHelper] postUpdatePsd:para completion:^(NSString *result){
-//        if (result ==nil) {
-//            return ;
-//        }
+        //        if (result ==nil) {
+        //            return ;
+        //        }
         NSLog(@"%@",result);
-//        [ZKAlertTool showAlertWithMsg:result];
+        //        [ZKAlertTool showAlertWithMsg:result];
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_change_psd_alert_title")];
     }];
+}
+
+- (IBAction)confirmBtnAction:(UIButton *)sender {
+    [self requestChangePSD];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_oldPsdTextField resignFirstResponder];
+    [_changePsdTextField resignFirstResponder];
+    [_confirmPsdTextField resignFirstResponder];
+}
+#pragma mark UITextField-Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    [self requestChangePSD];
+    return YES;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

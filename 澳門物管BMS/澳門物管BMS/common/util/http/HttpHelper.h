@@ -123,7 +123,11 @@ NS_ASSUME_NONNULL_BEGIN
                   success:(void (^)(id obj))success
                   failure:(void (^)(NSError *error))failure;
 
-
+- (void)deleteFileWithURL:(NSString *)URLString
+               parameters:(id)parameters
+                 filePath:(NSString *)filePath
+                  success:(void (^)(id result))success
+                  failure:(void (^)(NSError *error))failure;
 @end
 
 NS_ASSUME_NONNULL_END

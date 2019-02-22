@@ -10,6 +10,9 @@
 #import <SDCycleScrollView/SDCycleScrollView.h>
 #import "Place.h"
 #import <MJExtension/MJExtension.h>
+#import "BaseNavigationViewController.h"
+#import "ClubhouseReservationViewController.h"
+#import "DrawerViewController.h"
 @interface PlaceDetailViewController ()<SDCycleScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
@@ -23,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *plateContentLab;
 @property (weak, nonatomic) IBOutlet UIView *plateOpenView;
 @property (weak, nonatomic) IBOutlet UIView *plateContentView;
+@property (weak, nonatomic) IBOutlet UIImageView *openImageView;
 
 @property (nonatomic,strong)Place *place;
 @end
@@ -51,8 +55,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 - (IBAction)submitBtnAction:(id)sender {
-    
+    MMDrawerController *mm=self.presentingViewController.presentingViewController;
+    BaseNavigationViewController *nvc=[mm centerViewController];
+    ClubhouseReservationViewController *clubVC=[[nvc viewControllers] objectAtIndex:1];
+    clubVC.placeId=_placeID;
+    clubVC.placeName=_place.placeName;
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)cancelBtnAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -82,11 +92,13 @@
         _maximumDayLab.text=[NSString stringWithFormat:@"%ld",_place.placeFarthestOrderDay];
         _advanceDayLab.text=[NSString stringWithFormat:@"%ld",_place.placeAdvanceOrderDay];
         if (_place.placeStatus==0) {
-            _openStatusLab.text=@"未開放";
-            _openView.backgroundColor=[UIColor redColor];
+          //  _openStatusLab.text=@"未開放";
+           // _openView.backgroundColor=[UIColor redColor];
+            _openImageView.hidden=NO;
         }else if(_place.placeStatus==1){
-            _openStatusLab.text=@"開放";
-            _openView.backgroundColor=[UIColor greenColor];
+            _openImageView.hidden=YES;
+           // _openStatusLab.text=@"開放";
+           // _openView.backgroundColor=[UIColor greenColor];
         }
         _plateNameLab.text=_place.placeName;
         _plateContentLab.text=_place.placeIntroduction;

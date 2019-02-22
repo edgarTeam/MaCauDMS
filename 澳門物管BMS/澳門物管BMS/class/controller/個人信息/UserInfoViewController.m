@@ -14,7 +14,9 @@
 #import "HttpHelper.h"
 #import "CommonUtil.h"
 #import "ZKAlertTool.h"
-@interface UserInfoViewController ()<UIImagePickerControllerDelegate>
+#import "PictureModel.h"
+#import <Photos/Photos.h>
+@interface UserInfoViewController ()<UIImagePickerControllerDelegate,UITextFieldDelegate>
 //@property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField; //姓名
 @property (weak, nonatomic) IBOutlet UILabel *sexLab; //性别
@@ -45,7 +47,8 @@
     UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:_rightBtn];
     self.navigationItem.rightBarButtonItem=rightItem;
     
-    
+    _nameTextField.delegate=self;
+    _telTextField.delegate=self;
     
     self.headTitleLab.text=LocalizedString(@"String_head_title");
     self.nameTitleLab.text=LocalizedString(@"String_name_title");
@@ -100,12 +103,34 @@
 - (void)showChangeAvatarAlert {
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *alertAc1 = [UIAlertAction actionWithTitle:LocalizedString(@"string_take_album") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary andCameraCaptureMode:UIImagePickerControllerCameraCaptureModeVideo];
+        PHAuthorizationStatus status=[PHPhotoLibrary authorizationStatus];
+        if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
+            NSLog(@"没有权限");
+            [ZKAlertTool showAlertWithMsg:@"请您在设置中设置允许应用访问您的相册"];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary andCameraCaptureMode:UIImagePickerControllerCameraCaptureModeVideo];
+                
+                NSLog(@"拿到相册");
+            });
+        }
+//        [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary andCameraCaptureMode:UIImagePickerControllerCameraCaptureModeVideo];
     }];
     
     UIAlertAction *alertAc2 = [UIAlertAction actionWithTitle:LocalizedString(@"string_take_photo") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera andCameraCaptureMode:UIImagePickerControllerCameraCaptureModePhoto];
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted){
+            if (granted) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera andCameraCaptureMode:UIImagePickerControllerCameraCaptureModePhoto];
+                    NSLog(@"正在访问相机");
+                });
+            }else{
+                [ZKAlertTool showAlertWithMsg:@"请您在设置中设置允许应用访问您的相机"];
+                NSLog(@"无权访问相机权限");
+                
+            }
+        }];
+//        [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera andCameraCaptureMode:UIImagePickerControllerCameraCaptureModePhoto];
         
     }];
     UIAlertAction *alertAc3 = [UIAlertAction actionWithTitle:LocalizedString(@"String_cancel") style:UIAlertActionStyleCancel handler:nil];
@@ -210,12 +235,22 @@
                         };
     [[HttpHelper shareHttpHelper] postUploadImagesWithUrl:kUploadImg parameters:dic images:[NSArray arrayWithObject:[UIImage imageWithData:data]] completion:^(NSDictionary * info){
         if ([CommonUtil isRequestOK:info]) {
-            
-            NSDictionary *dic = [info objectForKey:@"data"];
-            NSString *path = [dic objectForKey:@"path"];
-            if (path) {
-                [[User shareUser] setPortrait:path];
+            if ([[info allKeys]containsObject:@"data"]) {
+                NSDictionary *dic=[info objectForKey:@"data"];
+                PictureModel *picture=[PictureModel mj_objectWithKeyValues:dic];
+                if (picture.originalUrl!=nil) {
+                    [[User shareUser] setPortrait:picture.originalUrl];
+                    //[ZKAlertTool showAlertWithMsg:@"上传成功"];
+                    // [_dataSource addObject:picture.originalUrl];
+                   
+                }
+                
             }
+//            NSDictionary *dic = [info objectForKey:@"data"];
+//            NSString *path = [dic objectForKey:@"path"];
+//            if (path) {
+//                [[User shareUser] setPortrait:path];
+//            }
         }
     }];
     
@@ -287,15 +322,14 @@
         
 //        user =  [User mj_objectWithKeyValues:[dic objectForKey:@"user"]];
 //        [CommonUtil storeUser];
-//        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_change_info_alert_title")];
-//
-//        self.submitBtn.hidden=YES;
-//        self.telTextField.enabled=NO;
-//        self.nameTextField.enabled=NO;
-//        self.changeBtn.enabled=NO;
-//        self.changeSexBtn.enabled=NO;
-//        self.rightBtn.hidden=NO;
-//        self.changeTelBtn.enabled=NO;
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_change_info_alert_title")];
+        self.submitBtn.hidden=YES;
+        self.telTextField.enabled=NO;
+        self.nameTextField.enabled=NO;
+        self.changeBtn.enabled=NO;
+        self.changeSexBtn.enabled=NO;
+        self.rightBtn.hidden=NO;
+       // self.changeTelBtn.enabled=NO;
         //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
     } failure:^(NSError *error){
         
@@ -323,16 +357,24 @@
     UIAlertAction *alertAc2 = [UIAlertAction actionWithTitle:LocalizedString(@"string_sex_female") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         self.sexLab.text=LocalizedString(@"string_sex_female");
     }];
-
+    UIAlertAction *alertAc3 = [UIAlertAction actionWithTitle:LocalizedString(@"String_cancel") style:UIAlertActionStyleCancel handler:nil];
     [alertC addAction:alertAc1];
     [alertC addAction:alertAc2];
-    
+    [alertC addAction:alertAc3];
     [self presentViewController:alertC animated:NO completion:nil];
     
 }
 
 
-
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_telTextField resignFirstResponder];
+    [_nameTextField resignFirstResponder];
+}
+#pragma mark UITextField-Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

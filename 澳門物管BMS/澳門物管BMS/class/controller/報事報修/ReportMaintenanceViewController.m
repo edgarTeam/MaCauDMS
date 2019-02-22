@@ -24,6 +24,7 @@
 #import "PickViewController.h"
 #import "BuildingModel.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <Photos/Photos.h>
 @interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *maintenanceTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *maintenanceCollectionView;
@@ -223,8 +224,8 @@
                          @"complainClassType":_repairTitleTextField.text,
                          @"complainType":_repairTypeTextField.text,
                          @"complainId":[User shareUser].communityId,
-                       //  @"images":[NSArray arrayWithObjects:picture]
-                         @"images":mutArr
+                         @"images":[NSArray arrayWithObjects:picture, nil]
+//                         @"images":mutArr
                          };
 //    NSDictionary *dic=@{
 //                        @"complain":para
@@ -383,9 +384,12 @@
              [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row-1]]] placeholderImage:image];
             _photoCell.deleteBtn.hidden=NO;
             [_photoCell.activityIndicatorView stopAnimating];
+            _photoCell.activityIndicatorView.hidden=YES;
         }];
         _photoCell.deleteBtnAction = ^{
                             NSLog(@"%ld",_dataSource.count);
+            PictureModel *model = [_dataSource objectAtIndex:indexPath.row-1];
+            [self deleteFileUrl:model.originalUrl];
                             [_dataSource removeObjectAtIndex:indexPath.row-1];
                             [collectionView reloadData];
                         };
@@ -408,12 +412,35 @@
 - (void)showChangeAvatarAlert {
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *alertAc1 = [UIAlertAction actionWithTitle:LocalizedString(@"string_take_album") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary andCameraCaptureMode:UIImagePickerControllerCameraCaptureModeVideo];
+        PHAuthorizationStatus status=[PHPhotoLibrary authorizationStatus];
+        if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
+            NSLog(@"没有权限");
+            [ZKAlertTool showAlertWithMsg:@"请您在设置中设置允许应用访问您的相册"];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary andCameraCaptureMode:UIImagePickerControllerCameraCaptureModeVideo];
+                
+                NSLog(@"拿到相册");
+            });
+        }
+//        [self showImagePickerForSourceType:UIImagePickerControllerSourceTypePhotoLibrary andCameraCaptureMode:UIImagePickerControllerCameraCaptureModeVideo];
     }];
     
     UIAlertAction *alertAc2 = [UIAlertAction actionWithTitle:LocalizedString(@"string_take_photo") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted){
+            if (granted) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                     [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera andCameraCaptureMode:UIImagePickerControllerCameraCaptureModePhoto];
+                    NSLog(@"正在访问相机");
+                });
+            }else{
+                [ZKAlertTool showAlertWithMsg:@"请您在设置中设置允许应用访问您的相机"];
+                NSLog(@"无权访问相机权限");
+                
+            }
+        }];
         
-        [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera andCameraCaptureMode:UIImagePickerControllerCameraCaptureModePhoto];
+//        [self showImagePickerForSourceType:UIImagePickerControllerSourceTypeCamera andCameraCaptureMode:UIImagePickerControllerCameraCaptureModePhoto];
         
     }];
     UIAlertAction *alertAc3 = [UIAlertAction actionWithTitle:LocalizedString(@"String_cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
@@ -700,6 +727,7 @@
 }
 
 - (IBAction)deleteBtnAction:(id)sender {
+    [self deleteFileUrl:self.voiceRemarkUrl];
     self.voiceRemarkUrl=@"";
     self.playBtn.hidden=YES;
     self.deleteBtn.hidden=YES;
@@ -721,11 +749,18 @@
     [self requestBuildingList];
 }
 
-//- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-//    [self isFirstResponder];
-//    return YES;
-//}
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_addressTextField resignFirstResponder];
+    [_repairTypeTextField resignFirstResponder];
+    [_repairTitleTextField resignFirstResponder];
+    [_maintenanceTextView resignFirstResponder];
+}
+#pragma mark UITextField-Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 //- (void)viewDidDisappear:(BOOL)animated{
 //
 //    [self.communityBtn setTitle:@"" forState:UIControlStateNormal];
@@ -733,4 +768,19 @@
 //    self.maintenanceTextView.text=@"";
 //    self.voiceRemarkUrl=@"";
 //}
+- (void)deleteFileUrl:(NSString *)str{
+    [SVProgressHUD show];
+    NSDictionary *dic=@{
+                        @"path":str
+                        };
+    [[HttpHelper shareHttpHelper] deleteFileWithURL:deleteFile parameters:dic filePath:nil success:^(NSDictionary *info){
+//        if (info==nil) {
+//            return;
+//        }
+        [SVProgressHUD dismiss];
+    } failure:^(NSError * error){
+        NSLog(@"%@",error);
+    }];
+}
+
 @end

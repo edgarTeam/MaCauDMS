@@ -482,6 +482,19 @@ static AFHTTPSessionManager *_manager;
 }
 
 
+- (void)deleteFileWithURL:(NSString *)URLString parameters:(id)parameters filePath:(NSString *)filePath success:(void (^)(id _Nonnull))success failure:(void (^)(NSError * _Nonnull))failure{
+    [_manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * task, id responseObject) {
+        if ([CommonUtil isRequestOK:responseObject]) {
+            success(responseObject[@"data"]);
+        }else{
+            success(nil);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        success(nil);
+    }];
+}
+
+
 
 - (void)getWeatherWithURL:(NSString *)URLString
   convertClassName:(NSString *)className

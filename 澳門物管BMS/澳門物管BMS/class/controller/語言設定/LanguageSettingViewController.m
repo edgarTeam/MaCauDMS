@@ -12,10 +12,24 @@
 #import "DrawerViewController.h"
 #import "LeftViewController.h"
 #import "MainViewController.h"
-@interface LanguageSettingViewController ()
+#import "BaseNavigationViewController.h"
+#import "SuspensionMenu.h"
+#import "SuspensionModel.h"
+#import "ComplainViewController.h"
+#import "ClubhouseReservationViewController.h"
+#import "ReportMaintenanceViewController.h"
+#import "SettingViewController.h"
+@interface LanguageSettingViewController ()<SuspensionMenuDelegate>
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *imageArray;
-@property (nonatomic,strong) UINavigationController *centerNvaVC;
-@property (nonatomic,strong) UINavigationController *leftNvaVC;
+@property (nonatomic,strong) BaseNavigationViewController *centerNvaVC;
+@property (nonatomic,strong) BaseNavigationViewController *leftNvaVC;
+
+@property (nonatomic,strong) ComplainViewController *complainVC;
+@property (nonatomic,strong) ClubhouseReservationViewController *clubVC;
+@property (nonatomic,strong) ReportMaintenanceViewController *reportVC;
+@property (nonatomic,strong) SettingViewController *setVC;
+@property (nonatomic, strong) NSArray *menuArray;
+@property (nonatomic, strong) SuspensionMenu *suspensionMenu;
 @end
 
 @implementation LanguageSettingViewController
@@ -90,25 +104,89 @@
             break;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-//        MainViewController *mainVC=[[MainViewController alloc] init];
-//        self.mm_drawerController.centerViewController=mainVC;
-//        [UIApplication sharedApplication].keyWindow.rootViewController =self.mm_drawerController.centerViewController;
-      //  [UIApplication sharedApplication].keyWindow.rootViewController = [[MainViewController alloc] init];
+
         MainViewController *mainVC=[[MainViewController alloc] init];
         LeftViewController *leftVC=[[LeftViewController alloc] init];
-        _centerNvaVC= [[UINavigationController alloc]initWithRootViewController:mainVC];
-        _leftNvaVC = [[UINavigationController alloc]initWithRootViewController:leftVC];
+        _centerNvaVC= [[BaseNavigationViewController alloc]initWithRootViewController:mainVC];
+        _leftNvaVC = [[BaseNavigationViewController alloc]initWithRootViewController:leftVC];
         DrawerViewController *drawer = [[MMDrawerController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];
         drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
         drawer.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
         drawer.maximumLeftDrawerWidth = ScreenWidth/2;
         drawer.maximumRightDrawerWidth = ScreenWidth/2;
-       // DrawerViewController *drawer=[[DrawerViewController alloc] init];
+        self.suspensionMenu = [[SuspensionMenu alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
+        self.suspensionMenu.delegate = self;
         [UIApplication sharedApplication].keyWindow.rootViewController =drawer;
+        [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:_suspensionMenu];
+        [[UIApplication sharedApplication].keyWindow.rootViewController.view bringSubviewToFront:_suspensionMenu];
+       // [drawer  addSubview:_suspensionMenu];
+       // [self.window.rootViewController.view bringSubviewToFront:_suspensionMenu];
+// [self.window.rootViewController.view bringSubviewToFront:_suspensionMenu];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         });
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"String_Alert_title")];
     });
 }
+#pragma suspensionDelegate
 
+-(void)selectMenuAtIndex:(NSInteger)index{
+    _reportVC=[[ReportMaintenanceViewController alloc] init];
+    switch (index) {
+        case 3:
+            
+            
+            //            if (![baseVC login]) {
+            ////                [_reportVC setTitle:@"投訴"];
+            ////                [_centerNvaVC pushViewController:_reportVC animated:YES];
+            //                return;
+            //            }
+            
+            [_reportVC setTitle:LocalizedString(@"string_complain_title")];
+            [_centerNvaVC pushViewController:_reportVC animated:YES];
+            break;
+        case 1:
+            //            if (![baseVC login]) {
+            ////            [_centerNvaVC pushViewController:_clubVC animated:YES];
+            //                return;
+            //            }
+            _clubVC=[[ClubhouseReservationViewController alloc] init];
+            [_centerNvaVC pushViewController:_clubVC animated:YES];
+            
+            break;
+        case 2:
+            //            if (![baseVC login]) {
+            ////            [_reportVC setTitle:@"報事維修"];
+            ////            [_centerNvaVC pushViewController:_reportVC animated:YES];
+            //                return;
+            //            }
+            // _reportVC=[[ReportMaintenanceViewController alloc] init];
+            [_reportVC setTitle:LocalizedString(@"string_report_maintenance_title")];
+            [_centerNvaVC pushViewController:_reportVC animated:YES];
+            break;
+        case 0:
+            //            if (![baseVC login]) {
+            ////            [_centerNvaVC pushViewController:_setVC animated:YES];
+            //                return;
+            //            }
+            _setVC=[[SettingViewController alloc] init];
+            [_centerNvaVC pushViewController:_setVC animated:YES];
+            break;
+        default:
+            break;
+    }
+}
+
+
+#pragma getter
+
+-(NSArray *)menuArray{
+    if (!_menuArray) {
+        SuspensionModel *setting = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_set_title") image:@"settingsec"];
+        SuspensionModel *place = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_reservation_place_title") image:@"place"];
+        SuspensionModel *repairsec = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_report_maintenance_title") image:@"repairsec"];
+        SuspensionModel *complain = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_complain_title") image:@"complain"];
+        _menuArray = [NSArray arrayWithObjects:setting,place,repairsec,complain, nil];
+    }
+    return _menuArray;
+}
 @end

@@ -9,8 +9,8 @@
 #import "DrawerViewController.h"
 
 @interface DrawerViewController ()
-@property (nonatomic,strong) UINavigationController *centerNvaVC;
-@property (nonatomic,strong) UINavigationController *leftNvaVC;
+//@property (nonatomic,strong) UINavigationController *centerNvaVC;
+//@property (nonatomic,strong) UINavigationController *leftNvaVC;
 @end
 
 @implementation DrawerViewController
