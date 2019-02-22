@@ -50,7 +50,10 @@
 //建筑
 #define kBuildingList kBaseUrl @"/api/building/list"
 
+#define deleteFile kBaseUrl @"/api/file/delFile"
+
 #define Kweather @"http://v.juhe.cn/weather/geo"
+
 
 
 #define IOSMap @"https://restapi.amap.com/v3/geocode/regeo"
