@@ -53,7 +53,7 @@
                     [drawer closeDrawerAnimated:YES completion:^(BOOL finished){
                                             [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
                                         }];
-                    NSLog(@"aaa");
+                   
                 }];
 //                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_request_login_miss_code")];
 //                UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"string_request_login_miss_code") preferredStyle:UIAlertControllerStyleAlert];
