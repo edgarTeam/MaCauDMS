@@ -23,11 +23,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _gradientView=[[GradientView alloc] init];
+//     self.edgesForExtendedLayout=UIRectEdgeAll;
 //self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+//
+//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
         [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : RGB(230, 230, 230),NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:17]}];
- //   self.navigationController.navigationBar.translucent = YES;
+//    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.barTintColor = RGB(43, 183, 224);
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    self.navigationController.navigationBar.translucent = NO;
     [self.view addSubview:_gradientView];
     [_gradientView mas_makeConstraints:^(MASConstraintMaker *make){
         make.edges.mas_equalTo(UIEdgeInsetsZero);
@@ -48,7 +53,9 @@
     UIBarButtonItem *back=[[UIBarButtonItem alloc]initWithCustomView:_btn];
     self.navigationItem.leftBarButtonItem=back;
  
-   
+//    _statusRectHeight=[[UIApplication sharedApplication] statusBarFrame].size.height;
+//    _navRectHeight=self.navigationController.navigationBar.frame.size.height;
+//    _totleHeight=_statusRectHeight+_navRectHeight;
 }
 
 -(void)checkLogin{

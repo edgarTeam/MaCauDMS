@@ -126,3 +126,5 @@ string_repair_progress_title = "報修進度";
 string_repair_handler_title = "處理人";
 string_confirm_reset_psd_title = "確認重置密碼";
 string_choose_plate_alert_title = "請選擇場地";
+
+string_privacy_title = "隱私政策";

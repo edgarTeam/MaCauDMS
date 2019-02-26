@@ -10,12 +10,13 @@
 #import "LanguageSettingViewController.h"
 #import "ChangePswViewController.h"
 #import "ContactUSViewController.h"
+#import "WebViewController.h"
 @interface SettingViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *changePsdBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *psdBtnHeight;
 @property (weak, nonatomic) IBOutlet UIButton *changeLanguageBtn;
 @property (weak, nonatomic) IBOutlet UIButton *AboutUsBtn;
-@property (weak, nonatomic) IBOutlet UIButton *pricacyBtn;
+@property (weak, nonatomic) IBOutlet UIButton *privacyBtn;
 
 
 
@@ -35,6 +36,17 @@
     [self.changePsdBtn setTitle:LocalizedString(@"String_change_psd_title") forState:UIControlStateNormal];
     [self.changeLanguageBtn setTitle:LocalizedString(@"string_language_setting_title") forState:UIControlStateNormal];
     [self.AboutUsBtn setTitle:LocalizedString(@"string_about_us_title") forState:UIControlStateNormal];
+    NSDictionary *attribtDic =
+    @{NSUnderlineStyleAttributeName: [NSNumber
+                                      numberWithInteger:NSUnderlineStyleSingle]
+      };
+    NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:LocalizedString(@"string_privacy_title")
+                                                                                  attributes:attribtDic];
+    [attribtStr addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, LocalizedString(@"string_privacy_title").length)];
+    
+    
+    self.privacyBtn.titleLabel.attributedText =attribtStr;
+    [self.privacyBtn setAttributedTitle:attribtStr forState:UIControlStateNormal];
 }
 - (IBAction)chooseBtnAction:(UIButton *)sender {
     switch (sender.tag) {
@@ -59,7 +71,9 @@
             break;
     }
 }
-- (IBAction)pricacyBtnAction:(id)sender {
+- (IBAction)privacyBtnAction:(id)sender {
+    WebViewController *webVC = [[WebViewController alloc] initWithPath:@"http://songsong.fun/file/privacy.html" title:LocalizedString(@"string_privacy_title")];
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 /*
@@ -74,10 +88,17 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
+   
+//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+//
+//     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : RGB(230, 230, 230),NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:17]}];
     if (self.token.length==0) {
         _changePsdBtn.hidden=YES;
         _psdBtnHeight.constant=0;
     }
 
 }
+
+
 @end

@@ -13,7 +13,7 @@
 #import "UILabel+LabelHeightAndWidth.h"
 #import "PhotpCollectionViewCell.h"
 #import "PictureModel.h"
-@interface HandlingDetailsViewController ()<UIGestureRecognizerDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+@interface HandlingDetailsViewController ()<UIGestureRecognizerDelegate,UICollectionViewDelegate,UICollectionViewDataSource,AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *centerView;
 @property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
@@ -44,6 +44,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *characterDescriptionLab;
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionHeight;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (nonatomic,strong) PhotpCollectionViewCell *photoCell;
 @end
 
@@ -115,6 +116,10 @@
     
     _statusArr=@[@"發起",@"收到",@"處理中",@"處理完成"];
 
+    [self.playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+     [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+    
+    
 }
 - (IBAction)playBtnAction:(id)sender {
     if (_voiceURL.length ==0) {
@@ -122,11 +127,90 @@
         return;
     }
     
-    AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_voiceURL]]];
-    //  播放当前资源
-    [self.player replaceCurrentItemWithPlayerItem:playerItem];
-    [self.player play];
+//    AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_voiceURL]]];
+//    //  播放当前资源
+//    [self.player replaceCurrentItemWithPlayerItem:playerItem];
+//    [self.player play];
+    if (self.player.rate ==0) {
+        [self.progressView setProgress:0.0 animated:NO];
+        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+    }
+    
+    if (self.progressView.progress < 1.0 && self.progressView.progress !=0) {
+        [self.player pause];
+        [self.progressView setProgress:0.0 animated:NO];
+        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+        
+    }else{
+        [self.progressView setProgress:0.0 animated:NO];
+        
+                AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:self.voiceURL]]];
+        
+        [self.player replaceCurrentItemWithPlayerItem:playerItem];
+        //观察Status属性，可以在加载成功之后得到视频的长度
+        [self.player.currentItem addObserver:self forKeyPath:@"status"options:NSKeyValueObservingOptionNew context:nil];
+    }
 }
+
+- (AVPlayer *)player {
+    if (_player == nil) {
+        _player = [[AVPlayer alloc] init];
+        _player.volume = 1.0;
+    }
+    return _player;
+}
+
+//2.添加属性观察
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    AVPlayerItem *playerItem = (AVPlayerItem *)object;
+    if ([keyPath isEqualToString:@"status"]) {
+        //获取playerItem的status属性最新的状态
+        AVPlayerStatus status = [[change objectForKey:@"new"] intValue];
+        switch (status) {
+            case AVPlayerStatusReadyToPlay:{
+                [self.playBtn setTitle:@"点击停止播放" forState:UIControlStateNormal];
+                //获取视频长度
+                CMTime duration = playerItem.asset.duration;
+                //更新显示:视频总时长(自定义方法显示时间的格式)
+                float totalTime   = CMTimeGetSeconds(duration);
+                NSLog(@"录制时间：%f",totalTime);
+              
+                [self.player play];
+                [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:nil usingBlock:^(CMTime time){
+                    float currentTime=CMTimeGetSeconds(self.player.currentItem.currentTime);
+                    self.progressView.progress =currentTime/totalTime;
+                    if (self.progressView.progress ==1.0f) {
+                        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+                    }
+                    NSLog(@"当前播放时间：%f",currentTime);
+                }];
+                break;
+            }
+            case AVPlayerStatusFailed:{//视频加载失败，点击重新加载
+                NSLog(@"加载视频失败:UIControlStateNormal");
+                break;
+            }
+            case AVPlayerStatusUnknown:{
+                NSLog(@"加载遇到未知问题:AVPlayerStatusUnknown");
+                break;
+            }
+            default:
+                break;
+        }
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:nil];
+
+//    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"status"];
+}
+
+
 
 /*
 #pragma mark - Navigation

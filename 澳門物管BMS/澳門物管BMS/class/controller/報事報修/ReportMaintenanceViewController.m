@@ -49,6 +49,9 @@
 @property (nonatomic,strong) NSMutableArray *buildingList;
 @property (weak, nonatomic) IBOutlet UITextField *repairTypeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *repairTitleTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *playViewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *recordBtnHeight;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @end
 
 @implementation ReportMaintenanceViewController
@@ -131,6 +134,10 @@
     
     [self requestCommunityList];
     [self.maintenanceCollectionView reloadData];
+    [self.recordBtn setTitle:@"按住说话" forState:UIControlStateNormal];
+    [self.recordBtn setImage:[UIImage imageNamed:@"yuyin"] forState:UIControlStateNormal];
+    self.playViewHeight.constant=0;
+    [self.progressView setProgress:0.0 animated:NO];
 }
 
 
@@ -593,24 +600,125 @@
 }
 
 - (IBAction)playBtnAction:(id)sender {
-    if (self.player.rate != 0) {
+//    if (self.player.rate != 0) {
+//        [self.player pause];
+//        return;
+//    }
+//
+//    if (self.recordPath != nil) {
+//        AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL fileURLWithPath:self.recordPath]];
+//        // 播放当前资源
+//        [self.player replaceCurrentItemWithPlayerItem:playerItem];
+//
+//    } else {
+//        AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:self.voiceRemarkUrl]]];
+//       //  播放当前资源
+//        [self.player replaceCurrentItemWithPlayerItem:playerItem];
+//    }
+//
+//    [self.player play];
+    
+    
+    if (self.player.rate ==0) {
+        [self.progressView setProgress:0.0 animated:NO];
+        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+    }
+    
+    if (self.progressView.progress < 1.0 && self.progressView.progress !=0) {
         [self.player pause];
-        return;
-    }
-    
-    if (self.recordPath != nil) {
-        AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL fileURLWithPath:self.recordPath]];
-        // 播放当前资源
-        [self.player replaceCurrentItemWithPlayerItem:playerItem];
+        [self.progressView setProgress:0.0 animated:NO];
+        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
         
-    } else {
-        AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:self.voiceRemarkUrl]]];
-       //  播放当前资源
+    }else{
+        [self.progressView setProgress:0.0 animated:NO];
+        
+                AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:self.voiceRemarkUrl]]];
+        
+//        AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:@"http://songsong.fun:8080/file/app/videos/1551085873015.wav"]];
+        //         playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,self.voiceRemarkUrl]]];
+        
         [self.player replaceCurrentItemWithPlayerItem:playerItem];
+        //观察Status属性，可以在加载成功之后得到视频的长度
+        [self.player.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     }
     
-    [self.player play];
 }
+
+//2.添加属性观察
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    AVPlayerItem *playerItem = (AVPlayerItem *)object;
+    if ([keyPath isEqualToString:@"status"]) {
+        //获取playerItem的status属性最新的状态
+        AVPlayerStatus status = [[change objectForKey:@"new"] intValue];
+        switch (status) {
+            case AVPlayerStatusReadyToPlay:{
+                [self.playBtn setTitle:@"点击停止播放" forState:UIControlStateNormal];
+                //获取视频长度
+                CMTime duration = playerItem.asset.duration;
+                //更新显示:视频总时长(自定义方法显示时间的格式)
+                float totalTime   = CMTimeGetSeconds(duration);
+                //                int totalTime = CMTimeGetSeconds(duration);
+                NSLog(@"录制时间：%f",totalTime);
+                //   self.totalNeedPlayTimeLabel.text = [self formatTimeWithTimeInterVal:CMTimeGetSeconds(duration)];
+                //开启滑块的滑动功能
+                //   self.sliderView.enabled = YES;
+                //关闭加载Loading提示
+                //    [self showaAtivityInDicatorView:NO];
+                //开始播放视频
+                // [self.player.currentItem currentTime];
+                [self.player play];
+                //                __weak typeof(self)WeakSelf = self;
+                //                __strong typeof(WeakSelf) strongSelf = WeakSelf;
+                [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:nil usingBlock:^(CMTime time){
+                    // times++;
+                    //                            self.progressView.progress =times/playTime;
+                    //                            NSLog(@"当前播放时间：%ld",times);
+                    //    NSInteger currentTime=playerItem.currentTime.value/playerItem.currentTime.timescale%60;
+                    //                    float currentTime=playerItem.currentTime.value/playerItem.currentTime.timescale;
+                    //                            self.progressView.progress =currentTime/totalTime;
+                    float currentTime=CMTimeGetSeconds(self.player.currentItem.currentTime);
+                    self.progressView.progress =currentTime/totalTime;
+                    if (self.progressView.progress ==1.0f) {
+                        
+                        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+                        //[self.progressView setProgress:0.0 animated:NO];
+                    }
+                    NSLog(@"当前播放时间：%f",currentTime);
+                }];
+                break;
+            }
+            case AVPlayerStatusFailed:{//视频加载失败，点击重新加载
+                //     [self showaAtivityInDicatorView:NO];//关闭Loading视图
+                //      self.playerInfoButton.hidden = NO; //显示错误提示按钮，点击后重新加载视频
+                //      [self.playerInfoButton setTitle:@"资源加载失败，点击继续尝试加载" forState: UIControlStateNormal];
+                NSLog(@"加载视频失败:UIControlStateNormal");
+                break;
+            }
+            case AVPlayerStatusUnknown:{
+                NSLog(@"加载遇到未知问题:AVPlayerStatusUnknown");
+                break;
+            }
+            default:
+                break;
+        }
+    }
+}
+
+- (void)dealloc
+{
+   // [self.player removeObserver:self forKeyPath:@"status"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:nil];
+   // [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"status"];
+}
+
+
+
+
+
+
 
 - (void)startRecord {
     __block BOOL bCanRecord = YES;
@@ -709,8 +817,16 @@
     [[WebAPIHelper sharedWebAPIHelper] uploadVoice:dic filePath:self.recordPath completion:^(NSDictionary *resultDic){
         self.voiceRemarkUrl=[resultDic objectForKey:@"originalUrl"];
         NSLog(@"%@",self.voiceRemarkUrl);
+        self.recordBtnHeight.constant=0;
+        self.playViewHeight.constant=30;
+        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+        [self.playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
     }];
-
+//    self.recordBtnHeight.constant=0;
+//    self.recordBtn.hidden=YES;
+//    self.playViewHeight.constant=30;
+//    [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+//    [self.playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
 }
 
 
@@ -729,8 +845,13 @@
 - (IBAction)deleteBtnAction:(id)sender {
     [self deleteFileUrl:self.voiceRemarkUrl];
     self.voiceRemarkUrl=@"";
+   // self.playBtn.hidden=YES;
+   // self.deleteBtn.hidden=YES;
+    self.playViewHeight.constant=0;
+    self.recordBtnHeight.constant=30;
     self.playBtn.hidden=YES;
-    self.deleteBtn.hidden=YES;
+    self.recordBtn.hidden=NO;
+    self.progressView.progress=0.0;
 }
 - (IBAction)submitAction:(id)sender {
     [self requestAddRepair];
