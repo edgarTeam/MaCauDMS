@@ -818,6 +818,7 @@
         self.voiceRemarkUrl=[resultDic objectForKey:@"originalUrl"];
         NSLog(@"%@",self.voiceRemarkUrl);
         self.recordBtnHeight.constant=0;
+        self.recordBtn.hidden=YES;
         self.playViewHeight.constant=30;
         [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
         [self.playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];

@@ -59,9 +59,9 @@
     self.title=LocalizedString(@"string_report_maintenance_detail_title");
    // self.edgesForExtendedLayout=UIRectEdgeNone;
     self.view.backgroundColor=[UIColor clearColor];
-    
+    _dataSource=[NSMutableArray new];
     //self.scrollView.contentSize=CGSizeMake(0, scrollerHeight);
-    self.scrollView.contentSize=CGSizeMake(scrollerHeight, 0);
+  //  self.scrollView.contentSize=CGSizeMake(scrollerHeight, 0);
 //    UIGestureRecognizer *gesture=[[UIGestureRecognizer alloc] init];
 //    gesture.delegate=self;
 //    [self.contentTextView addGestureRecognizer:gesture];
@@ -71,12 +71,65 @@
 //    _contentTextView.layer.borderColor=RGB(63, 114, 156).CGColor;
 //    _contentTextView.editable=NO;
 //    _contentTextView.scrollEnabled=YES;
-    _dataSource=[NSMutableArray new];
+//    _dataSource=[NSMutableArray new];
+//
+////    _characterDescriptionLab.layer.masksToBounds=YES;
+////    _characterDescriptionLab.layer.cornerRadius=7.0;
+////    _characterDescriptionLab.layer.borderWidth=0.5;
+////    _characterDescriptionLab.layer.borderColor=RGB(63, 114, 156).CGColor;
+//
+//    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+//    flowLayout.minimumLineSpacing=5;
+//    flowLayout.minimumInteritemSpacing=5;
+//    flowLayout.itemSize=CGSizeMake(80, 80);
+//    flowLayout.sectionInset=UIEdgeInsetsMake(0, 10, 0, 10);
+//    flowLayout.scrollDirection=UICollectionViewScrollDirectionVertical;
+//
+//    _imageCollectionView.collectionViewLayout=flowLayout;
+//    _imageCollectionView.delegate=self;
+//    _imageCollectionView.dataSource=self;
+//    _imageCollectionView.alwaysBounceVertical=YES;
+//    _imageCollectionView.layer.masksToBounds=YES;
+//    _imageCollectionView.layer.cornerRadius=7.0;
+//    _imageCollectionView.layer.borderWidth=0.5;
+//    _imageCollectionView.layer.borderColor=RGB(63, 114, 156).CGColor;
+//    _imageCollectionView.scrollEnabled=NO;
     
-//    _characterDescriptionLab.layer.masksToBounds=YES;
-//    _characterDescriptionLab.layer.cornerRadius=7.0;
-//    _characterDescriptionLab.layer.borderWidth=0.5;
-//    _characterDescriptionLab.layer.borderColor=RGB(63, 114, 156).CGColor;
+    _repairCommunityNameTitleLab.text=LocalizedString(@"string_repair_community_name_third_title");
+    _repairClientNameTitleLab.text=LocalizedString(@"sreing_repair_detail_client_name_third_title");
+    _repairContactTitleLab.text=LocalizedString(@"string_repair_detail_contact_third_title");
+    _repairCreateTimeTitleLab.text=LocalizedString(@"string_repair_detail_create_time_third_title");
+    _repairDiscribeTitleLab.text=LocalizedString(@"string_repair_describe_third_title");
+    _repairVoiceTitleLab.text=LocalizedString(@"string_repair_detail_voice_third_title");
+    _repairProgressTitleLab.text=LocalizedString(@"string_repair_progress_third_title");
+   // _repairHandlerTitleLab.text=LocalizedString(@"string_repair_handler_title");
+    
+   // _positionLab.text=@"sfdgdgtr看到過大過天後研究研究的風格桃花源地方很高";
+    
+//    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
+//    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+//    textAttachment.image = [UIImage imageNamed:@""];
+//    NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+//    [string insertAttributedString:textAttachmentString atIndex:string.length];//index为用户指定要插入图片的位置
+//    
+//    _contentTextView.attributedText = string;
+    
+    _statusArr=@[@"發起",@"收到",@"處理中",@"處理完成"];
+//
+//    [self.playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+//     [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+//    NSLog(@"%f",self.scrollView.frame.size.height);
+//    [self.progressView setProgress:0.0 animated:NO];
+    scrollerHeight=self.scrollView.frame.size.height;
+    [self creatView];
+}
+- (void)creatView {
+    
+    
+    //    _characterDescriptionLab.layer.masksToBounds=YES;
+    //    _characterDescriptionLab.layer.cornerRadius=7.0;
+    //    _characterDescriptionLab.layer.borderWidth=0.5;
+    //    _characterDescriptionLab.layer.borderColor=RGB(63, 114, 156).CGColor;
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumLineSpacing=5;
@@ -94,33 +147,16 @@
     _imageCollectionView.layer.borderWidth=0.5;
     _imageCollectionView.layer.borderColor=RGB(63, 114, 156).CGColor;
     _imageCollectionView.scrollEnabled=NO;
-    
-    _repairCommunityNameTitleLab.text=LocalizedString(@"string_repair_community_name_third_title");
-    _repairClientNameTitleLab.text=LocalizedString(@"sreing_repair_detail_client_name_third_title");
-    _repairContactTitleLab.text=LocalizedString(@"string_repair_detail_contact_third_title");
-    _repairCreateTimeTitleLab.text=LocalizedString(@"string_repair_detail_create_time_third_title");
-    _repairDiscribeTitleLab.text=LocalizedString(@"string_repair_describe_third_title");
-    _repairVoiceTitleLab.text=LocalizedString(@"string_repair_detail_voice_third_title");
-    _repairProgressTitleLab.text=LocalizedString(@"string_repair_progress_third_title");
-   // _repairHandlerTitleLab.text=LocalizedString(@"string_repair_handler_title");
-    
-   // _positionLab.text=@"sfdgdgtr看到過大過天後研究研究的風格桃花源地方很高";
     [_positionLab sizeToFit];
-//    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
-//    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
-//    textAttachment.image = [UIImage imageNamed:@""];
-//    NSAttributedString *textAttachmentString = [NSAttributedString attributedStringWithAttachment:textAttachment];
-//    [string insertAttributedString:textAttachmentString atIndex:string.length];//index为用户指定要插入图片的位置
-//    
-//    _contentTextView.attributedText = string;
     
-    _statusArr=@[@"發起",@"收到",@"處理中",@"處理完成"];
-
+    [_imageCollectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:NULL];
+  //  [_scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:NULL];
     [self.playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
-     [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
-    
-    
+    [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+    NSLog(@"%f",self.scrollView.frame.size.height);
+    [self.progressView setProgress:0.0 animated:NO];
 }
+
 - (IBAction)playBtnAction:(id)sender {
     if (_voiceURL.length ==0) {
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_voice_title")];
@@ -200,6 +236,11 @@
             default:
                 break;
         }
+    }else if ([keyPath isEqualToString:@"contentSize"]) {
+        
+        self.scrollView.frame=CGRectMake(0, 0, ScreenWidth,  scrollerHeight);
+        
+        
     }
 }
 
@@ -253,12 +294,32 @@
        // _contentTextView.text=_complain.complainDescribe;
 
 //        _voiceUrl=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,_complain.complainVoice]];
+        if (_complain.complainVoice.length ==0 || _complain.complainVoice ==nil) {
+           // self.playBtn.hidden=YES;
+            self.playBtn.backgroundColor=[UIColor clearColor];
+            self.playBtn.enabled=NO;
+            [self.playBtn setTitle:@"无录音" forState:UIControlStateNormal];
+           // [self.playBtn.titleLabel setTextColor:RGB(63, 114, 156)];
+            [self.playBtn setTitleColor:RGB(63, 114, 156) forState:UIControlStateNormal];
+            [self.playBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -80, 0, ScreenWidth/2)];
+            [self.playBtn setImage:nil forState:UIControlStateNormal];
+            self.progressView.hidden=YES;
+        }
         _voiceURL=_complain.complainVoice;
          _statusLab.text=_statusArr[[_complain.complainStatus intValue]];
         
-        _dataSource=_complain.images;
+        _dataSource=[_complain.images mutableCopy];
         //_dataSource%3*90
-        _collectionHeight.constant=_dataSource.count/3*90;
+
+       // _collectionHeight.constant=_dataSource.count/3*90;
+        if (_dataSource.count%3 !=0) {
+             _collectionHeight.constant=(_dataSource.count/3+1)*90;
+        }else{
+             _collectionHeight.constant=(_dataSource.count/3)*90;
+        }
+        scrollerHeight=scrollerHeight+_collectionHeight.constant;
+     //   self.scrollView.frame=CGRectMake(0, 0, ScreenWidth, scrollerHeight+_collectionHeight.constant);
+       // [self creatView];
         [self.imageCollectionView reloadData];
 //        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.contentTextView.attributedText];
 //        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
@@ -362,20 +423,21 @@
         //        }
         [_photoCell.activityIndicatorView startAnimating];
         _photoCell.deleteBtn.hidden=YES;
-//        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//            NSLog(@"错误信息：%@",error);
-//            [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row]]] placeholderImage:image];
-//            _photoCell.deleteBtn.hidden=YES;
-//            [_photoCell.activityIndicatorView stopAnimating];
-//            _photoCell.activityIndicatorView.hidden=YES;
-//        }];
-    
-    [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,thumbnailUrlArr[indexPath.row]]] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL){
-        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,orignalUrlArr[indexPath.row]]]];
+
+    [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row]]] placeholderImage:image];
         _photoCell.deleteBtn.hidden=YES;
         [_photoCell.activityIndicatorView stopAnimating];
         _photoCell.activityIndicatorView.hidden=YES;
     }];
+    
+//    [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,thumbnailUrlArr[indexPath.row]]] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL){
+//        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,orignalUrlArr[indexPath.row]]]];
+//        _photoCell.deleteBtn.hidden=YES;
+//        [_photoCell.activityIndicatorView stopAnimating];
+//        _photoCell.activityIndicatorView.hidden=YES;
+//    }];
+//    [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,thumbnailUrlArr[indexPath.row]]] placeholderImage:nil options:SDWebImageRetryFailed];
         return _photoCell;
     
 }
@@ -386,6 +448,7 @@
        // [self showChangeAvatarAlert];
     }
 }
+
 
 
 

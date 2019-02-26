@@ -109,7 +109,7 @@
         LeftViewController *leftVC=[[LeftViewController alloc] init];
         _centerNvaVC= [[BaseNavigationViewController alloc]initWithRootViewController:mainVC];
         _leftNvaVC = [[BaseNavigationViewController alloc]initWithRootViewController:leftVC];
-        DrawerViewController *drawer = [[MMDrawerController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];
+        DrawerViewController *drawer = [[DrawerViewController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];
         drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
         drawer.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
         drawer.maximumLeftDrawerWidth = ScreenWidth/2;

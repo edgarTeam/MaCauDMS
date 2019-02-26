@@ -31,19 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = displayTitle;
-//    self.navigationController.navigationBar.barTintColor = RGB(43, 183, 224);
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+
     self.edgesForExtendedLayout=UIRectEdgeNone;
-//    self.gradientLayer = [CAGradientLayer layer];
-//    self.gradientLayer.frame = self.navigationController.navigationBar.frame;
-//    NSArray *array = [NSArray arrayWithObjects:[UIColor colorWithRed:43.0/255 green:183.0/255 blue:224.0/255 alpha:1.0].CGColor,[UIColor lightGrayColor].CGColor, nil];
-//    self.gradientLayer.colors = array;
-//    self.gradientLayer.startPoint = CGPointMake(0.5, 0.5);
-//    self.gradientLayer.endPoint = CGPointMake(0.5, 1.0);
-//    [self.navigationController.navigationBar.layer insertSublayer:self.gradientLayer atIndex:0];
-    self.navigationController.navigationBar.barTintColor = RGB(43, 183, 224);
-    self.navigationController.navigationBar.translucent = NO;
-//    self.automaticallyAdjustsScrollViewInsets = YES;
+
     
     self.webView = [[
                      EHWKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height)];
@@ -99,8 +89,8 @@
     [super viewWillAppear:animated];
     [self laodWeb:_urlString];
     self.navigationController.navigationBar.hidden=NO;
-    self.navigationController.navigationBar.barTintColor = RGB(43, 183, 224);
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+//    self.navigationController.navigationBar.barTintColor = RGB(43, 183, 224);
+//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 }
 
 
@@ -132,18 +122,10 @@
     [SVProgressHUD dismiss];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+//- (void)viewWillDisappear:(BOOL)animated{
 //
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : RGB(230, 230, 230),NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:17]}];
-//    self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-//    
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : RGB(230, 230, 230),NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:17]}];
-    self.edgesForExtendedLayout=UIRectEdgeAll;
-}
+//    self.edgesForExtendedLayout=UIRectEdgeAll;
+//}
 
 
 @end
