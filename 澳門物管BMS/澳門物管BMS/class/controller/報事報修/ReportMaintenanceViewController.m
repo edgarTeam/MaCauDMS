@@ -867,7 +867,7 @@
 //    }
     [self checkLogin];
   //  [self createView];
-    [self requestCommunityList];
+ //   [self requestCommunityList];
     [self requestBuildingList];
 }
 

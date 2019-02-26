@@ -8,6 +8,9 @@
 #import "ZKAlertTool/ZKAlertTool.h"
 #import "CommonUtil.h"
 #import "User.h"
+#import "LoginViewController.h"
+#import "DrawerViewController.h"
+#import "BaseNavigationViewController.h"
 @implementation CommonUtil
 + (CommonUtil *)sharedInstance
 {
@@ -42,8 +45,32 @@
                 //                return NO;}
             case 100:
             {
-                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_request_login_miss_code")];
-                
+                [ZKAlertTool showAlertWithTitle:nil andMsg:LocalizedString(@"string_request_login_miss_code") cancelTitle:@"确定" otherTitles:nil handler:^(NSInteger tag){
+                    LoginViewController *loginVC=[[LoginViewController alloc] init];
+                    DrawerViewController *drawer=[UIApplication sharedApplication].keyWindow.rootViewController;
+                    BaseNavigationViewController *nav=drawer.centerViewController;
+                    [nav pushViewController:loginVC animated:YES];
+                    [drawer closeDrawerAnimated:YES completion:^(BOOL finished){
+                                            [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+                                        }];
+                    NSLog(@"aaa");
+                }];
+//                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_request_login_miss_code")];
+//                UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"string_request_login_miss_code") preferredStyle:UIAlertControllerStyleAlert];
+//                UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+//                    LoginViewController *loginVC=[[LoginViewController alloc] init];
+////                    UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+////
+////
+////                    [nav pushViewController:loginVC animated:YES];
+////                    [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
+////                        [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+////                    }];
+//                }];
+//                [alert addAction:alertAc];
+               
+               // [self presentViewController:alert animated:YES completion:nil];
+//
                 return  NO;
             }
             case 102: //没有这条纪录
