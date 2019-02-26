@@ -28,4 +28,8 @@
 #define LocalizedString(key) CustomLocalizedString(key, nil)
 
 #define APP_VERSION [[NSBundle mainBundle]objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
+
+#define DEFALUTBACKGROUNDCOLOR [UIColor colorWithRed:58.0/255.0 green:108.0/255.0 blue:145.0/255.0 alpha:1]
+
+#define DEFALUTNAVICOLOR [UIColor colorWithRed:91.0/255.0 green:166.0/255.0 blue:221.0/255.0 alpha:1]
 #endif /* StaticString_h */

@@ -103,6 +103,7 @@
     PlaceDetailViewController *placeDetailVC=[[PlaceDetailViewController alloc] init];
     placeDetailVC.placeID=_placeId;
     [self presentViewController:placeDetailVC animated:YES completion:nil];
+    
 //    [self dismissViewControllerAnimated:YES completion:^{
 //        self.placeNameBlock(_placeName,_placeId);
 //    }];

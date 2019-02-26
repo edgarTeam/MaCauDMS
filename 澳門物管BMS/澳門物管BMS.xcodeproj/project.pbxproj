@@ -16,6 +16,9 @@
 		32B0FA202202FA5C000621DE /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B0FA1E2202FA5C000621DE /* NSDate+Utils.m */; };
 		32B0FA222202FCA4000621DE /* Chat_record_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B0FA212202FCA4000621DE /* Chat_record_circle.png */; };
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
+		BA0109762224DAB10025E6E9 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0109742224DAB10025E6E9 /* WebViewController.m */; };
+		BA0109772224DAB10025E6E9 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA0109752224DAB10025E6E9 /* WebViewController.xib */; };
+		BA01097A2224DB2C0025E6E9 /* EHWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0109792224DB2C0025E6E9 /* EHWKWebView.m */; };
 		BA03620121F322E1008E0B4A /* AppDelegate+DismissKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */; };
 		BA03620421F3322B008E0B4A /* NoticeSubList.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620321F3322B008E0B4A /* NoticeSubList.m */; };
 		BA04405521F8164400B310EB /* BaseAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405421F8164400B310EB /* BaseAlertViewController.m */; };
@@ -151,6 +154,11 @@
 		32B0FA212202FCA4000621DE /* Chat_record_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chat_record_circle.png; sourceTree = "<group>"; };
 		6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.release.xcconfig"; sourceTree = "<group>"; };
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
+		BA0109732224DAB10025E6E9 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		BA0109742224DAB10025E6E9 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		BA0109752224DAB10025E6E9 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		BA0109782224DB2C0025E6E9 /* EHWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHWKWebView.h; sourceTree = "<group>"; };
+		BA0109792224DB2C0025E6E9 /* EHWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHWKWebView.m; sourceTree = "<group>"; };
 		BA0361FF21F322E0008E0B4A /* AppDelegate+DismissKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DismissKeyboard.h"; sourceTree = "<group>"; };
 		BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+DismissKeyboard.m"; sourceTree = "<group>"; };
 		BA03620221F3322B008E0B4A /* NoticeSubList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSubList.h; sourceTree = "<group>"; };
@@ -391,6 +399,16 @@
 				F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA0109722224DA810025E6E9 /* webViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BA0109732224DAB10025E6E9 /* WebViewController.h */,
+				BA0109742224DAB10025E6E9 /* WebViewController.m */,
+				BA0109752224DAB10025E6E9 /* WebViewController.xib */,
+			);
+			path = webViewController;
 			sourceTree = "<group>";
 		};
 		BA0361FE21F322CB008E0B4A /* KeyBoard */ = {
@@ -827,6 +845,7 @@
 		CB42089721C2B17D00980B64 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				BA0109722224DA810025E6E9 /* webViewController */,
 				BA0F84C422165BA300EE6F0E /* 场地 */,
 				BA09BB4B22154B980092BDED /* MMDrawerController */,
 				CB017BC421DB28FF00BB6BFD /* 個人信息 */,
@@ -967,6 +986,8 @@
 		CBCB79C421CBD2A000BF454D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				BA0109782224DB2C0025E6E9 /* EHWKWebView.h */,
+				BA0109792224DB2C0025E6E9 /* EHWKWebView.m */,
 				BA047986221D2A03006AF8FD /* label */,
 				CB0BCD66221AF66600596E1B /* pickView */,
 				BA04405621F8167800B310EB /* selectDate */,
@@ -1130,6 +1151,7 @@
 				CB02948B21D3B99000FE55A7 /* NoticeTableViewCell.xib in Resources */,
 				CB02668021D8CF3F00561B1C /* LeftViewTableViewCell.xib in Resources */,
 				CBCB79C921CBD68500BF454D /* BookingRecordDetailViewController.xib in Resources */,
+				BA0109772224DAB10025E6E9 /* WebViewController.xib in Resources */,
 				CB5C393021E39A8C008E3A64 /* NoticeDetailViewController.xib in Resources */,
 				CB4208A421C2B20600980B64 /* LoginViewController.xib in Resources */,
 				CBCB79BE21CBCA6300BF454D /* ReportMaintenanceTableViewCell.xib in Resources */,
@@ -1270,6 +1292,7 @@
 				CB04506A21D136FF00EB59D7 /* PlaceList.m in Sources */,
 				CB02667F21D8CF3F00561B1C /* LeftViewTableViewCell.m in Sources */,
 				CB05465C21C6B223008BE895 /* ComplainViewController.m in Sources */,
+				BA0109762224DAB10025E6E9 /* WebViewController.m in Sources */,
 				CB02668421D8D03F00561B1C /* LeftModel.m in Sources */,
 				CBCB79C221CBD28500BF454D /* HandlingDetailsViewController.m in Sources */,
 				CB02668D21D9069700561B1C /* UIViewController+Additions.m in Sources */,
@@ -1282,6 +1305,7 @@
 				CBFE45B421C9541C00DD80E4 /* ReportMaintenanceViewController.m in Sources */,
 				CB04505821D11CAC00EB59D7 /* ReportMaintenanceList.m in Sources */,
 				CB18AA0421E6443200B3A232 /* GradientView.m in Sources */,
+				BA01097A2224DB2C0025E6E9 /* EHWKWebView.m in Sources */,
 				CB04506221D122CE00EB59D7 /* Notice.m in Sources */,
 				CB04506D21D1374D00EB59D7 /* Place.m in Sources */,
 				BA04405521F8164400B310EB /* BaseAlertViewController.m in Sources */,
@@ -1492,7 +1516,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "澳門物管BMS/澳門物管BMS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72XXW98UJB;
+				DEVELOPMENT_TEAM = 8993J9FQNS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/澳門物管BMS/main/PropetyManagement-prefix.pch";
 				INFOPLIST_FILE = "澳門物管BMS/Info.plist";
@@ -1514,7 +1538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "澳門物管BMS/澳門物管BMS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72XXW98UJB;
+				DEVELOPMENT_TEAM = 8993J9FQNS;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/澳門物管BMS/main/PropetyManagement-prefix.pch";
 				INFOPLIST_FILE = "澳門物管BMS/Info.plist";

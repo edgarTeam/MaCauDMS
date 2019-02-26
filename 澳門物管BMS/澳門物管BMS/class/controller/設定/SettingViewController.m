@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *psdBtnHeight;
 @property (weak, nonatomic) IBOutlet UIButton *changeLanguageBtn;
 @property (weak, nonatomic) IBOutlet UIButton *AboutUsBtn;
+@property (weak, nonatomic) IBOutlet UIButton *pricacyBtn;
 
 
 
@@ -57,6 +58,8 @@
         default:
             break;
     }
+}
+- (IBAction)pricacyBtnAction:(id)sender {
 }
 
 /*
