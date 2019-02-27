@@ -47,12 +47,15 @@
             {
                 [ZKAlertTool showAlertWithTitle:nil andMsg:LocalizedString(@"string_request_login_miss_code") cancelTitle:@"确定" otherTitles:nil handler:^(NSInteger tag){
                     LoginViewController *loginVC=[[LoginViewController alloc] init];
-                    DrawerViewController *drawer=[UIApplication sharedApplication].keyWindow.rootViewController;
+                    DrawerViewController *drawer=(DrawerViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
                     BaseNavigationViewController *nav=drawer.centerViewController;
-                    [nav pushViewController:loginVC animated:YES];
-                    [drawer closeDrawerAnimated:YES completion:^(BOOL finished){
-                                            [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-                                        }];
+                    if (![nav.topViewController isKindOfClass:[LoginViewController class]]) {
+                        [nav pushViewController:loginVC animated:YES];
+                        [drawer closeDrawerAnimated:YES completion:^(BOOL finished){
+                            [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+                        }];
+                    }
+                   
                    
                 }];
 //                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_request_login_miss_code")];
