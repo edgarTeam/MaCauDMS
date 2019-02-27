@@ -639,6 +639,7 @@
         
         [self.player replaceCurrentItemWithPlayerItem:playerItem];
         //观察Status属性，可以在加载成功之后得到视频的长度
+        [SVProgressHUD show];
         [self.player.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     }
     
@@ -655,6 +656,7 @@
         AVPlayerStatus status = [[change objectForKey:@"new"] intValue];
         switch (status) {
             case AVPlayerStatusReadyToPlay:{
+                [SVProgressHUD dismiss];
                 [self.playBtn setTitle:@"点击停止播放" forState:UIControlStateNormal];
                 //获取视频长度
                 CMTime duration = playerItem.asset.duration;
@@ -811,10 +813,12 @@
     }
     self.playBtn.hidden = NO;
     self.deleteBtn.hidden=NO;
+    [SVProgressHUD show];
     NSDictionary *dic=@{
                         @"type":@(2)
                         };
     [[WebAPIHelper sharedWebAPIHelper] uploadVoice:dic filePath:self.recordPath completion:^(NSDictionary *resultDic){
+        [SVProgressHUD dismiss];
         self.voiceRemarkUrl=[resultDic objectForKey:@"originalUrl"];
         NSLog(@"%@",self.voiceRemarkUrl);
         self.recordBtnHeight.constant=0;

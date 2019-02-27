@@ -7,7 +7,7 @@
 //
 
 #import "ForgetPswViewController.h"
-
+#import "ZKAlertTool.h"
 @interface ForgetPswViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameText;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
@@ -27,8 +27,22 @@
 }
 - (IBAction)submitBtnAction:(id)sender {
     
+    [self requestResetPSD];
     
-    
+}
+
+- (void)requestResetPSD {
+    if (_userNameText.text.length==0 || _userNameText==nil) {
+        [ZKAlertTool showAlertWithMsg:@"用戶名不能為空"];
+        return;
+    }
+    NSDictionary *para = @{
+                           @"username":_userNameText.text
+                           
+                           };
+    [[WebAPIHelper sharedWebAPIHelper] postResetPSD:para completion:^(NSDictionary *dic){
+        
+    }];
 }
 
 /*

@@ -59,6 +59,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark   建筑列表
 - (void)postBuildingList:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
+
+#pragma mark   重置密碼
+- (void)postResetPSD:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
+
+- (void)postResetPSDWithStr:(NSDictionary *)parameters completion:(void (^)(NSString *dic))completion;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -33,6 +33,7 @@
 		BA0F84C822165BD800EE6F0E /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0F84C622165BD800EE6F0E /* PlaceViewController.m */; };
 		BA0F84C922165BD800EE6F0E /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */; };
 		BA585C08221EA7EF002C26B8 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA585C07221EA7EE002C26B8 /* AddressModel.m */; };
+		BA84BE4A222680FD00600B55 /* UIViewController+zk_Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = BA84BE49222680FD00600B55 /* UIViewController+zk_Additions.m */; };
 		BAA96DD72216CB24008CE03C /* PlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA96DD52216CB24008CE03C /* PlaceTableViewCell.m */; };
 		BAA96DD82216CB24008CE03C /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */; };
 		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
@@ -186,6 +187,8 @@
 		BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
 		BA585C06221EA7EE002C26B8 /* AddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
 		BA585C07221EA7EE002C26B8 /* AddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
+		BA84BE48222680FD00600B55 /* UIViewController+zk_Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+zk_Additions.h"; sourceTree = "<group>"; };
+		BA84BE49222680FD00600B55 /* UIViewController+zk_Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+zk_Additions.m"; sourceTree = "<group>"; };
 		BAA96DD42216CB24008CE03C /* PlaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceTableViewCell.h; sourceTree = "<group>"; };
 		BAA96DD52216CB24008CE03C /* PlaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceTableViewCell.m; sourceTree = "<group>"; };
 		BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
@@ -512,6 +515,15 @@
 				BA585C07221EA7EE002C26B8 /* AddressModel.m */,
 			);
 			path = "地理";
+			sourceTree = "<group>";
+		};
+		BA84BE47222680C900600B55 /* refresh */ = {
+			isa = PBXGroup;
+			children = (
+				BA84BE48222680FD00600B55 /* UIViewController+zk_Additions.h */,
+				BA84BE49222680FD00600B55 /* UIViewController+zk_Additions.m */,
+			);
+			path = refresh;
 			sourceTree = "<group>";
 		};
 		BAA96DD32216CAFC008CE03C /* 场地 */ = {
@@ -986,6 +998,7 @@
 		CBCB79C421CBD2A000BF454D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				BA84BE47222680C900600B55 /* refresh */,
 				BA0109782224DB2C0025E6E9 /* EHWKWebView.h */,
 				BA0109792224DB2C0025E6E9 /* EHWKWebView.m */,
 				BA047986221D2A03006AF8FD /* label */,
@@ -1277,6 +1290,7 @@
 				CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */,
 				CB05F35B21E1AB2D00208C5E /* PhotpCollectionViewCell.m in Sources */,
 				32B0FA1D2202FA52000621DE /* UUMessage.m in Sources */,
+				BA84BE4A222680FD00600B55 /* UIViewController+zk_Additions.m in Sources */,
 				CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */,
 				BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */,
 				BA03620121F322E1008E0B4A /* AppDelegate+DismissKeyboard.m in Sources */,

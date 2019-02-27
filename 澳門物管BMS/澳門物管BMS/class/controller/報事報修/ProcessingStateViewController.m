@@ -10,9 +10,11 @@
 #import "ReportMaintenanceTableViewCell.h"
 #import "HandlingDetailsViewController.h"
 #import "ReportMaintenanceDetail.h"
+#import "UIViewController+zk_Additions.h"
+
 @interface ProcessingStateViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *processingStateTableView;
-
+@property (nonatomic,assign) NSInteger start;
 @end
 
 @implementation ProcessingStateViewController
@@ -32,11 +34,77 @@
     _processingStateTableView.estimatedRowHeight = 120;
     _processingStateTableView.rowHeight = UITableViewAutomaticDimension;
     _processingStateTableView.backgroundColor=[UIColor clearColor];
-    _processingStateTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self requestComplainList];
-    }];
+//    _processingStateTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [self requestComplainList];
+//    }];
+    _processingStateTableView.mj_header=[self createHeaderWithRefreshingTarget:self refreshingAction:@selector(refreshRequest)];
+        _processingStateTableView.mj_footer=[self createFooterWithRefreshingTarget:self refreshingAction:@selector(loadMordRequset)];
     
 }
+
+- (void)refreshRequest {
+    self.start = 0;
+    __weak typeof(self)weakSelf = self;
+    [self requestComplain:^(NSInteger pageCount, NSArray<ReportMaintenanceDetail *> *data, NSError *error){
+        [weakSelf.processingStateTableView.mj_header endRefreshing];
+        dataSource=data;
+        [weakSelf.processingStateTableView reloadData];
+       // [weakSelf.hud hideAnimated:YES];
+      //  [weakSelf.tableView.mj_header endRefreshing];
+      //  weakSelf.data = data;
+        //[weak_self.tableView reloadData];
+    }];
+    
+    
+}
+
+- (void)loadMordRequset {
+    self.start++;
+    __weak typeof(self)weakSelf = self;
+    [self requestComplain:^(NSInteger pageCount, NSArray<ReportMaintenanceDetail *> *data, NSError *error) {
+        [weakSelf.processingStateTableView.mj_footer endRefreshing];
+        if (error == nil) {
+            if (weakSelf.start < pageCount) {
+                dataSource = [dataSource arrayByAddingObjectsFromArray:data];
+                [weakSelf.processingStateTableView reloadData];
+            }
+        } else {
+            weakSelf.start--;
+        }
+    }];
+}
+
+
+
+
+- (void)requestComplain:(void (^)(NSInteger pageCount, NSArray<ReportMaintenanceDetail *> *data, NSError *error))handle {
+    NSInteger limit = 10;
+    NSDictionary *para = @{
+                           @"pageNo":@(self.start *limit),
+                           @"pageSize":@(limit)
+                           };
+    [[WebAPIHelper sharedWebAPIHelper] postComplainList:para completion:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
+//        NSMutableArray *array=[dic objectForKey:@"list"];
+//        if (_processingStateTableView.mj_header.isRefreshing) {
+//            [_processingStateTableView.mj_header endRefreshing];
+//        }
+        NSInteger pageCount = [dic[@"pageNum"] integerValue];
+//        NSArray *data = [NSArray modelArrayWithClass:[ReportMaintenanceDetail class] json:dic[@"list"]];
+        NSMutableArray *array=[dic objectForKey:@"list"];
+        NSArray *data=[ReportMaintenanceDetail mj_objectArrayWithKeyValuesArray:array];
+        handle(pageCount,data,nil);
+//        dataSource=[ReportMaintenanceDetail mj_objectArrayWithKeyValuesArray:array];
+//        [_processingStateTableView reloadData];
+    }];
+}
+
+
+
+
+
 
 - (void)requestComplainList {
     [[WebAPIHelper sharedWebAPIHelper] postComplainList:nil completion:^(NSDictionary *dic){
@@ -106,6 +174,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=NO;
-    [self requestComplainList];
+    //[self requestComplainList];
+    [self refreshRequest];
 }
 @end

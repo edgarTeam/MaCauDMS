@@ -13,6 +13,7 @@
 #import "UILabel+LabelHeightAndWidth.h"
 #import "PhotpCollectionViewCell.h"
 #import "PictureModel.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 @interface HandlingDetailsViewController ()<UIGestureRecognizerDelegate,UICollectionViewDelegate,UICollectionViewDataSource,AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *centerView;
@@ -155,6 +156,7 @@
     [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
     NSLog(@"%f",self.scrollView.frame.size.height);
     [self.progressView setProgress:0.0 animated:NO];
+    
 }
 
 - (IBAction)playBtnAction:(id)sender {
@@ -184,6 +186,7 @@
         
         [self.player replaceCurrentItemWithPlayerItem:playerItem];
         //观察Status属性，可以在加载成功之后得到视频的长度
+        [SVProgressHUD show];
         [self.player.currentItem addObserver:self forKeyPath:@"status"options:NSKeyValueObservingOptionNew context:nil];
     }
 }
@@ -207,6 +210,7 @@
         AVPlayerStatus status = [[change objectForKey:@"new"] intValue];
         switch (status) {
             case AVPlayerStatusReadyToPlay:{
+                [SVProgressHUD dismiss];
                 [self.playBtn setTitle:@"点击停止播放" forState:UIControlStateNormal];
                 //获取视频长度
                 CMTime duration = playerItem.asset.duration;

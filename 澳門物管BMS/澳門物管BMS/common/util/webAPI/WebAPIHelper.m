@@ -310,4 +310,20 @@ static AFHTTPSessionManager *_manager;
         NSLog(@"%@",error);
     }];
 }
+
+
+
+- (void)postResetPSD:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
+    [self.httpHelper postDicWithURL:kResetPSD parameters:parameters  needLoading:YES success:completion failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+
+
+}
+
+- (void)postResetPSDWithStr:(NSDictionary *)parameters completion:(void (^)(NSString * _Nonnull))completion{
+    [self.httpHelper postStrWithURL:kResetPSD parameters:parameters needLoading:YES success:completion failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
 @end

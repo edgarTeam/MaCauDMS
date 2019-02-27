@@ -88,27 +88,27 @@
     bookDetailVC.recordId=place.recordId;
     [self.navigationController pushViewController:bookDetailVC animated:YES];
 }
-- (void)requestPlace {
-    NSDictionary *para=@{
-                         @"placeId" :_placeId
-                         };
-    [[WebAPIHelper sharedWebAPIHelper] postPlace:para completion:^(NSDictionary *dic){
-        if (dic==nil) {
-            return ;
-        }
-        _place=[Place mj_objectWithKeyValues:dic];
-        if (_place ==nil) {
-            return;
-        }
-        [self.placeArr addObject:_place];
-//        if (_bookingRecordTableView.mj_header.isRefreshing) {
-//            [_bookingRecordTableView.mj_header endRefreshing];
+//- (void)requestPlace {
+//    NSDictionary *para=@{
+//                         @"placeId" :_placeId
+//                         };
+//    [[WebAPIHelper sharedWebAPIHelper] postPlace:para completion:^(NSDictionary *dic){
+//        if (dic==nil) {
+//            return ;
 //        }
-//        [_bookingRecordTableView reloadData];
-//        _palceLab.text=_place.placeName;
-//        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,_place.placeImage]]placeholderImage:kEMPTYIMG completed:nil];
-    }];
-}
+//        _place=[Place mj_objectWithKeyValues:dic];
+//        if (_place ==nil) {
+//            return;
+//        }
+//        [self.placeArr addObject:_place];
+////        if (_bookingRecordTableView.mj_header.isRefreshing) {
+////            [_bookingRecordTableView.mj_header endRefreshing];
+////        }
+////        [_bookingRecordTableView reloadData];
+////        _palceLab.text=_place.placeName;
+////        [self.bookingRecordDetailImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseUrl,_place.placeImage]]placeholderImage:kEMPTYIMG completed:nil];
+//    }];
+//}
 
 - (void)requestPlaceList {
     [[WebAPIHelper sharedWebAPIHelper] postPlaceRecordList:nil completion:^(NSDictionary *dic){
@@ -132,6 +132,16 @@
         [_bookingRecordTableView reloadData];
     }];
 }
+
+//- (void)requestPlace:(void (^)(NSInteger pageCount, NSArray<PlaceRecord *> *data, NSError *error))handle {
+//
+//
+//
+//}
+
+
+
+
 
 
 

@@ -114,7 +114,7 @@
                 [imageUrlArr addObject:notice.imageUrl];
             }
             if (notice.imageThumbnail !=nil) {
-                [imageThumbnailArr addObject:notice.imageThumbnail];
+                [imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
             }
         }
         if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {

@@ -11,12 +11,14 @@
 #import <MJExtension/MJExtension.h>
 #import "Place.h"
 #import "PlaceDetailViewController.h"
+#import "UIViewController+zk_Additions.h"
 @interface PlaceViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *placeTableView;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 @property (weak, nonatomic) IBOutlet UILabel *placeAlertLab;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 
+@property (nonatomic,assign) NSInteger start;
 @end
 
 @implementation PlaceViewController
@@ -43,10 +45,63 @@
     _placeTableView.dataSource=self;
     _placeTableView.separatorColor=[UIColor clearColor];
     _placeTableView.tableFooterView=[UIView new];
-    _placeTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self requestPlaceList];
+//    _placeTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [self requestPlaceList];
+//    }];
+    _placeTableView.mj_header=[self createHeaderWithRefreshingTarget:self refreshingAction:@selector(refreshRequest)];
+    _placeTableView.mj_footer=[self createFooterWithRefreshingTarget:self refreshingAction:@selector(loadMordRequset)];
+}
+
+
+- (void)refreshRequest {
+    self.start = 0;
+    __weak typeof(self)weakSelf = self;
+    [self requestPlace:^(NSInteger pageCount, NSArray<Place *> *data, NSError *error){
+        [weakSelf.placeTableView.mj_header endRefreshing];
+        dataSource=data;
+        [weakSelf.placeTableView reloadData];
+
+    }];
+    
+    
+}
+
+- (void)loadMordRequset {
+    self.start++;
+    __weak typeof(self)weakSelf = self;
+    [self requestPlace:^(NSInteger pageCount, NSArray<Place *> *data, NSError *error) {
+        [weakSelf.placeTableView.mj_footer endRefreshing];
+        if (error == nil) {
+            if (weakSelf.start < pageCount) {
+                dataSource = [dataSource arrayByAddingObjectsFromArray:data];
+                [weakSelf.placeTableView reloadData];
+            }
+        } else {
+            weakSelf.start--;
+        }
     }];
 }
+
+
+
+- (void)requestPlace:(void (^)(NSInteger pageCount, NSArray<Place *> *data, NSError *error))handle {
+    NSInteger limit = 10;
+    NSDictionary *para = @{
+                           @"pageNo":@(self.start *limit),
+                           @"pageSize":@(limit)
+                           };
+    [[WebAPIHelper sharedWebAPIHelper] postPlaceList:para completion:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
+        NSInteger pageCount = [dic[@"pageNum"] integerValue];
+        NSMutableArray *array=[dic objectForKey:@"list"];
+        NSArray *data=[Place mj_objectArrayWithKeyValuesArray:array];
+        handle(pageCount,data,nil);
+    }];
+}
+
+
 
 - (void)requestPlaceList {
     [[WebAPIHelper sharedWebAPIHelper] postPlaceList:nil completion:^(NSDictionary *dic){
@@ -131,6 +186,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
-    [self requestPlaceList];
+    //[self requestPlaceList];
+    [self refreshRequest];
 }
 @end

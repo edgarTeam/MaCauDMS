@@ -50,6 +50,9 @@
 //建筑
 #define kBuildingList kBaseUrl @"/api/building/list"
 
+//重置密碼
+#define kResetPSD kBaseUrl @"/pass/resetPassword"
+
 #define deleteFile kBaseUrl @"/api/file/delFile"
 
 #define Kweather @"http://v.juhe.cn/weather/geo"
