@@ -22,16 +22,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oWT-v4-OzQ">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="oWT-v4-OzQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6gB-IW-0Oc"/>
                 <constraint firstAttribute="trailing" secondItem="oWT-v4-OzQ" secondAttribute="trailing" id="98Q-CP-R84"/>
                 <constraint firstItem="oWT-v4-OzQ" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="Chx-kr-hBL"/>
-                <constraint firstItem="oWT-v4-OzQ" firstAttribute="top" secondItem="tIH-ef-3xv" secondAttribute="top" id="J0X-Ge-HdJ"/>
+                <constraint firstItem="oWT-v4-OzQ" firstAttribute="top" secondItem="tIH-ef-3xv" secondAttribute="top" constant="64" id="J0X-Ge-HdJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="tIH-ef-3xv"/>
             <point key="canvasLocation" x="92" y="90.404797601199405"/>

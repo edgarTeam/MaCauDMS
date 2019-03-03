@@ -19,12 +19,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_photo_new" translatesAutoresizingMaskIntoConstraints="NO" id="rl2-UI-OjX">
-                        <rect key="frame" x="-5" y="-5" width="60" height="60"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_add_photo" translatesAutoresizingMaskIntoConstraints="NO" id="rl2-UI-OjX">
+                        <rect key="frame" x="-12.5" y="-12.5" width="75" height="75"/>
                     </imageView>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="rl2-UI-OjX" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="2l1-vq-9hR"/>
                 <constraint firstItem="rl2-UI-OjX" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="5M4-mC-TYb"/>
@@ -36,6 +36,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="add_photo_new" width="60" height="60"/>
+        <image name="icon_add_photo" width="75.5" height="75.5"/>
     </resources>
 </document>

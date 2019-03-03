@@ -13,6 +13,7 @@
 #import "ChangePswViewController.h"
 #import "ForgetPswViewController.h"
 #import "CommonUtil.h"
+#import "UITextField+PlaceHolder.h"
 @interface LoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *psdTextField;
@@ -23,9 +24,17 @@
 
 @implementation LoginViewController
 
+//- (instancetype)init{
+//    if (self = [super initWithNibName:@"BaseViewController" bundle:nil]) {
+//        // 初始化
+//    }
+//    return self;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor=[UIColor clearColor];
     _headImg.layer.masksToBounds=YES;
     _headImg.layer.cornerRadius=40;
     
@@ -33,6 +42,17 @@
     _loginBtn.layer.cornerRadius=5.0;
     _accountTextField.delegate=self;
     _psdTextField.delegate=self;
+    
+    _accountTextField.placeHoldColor=RGBA(255, 255, 255, 0.5);
+    _accountTextField.placeHoldString=LocalizedString(@"請輸入帳號");
+    _accountTextField.tintColor=[UIColor whiteColor];
+    _psdTextField.placeHoldColor=RGBA(255, 255, 255, 0.5);
+    _psdTextField.placeHoldString=LocalizedString(@"請輸入密碼");
+    _psdTextField.tintColor=[UIColor whiteColor];
+    
+//    _psdTextField.placeHoldColor=[UIColor redColor];
+//    _psdTextField.placeHoldString=@"11";
+//    _psdTextField.tintColor=[UIColor redColor];//设置光标颜色
 }
 
 /*

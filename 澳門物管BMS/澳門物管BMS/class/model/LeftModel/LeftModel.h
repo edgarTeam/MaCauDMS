@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LeftModel : NSObject
 @property (nonatomic,copy)NSString *title;
 @property (nonatomic,copy)NSString *image;
+@property (nonatomic,copy)NSString *describe;
 @end
 
 NS_ASSUME_NONNULL_END

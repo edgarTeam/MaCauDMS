@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)GradientView *gradientView;
 @property (nonatomic,strong)NSString *str;
 @property (nonatomic,strong)NSString *token;
+@property(nonatomic,strong)UIButton *backBtn;
+@property(nonatomic,strong)UILabel *baseTitleLab;
 //@property (nonatomic,assign)CGFloat statusRectHeight;
 //@property (nonatomic,assign)CGFloat navRectHeight;
 //@property (nonatomic,assign)CGFloat totleHeight;

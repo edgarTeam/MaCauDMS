@@ -38,7 +38,13 @@
     // Configure the view for the selected state
 }
 - (void)setUpModel:(Place *)model{
-    [self.placeTitleLab setText:model.placeIntroduction];
+    [self.placeTitleLab setText:model.placeName];
+    [self.describeLab setText:model.placeIntroduction];
+    if ([model.placeName isEqualToString:@"篮球场"]) {
+        self.placeIconImage.image=[UIImage imageNamed:@""];
+    }
+    
+    
         if (model.images.count==0 || model.images==nil || [model.images isKindOfClass:[NSNull class]]) {
             return;
         }

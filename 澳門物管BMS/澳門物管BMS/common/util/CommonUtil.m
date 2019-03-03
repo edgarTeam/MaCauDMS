@@ -45,35 +45,20 @@
                 //                return NO;}
             case 100:
             {
-                [ZKAlertTool showAlertWithTitle:nil andMsg:LocalizedString(@"string_request_login_miss_code") cancelTitle:@"确定" otherTitles:nil handler:^(NSInteger tag){
-                    LoginViewController *loginVC=[[LoginViewController alloc] init];
-                    DrawerViewController *drawer=(DrawerViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-                    BaseNavigationViewController *nav=drawer.centerViewController;
-                    if (![nav.topViewController isKindOfClass:[LoginViewController class]]) {
-                        [nav pushViewController:loginVC animated:YES];
-                        [drawer closeDrawerAnimated:YES completion:^(BOOL finished){
-                            [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-                        }];
-                    }
-                   
-                   
-                }];
-//                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_request_login_miss_code")];
-//                UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"string_request_login_miss_code") preferredStyle:UIAlertControllerStyleAlert];
-//                UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+//                [ZKAlertTool showAlertWithTitle:nil andMsg:LocalizedString(@"string_request_login_miss_code") cancelTitle:@"确定" otherTitles:nil handler:^(NSInteger tag){
 //                    LoginViewController *loginVC=[[LoginViewController alloc] init];
-////                    UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
-////
-////
-////                    [nav pushViewController:loginVC animated:YES];
-////                    [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
-////                        [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-////                    }];
+//                    DrawerViewController *drawer=(DrawerViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+//                    BaseNavigationViewController *nav=drawer.centerViewController;
+//                    if (![nav.topViewController isKindOfClass:[LoginViewController class]]) {
+//                        [nav pushViewController:loginVC animated:YES];
+//                        [drawer closeDrawerAnimated:YES completion:^(BOOL finished){
+//                            [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+//                        }];
+//                    }
+//                   
+//                   
 //                }];
-//                [alert addAction:alertAc];
-               
-               // [self presentViewController:alert animated:YES completion:nil];
-//
+
                 return  NO;
             }
             case 102: //没有这条纪录

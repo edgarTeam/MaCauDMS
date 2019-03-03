@@ -52,6 +52,17 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *playViewHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *recordBtnHeight;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *buildingImage;
+@property (weak, nonatomic) IBOutlet UIImageView *themeImage;
+@property (weak, nonatomic) IBOutlet UIImageView *typeImage;
+@property (weak, nonatomic) IBOutlet UIImageView *adressImage;
+
+
+
+
+
 @end
 
 @implementation ReportMaintenanceViewController
@@ -61,8 +72,17 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事維修";
+    self.baseTitleLab.text=@"報事維修";
+    
+    
+    _buildingImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
+    _themeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
+    _typeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
+    _adressImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
+    
     [self createView];
     
 }
@@ -865,7 +885,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=NO;
+    self.navigationController.navigationBar.hidden=YES;
 //    if (![self login]) {
 //        return;
 //    }

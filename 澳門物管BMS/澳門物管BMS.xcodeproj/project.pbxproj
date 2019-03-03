@@ -19,6 +19,8 @@
 		BA0109762224DAB10025E6E9 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0109742224DAB10025E6E9 /* WebViewController.m */; };
 		BA0109772224DAB10025E6E9 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA0109752224DAB10025E6E9 /* WebViewController.xib */; };
 		BA01097A2224DB2C0025E6E9 /* EHWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0109792224DB2C0025E6E9 /* EHWKWebView.m */; };
+		BA02E7B62227BBA2004A2FBF /* UITextField+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA02E7B52227BBA2004A2FBF /* UITextField+PlaceHolder.m */; };
+		BA02E7BA2227C887004A2FBF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA02E7B92227C887004A2FBF /* MainViewController.xib */; };
 		BA03620121F322E1008E0B4A /* AppDelegate+DismissKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */; };
 		BA03620421F3322B008E0B4A /* NoticeSubList.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620321F3322B008E0B4A /* NoticeSubList.m */; };
 		BA04405521F8164400B310EB /* BaseAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405421F8164400B310EB /* BaseAlertViewController.m */; };
@@ -29,13 +31,20 @@
 		BA04C86221F190D9007A38AF /* UITextView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86121F190D9007A38AF /* UITextView+PlaceHolder.m */; };
 		BA04C86621F19423007A38AF /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86521F19423007A38AF /* PictureModel.m */; };
 		BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04C86921F1AE82007A38AF /* NSDate+Utils.m */; };
+		BA07FC79222BA5FA000BAC4F /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA07FC77222BA5FA000BAC4F /* PersonalViewController.m */; };
+		BA07FC7A222BA5FA000BAC4F /* PersonalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA07FC78222BA5FA000BAC4F /* PersonalViewController.xib */; };
+		BA07FC7E222BB183000BAC4F /* PersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA07FC7C222BB183000BAC4F /* PersonalTableViewCell.m */; };
+		BA07FC7F222BB183000BAC4F /* PersonalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA07FC7D222BB183000BAC4F /* PersonalTableViewCell.xib */; };
 		BA09BB4E22154BE40092BDED /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09BB4D22154BE40092BDED /* DrawerViewController.m */; };
 		BA0F84C822165BD800EE6F0E /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0F84C622165BD800EE6F0E /* PlaceViewController.m */; };
 		BA0F84C922165BD800EE6F0E /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */; };
+		BA3158A92227D7F9000E5B6F /* TurningLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3158A82227D7F9000E5B6F /* TurningLabelView.m */; };
 		BA585C08221EA7EF002C26B8 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA585C07221EA7EE002C26B8 /* AddressModel.m */; };
 		BA84BE4A222680FD00600B55 /* UIViewController+zk_Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = BA84BE49222680FD00600B55 /* UIViewController+zk_Additions.m */; };
 		BAA96DD72216CB24008CE03C /* PlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA96DD52216CB24008CE03C /* PlaceTableViewCell.m */; };
 		BAA96DD82216CB24008CE03C /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */; };
+		BAD5D5BA222BD49B008256C4 /* TimeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD5D5B8222BD49B008256C4 /* TimeCollectionViewCell.m */; };
+		BAD5D5BB222BD49B008256C4 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD5D5B9222BD49B008256C4 /* TimeCollectionViewCell.xib */; };
 		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
 		CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */; };
 		CB019E9821F0B382004A88D8 /* RequestResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB019E9721F0B382004A88D8 /* RequestResultModel.m */; };
@@ -160,6 +169,9 @@
 		BA0109752224DAB10025E6E9 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		BA0109782224DB2C0025E6E9 /* EHWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHWKWebView.h; sourceTree = "<group>"; };
 		BA0109792224DB2C0025E6E9 /* EHWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHWKWebView.m; sourceTree = "<group>"; };
+		BA02E7B42227BBA2004A2FBF /* UITextField+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+PlaceHolder.h"; sourceTree = "<group>"; };
+		BA02E7B52227BBA2004A2FBF /* UITextField+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+PlaceHolder.m"; sourceTree = "<group>"; };
+		BA02E7B92227C887004A2FBF /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		BA0361FF21F322E0008E0B4A /* AppDelegate+DismissKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DismissKeyboard.h"; sourceTree = "<group>"; };
 		BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+DismissKeyboard.m"; sourceTree = "<group>"; };
 		BA03620221F3322B008E0B4A /* NoticeSubList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSubList.h; sourceTree = "<group>"; };
@@ -180,11 +192,19 @@
 		BA04C86521F19423007A38AF /* PictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureModel.m; sourceTree = "<group>"; };
 		BA04C86821F1AE82007A38AF /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		BA04C86921F1AE82007A38AF /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		BA07FC76222BA5FA000BAC4F /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		BA07FC77222BA5FA000BAC4F /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		BA07FC78222BA5FA000BAC4F /* PersonalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalViewController.xib; sourceTree = "<group>"; };
+		BA07FC7B222BB183000BAC4F /* PersonalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewCell.h; sourceTree = "<group>"; };
+		BA07FC7C222BB183000BAC4F /* PersonalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewCell.m; sourceTree = "<group>"; };
+		BA07FC7D222BB183000BAC4F /* PersonalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalTableViewCell.xib; sourceTree = "<group>"; };
 		BA09BB4C22154BE40092BDED /* DrawerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawerViewController.h; sourceTree = "<group>"; };
 		BA09BB4D22154BE40092BDED /* DrawerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawerViewController.m; sourceTree = "<group>"; };
 		BA0F84C522165BD800EE6F0E /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		BA0F84C622165BD800EE6F0E /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
+		BA3158A72227D7F9000E5B6F /* TurningLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurningLabelView.h; sourceTree = "<group>"; };
+		BA3158A82227D7F9000E5B6F /* TurningLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TurningLabelView.m; sourceTree = "<group>"; };
 		BA585C06221EA7EE002C26B8 /* AddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
 		BA585C07221EA7EE002C26B8 /* AddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
 		BA84BE48222680FD00600B55 /* UIViewController+zk_Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+zk_Additions.h"; sourceTree = "<group>"; };
@@ -192,6 +212,9 @@
 		BAA96DD42216CB24008CE03C /* PlaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceTableViewCell.h; sourceTree = "<group>"; };
 		BAA96DD52216CB24008CE03C /* PlaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceTableViewCell.m; sourceTree = "<group>"; };
 		BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
+		BAD5D5B7222BD49B008256C4 /* TimeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeCollectionViewCell.h; sourceTree = "<group>"; };
+		BAD5D5B8222BD49B008256C4 /* TimeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeCollectionViewCell.m; sourceTree = "<group>"; };
+		BAD5D5B9222BD49B008256C4 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		CB017BC521DB294C00BB6BFD /* UserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
@@ -414,6 +437,15 @@
 			path = webViewController;
 			sourceTree = "<group>";
 		};
+		BA02E7B32227B9E8004A2FBF /* UITextField+PlaceHolder */ = {
+			isa = PBXGroup;
+			children = (
+				BA02E7B42227BBA2004A2FBF /* UITextField+PlaceHolder.h */,
+				BA02E7B52227BBA2004A2FBF /* UITextField+PlaceHolder.m */,
+			);
+			path = "UITextField+PlaceHolder";
+			sourceTree = "<group>";
+		};
 		BA0361FE21F322CB008E0B4A /* KeyBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +518,16 @@
 			path = NSDate;
 			sourceTree = "<group>";
 		};
+		BA07FC75222B9502000BAC4F /* 个人中心 */ = {
+			isa = PBXGroup;
+			children = (
+				BA07FC76222BA5FA000BAC4F /* PersonalViewController.h */,
+				BA07FC77222BA5FA000BAC4F /* PersonalViewController.m */,
+				BA07FC78222BA5FA000BAC4F /* PersonalViewController.xib */,
+			);
+			path = "个人中心";
+			sourceTree = "<group>";
+		};
 		BA09BB4B22154B980092BDED /* MMDrawerController */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +548,15 @@
 				CB0BCD6E221EE48600596E1B /* PlaceDetailViewController.xib */,
 			);
 			path = "场地";
+			sourceTree = "<group>";
+		};
+		BA3158A62227D7C7000E5B6F /* turningLable */ = {
+			isa = PBXGroup;
+			children = (
+				BA3158A72227D7F9000E5B6F /* TurningLabelView.h */,
+				BA3158A82227D7F9000E5B6F /* TurningLabelView.m */,
+			);
+			path = turningLable;
 			sourceTree = "<group>";
 		};
 		BA585C05221EA7D1002C26B8 /* 地理 */ = {
@@ -651,6 +702,7 @@
 			children = (
 				CB05464521C6A43F008BE895 /* MainViewController.h */,
 				CB05464621C6A43F008BE895 /* MainViewController.m */,
+				BA02E7B92227C887004A2FBF /* MainViewController.xib */,
 				CB05464821C6A4BB008BE895 /* LeftViewController.h */,
 				CB05464921C6A4BB008BE895 /* LeftViewController.m */,
 			);
@@ -850,6 +902,9 @@
 				CB02948621D3B93E00FE55A7 /* 公告 */,
 				CBCB79B921CBCA2D00BF454D /* 報修 */,
 				CBFF233B21CAA1BE0066E00C /* 訂場紀錄 */,
+				BA07FC7B222BB183000BAC4F /* PersonalTableViewCell.h */,
+				BA07FC7C222BB183000BAC4F /* PersonalTableViewCell.m */,
+				BA07FC7D222BB183000BAC4F /* PersonalTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -857,6 +912,7 @@
 		CB42089721C2B17D00980B64 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				BA07FC75222B9502000BAC4F /* 个人中心 */,
 				BA0109722224DA810025E6E9 /* webViewController */,
 				BA0F84C422165BA300EE6F0E /* 场地 */,
 				BA09BB4B22154B980092BDED /* MMDrawerController */,
@@ -998,6 +1054,8 @@
 		CBCB79C421CBD2A000BF454D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				BA3158A62227D7C7000E5B6F /* turningLable */,
+				BA02E7B32227B9E8004A2FBF /* UITextField+PlaceHolder */,
 				BA84BE47222680C900600B55 /* refresh */,
 				BA0109782224DB2C0025E6E9 /* EHWKWebView.h */,
 				BA0109792224DB2C0025E6E9 /* EHWKWebView.m */,
@@ -1026,6 +1084,9 @@
 				CBFF233C21CAA2110066E00C /* BookingRecordTableViewCell.h */,
 				CBFF233D21CAA2110066E00C /* BookingRecordTableViewCell.m */,
 				CBFF233E21CAA2110066E00C /* BookingRecordTableViewCell.xib */,
+				BAD5D5B7222BD49B008256C4 /* TimeCollectionViewCell.h */,
+				BAD5D5B8222BD49B008256C4 /* TimeCollectionViewCell.m */,
+				BAD5D5B9222BD49B008256C4 /* TimeCollectionViewCell.xib */,
 			);
 			path = "訂場紀錄";
 			sourceTree = "<group>";
@@ -1161,6 +1222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA07FC7A222BA5FA000BAC4F /* PersonalViewController.xib in Resources */,
 				CB02948B21D3B99000FE55A7 /* NoticeTableViewCell.xib in Resources */,
 				CB02668021D8CF3F00561B1C /* LeftViewTableViewCell.xib in Resources */,
 				CBCB79C921CBD68500BF454D /* BookingRecordDetailViewController.xib in Resources */,
@@ -1172,11 +1234,14 @@
 				CB0BCD6B221AF6B500596E1B /* PickViewController.xib in Resources */,
 				CBFFF13E21CFD7FA008BA2A0 /* ForgetPswViewController.xib in Resources */,
 				BA0F84C922165BD800EE6F0E /* PlaceViewController.xib in Resources */,
+				BA07FC7F222BB183000BAC4F /* PersonalTableViewCell.xib in Resources */,
+				BAD5D5BB222BD49B008256C4 /* TimeCollectionViewCell.xib in Resources */,
 				CBFE45C421C9557A00DD80E4 /* ContactUSViewController.xib in Resources */,
 				CBCB79C321CBD28500BF454D /* HandlingDetailsViewController.xib in Resources */,
 				CBFE45C921C955D600DD80E4 /* BookingRecordViewController.xib in Resources */,
 				CBFE45BF21C954DE00DD80E4 /* SettingViewController.xib in Resources */,
 				CB05465D21C6B223008BE895 /* ComplainViewController.xib in Resources */,
+				BA02E7BA2227C887004A2FBF /* MainViewController.xib in Resources */,
 				CB02948121D3AE2900FE55A7 /* SysLocalizable.strings in Resources */,
 				CBFF233A21CA8BD80066E00C /* ProcessingStateViewController.xib in Resources */,
 				CB05F35C21E1AB2D00208C5E /* PhotpCollectionViewCell.xib in Resources */,
@@ -1267,6 +1332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBFFF14121CFD85C008BA2A0 /* User.m in Sources */,
+				BA02E7B62227BBA2004A2FBF /* UITextField+PlaceHolder.m in Sources */,
 				CB04505F21D122A000EB59D7 /* NoticeList.m in Sources */,
 				CB02947A21D3A90500FE55A7 /* BaseModel.m in Sources */,
 				CB02668721D9057000561B1C /* ZKAlertTool.m in Sources */,
@@ -1274,9 +1340,12 @@
 				CB0BCD6A221AF6B500596E1B /* PickViewController.m in Sources */,
 				32B0FA202202FA5C000621DE /* NSDate+Utils.m in Sources */,
 				CBCB79BD21CBCA6300BF454D /* ReportMaintenanceTableViewCell.m in Sources */,
+				BAD5D5BA222BD49B008256C4 /* TimeCollectionViewCell.m in Sources */,
 				CB02668A21D9059A00561B1C /* LSXPopMenu.m in Sources */,
 				CBFFF13521CF9E48008BA2A0 /* WebAPIHelper.m in Sources */,
 				BA04C86221F190D9007A38AF /* UITextView+PlaceHolder.m in Sources */,
+				BA07FC7E222BB183000BAC4F /* PersonalTableViewCell.m in Sources */,
+				BA07FC79222BA5FA000BAC4F /* PersonalViewController.m in Sources */,
 				CB04505B21D11D0300EB59D7 /* ReportMaintenanceDetail.m in Sources */,
 				CBFE45C821C955D600DD80E4 /* BookingRecordViewController.m in Sources */,
 				CB6C9BAC21C1672200B5A9E9 /* ViewController.m in Sources */,
@@ -1332,6 +1401,7 @@
 				CBFFF13D21CFD7FA008BA2A0 /* ForgetPswViewController.m in Sources */,
 				BA04C86621F19423007A38AF /* PictureModel.m in Sources */,
 				BA03620421F3322B008E0B4A /* NoticeSubList.m in Sources */,
+				BA3158A92227D7F9000E5B6F /* TurningLabelView.m in Sources */,
 				CB04506621D126B000EB59D7 /* PlaceRecord.m in Sources */,
 				CB6C9BA921C1672200B5A9E9 /* AppDelegate.m in Sources */,
 				CB04507121D1464B00EB59D7 /* Community.m in Sources */,

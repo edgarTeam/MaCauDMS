@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *centerView;
 @property (weak, nonatomic) IBOutlet UIImageView *placeImage;
 @property (weak, nonatomic) IBOutlet UILabel *placeTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *describeLab;
+@property (weak, nonatomic) IBOutlet UIImageView *placeIconImage;
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *chooseImage;
 @property (weak, nonatomic) IBOutlet UIButton *chooseBtn;
 @property (weak, nonatomic) id<PlaceTableViewCellDelegate> delegate;

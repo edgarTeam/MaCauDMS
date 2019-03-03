@@ -15,7 +15,8 @@
 #import "SelectDatePickerController.h"
 #import "NSDate+Utils.h"
 #import "PlaceViewController.h"
-@interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate>
+#import "TimeCollectionViewCell.h"
+@interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *plateBtn;
 @property (nonatomic,strong)LSXPopMenu *plateMenu;
 @property (strong, nonatomic) IBOutlet UITableView *dateTableView;
@@ -37,8 +38,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *plateOrderDateLab;
 @property (weak, nonatomic) IBOutlet UILabel *plateChooseTimeLab;
 
-@end
 
+
+
+@property (weak, nonatomic) IBOutlet UICollectionView *timeCollectionView;
+@property (weak, nonatomic) IBOutlet UILabel *timeLab;
+@property (weak, nonatomic) IBOutlet UILabel *amountLab;
+
+
+@end
+static NSString * const cellIdentifier = @"TimeCollectionViewCell";
 @implementation ClubhouseReservationViewController
 {
     //NSArray *dataSource;
@@ -76,17 +85,31 @@
     _plateBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
     _plateBtn.layer.borderWidth =1.0;
     
-    _submitBtn.layer.masksToBounds=YES;
-    _submitBtn.layer.cornerRadius=5.0;
+
     
-//     _dateTableView=[[UITableView alloc] initWithFrame:<#(CGRect)#> style:<#(UITableViewStyle)#>];
-    _dateTableView.tableFooterView=[UIView new];
-    _dateTableView.separatorInset=UIEdgeInsetsZero;
-    _dateTableView.delegate=self;
-    _dateTableView.dataSource=self;
+    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    flowLayout.minimumLineSpacing=15;
+    flowLayout.minimumInteritemSpacing=10;
+    flowLayout.itemSize=CGSizeMake(105, 45);
+  //  flowLayout.sectionInset=UIEdgeInsetsMake(0, 10, 0, 10);
+    flowLayout.scrollDirection=UICollectionViewScrollDirectionVertical;
+    _timeCollectionView.collectionViewLayout=flowLayout;
+    _timeCollectionView.delegate=self;
+    _timeCollectionView.dataSource=self;
+    _timeCollectionView.alwaysBounceVertical=YES;
+    _timeCollectionView.backgroundColor=[UIColor clearColor];
+    [self.timeCollectionView registerNib:[UINib nibWithNibName:@"TimeCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"TimeCollectionViewCell"];
     
-    NSLog(@"%lu",_strArr.count);
-    [_dateTableView reloadData];
+    
+    
+
+//    _dateTableView.tableFooterView=[UIView new];
+//    _dateTableView.separatorInset=UIEdgeInsetsZero;
+//    _dateTableView.delegate=self;
+//    _dateTableView.dataSource=self;
+//
+//    NSLog(@"%lu",_strArr.count);
+//    [_dateTableView reloadData];
     //  [self reuqestPlateList];
     
 //    if (![self login]) {
@@ -262,191 +285,295 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    // NSLog(@"data的個數%ld",_dataSource.count);
-    return _dataSource.count;
-   
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *IDentified=@"cell";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:IDentified];
-    if (cell == nil) {
-        cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDentified];
-    }
-    
-    cell.backgroundColor=[UIColor clearColor];
-    cell.textLabel.textColor=RGB(230, 230, 230);
-    if (_strArr.count==0 || _strArr==nil) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-   // cell.accessoryType = UITableViewCellAccessoryNone;
-    cell.textLabel.text=_dataSource[indexPath.row];
-    NSLog(@"%@",cell.textLabel.text);
-
-    return cell;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-       // [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
-//        [_strArr removeObject:<#(nonnull id)#>];
-            NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
-            NSArray *arr=[_strArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
-                int a=[obj1 intValue];
-                int b=[obj2 intValue];
-                if (a >b) {
-                    return NSOrderedDescending;
-                }else{
-                    return NSOrderedAscending;
-                }
-            }];
-        NSInteger index=[arr indexOfObject:str];
-        NSLog(@"%ld",index);
-        if (index==0) {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            [_strArr removeObject:str];
-            return;
-        }
-        if (index==arr.count-1) {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            [_strArr removeObject:str];
-            return;
-        }
-        if ([arr[index+1] intValue]-[arr[index-1] intValue]==4) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_cancel_title")];
-        }else{
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            [_strArr removeObject:str];
-        }
-        
-      //  [_strArr removeObject:_strArr.lastObject];
-//        NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
-//        NSMutableArray *removeArr=[NSMutableArray new];
-//        removeArr=[_strArr mutableCopy];
-//        if ([removeArr containsObject:str]) {
-//           _index=[removeArr indexOfObject:str];
-//            [removeArr removeObjectAtIndex:_index];
-//        }
-//        for (int i=0; i<removeArr.count-1; i++) {
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    return 1;
+//}
 //
-//            [_cancelArr addObject:[NSString stringWithFormat:@"%d", [removeArr.lastObject intValue]-[removeArr[i] intValue]]];
-//            NSLog(@"数组个数%ld",_cancelArr.count);
-//            NSLog(@"%@",_cancelArr[i]);
-//            if ([_cancelArr containsObject:@"4"] ||[_cancelArr containsObject:@"-4"]) {
-//                if ([_cancelArr containsObject:@"2"]) {
-//                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-////                     cell.accessoryType = UITableViewCellAccessoryNone;
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    // NSLog(@"data的個數%ld",_dataSource.count);
+//    return _dataSource.count;
+//
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    static NSString *IDentified=@"cell";
+//    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:IDentified];
+//    if (cell == nil) {
+//        cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDentified];
+//    }
+//
+//    cell.backgroundColor=[UIColor clearColor];
+//    cell.textLabel.textColor=RGB(230, 230, 230);
+//    if (_strArr.count==0 || _strArr==nil) {
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//    }
+//   // cell.accessoryType = UITableViewCellAccessoryNone;
+//    cell.textLabel.text=_dataSource[indexPath.row];
+//    NSLog(@"%@",cell.textLabel.text);
+//
+//    return cell;
+//}
+//
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//
+//    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+//        cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+//       // [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
+////        [_strArr removeObject:<#(nonnull id)#>];
+//            NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
+//            NSArray *arr=[_strArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
+//                int a=[obj1 intValue];
+//                int b=[obj2 intValue];
+//                if (a >b) {
+//                    return NSOrderedDescending;
 //                }else{
-////                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-//                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-//                   // [_cancelArr removeObject:_cancelArr.lastObject];
-//                   // [_strArr removeObject:_strArr.lastObject];
-//                    [_strArr removeObjectAtIndex:_index];
+//                    return NSOrderedAscending;
 //                }
-//            }else{
-//                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-//            }
+//            }];
+//        NSInteger index=[arr indexOfObject:str];
+//        NSLog(@"%ld",index);
+//        if (index==0) {
+//            cell.accessoryType = UITableViewCellAccessoryNone;
+//            [_strArr removeObject:str];
+//            return;
 //        }
-    }else { //未选中
-//        cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-//        [_selectIndexs addObject:@(indexPath.row)]; //添加索引数据到数组
-//        if (_selectIndexs.count >=2) {
-//            NSIndexPath *i;
-//            i=[_selectIndexs objectAtIndex:_selectIndexs.count-2];
-//            NSMutableArray *vArr=[NSMutableArray new];
-//            for (int z=0; z<_selectIndexs.count; z++) {
-//                int j=[_selectIndexs.lastObject intValue]-[[_selectIndexs objectAtIndex:z] intValue];
-//                //  NSString *str=[NSString stringWithFormat:@"%d",j];
-//                [vArr addObject:[NSString stringWithFormat:@"%d",j]];
-//
-//            }
-//            if ([vArr containsObject:@"2"]) {
-//                if ([vArr containsObject:@"1"]){
-//                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-//                    [_selectIndexs addObject:@(indexPath.row)];
-//                }else{
-//                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-//                    [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
-//                }
-//            }
-//
+//        if (index==arr.count-1) {
+//            cell.accessoryType = UITableViewCellAccessoryNone;
+//            [_strArr removeObject:str];
+//            return;
 //        }
-       
+//        if ([arr[index+1] intValue]-[arr[index-1] intValue]==4) {
+//            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//            [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_cancel_title")];
+//        }else{
+//            cell.accessoryType = UITableViewCellAccessoryNone;
+//            [_strArr removeObject:str];
+//        }
+//
+//      //  [_strArr removeObject:_strArr.lastObject];
+////        NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
+////        NSMutableArray *removeArr=[NSMutableArray new];
+////        removeArr=[_strArr mutableCopy];
+////        if ([removeArr containsObject:str]) {
+////           _index=[removeArr indexOfObject:str];
+////            [removeArr removeObjectAtIndex:_index];
+////        }
+////        for (int i=0; i<removeArr.count-1; i++) {
+////
+////            [_cancelArr addObject:[NSString stringWithFormat:@"%d", [removeArr.lastObject intValue]-[removeArr[i] intValue]]];
+////            NSLog(@"数组个数%ld",_cancelArr.count);
+////            NSLog(@"%@",_cancelArr[i]);
+////            if ([_cancelArr containsObject:@"4"] ||[_cancelArr containsObject:@"-4"]) {
+////                if ([_cancelArr containsObject:@"2"]) {
+////                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//////                     cell.accessoryType = UITableViewCellAccessoryNone;
+////                }else{
+//////                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+////                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+////                   // [_cancelArr removeObject:_cancelArr.lastObject];
+////                   // [_strArr removeObject:_strArr.lastObject];
+////                    [_strArr removeObjectAtIndex:_index];
+////                }
+////            }else{
+////                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+////            }
+////        }
+//    }else { //未选中
+////        cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+////        [_selectIndexs addObject:@(indexPath.row)]; //添加索引数据到数组
+////        if (_selectIndexs.count >=2) {
+////            NSIndexPath *i;
+////            i=[_selectIndexs objectAtIndex:_selectIndexs.count-2];
+////            NSMutableArray *vArr=[NSMutableArray new];
+////            for (int z=0; z<_selectIndexs.count; z++) {
+////                int j=[_selectIndexs.lastObject intValue]-[[_selectIndexs objectAtIndex:z] intValue];
+////                //  NSString *str=[NSString stringWithFormat:@"%d",j];
+////                [vArr addObject:[NSString stringWithFormat:@"%d",j]];
+////
+////            }
+////            if ([vArr containsObject:@"2"]) {
+////                if ([vArr containsObject:@"1"]){
+////                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+////                    [_selectIndexs addObject:@(indexPath.row)];
+////                }else{
+////                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+////                    [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
+////                }
+////            }
+////
+////        }
+//
+////        NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
+////        [_strArr addObject:str];
+////
+////        if (_strArr.count>=2) {
+////            if ([_strArr.lastObject intValue]-[_strArr[_strArr.count-2] intValue]==4) {
+////                cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+////                [_strArr removeObject:_strArr.lastObject];
+////            }else{
+////                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+////            }
+////        }else{
+////            cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+////        }
+//
 //        NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
 //        [_strArr addObject:str];
 //
 //        if (_strArr.count>=2) {
-//            if ([_strArr.lastObject intValue]-[_strArr[_strArr.count-2] intValue]==4) {
-//                cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-//                [_strArr removeObject:_strArr.lastObject];
-//            }else{
+//          //  int nub=_compareArr[_compareArr.count-_strArr.count];
+//           // NSLog(@"个数为%d",nub);
+//            [_compareArr removeAllObjects];
+//            for (int i=0; i<_strArr.count-1; i++) {
+//
+//                [_compareArr addObject:[NSString stringWithFormat:@"%d", [_strArr.lastObject intValue]-[_strArr[i] intValue]]];
+//
+//            }
+////            if ([_compareArr containsObject:@"4"] ||[_compareArr containsObject:@"-4"]) {
+////                if ([_compareArr containsObject:@"2"] ||[_compareArr containsObject:@"-2"]) {
+////                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+////
+////                }else{
+////                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+////                    //   [_compareArr removeAllObjects];
+////                    [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_choose_title")];
+////                    [_strArr removeObject:_strArr.lastObject];
+////                }
+////            }else{
+////                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+////
+////            }
+//            if ([_compareArr containsObject:@"2"] ||[_compareArr containsObject:@"-2"]) {
 //                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//            }else{
+//                cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+//                //   [_compareArr removeAllObjects];
+//                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_choose_title")];
+//                [_strArr removeObject:_strArr.lastObject];
 //            }
 //        }else{
-//            cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+//             cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
 //        }
-       
+//
+//
+//
+//
+//    }
+//}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 40;
+//}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return _dataSource.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    TimeCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"TimeCollectionViewCell" forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"TimeCollectionViewCell" owner:self options:nil] lastObject];
+    }
+    cell.isChoosed=NO;
+    cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
+    cell.contentLab.text=_dataSource[indexPath.row];
+    return cell;
+    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    TimeCollectionViewCell *cell=(TimeCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+
+    if (cell.isChoosed==NO) {
         NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
         [_strArr addObject:str];
-      
+
         if (_strArr.count>=2) {
-          //  int nub=_compareArr[_compareArr.count-_strArr.count];
-           // NSLog(@"个数为%d",nub);
             [_compareArr removeAllObjects];
             for (int i=0; i<_strArr.count-1; i++) {
-                
+        
                 [_compareArr addObject:[NSString stringWithFormat:@"%d", [_strArr.lastObject intValue]-[_strArr[i] intValue]]];
-
+        
             }
-//            if ([_compareArr containsObject:@"4"] ||[_compareArr containsObject:@"-4"]) {
-//                if ([_compareArr containsObject:@"2"] ||[_compareArr containsObject:@"-2"]) {
-//                    cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-//                    
-//                }else{
-//                    cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-//                    //   [_compareArr removeAllObjects];
-//                    [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_choose_title")];
-//                    [_strArr removeObject:_strArr.lastObject];
-//                }
-//            }else{
-//                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
-//                
-//            }
+        
             if ([_compareArr containsObject:@"2"] ||[_compareArr containsObject:@"-2"]) {
-                cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+                           // cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+                cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_yes"];
+                cell.isChoosed=YES;
             }else{
-                cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
-                //   [_compareArr removeAllObjects];
+                cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
+                cell.isChoosed=NO;
+                            //   [_compareArr removeAllObjects];
                 [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_choose_title")];
                 [_strArr removeObject:_strArr.lastObject];
-            }
+                        }
         }else{
-             cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
+            cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_yes"];
+            cell.isChoosed=YES;
+                        // cell.accessoryType = UITableViewCellAccessoryCheckmark; //切换为选中
         }
         
-        
-        
-        
+    }else if (cell.isChoosed==YES){
+                //cell.accessoryType = UITableViewCellAccessoryNone; //切换为未选中
+               // [_selectIndexs removeObject:@(indexPath.row)]; //数据移除
+        //        [_strArr removeObject:<#(nonnull id)#>];
+                    NSString *str=[_dataSource[indexPath.row] substringToIndex:2];
+                    NSArray *arr=[_strArr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2){
+                        int a=[obj1 intValue];
+                        int b=[obj2 intValue];
+                        if (a >b) {
+                            return NSOrderedDescending;
+                        }else{
+                            return NSOrderedAscending;
+                        }
+                    }];
+                NSInteger index=[arr indexOfObject:str];
+                NSLog(@"%ld",index);
+                if (index==0) {
+                    cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
+                    cell.isChoosed=NO;
+                    [_strArr removeObject:str];
+                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu小时",_strArr.count*2];
+                    return;
+                }
+                if (index==arr.count-1) {
+                    //cell.accessoryType = UITableViewCellAccessoryNone;
+                    cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
+                    cell.isChoosed=NO;
+                    [_strArr removeObject:str];
+                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu小时",_strArr.count*2];
+                    return;
+                }
+                if ([arr[index+1] intValue]-[arr[index-1] intValue]==4) {
+//                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_yes"];
+                    cell.isChoosed=YES;
+                    [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_place_alert_time_cancel_title")];
+                }else{
+                    cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
+                   // cell.accessoryType = UITableViewCellAccessoryNone;
+                    cell.isChoosed=NO;
+                    [_strArr removeObject:str];
+                }
     }
+    self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu小时",_strArr.count*2];
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 40;
-}
+
+
+
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=NO;
+    self.navigationController.navigationBar.hidden=YES;
 [self.plateBtn setTitle:_placeName forState:UIControlStateNormal];
 
     [self checkLogin];

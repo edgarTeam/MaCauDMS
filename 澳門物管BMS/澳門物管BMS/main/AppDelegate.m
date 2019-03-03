@@ -97,36 +97,34 @@
 
         [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hant"  forKey:AppLanguage];
     }
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     _complainVC=[[ComplainViewController alloc] init];
-//    _clubVC=[[ClubhouseReservationViewController alloc] init];
-//    _reportVC=[[ReportMaintenanceViewController alloc] init];
-//    _setVC=[[SettingViewController alloc] init];
+    _centerNvaVC= [[BaseNavigationViewController alloc]init];
+    self.window.rootViewController=_centerNvaVC;
     MainViewController *mainVC=[[MainViewController alloc] init];
-    LeftViewController *leftVC=[[LeftViewController alloc] init];
-    _centerNvaVC= [[BaseNavigationViewController alloc]initWithRootViewController:mainVC];
-    _leftNvaVC = [[BaseNavigationViewController alloc]initWithRootViewController:leftVC];
-     self.drawer = [[DrawerViewController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];
+    [_centerNvaVC pushViewController:mainVC animated:YES];
+   // LeftViewController *leftVC=[[LeftViewController alloc] init];
+   // self.window.rootViewController=;
+   // _centerNvaVC= [[BaseNavigationViewController alloc]initWithRootViewController:mainVC];
+//    _leftNvaVC = [[BaseNavigationViewController alloc]initWithRootViewController:leftVC];
+//     self.drawer = [[DrawerViewController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];
+//
+//    self.drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+//    self.drawer.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
+//    self.drawer.maximumLeftDrawerWidth = ScreenWidth/2;
+//    self.drawer.maximumRightDrawerWidth = ScreenWidth/2;
+//    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//    [self.window setRootViewController:self.drawer];
     
-    self.drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
-    self.drawer.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
-    self.drawer.maximumLeftDrawerWidth = ScreenWidth/2;
-    self.drawer.maximumRightDrawerWidth = ScreenWidth/2;
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    [self.window setRootViewController:self.drawer];
     
     self.suspensionMenu = [[SuspensionMenu alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
     self.suspensionMenu.delegate = self;
-    
-//    _suspensionView=[[SuspensionView alloc] init];
-//    [_suspensionView.button1 addTarget:self action:@selector(handleClick:) forControlEvents:UIControlEventTouchUpInside];
-    //_suspensionView.userInteractionEnabled=NO;
-    
-//    _suspensionView=[[SuspensionView alloc] init];
-//    [self.drawer.view addSubview:_suspensionView];
+
     
     [self.window.rootViewController.view  addSubview:_suspensionMenu];
     [self.window.rootViewController.view bringSubviewToFront:_suspensionMenu];
     [self.window makeKeyAndVisible];
+    
 //    self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
 //    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
 //    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);

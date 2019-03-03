@@ -29,8 +29,8 @@
    //self.title=@"公告";
     self.title=LocalizedString(@"String_notice_title");
    // self.edgesForExtendedLayout=UIRectEdgeNone;
-    //_tableView.separatorColor=[UIColor clearColor];
-    _tableView.separatorInset=UIEdgeInsetsZero;
+    _tableView.separatorColor=[UIColor clearColor];
+//    _tableView.separatorInset=UIEdgeInsetsZero;
     _tableView.tableFooterView=[UIView new];
     _tableView.delegate=self;
     _tableView.dataSource=self;
@@ -53,7 +53,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return dataSource.count;
+//    return dataSource.count;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -62,14 +63,14 @@
         cell=[[[NSBundle mainBundle] loadNibNamed:@"NoticeTableViewCell" owner:self options:nil] lastObject];
     }
    // cell.backgroundColor=[UIColor clearColor];
-    [cell setUpModel:[dataSource objectAtIndex:indexPath.row]];
+   // [cell setUpModel:[dataSource objectAtIndex:indexPath.row]];
     
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 73;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -102,7 +103,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=NO;
+    self.navigationController.navigationBar.hidden=YES;
     [self requestNoticeList];
 }
 @end
