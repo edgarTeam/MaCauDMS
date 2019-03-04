@@ -117,13 +117,13 @@
 //    [self.window setRootViewController:self.drawer];
     
     
-//    self.suspensionMenu = [[SuspensionMenu alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
-//    self.suspensionMenu.delegate = self;
-//
-//    
-//    [self.window.rootViewController.view  addSubview:_suspensionMenu];
-//    [self.window.rootViewController.view bringSubviewToFront:_suspensionMenu];
-//    [self.window makeKeyAndVisible];
+    self.suspensionMenu = [[SuspensionMenu alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
+    self.suspensionMenu.delegate = self;
+
+    
+    [self.window.rootViewController.view  addSubview:_suspensionMenu];
+    [self.window.rootViewController.view bringSubviewToFront:_suspensionMenu];
+    [self.window makeKeyAndVisible];
     
 //    self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
 //    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);

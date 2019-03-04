@@ -8,6 +8,7 @@
 
 #import "ForgetPswViewController.h"
 #import "ZKAlertTool.h"
+#import "UITextField+PlaceHolder.h"
 @interface ForgetPswViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameText;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
@@ -19,7 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title=LocalizedString(@"string_forget_psd_title");
+   // self.title=LocalizedString(@"string_forget_psd_title");
+    self.baseTitleLab.text=LocalizedString(@"string_forget_psd_title");
+    _userNameText.placeHoldColor=RGBA(255, 255, 255, 0.5);
     _submitBtn.layer.masksToBounds=YES;
     _submitBtn.layer.cornerRadius=5.0;
     [_submitBtn setTitle:LocalizedString(@"string_confirm_reset_psd_title") forState:UIControlStateNormal];
@@ -56,7 +59,7 @@
 */
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=NO;
+    self.navigationController.navigationBar.hidden=YES;
 }
 
 

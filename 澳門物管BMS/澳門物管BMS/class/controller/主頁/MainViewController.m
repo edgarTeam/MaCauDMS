@@ -50,6 +50,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *contactBtn;
 @property (weak, nonatomic) IBOutlet UIButton *settingBtn;
 
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnArray;
 
 
 
@@ -67,6 +68,15 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    for (UIButton *btn in _btnArray) {
+        [btn.titleLabel setFont:[UIFont systemFontOfSize:14.0]];
+//        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width, 0, 0)];
+//        [btn setImageEdgeInsets:UIEdgeInsetsMake( -(btn.frame.size.height/2-btn.imageView.frame.size.height/2), 0, 0, -btn.titleLabel.frame.size.width)];
+        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width-18, 0, 0)];
+        [btn setImageEdgeInsets:UIEdgeInsetsMake( 0, 0, 24, 0)];
+    }
     
     
     // Do any additional setup after loading the view.
@@ -316,8 +326,8 @@
         }
         
         // _weatherLab.text=[NSString stringWithFormat:@" %@℃",weather.temperature];
-        _weatherLab.text=[NSString stringWithFormat:@" %@℃",weather.weather];
-        _temperatureLab.text=weather.temperature;
+        _weatherLab.text=weather.weather;
+        _temperatureLab.text=[NSString stringWithFormat:@"%@℃",weather.temperature];
     } failure:^(NSError *error){
         NSLog(@"%@",error);
     }];

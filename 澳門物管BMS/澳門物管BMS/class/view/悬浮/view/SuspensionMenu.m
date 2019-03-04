@@ -33,15 +33,15 @@
     isHorAdsorb = YES;
     [self.centerBtn  setImage:image forState:UIControlStateNormal];
     [self.centerBtn addTarget:self action:@selector(centerDidClick:) forControlEvents:UIControlEventTouchUpInside];
-    dragPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlerDrage)];
-    dragPan.maximumNumberOfTouches= 1;
-    dragPan.minimumNumberOfTouches = 1;
-    [self.centerBtn addGestureRecognizer:dragPan];
+//    dragPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlerDrage)];
+//    dragPan.maximumNumberOfTouches= 1;
+//    dragPan.minimumNumberOfTouches = 1;
+//    [self.centerBtn addGestureRecognizer:dragPan];
     [self addSubview:_centerBtn];
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handSingleTap:)];
-    singleTap.numberOfTapsRequired = 1;
-    singleTap.numberOfTouchesRequired = 1;
-    [self addGestureRecognizer:singleTap];
+//    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handSingleTap:)];
+//    singleTap.numberOfTapsRequired = 1;
+//    singleTap.numberOfTouchesRequired = 1;
+//    [self addGestureRecognizer:singleTap];
     
     [self addButtons];
     return self;

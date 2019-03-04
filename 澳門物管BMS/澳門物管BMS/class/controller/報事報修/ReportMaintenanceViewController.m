@@ -59,6 +59,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *themeImage;
 @property (weak, nonatomic) IBOutlet UIImageView *typeImage;
 @property (weak, nonatomic) IBOutlet UIImageView *adressImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeight;
 
 
 
@@ -172,7 +173,7 @@
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumLineSpacing=5;
     flowLayout.minimumInteritemSpacing=5;
-    flowLayout.itemSize=CGSizeMake(80, 80);
+    flowLayout.itemSize=CGSizeMake(74, 74);
     flowLayout.sectionInset=UIEdgeInsetsMake(0, 10, 0, 10);
     flowLayout.scrollDirection=UICollectionViewScrollDirectionVertical;
     _maintenanceCollectionView.collectionViewLayout=flowLayout;
