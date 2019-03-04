@@ -7,13 +7,17 @@
 //
 
 #import "BaseViewController.h"
-
+#import "Place.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ClubhouseReservationViewController : BaseViewController
 @property (nonatomic,strong)NSString *keyword;
 @property (nonatomic,strong) NSString *placeId;
 @property (nonatomic,strong) NSString *placeName;
+
+@property (nonatomic,strong) Place *selectedPlace;
+
+- (void)setSelectedPlace:(Place *)place;
 @end
 
 NS_ASSUME_NONNULL_END

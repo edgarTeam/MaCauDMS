@@ -9,6 +9,11 @@
 #import "BaseViewController.h"
 #import <AVFoundation/AVFoundation.h>
 NS_ASSUME_NONNULL_BEGIN
+typedef NS_ENUM(NSInteger,HandleType)
+{
+    ReportType,//报修 0
+    ComplainType,//投诉 1
+};
 
 @interface ReportMaintenanceViewController : BaseViewController
 @property (nonatomic, strong) AVAudioSession *session;
@@ -21,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)NSData *data;
 
+@property (nonatomic,assign) HandleType type;
 @end
 
 NS_ASSUME_NONNULL_END

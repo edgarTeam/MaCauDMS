@@ -71,6 +71,8 @@
 
 +(NSString*)getCurrentTimes;
 
++(NSString *)getYearMonthDayTimes;
+
 //转换时间 20131212055012
 + (NSString *)stringNransformDateAndTimeString:(NSString *)time;
 //转换时间 201612120550
@@ -79,7 +81,11 @@
 + (NSString *)stringFromDateToDateTimeString:(NSString *)time;
 
 //转换时间 20131212
++ (NSString *)stringApplyYMDTimeSting:(NSString *)time;
+
 + (NSString *)stringNransformDateString:(NSString *)time;
 
 + (NSString *)stringFromDateToDateString:(NSString *)time;
+
++ (NSString *)getWeekdays;
 @end

@@ -44,6 +44,10 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *timeCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
 @property (weak, nonatomic) IBOutlet UILabel *amountLab;
+@property (weak, nonatomic) IBOutlet UILabel *placeNameLab;
+@property (weak, nonatomic) IBOutlet UILabel *placeContentLab;
+@property (weak, nonatomic) IBOutlet UILabel *placePriceLab;
+
 
 
 @end
@@ -76,10 +80,10 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     _plateOrderDateLab.text=LocalizedString(@"string_plate_order_date_title");
     _plateChooseTimeLab.text=LocalizedString(@"string_plate_choose_time_title");
     
-    _orderDateBtn.layer.masksToBounds = YES;
-    _orderDateBtn.layer.cornerRadius = 5.0;
-    _orderDateBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
-    _orderDateBtn.layer.borderWidth =1.0;
+//    _orderDateBtn.layer.masksToBounds = YES;
+//    _orderDateBtn.layer.cornerRadius = 5.0;
+//    _orderDateBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
+//    _orderDateBtn.layer.borderWidth =1.0;
     _plateBtn.layer.masksToBounds = YES;
     _plateBtn.layer.cornerRadius = 5.0;
     _plateBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
@@ -97,6 +101,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     _timeCollectionView.delegate=self;
     _timeCollectionView.dataSource=self;
     _timeCollectionView.alwaysBounceVertical=YES;
+    _timeCollectionView.scrollEnabled=NO;
     _timeCollectionView.backgroundColor=[UIColor clearColor];
     [self.timeCollectionView registerNib:[UINib nibWithNibName:@"TimeCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"TimeCollectionViewCell"];
     
@@ -542,7 +547,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
                     cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
                     cell.isChoosed=NO;
                     [_strArr removeObject:str];
-                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu小时",_strArr.count*2];
+                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];
                     return;
                 }
                 if (index==arr.count-1) {
@@ -550,7 +555,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
                     cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
                     cell.isChoosed=NO;
                     [_strArr removeObject:str];
-                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu小时",_strArr.count*2];
+                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];
                     return;
                 }
                 if ([arr[index+1] intValue]-[arr[index-1] intValue]==4) {
@@ -565,17 +570,21 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
                     [_strArr removeObject:str];
                 }
     }
-    self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu小时",_strArr.count*2];
+    self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];
 }
 
-
+- (void)setSelectedPlace:(Place *)place {
+    _selectedPlace=place;
+}
 
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
-[self.plateBtn setTitle:_placeName forState:UIControlStateNormal];
-
+//[self.plateBtn setTitle:_placeName forState:UIControlStateNormal];
+    _placeNameLab.text=_selectedPlace.placeName;
+    _placeContentLab.text=_selectedPlace.placeIntroduction;
+    _placeId=_selectedPlace.placeId;
     [self checkLogin];
   //  [self createView];
     [self reuqestPlateList];

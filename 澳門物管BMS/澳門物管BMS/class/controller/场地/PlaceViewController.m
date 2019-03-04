@@ -12,6 +12,8 @@
 #import "Place.h"
 #import "PlaceDetailViewController.h"
 #import "UIViewController+zk_Additions.h"
+#import "ClubhouseReservationViewController.h"
+#import "NoticeSubList.h"
 @interface PlaceViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *placeTableView;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
@@ -144,24 +146,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    PlaceTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"PlaceTableViewCell"];
-//     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-//
-//
-//    cell.chooseImage.hidden=NO;
-//     }
-//    _placeName=@"";
-//    _placeId=@"";
     Place *place=[dataSource objectAtIndex:indexPath.row];
-    _placeName=place.placeName;
-    _placeId=place.placeId;
-    PlaceDetailViewController *placeDetailVC=[[PlaceDetailViewController alloc] init];
-    placeDetailVC.placeID=_placeId;
-    [self presentViewController:placeDetailVC animated:YES completion:nil];
-    
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        self.placeNameBlock(_placeName,_placeId);
-//    }];
+//    for (NoticeSubList *notice in place.images) {
+//        <#statements#>
+//    }
+//    _placeName=place.placeName;
+//    _placeId=place.placeId;
+
+    ClubhouseReservationViewController *clubVC=[ClubhouseReservationViewController new];
+    clubVC.selectedPlace=place;
+    [self.navigationController pushViewController:clubVC animated:YES];
+
 }
 /*
 #pragma mark - Navigation

@@ -117,6 +117,38 @@
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="224.88755622188907"/>
         </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="109" id="TAa-V0-CPi">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TAa-V0-CPi" id="U0i-9R-hVU">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="108.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TWv-sM-XMq">
+                        <rect key="frame" x="15" y="0.0" width="345" height="93.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="50w-vH-awc">
+                                <rect key="frame" x="0.0" y="0.0" width="345" height="93.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="50w-vH-awc" secondAttribute="bottom" id="Cdt-Gg-EWo"/>
+                            <constraint firstAttribute="trailing" secondItem="50w-vH-awc" secondAttribute="trailing" id="DGy-sX-DGw"/>
+                            <constraint firstItem="50w-vH-awc" firstAttribute="top" secondItem="TWv-sM-XMq" secondAttribute="top" id="yAI-f2-JeD"/>
+                            <constraint firstItem="50w-vH-awc" firstAttribute="leading" secondItem="TWv-sM-XMq" secondAttribute="leading" id="zcq-eQ-2S4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="TWv-sM-XMq" secondAttribute="bottom" constant="15" id="6sp-FN-Jlb"/>
+                    <constraint firstItem="TWv-sM-XMq" firstAttribute="leading" secondItem="U0i-9R-hVU" secondAttribute="leading" constant="15" id="JYi-Fr-afo"/>
+                    <constraint firstItem="TWv-sM-XMq" firstAttribute="top" secondItem="U0i-9R-hVU" secondAttribute="top" id="TCe-ww-Q6m"/>
+                    <constraint firstAttribute="trailing" secondItem="TWv-sM-XMq" secondAttribute="trailing" constant="15" id="luL-fE-R5L"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="69.599999999999994" y="532.98350824587715"/>
+        </tableViewCell>
     </objects>
     <resources>
         <image name="icon_number" width="20" height="20"/>

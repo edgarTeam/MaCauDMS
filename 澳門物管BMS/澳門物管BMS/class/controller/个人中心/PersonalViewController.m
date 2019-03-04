@@ -16,6 +16,11 @@
 #import "UIButton+WebCache.h"
 #import "User.h"
 #import "LoginViewController.h"
+
+#import "BookingRecordViewController.h"
+#import "ProcessingStateViewController.h"
+#import "ContactUSViewController.h"
+#import "SettingViewController.h"
 @interface PersonalViewController ()<UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *userInfoBtn;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -106,7 +111,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    NSArray *array=@[@"BookingRecordViewController",@"ContactUSViewController",@"SettingViewController",@"ProcessingStateViewController"];
+    NSArray *array=@[@"BookingRecordViewController",@"ProcessingStateViewController",@"ProcessingStateViewController",@"ContactUSViewController",@"SettingViewController"];
     UIViewController *vc=[NSClassFromString(array[indexPath.row]) new];
     UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
     if (indexPath.row==0 || indexPath.row==3) {
@@ -239,7 +244,7 @@
         }
         
        // _weatherLab.text=[NSString stringWithFormat:@" %@℃",weather.temperature];
-        _weatherLab.text=weather.weather;
+        _weatherLab.text=[NSString stringWithFormat:@" %@℃",weather.weather];
         _temperatureLab.text=weather.temperature;
     } failure:^(NSError *error){
         NSLog(@"%@",error);

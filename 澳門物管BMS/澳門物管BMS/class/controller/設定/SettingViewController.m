@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *changeLanguageBtn;
 @property (weak, nonatomic) IBOutlet UIButton *AboutUsBtn;
 @property (weak, nonatomic) IBOutlet UIButton *privacyBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *psdViewHeight;
+@property (weak, nonatomic) IBOutlet UIView *psdLabView;
+@property (weak, nonatomic) IBOutlet UIImageView *centerImageView;
 
 
 
@@ -34,7 +37,7 @@
     
     self.title=LocalizedString(@"string_set_title");
     [self.changePsdBtn setTitle:LocalizedString(@"String_change_psd_title") forState:UIControlStateNormal];
-    [self.changeLanguageBtn setTitle:LocalizedString(@"string_language_setting_title") forState:UIControlStateNormal];
+ //   [self.changeLanguageBtn setTitle:LocalizedString(@"string_language_setting_title") forState:UIControlStateNormal];
     [self.AboutUsBtn setTitle:LocalizedString(@"string_about_us_title") forState:UIControlStateNormal];
     NSDictionary *attribtDic =
     @{NSUnderlineStyleAttributeName: [NSNumber
@@ -87,15 +90,24 @@
 */
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=NO;
+    self.navigationController.navigationBar.hidden=YES;
    
 //    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
 //
 //     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 //    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : RGB(230, 230, 230),NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:17]}];
     if (self.token.length==0) {
+       // _changePsdBtn.hidden=YES;
+       // _psdBtnHeight.constant=0;
         _changePsdBtn.hidden=YES;
-        _psdBtnHeight.constant=0;
+        _psdLabView.hidden=YES;
+        _centerImageView.hidden=YES;
+        _psdViewHeight.constant=0;
+    }else{
+        _changePsdBtn.hidden=NO;
+        _psdLabView.hidden=NO;
+        _centerImageView.hidden=NO;
+        _psdViewHeight.constant=47;
     }
 
 }

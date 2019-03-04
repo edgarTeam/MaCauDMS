@@ -25,6 +25,7 @@
 #import "BuildingModel.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <Photos/Photos.h>
+#import "UITextField+PlaceHolder.h"
 @interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *maintenanceTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *maintenanceCollectionView;
@@ -77,11 +78,49 @@
    // self.title=@"報事維修";
     self.baseTitleLab.text=@"報事維修";
     
+    switch (_type) {
+        case ReportType:
+        {
+            _buildingImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
+            _themeImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
+            _typeImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
+            _adressImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
+            
+            _repairTitleTextField.placeHoldColor=RGB(231, 93, 119);
+            _repairTitleTextField.placeHoldString=@"请输入报修主题";
+            _repairTypeTextField.placeHoldColor=RGB(231, 93, 119);
+            _repairTypeTextField.placeHoldString=@"请输入报修类型";
+            _addressTextField.placeHoldColor=RGB(231, 93, 119);
+            _addressTextField.placeHoldString=@"请输入详细地址";
+            _maintenanceTextView.placeHoldString=@"请输入报修内容";
+            _maintenanceTextView.placeHoldColor=RGB(231, 93, 119);
+            _maintenanceTextView.layer.borderColor=RGB(231, 93, 119).CGColor;
+        }
+            break;
+        case ComplainType:
+        {
+            _buildingImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
+            _themeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
+            _typeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
+            _adressImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
+            _repairTitleTextField.placeHoldColor=RGB(255, 159, 88);
+            _repairTitleTextField.placeHoldString=@"请输入报修主题";
+            _repairTypeTextField.placeHoldColor=RGB(255, 159, 88);
+            _repairTypeTextField.placeHoldString=@"请输入报修类型";
+            _addressTextField.placeHoldColor=RGB(255, 159, 88);
+            _addressTextField.placeHoldString=@"请输入详细地址";
+            _maintenanceTextView.placeHoldString=@"请输入报修内容";
+            _maintenanceTextView.placeHoldColor=RGB(255, 159, 88);
+            _maintenanceTextView.layer.borderColor=RGB(255, 159, 88).CGColor;
+        }
+            break;
+        default:
+            break;
+    }
     
-    _buildingImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
-    _themeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
-    _typeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
-    _adressImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
+    
+    
+
     
     [self createView];
     
@@ -124,11 +163,11 @@
     _submitBtn.layer.cornerRadius=5.0;
     
     
-    _maintenanceTextView.placeHoldString=@"请输入报修内容";
-    _maintenanceTextView.layer.masksToBounds=YES;
-    _maintenanceTextView.layer.cornerRadius=7.0;
-    _maintenanceTextView.layer.borderWidth=0.5;
-    _maintenanceTextView.layer.borderColor=RGB(170, 170, 170).CGColor;
+//    _maintenanceTextView.placeHoldString=@"请输入报修内容";
+//    _maintenanceTextView.layer.masksToBounds=YES;
+//    _maintenanceTextView.layer.cornerRadius=7.0;
+//    _maintenanceTextView.layer.borderWidth=0.5;
+//    _maintenanceTextView.layer.borderColor=RGB(170, 170, 170).CGColor;
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumLineSpacing=5;

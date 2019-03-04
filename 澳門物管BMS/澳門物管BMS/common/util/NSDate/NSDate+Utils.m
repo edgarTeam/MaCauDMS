@@ -270,6 +270,38 @@
     
 }
 
++ (NSString *)getYearMonthDayTimes {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd"];
+    //现在时间,你可以输出来看下是什么格式
+    
+    NSDate *datenow = [NSDate date];
+    
+    //----------将nsdate按formatter格式转成nsstring
+    
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+    NSString * time=currentTimeString;
+    time=[currentTimeString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    time=[time stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    time=[time stringByReplacingOccurrencesOfString:@":" withString:@""];
+    // NSLog(@"currentTimeString =  %@",currentTimeString);
+    
+    return time;
+}
+
+//20151234
++ (NSString *)stringApplyYMDTimeSting:(NSString *)time {
+    if (time == nil || [time isEqualToString:@""]) {
+        return @"";
+    }
+    
+    NSDateComponents *dateComponents = [self getDateComponentsWithNumberTime:time format:@"yyyyMMdd"];
+    
+    return [NSString stringWithFormat:NSLocalizedString(@"%ld年%02ld月%02ld日", nil),dateComponents.year,dateComponents.month,dateComponents.day];
+}
+
+
+
 
 
 // dateComponents
@@ -345,4 +377,18 @@
     
     return [NSString stringWithFormat:NSLocalizedString(@"%ld-%02ld-%02ld", nil),dateComponents.year,dateComponents.month,dateComponents.day];
 }
+
++ (NSString *)getWeekdays {
+    NSCalendar *calendar = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSArray *weekdays = [NSArray arrayWithObjects:@"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", nil];
+    NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
+    [calendar setTimeZone: timeZone];
+    NSDate *date = [NSDate date];
+    NSCalendarUnit calendarUnit = NSWeekdayCalendarUnit;
+    NSDateComponents *theComponents = [calendar components:calendarUnit fromDate:date];
+    NSString *week=[weekdays objectAtIndex:theComponents.weekday-1];
+    return week;
+}
+
 @end
