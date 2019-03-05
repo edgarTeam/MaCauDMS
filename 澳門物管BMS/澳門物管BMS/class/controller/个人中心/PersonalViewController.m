@@ -46,6 +46,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.baseTitleLab.text=@"個人中心";
     // Do any additional setup after loading the view from its nib.
     self.loginBtn.layer.masksToBounds=YES;
     self.loginBtn.layer.cornerRadius=23;

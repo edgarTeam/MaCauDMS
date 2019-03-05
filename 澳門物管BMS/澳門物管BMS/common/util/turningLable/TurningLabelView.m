@@ -123,12 +123,14 @@
 //    }else{
         label1 = [[UILabel alloc] initWithFrame:CGRectMake(55, 0, self.frame.size.width, self.frame.size.height)];
         label1.text = _turnArray[0];
+    label1.textColor=[UIColor whiteColor];
         [label1 setFont:[UIFont systemFontOfSize:12]];
         
         [self addSubview:label1];
         
         label2 = [[UILabel alloc] initWithFrame:CGRectMake(55, self.frame.size.height, self.frame.size.width, self.frame.size.height)];
         label2.text = [_turnArray[1] isKindOfClass:[NSNull class]] ? @"" : _turnArray[1];
+    label2.textColor=[UIColor whiteColor];
         [label2 setFont:[UIFont systemFontOfSize:12]];
         [self addSubview:label2];
         

@@ -21,6 +21,7 @@
    // self.title=LocalizedString(@"聯繫我們");
  //   self.title=@"聯繫我們";
     self.baseTitleLab.text=LocalizedString(@"string_contact_us_title");
+   // self.baseTitleLab.text=@"联系我们";
     self.title=LocalizedString(@"string_contact_us_title");
     _phoneBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;//让电话居左
 }

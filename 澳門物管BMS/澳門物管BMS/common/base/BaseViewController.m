@@ -60,7 +60,7 @@
     
     self.baseTitleLab=[[UILabel alloc] init];
    // self.baseTitleLab.font=[UIFont systemFontOfSize:16];
-    self.baseTitleLab.font=[UIFont fontWithName:@"FZZYFW--GB1-0" size:16];
+    self.baseTitleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
     self.baseTitleLab.textColor=[UIColor whiteColor];
     [topView addSubview:self.baseTitleLab];
     [self.baseTitleLab mas_makeConstraints:^(MASConstraintMaker *make){

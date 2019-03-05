@@ -80,11 +80,13 @@
 
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事維修";
-    self.baseTitleLab.text=@"報事維修";
+    
     
     switch (_type) {
         case ReportType:
         {
+//            self.baseTitleLab.text=@"報事維修";
+            self.baseTitleLab.text=@"报事报修";
             _buildingImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
             _themeImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
             _typeImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
@@ -103,6 +105,8 @@
             break;
         case ComplainType:
         {
+         //   self.baseTitleLab.text=@"投訴";
+             self.baseTitleLab.text=@"投诉";
             _buildingImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
             _themeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
             _typeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];

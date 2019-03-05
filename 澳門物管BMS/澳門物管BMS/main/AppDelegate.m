@@ -297,9 +297,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 -(NSArray *)menuArray{
     if (!_menuArray) {
-        SuspensionModel *setting = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_set_title") image:@"settingsec"];
+        SuspensionModel *setting = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_set_title") image:@"setting"];
            SuspensionModel *place = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_reservation_place_title") image:@"place"];
-           SuspensionModel *repairsec = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_report_maintenance_title") image:@"repairsec"];
+           SuspensionModel *repairsec = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_report_maintenance_title") image:@"repair"];
            SuspensionModel *complain = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_complain_title") image:@"complain"];
         _menuArray = [NSArray arrayWithObjects:setting,place,repairsec,complain, nil];
     }

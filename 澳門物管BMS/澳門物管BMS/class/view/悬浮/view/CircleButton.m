@@ -20,8 +20,11 @@
     [self setTitle:model.name forState:UIControlStateNormal];
      [self setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
     [self.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
-    [self setTitleEdgeInsets:UIEdgeInsetsMake(self.imageView.frame.size.height+20, -self.imageView.frame.size.width, 0, 0)];
-     [self setImageEdgeInsets:UIEdgeInsetsMake( -(self.frame.size.height/2-self.imageView.frame.size.height/2), 0, 0, -self.titleLabel.frame.size.width)];
+//    [self setTitleEdgeInsets:UIEdgeInsetsMake(self.imageView.frame.size.height+20, -self.imageView.frame.size.width, 0, 0)];
+//     [self setImageEdgeInsets:UIEdgeInsetsMake( -(self.frame.size.height/2-self.imageView.frame.size.height/2), 0, 0, -self.titleLabel.frame.size.width)];
+    
+    [self setTitleEdgeInsets:UIEdgeInsetsMake(self.imageView.frame.size.height+20, -self.imageView.frame.size.width-10, 0, 0)];
+    [self setImageEdgeInsets:UIEdgeInsetsMake( 0, 0, 0, 0)];
     return  self;
 }
 

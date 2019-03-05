@@ -224,8 +224,11 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
 //        CGFloat yPoint = [[userdefault objectForKey:@"centerLocationY"] floatValue];
 //        self.center = CGPointMake(xPoint, yPoint);
 //    }
+    
     CGFloat xPoint = ScreenWidth-40;
     CGFloat yPoint = ScreenHeight-34;
+//    CGFloat xPoint = self.frame.size.height-40;
+//    CGFloat yPoint = self.frame.size.height-34;
     self.center = CGPointMake(xPoint, yPoint);
     self.centerBtn.layer.cornerRadius = 30;
     [UIView commitAnimations];
