@@ -26,6 +26,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <Photos/Photos.h>
 #import "UITextField+PlaceHolder.h"
+#import "ReportMaintenanceDetail.h"
 @interface ReportMaintenanceViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,LSXPopMenuDelegate,UIImagePickerControllerDelegate,AVAudioPlayerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *maintenanceTextView;
 @property (weak, nonatomic) IBOutlet UICollectionView *maintenanceCollectionView;
@@ -61,16 +62,18 @@
 @property (weak, nonatomic) IBOutlet UIImageView *adressImage;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeight;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 
-
+@property (nonatomic,strong) ReportMaintenanceDetail *complain;
 @end
 
 @implementation ReportMaintenanceViewController
 {
     NSInteger playTime;
     NSString *filePath;
+    CGFloat scrollerHeight;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -121,7 +124,7 @@
     
     
     
-
+    scrollerHeight=self.scrollView.frame.size.height;
     
     [self createView];
     
@@ -154,10 +157,10 @@
     _repairTypeBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
     _repairTypeBtn.layer.borderWidth =1.0;
     
-    _chooseBuildingBtn.layer.masksToBounds = YES;
-    _chooseBuildingBtn.layer.cornerRadius = 5.0;
-    _chooseBuildingBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
-    _chooseBuildingBtn.layer.borderWidth =1.0;
+//    _chooseBuildingBtn.layer.masksToBounds = YES;
+//    _chooseBuildingBtn.layer.cornerRadius = 5.0;
+//    _chooseBuildingBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
+//    _chooseBuildingBtn.layer.borderWidth =1.0;
     
     
     _submitBtn.layer.masksToBounds=YES;
@@ -174,14 +177,14 @@
     flowLayout.minimumLineSpacing=5;
     flowLayout.minimumInteritemSpacing=5;
     flowLayout.itemSize=CGSizeMake(74, 74);
-    flowLayout.sectionInset=UIEdgeInsetsMake(0, 10, 0, 10);
+    flowLayout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
     flowLayout.scrollDirection=UICollectionViewScrollDirectionVertical;
     _maintenanceCollectionView.collectionViewLayout=flowLayout;
     _maintenanceCollectionView.delegate=self;
     _maintenanceCollectionView.dataSource=self;
     _maintenanceCollectionView.alwaysBounceVertical=YES;
-    _maintenanceCollectionView.layer.masksToBounds=YES;
-    _maintenanceCollectionView.layer.cornerRadius=7.0;
+//    _maintenanceCollectionView.layer.masksToBounds=YES;
+//    _maintenanceCollectionView.layer.cornerRadius=7.0;
     
     _communityTitleLab.text=LocalizedString(@"string_repair_theme_title");
     _repairAddressTitleLab.text=LocalizedString(@"string_repair_address_title");
@@ -194,8 +197,8 @@
     
     [self requestCommunityList];
     [self.maintenanceCollectionView reloadData];
-    [self.recordBtn setTitle:@"按住说话" forState:UIControlStateNormal];
-    [self.recordBtn setImage:[UIImage imageNamed:@"yuyin"] forState:UIControlStateNormal];
+   // [self.recordBtn setTitle:@"按住说话" forState:UIControlStateNormal];
+   // [self.recordBtn setImage:[UIImage imageNamed:@"yuyin"] forState:UIControlStateNormal];
     self.playViewHeight.constant=0;
     [self.progressView setProgress:0.0 animated:NO];
 }
@@ -407,71 +410,98 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _dataSource.count+1;
+    if (_isNews) {
+        return _dataSource.count;
+    }else{
+        return _dataSource.count+1;
+    }
+    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row ==0) {
-//        [self.maintenanceCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"AddCollectionViewCell"];
-   [self.maintenanceCollectionView registerNib:[UINib nibWithNibName:@"AddCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"AddCollectionViewCell"];
-//        AddCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"AddCollectionViewCell" forIndexPath:indexPath];
-//        return cell;
-        _addCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"AddCollectionViewCell" forIndexPath:indexPath];
-        return _addCell;
-    }else{
-//        [self.maintenanceCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"PhotpCollectionViewCell"];
+    if (_isNews) {
         [self.maintenanceCollectionView registerNib:[UINib nibWithNibName:@"PhotpCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"PhotpCollectionViewCell"];
-//        PhotpCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
-//        return cell;
         _photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
         NSMutableArray *orignalUrlArr=[NSMutableArray new];
         NSMutableArray *thumbnailUrlArr=[NSMutableArray new];
-
-        for (PictureModel *model in _dataSource) {
-            if (model.originalUrl !=nil) {
-                [orignalUrlArr addObject:model.originalUrl];
+        for (NoticeSubList *notice in _dataSource) {
+            if (notice.imageUrl !=nil) {
+                [orignalUrlArr addObject:notice.imageUrl];
             }
-            if (model.thumbnailUrl !=nil) {
-                [thumbnailUrlArr addObject:model.thumbnailUrl];
+            if (notice.imageThumbnail !=nil) {
+                [thumbnailUrlArr addObject:notice.imageThumbnail];
             }
-            
         }
-//        for (PictureModel *model in _dataSource) {
-//            [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:model.originalUrl]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//                [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:model.thumbnailUrl]] placeholderImage:image];
-//            }];
-//            _photoCell.deleteBtnAction = ^{
-//                NSLog(@"%ld",_dataSource.count);
-//                [_dataSource removeObjectAtIndex:indexPath.row-1];
-//                [collectionView reloadData];
-//            };
-//        }
+        
         [_photoCell.activityIndicatorView startAnimating];
-        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row-1]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-             [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row-1]]] placeholderImage:image];
-            _photoCell.deleteBtn.hidden=NO;
+        _photoCell.deleteBtn.hidden=YES;
+        
+        [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row]]] placeholderImage:image];
+            _photoCell.deleteBtn.hidden=YES;
             [_photoCell.activityIndicatorView stopAnimating];
             _photoCell.activityIndicatorView.hidden=YES;
         }];
-        _photoCell.deleteBtnAction = ^{
-                            NSLog(@"%ld",_dataSource.count);
-            PictureModel *model = [_dataSource objectAtIndex:indexPath.row-1];
-            [self deleteFileUrl:model.originalUrl];
-                            [_dataSource removeObjectAtIndex:indexPath.row-1];
-                            [collectionView reloadData];
-                        };
-//        [collectionView layoutIfNeeded];
-//        NSInteger index=indexPath.row;
-//            [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
         return _photoCell;
+    }else{
+        if (indexPath.row ==0) {
+            [self.maintenanceCollectionView registerNib:[UINib nibWithNibName:@"AddCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"AddCollectionViewCell"];
+            _addCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"AddCollectionViewCell" forIndexPath:indexPath];
+            return _addCell;
+        }else{
+            //        [self.maintenanceCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"PhotpCollectionViewCell"];
+            [self.maintenanceCollectionView registerNib:[UINib nibWithNibName:@"PhotpCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"PhotpCollectionViewCell"];
+            
+            _photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
+            NSMutableArray *orignalUrlArr=[NSMutableArray new];
+            NSMutableArray *thumbnailUrlArr=[NSMutableArray new];
+            
+            for (PictureModel *model in _dataSource) {
+                if (model.originalUrl !=nil) {
+                    [orignalUrlArr addObject:model.originalUrl];
+                }
+                if (model.thumbnailUrl !=nil) {
+                    [thumbnailUrlArr addObject:model.thumbnailUrl];
+                }
+                
+            }
+            
+            [_photoCell.activityIndicatorView startAnimating];
+            [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row-1]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row-1]]] placeholderImage:image];
+                _photoCell.deleteBtn.hidden=NO;
+                [_photoCell.activityIndicatorView stopAnimating];
+                _photoCell.activityIndicatorView.hidden=YES;
+            }];
+            _photoCell.deleteBtnAction = ^{
+                NSLog(@"%ld",_dataSource.count);
+                PictureModel *model = [_dataSource objectAtIndex:indexPath.row-1];
+                [self deleteFileUrl:model.originalUrl];
+                [_dataSource removeObjectAtIndex:indexPath.row-1];
+                [collectionView reloadData];
+            };
+            
+            return _photoCell;
+        }
     }
+    
+    
+    
+    
+    
+    
+    
+   
 
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row ==0) {
-        
-        [self showChangeAvatarAlert];
+
+    if (!_isNews) {
+        if (indexPath.row ==0) {
+            
+            [self showChangeAvatarAlert];
+        }
     }
 }
 
@@ -766,6 +796,11 @@
             default:
                 break;
         }
+    }else if ([keyPath isEqualToString:@"contentSize"]) {
+        
+        self.scrollView.frame=CGRectMake(0, 0, ScreenWidth,  scrollerHeight);
+        
+        
     }
 }
 
@@ -930,9 +965,20 @@
 //        return;
 //    }
     [self checkLogin];
-  //  [self createView];
- //   [self requestCommunityList];
-    [self requestBuildingList];
+
+    
+    
+    
+    if (_isNews) {
+        self.scrollView.scrollEnabled=YES;
+        self.maintenanceCollectionView.scrollEnabled=NO;
+        [self requestComplain];
+        [_maintenanceCollectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:NULL];
+    }else{
+        self.scrollView.scrollEnabled=NO;
+        self.maintenanceCollectionView.scrollEnabled=YES;
+        [self requestBuildingList];
+    }
 }
 
 
@@ -966,6 +1012,110 @@
         [SVProgressHUD dismiss];
     } failure:^(NSError * error){
         NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+
+- (void)requestComplain {
+    NSDictionary *para=@{
+                         @"complainId":_complainId
+                         };
+    [[WebAPIHelper sharedWebAPIHelper] postComplain:para completion:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
+        [_dataSource removeAllObjects];
+        _complain=[ReportMaintenanceDetail mj_objectWithKeyValues:dic];
+        
+        _chooseBuildingBtn.enabled=NO;
+        _repairTitleTextField.enabled=NO;
+        _repairTypeTextField.enabled=NO;
+        _addressTextField.enabled=NO;
+        [_maintenanceTextView setEditable:NO];
+        self.recordBtn.hidden=YES;
+        self.deleteBtn.hidden=YES;
+        self.submitBtn.hidden=YES;
+        if (_complain.complainVoice.length ==0 || _complain.complainVoice ==nil) {
+            self.playBtn.hidden=YES;
+        }else{
+            _voiceRemarkUrl=_complain.complainVoice;
+        }
+        
+        
+        
+        
+        [_chooseBuildingBtn setTitle:_complain.complainPosition forState:UIControlStateNormal];
+        _repairTitleTextField.text=_complain.complainClassType;
+        _repairTypeTextField.text=_complain.complainType;
+        _addressTextField.text=_complain.complainSpecificPosition;
+        
+        if (_complain.complainVoice.length ==0 || _complain.complainVoice==nil) {
+            self.playBtn.hidden=YES;
+        }
+        _maintenanceTextView.text=_complain.complainDescribe;
+         _dataSource=[_complain.images mutableCopy];
+        if (_dataSource.count%3 !=0) {
+            _collectionViewHeight.constant=(_dataSource.count/3+1)*90;
+        }else{       
+            _collectionViewHeight.constant=(_dataSource.count/3)*90;
+        }
+        scrollerHeight=scrollerHeight+_collectionViewHeight.constant;
+        [self.maintenanceCollectionView reloadData];
+        
+        
+//        if ([_complain.createTime rangeOfString:@"T"].location !=NSNotFound) {
+//            _timeStr=[_complain.createTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+//        }else{
+//            _timeStr=_complain.createTime;
+//        }
+//        
+//        if (_timeStr.length !=0) {
+//            _timeStr=[_timeStr substringToIndex:16];
+//        }
+        
+//        _titleLab.text=_complain.complainClassType;
+//        _positionLab.text=[NSString stringWithFormat:@"%@,%@",_complain.complainPosition,_complain.complainSpecificPosition];
+//        //  _handlerNameLab.text=_complain.complainHandler;
+//        _nameLab.text=_complain.complainLiaisonsName;
+//        _contactWayLab.text=_complain.complainLiaisonsEmail;
+//        //          _contactWayLab.text=@"asssssddfggfhrd官方的客戶";
+//        //  _createTimeLab.text=_complain.createTime;
+//        _createTimeLab.text=_timeStr;
+//        _characterDescriptionLab.text=_complain.complainDescribe;
+//
+//        if (_complain.complainVoice.length ==0 || _complain.complainVoice ==nil) {
+//            // self.playBtn.hidden=YES;
+//            self.playBtn.backgroundColor=[UIColor clearColor];
+//            self.playBtn.enabled=NO;
+//            [self.playBtn setTitle:@"无录音" forState:UIControlStateNormal];
+//            // [self.playBtn.titleLabel setTextColor:RGB(63, 114, 156)];
+//            [self.playBtn setTitleColor:RGB(63, 114, 156) forState:UIControlStateNormal];
+//            [self.playBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -80, 0, ScreenWidth/2)];
+//            [self.playBtn setImage:nil forState:UIControlStateNormal];
+//            self.progressView.hidden=YES;
+//        }
+//        _voiceURL=_complain.complainVoice;
+//        _statusLab.text=_statusArr[[_complain.complainStatus intValue]];
+//
+//        _dataSource=[_complain.images mutableCopy];
+//        //_dataSource%3*90
+//
+//        // _collectionHeight.constant=_dataSource.count/3*90;
+//        if (_dataSource.count%3 !=0) {
+//            _collectionHeight.constant=(_dataSource.count/3+1)*90;
+//        }else{
+//            _collectionHeight.constant=(_dataSource.count/3)*90;
+//        }
+//        scrollerHeight=scrollerHeight+_collectionHeight.constant;
+//        //   self.scrollView.frame=CGRectMake(0, 0, ScreenWidth, scrollerHeight+_collectionHeight.constant);
+//        // [self creatView];
+//        [self.imageCollectionView reloadData];
+       
+        
+        
     }];
 }
 

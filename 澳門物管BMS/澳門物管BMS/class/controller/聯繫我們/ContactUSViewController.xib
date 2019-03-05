@@ -22,13 +22,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="FBZ-1r-44b">
-                    <rect key="frame" x="30" y="40" width="315" height="200"/>
+                    <rect key="frame" x="30" y="80" width="315" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="93K-ng-ZQP"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRk-Za-JJx">
-                    <rect key="frame" x="50" y="280" width="275" height="200"/>
+                    <rect key="frame" x="50" y="320" width="275" height="200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司名稱:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXy-mR-YWF">
                             <rect key="frame" x="10" y="10" width="80" height="21"/>
@@ -100,7 +100,7 @@
             <constraints>
                 <constraint firstItem="wRk-Za-JJx" firstAttribute="top" secondItem="FBZ-1r-44b" secondAttribute="bottom" constant="40" id="8fD-qf-r0I"/>
                 <constraint firstItem="wRk-Za-JJx" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="50" id="EwK-o0-k4m"/>
-                <constraint firstItem="FBZ-1r-44b" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="Ffe-pq-slK"/>
+                <constraint firstItem="FBZ-1r-44b" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="60" id="Ffe-pq-slK"/>
                 <constraint firstItem="FBZ-1r-44b" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="KLK-Ex-dsx"/>
                 <constraint firstItem="FBZ-1r-44b" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fxd-UH-mZd"/>
                 <constraint firstItem="wRk-Za-JJx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yM7-S4-6aH"/>

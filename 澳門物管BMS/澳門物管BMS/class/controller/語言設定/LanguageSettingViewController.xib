@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OnL-mD-XHb">
-                    <rect key="frame" x="0.0" y="40" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="80" width="375" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgR-ni-ajR">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -60,7 +60,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJm-S3-0DV">
-                    <rect key="frame" x="0.0" y="110" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="150" width="375" height="60"/>
                     <subviews>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mm-eS-R6o">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -117,7 +117,7 @@
                 <constraint firstItem="37V-ys-7Vr" firstAttribute="height" secondItem="Ty1-QZ-3yr" secondAttribute="height" id="eeJ-5l-fi7"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="BJm-S3-0DV" secondAttribute="trailing" id="k84-xh-l2O"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="OnL-mD-XHb" secondAttribute="trailing" id="mEL-oO-sPg"/>
-                <constraint firstItem="OnL-mD-XHb" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="tc8-9I-DKy"/>
+                <constraint firstItem="OnL-mD-XHb" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="60" id="tc8-9I-DKy"/>
                 <constraint firstItem="BJm-S3-0DV" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="vIa-dk-Uri"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>

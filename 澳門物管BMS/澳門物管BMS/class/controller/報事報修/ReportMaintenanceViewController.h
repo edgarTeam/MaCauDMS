@@ -25,7 +25,8 @@ typedef NS_ENUM(NSInteger,HandleType)
 @property(nonatomic,strong)NSTimer *timer;
 
 @property(nonatomic,strong)NSData *data;
-
+@property (nonatomic) BOOL isNews;
+@property (nonatomic,strong)NSString *complainId;
 @property (nonatomic,assign) HandleType type;
 @end
 

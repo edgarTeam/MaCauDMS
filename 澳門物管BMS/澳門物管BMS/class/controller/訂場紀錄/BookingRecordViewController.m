@@ -12,6 +12,9 @@
 #import "PlaceRecord.h"
 #import "Place.h"
 #import <MJExtension/MJExtension.h>
+
+
+#import "ClubhouseReservationViewController.h"
 @interface BookingRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *bookingRecordTableView;
@@ -29,11 +32,13 @@
     [super viewDidLoad];
    // self.title=LocalizedString(@"訂場紀錄");
     //self.title=@"訂場紀錄";
-    self.title=LocalizedString(@"string_booking_record_title");
+    //self.title=LocalizedString(@"string_booking_record_title");
+    
+    self.baseTitleLab.text=LocalizedString(@"string_booking_record_title");
     // Do any additional setup after loading the view from its nib.
     _bookingRecordTableView.delegate=self;
     _bookingRecordTableView.dataSource=self;
-    _bookingRecordTableView.separatorColor=RGB(178, 178, 178);
+    _bookingRecordTableView.separatorColor=[UIColor clearColor];
     _bookingRecordTableView.separatorInset=UIEdgeInsetsZero;
     _bookingRecordTableView.tableFooterView=[UIView new];
     _bookingRecordTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -75,18 +80,25 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 130;
+//    return 130;
+    return 75;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    BookingRecordDetailViewController *bookDetailVC=[[BookingRecordDetailViewController alloc] init];
-    PlaceRecord *place=[dataSource objectAtIndex:indexPath.row];
+//    BookingRecordDetailViewController *bookDetailVC=[[BookingRecordDetailViewController alloc] init];
+//    PlaceRecord *place=[dataSource objectAtIndex:indexPath.row];
+////    bookDetailVC.recordId=place.recordId;
+//  //  Place *place=[dataSource objectAtIndex:indexPath.row];
+//    //bookDetailVC.recordId=place.placeId;
 //    bookDetailVC.recordId=place.recordId;
-  //  Place *place=[dataSource objectAtIndex:indexPath.row];
-    //bookDetailVC.recordId=place.placeId;
-    bookDetailVC.recordId=place.recordId;
-    [self.navigationController pushViewController:bookDetailVC animated:YES];
+//    [self.navigationController pushViewController:bookDetailVC animated:YES];
+    
+    ClubhouseReservationViewController *clubVC=[ClubhouseReservationViewController new];
+    PlaceRecord *place=[dataSource objectAtIndex:indexPath.row];
+    clubVC.recordId=place.recordId;
+    clubVC.isNews=YES;
+    [self.navigationController pushViewController:clubVC animated:YES];
 }
 //- (void)requestPlace {
 //    NSDictionary *para=@{
@@ -147,7 +159,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=NO;
+    self.navigationController.navigationBar.hidden=YES;
     
     [self requestPlaceList];
     

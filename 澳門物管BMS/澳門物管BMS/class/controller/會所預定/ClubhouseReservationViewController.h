@@ -15,7 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSString *placeId;
 @property (nonatomic,strong) NSString *placeName;
 
+@property (nonatomic,strong)NSString *recordId;
+
+
 @property (nonatomic,strong) Place *selectedPlace;
+
+@property (nonatomic)BOOL isNews;
 
 - (void)setSelectedPlace:(Place *)place;
 @end

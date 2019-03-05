@@ -7,12 +7,25 @@
 //
 
 #import "ReportMaintenanceTableViewCell.h"
+#import "NSDate+Utils.h"
+@interface ReportMaintenanceTableViewCell()
+@property (weak, nonatomic) IBOutlet UILabel *iconLab;
+
+@end
+
 
 @implementation ReportMaintenanceTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+//    CGAffineTransform transform = CGAffineTransformIdentity;
+//    transform = CGAffineTransformRotate(transform, -45);
+//    _iconLab.transform = transform;
+    _iconLab.transform=CGAffineTransformMakeRotation(-45 *M_PI / 180.0);
+
+    
     self.backgroundColor=[UIColor clearColor];
     self.centerView.layer.masksToBounds=YES;
     self.centerView.layer.cornerRadius=7.0;
@@ -33,14 +46,33 @@
         _timeStr=model.createTime;
     }
     if (_timeStr.length !=0) {
-        _timeStr=[_timeStr substringToIndex:19];
+        //_timeStr=[_timeStr substringToIndex:19];
+        _timeStr=[_timeStr substringToIndex:10];
+    }
+//    icon_complain_cell_bg
+    
+   // [self.titleLab setText:model.complainClassType];
+    NSString *str=[_timeStr stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    NSString *timeStr=[NSDate getYearMonthDayTimes];
+    if ([str isEqualToString:timeStr]) {
+        self.bgImageView.image=[UIImage imageNamed:@"icon_complain_cell_new"];
+    }else{
+        self.bgImageView.image=[UIImage imageNamed:@"icon_complain_cell_bg"];
     }
     
     
-    [self.titleLab setText:model.complainClassType];
-  //  [self.timeLab setText:model.createTime];
+    if ([model.complainStatus containsString:@"0"] || [model.complainStatus containsString:@"1"]) {
+        self.stateLab.text=@"未处理";
+        self.stateLab.textColor=RGB(147, 147, 147);
+    }else if ([model.complainStatus containsString:@"2"] || [model.complainStatus containsString:@"3"]){
+        self.stateLab.text=@"已处理";
+        self.stateLab.textColor=RGB(255, 159, 88);
+    }
+    
+    
+    
     [self.timeLab setText:_timeStr];
-    [self.stateLab setText:model.complainType];
+   // [self.stateLab setText:model.complainType];
     [self.contentLab setText:model.complainDescribe ];
     CGFloat labconst =[self getlabelHeiight:model.complainDescribe  label:self.contentLab];
     self.contentLabHeight.constant = labconst;

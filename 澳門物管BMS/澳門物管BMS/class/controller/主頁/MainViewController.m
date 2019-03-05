@@ -69,14 +69,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _titleLab.font=[UIFont fontWithName:@"FZZYFW--GB1-0" size:16];
     
     for (UIButton *btn in _btnArray) {
-        [btn.titleLabel setFont:[UIFont systemFontOfSize:14.0]];
+        [btn.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
 //        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width, 0, 0)];
 //        [btn setImageEdgeInsets:UIEdgeInsetsMake( -(btn.frame.size.height/2-btn.imageView.frame.size.height/2), 0, 0, -btn.titleLabel.frame.size.width)];
-        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width-18, 0, 0)];
+        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width-15, 0, 0)];
         [btn setImageEdgeInsets:UIEdgeInsetsMake( 0, 0, 24, 0)];
     }
+    
+    
+
+
+    
     
     
     // Do any additional setup after loading the view.
@@ -132,10 +138,10 @@
     [self locate];
     [self requestNoticeList];
     if ([User shareUser].name.length==0) {
-        _clientNameLab.text=[NSString stringWithFormat:@"早安! 業主"];
+        _clientNameLab.text=[NSString stringWithFormat:@"您好! 業主"];
     }else{
-        NSString *str=[[User shareUser].name substringToIndex:1];
-        _clientNameLab.text=[NSString stringWithFormat:@"早安! %@業主",str];
+       // NSString *str=[[User shareUser].name substringToIndex:1];
+        _clientNameLab.text=[NSString stringWithFormat:@"您好! 業主%@",[User shareUser].name];
     }
 
 }

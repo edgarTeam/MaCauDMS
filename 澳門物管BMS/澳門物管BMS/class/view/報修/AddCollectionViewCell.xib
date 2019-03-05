@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_add_photo" translatesAutoresizingMaskIntoConstraints="NO" id="rl2-UI-OjX">
-                        <rect key="frame" x="-12.5" y="-12.5" width="75" height="75"/>
+                        <rect key="frame" x="1" y="1" width="48" height="48"/>
                     </imageView>
                 </subviews>
             </view>
@@ -28,6 +28,8 @@
             <constraints>
                 <constraint firstItem="rl2-UI-OjX" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="2l1-vq-9hR"/>
                 <constraint firstItem="rl2-UI-OjX" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="5M4-mC-TYb"/>
+                <constraint firstItem="rl2-UI-OjX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="8GO-oo-VVm"/>
+                <constraint firstItem="rl2-UI-OjX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="H5q-kk-8WC"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <connections>

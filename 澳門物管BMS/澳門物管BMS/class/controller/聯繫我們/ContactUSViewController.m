@@ -20,6 +20,7 @@
     // Do any additional setup after loading the view from its nib.
    // self.title=LocalizedString(@"聯繫我們");
  //   self.title=@"聯繫我們";
+    self.baseTitleLab.text=LocalizedString(@"string_contact_us_title");
     self.title=LocalizedString(@"string_contact_us_title");
     _phoneBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;//让电话居左
 }
@@ -44,7 +45,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=NO;
+    self.navigationController.navigationBar.hidden=YES;
 
 }
 @end

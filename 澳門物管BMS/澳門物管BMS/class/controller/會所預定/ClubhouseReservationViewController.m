@@ -16,6 +16,10 @@
 #import "NSDate+Utils.h"
 #import "PlaceViewController.h"
 #import "TimeCollectionViewCell.h"
+
+#import <SDCycleScrollView/SDCycleScrollView.h>
+
+
 @interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *plateBtn;
 @property (nonatomic,strong)LSXPopMenu *plateMenu;
@@ -49,6 +53,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *placePriceLab;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *placeIconImageView;
+@property (weak, nonatomic) IBOutlet SDCycleScrollView *placeImageView;
+
+
+@property (nonatomic,strong) NSMutableArray *chooseArr;
+
+
+
+
+
+@property (nonatomic,strong)Place *place;
 
 @end
 static NSString * const cellIdentifier = @"TimeCollectionViewCell";
@@ -79,6 +94,10 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     _plateNameTitleLab.text=LocalizedString(@"string_plate_name_title");
     _plateOrderDateLab.text=LocalizedString(@"string_plate_order_date_title");
     _plateChooseTimeLab.text=LocalizedString(@"string_plate_choose_time_title");
+    
+    
+    _placeImageView.backgroundColor=[UIColor clearColor];
+    
     
 //    _orderDateBtn.layer.masksToBounds = YES;
 //    _orderDateBtn.layer.cornerRadius = 5.0;
@@ -488,9 +507,21 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"TimeCollectionViewCell" owner:self options:nil] lastObject];
     }
-    cell.isChoosed=NO;
-    cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
-    cell.contentLab.text=_dataSource[indexPath.row];
+    if (_isNews) {
+        self.timeCollectionView.allowsSelection=NO;
+        cell.contentLab.text=_dataSource[indexPath.row];
+        if ([_chooseArr containsObject:_dataSource[indexPath.row]]) {
+            
+            cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_yes"];
+        }else{
+            cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_defult"];
+        }
+    }else{
+        
+        cell.isChoosed=NO;
+        cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
+        cell.contentLab.text=_dataSource[indexPath.row];
+    }
     return cell;
     
 }
@@ -581,14 +612,127 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
-//[self.plateBtn setTitle:_placeName forState:UIControlStateNormal];
-    _placeNameLab.text=_selectedPlace.placeName;
-    _placeContentLab.text=_selectedPlace.placeIntroduction;
-    _placeId=_selectedPlace.placeId;
-    [self checkLogin];
-  //  [self createView];
-    [self reuqestPlateList];
+
+    
+    
+    if (_isNews) {
+        self.baseTitleLab.text=LocalizedString(@"string_booking_record_detail_title");
+        [self requestPlaceRecord];
+        [self createView];
+    }else{
+        //[self.plateBtn setTitle:_placeName forState:UIControlStateNormal];
+        self.baseTitleLab.text=LocalizedString(@"string_reservation_place_title");
+        _placeNameLab.text=_selectedPlace.placeName;
+        _placeContentLab.text=_selectedPlace.placeIntroduction;
+        _placeId=_selectedPlace.placeId;
+        [self checkLogin];
+        //  [self createView];
+        [self reuqestPlateList];
+    }
+    
 }
+
+
+- (void)requestPlaceRecord {
+    NSDictionary *para=@{
+                         @"recordId" :self.recordId
+                         };
+    [[WebAPIHelper sharedWebAPIHelper] postPlaceRecord:para completion:^(NSDictionary *dic){
+        if (dic==nil) {
+            return ;
+        }
+        self.orderDateBtn.enabled=NO;
+        self.submitBtn.enabled=NO;
+        self.submitBtn.hidden=YES;
+        
+        
+        
+        
+        NSString *timeStr;
+        _placeRecord=[PlaceRecord mj_objectWithKeyValues:dic];
+        if (_placeRecord.orderDate.length >10) {
+            timeStr=[_placeRecord.orderDate substringToIndex:10];
+        }
+        [self.orderDateBtn setTitle:timeStr forState:UIControlStateNormal];
+        
+        _place=_placeRecord.place;
+        _placeNameLab.text=_place.placeName;
+        _placeContentLab.text=_place.placeIntroduction;
+//        NSMutableArray *imageUrlArr=[NSMutableArray new];
+//        NSMutableArray *imageThumbnailArr=[NSMutableArray new];
+//        if (_place.images.count ==0 ) {
+//            return;
+//        }
+//        for (NoticeSubList *notice in _place.images) {
+//            if (notice.imageUrl !=nil) {
+//                [imageUrlArr addObject:notice.imageUrl];
+//            }
+//            if (notice.imageThumbnail !=nil) {
+//                [imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
+//            }
+//        }
+//        if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
+//            return;
+//        }
+//        if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
+//            return;
+//        }
+//        _placeImageView.imageURLStringsGroup = imageThumbnailArr;
+//        _placeImageView.autoScrollTimeInterval = 4.0f;
+//        if (_placeRecord.recordStatus !=nil) {
+//            _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
+//        }
+//        // _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
+//        _timeZoneLab.text=[NSString stringWithFormat:@"%@ %@ 至 %@",timeStr,_placeRecord.orderStartTime,_placeRecord.orderEndTime];
+//        _clientName.text=[User shareUser].name;
+        NSString *startTimeStr=[_placeRecord.orderStartTime substringToIndex:5];
+        NSString *endTimeStr=[_placeRecord.orderEndTime substringToIndex:5];
+        NSMutableArray *chooseArr=[NSMutableArray new];
+        for (int i=0; i<_dataSource.count; i++) {
+            NSString *str=[_dataSource[i] substringToIndex:5];
+            [chooseArr addObject:str];
+        }
+        NSInteger startIndex;
+        NSInteger endIndex;
+       // if ([chooseArr containsObject:startTimeStr] && [chooseArr containsObject:endTimeStr]) {
+            startIndex=[chooseArr indexOfObject:startTimeStr];
+            endIndex=[chooseArr indexOfObject:endTimeStr];
+      //  }
+        _chooseArr=[NSMutableArray new];
+        for (NSInteger i=startIndex; i<endIndex; i++) {
+            [_chooseArr addObject:_dataSource[i]];
+        }
+        [self.timeCollectionView reloadData];
+        NSMutableArray *imageUrlArr=[NSMutableArray new];
+        NSMutableArray *imageThumbnailArr=[NSMutableArray new];
+        if (_place.images.count ==0 ) {
+            return;
+        }
+        for (NoticeSubList *notice in _place.images) {
+            if (notice.imageUrl !=nil) {
+                [imageUrlArr addObject:notice.imageUrl];
+            }
+            if (notice.imageThumbnail !=nil) {
+                [imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
+            }
+        }
+        if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
+            return;
+        }
+        if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
+            return;
+        }
+        _placeImageView.imageURLStringsGroup = imageThumbnailArr;
+        _placeImageView.autoScrollTimeInterval = 4.0f;
+       // _dataSource[]
+        
+    }];
+    
+}
+
+
+
+
 
 #pragma mark LSXPopMenuDelegate
 - (void)LSXPopupMenuDidSelectedAtIndex:(NSInteger)index LSXPopupMenu:(LSXPopMenu *)LSXPopupMenu{

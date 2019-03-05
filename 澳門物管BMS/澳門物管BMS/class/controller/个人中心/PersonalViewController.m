@@ -21,6 +21,9 @@
 #import "ProcessingStateViewController.h"
 #import "ContactUSViewController.h"
 #import "SettingViewController.h"
+
+
+
 @interface PersonalViewController ()<UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *userInfoBtn;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -113,14 +116,15 @@
 
     NSArray *array=@[@"BookingRecordViewController",@"ProcessingStateViewController",@"ProcessingStateViewController",@"ContactUSViewController",@"SettingViewController"];
     UIViewController *vc=[NSClassFromString(array[indexPath.row]) new];
-    UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+  //  UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+    
     if (indexPath.row==0 || indexPath.row==3) {
         [self checkLogin];
     }
     
     
     
-    [nav pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

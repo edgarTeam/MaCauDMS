@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="舊密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICi-2b-Clg">
-                    <rect key="frame" x="0.0" y="35" width="375" height="55"/>
+                    <rect key="frame" x="0.0" y="80" width="375" height="55"/>
                     <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="xgu-aq-Ctg"/>
@@ -35,21 +35,21 @@
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="新密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PDX-3Z-573">
-                    <rect key="frame" x="0.0" y="92" width="375" height="55"/>
+                    <rect key="frame" x="0.0" y="137" width="375" height="55"/>
                     <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="再次確認" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jm8-sh-Evz">
-                    <rect key="frame" x="0.0" y="149" width="375" height="55"/>
+                    <rect key="frame" x="0.0" y="194" width="375" height="55"/>
                     <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COg-bO-Uzj">
-                    <rect key="frame" x="0.0" y="234" width="375" height="55"/>
+                    <rect key="frame" x="0.0" y="279" width="375" height="55"/>
                     <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="l5x-aD-mq3"/>
@@ -75,7 +75,7 @@
                 <constraint firstItem="Jm8-sh-Evz" firstAttribute="top" secondItem="PDX-3Z-573" secondAttribute="bottom" constant="2" id="XOf-UX-bj3"/>
                 <constraint firstItem="COg-bO-Uzj" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="dYa-fU-20d"/>
                 <constraint firstItem="ICi-2b-Clg" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="lAi-Ky-0Dq"/>
-                <constraint firstItem="ICi-2b-Clg" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="15" id="tcG-k4-QkU"/>
+                <constraint firstItem="ICi-2b-Clg" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="60" id="tcG-k4-QkU"/>
                 <constraint firstItem="PDX-3Z-573" firstAttribute="top" secondItem="ICi-2b-Clg" secondAttribute="bottom" constant="2" id="toq-dT-ask"/>
                 <constraint firstItem="Jm8-sh-Evz" firstAttribute="height" secondItem="PDX-3Z-573" secondAttribute="height" id="xkQ-8S-AfA"/>
             </constraints>

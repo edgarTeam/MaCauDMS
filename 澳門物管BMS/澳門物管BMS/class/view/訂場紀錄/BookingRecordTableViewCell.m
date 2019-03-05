@@ -76,9 +76,9 @@
 
 - (void)setUpPlaceRecord:(PlaceRecord *)model{
     _placeNameLab.text=model.place.placeName;
-    if (model.recordStatus !=nil) {
-         _statusLab.text=_statusArr[[model.recordStatus intValue] +1];
-    }
+//    if (model.recordStatus !=nil) {
+//         _statusLab.text=_statusArr[[model.recordStatus intValue] +1];
+//    }
    
     NSString *timeStr;
    if (model.orderDate.length >10) {
@@ -90,10 +90,11 @@
     if (model.orderEndTime.length ==0) {
         return;
     }
-    _orderDateLab.text=[NSString stringWithFormat:@"%@ %@~%@",timeStr,[model.orderStartTime substringToIndex:5],[model.orderEndTime substringToIndex:5]];
-    if (model.updateTime.length >0) {
-        _updateDateLab.text=[model.updateTime substringToIndex:10];
-    }
+    _orderDateLab.text=timeStr;
+//    _orderDateLab.text=[NSString stringWithFormat:@"%@ %@~%@",timeStr,[model.orderStartTime substringToIndex:5],[model.orderEndTime substringToIndex:5]];
+//    if (model.updateTime.length >0) {
+//        _updateDateLab.text=[model.updateTime substringToIndex:10];
+//    }
     
 }
 

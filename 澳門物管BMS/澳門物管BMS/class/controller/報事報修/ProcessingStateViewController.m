@@ -12,6 +12,8 @@
 #import "ReportMaintenanceDetail.h"
 #import "UIViewController+zk_Additions.h"
 
+
+#import "ReportMaintenanceViewController.h"
 @interface ProcessingStateViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *processingStateTableView;
 @property (nonatomic,assign) NSInteger start;
@@ -25,7 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事狀態";
-    self.title=LocalizedString(@"string_report_maintenance_list");
+ //   self.title=LocalizedString(@"string_report_maintenance_list");
+    self.baseTitleLab.text=LocalizedString(@"string_report_maintenance_list");
    // self.edgesForExtendedLayout=UIRectEdgeNone;
     _processingStateTableView.delegate=self;
     _processingStateTableView.dataSource=self;
@@ -133,10 +136,15 @@
 */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    HandlingDetailsViewController *handVC=[[HandlingDetailsViewController alloc] init];
+//    HandlingDetailsViewController *handVC=[[HandlingDetailsViewController alloc] init];
+//    ReportMaintenanceDetail *report=[dataSource objectAtIndex:indexPath.row];
+//    handVC.complainId=report.complainId;
+//    [self.navigationController pushViewController:handVC animated:YES];
+    ReportMaintenanceViewController *reportVC=[ReportMaintenanceViewController new];
     ReportMaintenanceDetail *report=[dataSource objectAtIndex:indexPath.row];
-    handVC.complainId=report.complainId;
-    [self.navigationController pushViewController:handVC animated:YES];
+    reportVC.complainId=report.complainId;
+    reportVC.isNews=YES;
+    [self.navigationController pushViewController:reportVC animated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -145,6 +153,7 @@
         cell=[[[NSBundle mainBundle] loadNibNamed:@"ReportMaintenanceTableViewCell" owner:self options:nil] lastObject];
     }
     [cell setUpModel:[dataSource objectAtIndex:indexPath.row]];
+    cell.backgroundColor=[UIColor clearColor];
     return cell;
 }
 
@@ -154,7 +163,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return dataSource.count;
-//    return 6;
+   // return 6;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -164,7 +173,9 @@
     }
     ReportMaintenanceDetail *model =[dataSource objectAtIndex:indexPath.row];
     CGFloat labelHeight = [cell getlabelHeiight:model.complainDescribe label:cell.contentLab];
-    return 178-21.5+labelHeight;
+//    return 178-21.5+labelHeight;
+    return 75-18+labelHeight;
+//    return 75;
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -173,8 +184,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=NO;
-    //[self requestComplainList];
-    [self refreshRequest];
+    self.navigationController.navigationBar.hidden=YES;
+    [self requestComplainList];
+   // [self refreshRequest];
 }
 @end

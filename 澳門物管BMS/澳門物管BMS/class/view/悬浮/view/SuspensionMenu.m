@@ -38,10 +38,10 @@
 //    dragPan.minimumNumberOfTouches = 1;
 //    [self.centerBtn addGestureRecognizer:dragPan];
     [self addSubview:_centerBtn];
-//    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handSingleTap:)];
-//    singleTap.numberOfTapsRequired = 1;
-//    singleTap.numberOfTouchesRequired = 1;
-//    [self addGestureRecognizer:singleTap];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handSingleTap:)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [self addGestureRecognizer:singleTap];
     
     [self addButtons];
     return self;
@@ -218,12 +218,15 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
         [UIView setAnimationDelegate:self];
         self.frame = CGRectMake(0, 20, 60, 60);
         self.centerBtn.frame = CGRectMake(0, 0, 60, 60);
-    NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
-    if ([userdefault objectForKey:@"centerLocationX"]&&[userdefault objectForKey:@"centerLocationY"]) {
-        CGFloat xPoint = [[userdefault objectForKey:@"centerLocationX"] floatValue];
-        CGFloat yPoint = [[userdefault objectForKey:@"centerLocationY"] floatValue];
-        self.center = CGPointMake(xPoint, yPoint);
-    }
+//    NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
+//    if ([userdefault objectForKey:@"centerLocationX"]&&[userdefault objectForKey:@"centerLocationY"]) {
+//        CGFloat xPoint = [[userdefault objectForKey:@"centerLocationX"] floatValue];
+//        CGFloat yPoint = [[userdefault objectForKey:@"centerLocationY"] floatValue];
+//        self.center = CGPointMake(xPoint, yPoint);
+//    }
+    CGFloat xPoint = ScreenWidth-40;
+    CGFloat yPoint = ScreenHeight-34;
+    self.center = CGPointMake(xPoint, yPoint);
     self.centerBtn.layer.cornerRadius = 30;
     [UIView commitAnimations];
     isHide = YES;

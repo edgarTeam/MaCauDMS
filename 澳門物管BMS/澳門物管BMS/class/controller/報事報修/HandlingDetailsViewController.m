@@ -392,8 +392,6 @@
 
         //        [self.maintenanceCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"PhotpCollectionViewCell"];
         [self.imageCollectionView registerNib:[UINib nibWithNibName:@"PhotpCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"PhotpCollectionViewCell"];
-        //        PhotpCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
-        //        return cell;
         _photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
         NSMutableArray *orignalUrlArr=[NSMutableArray new];
         NSMutableArray *thumbnailUrlArr=[NSMutableArray new];
@@ -405,26 +403,7 @@
             [thumbnailUrlArr addObject:notice.imageThumbnail];
         }
     }
-        
-//        for (PictureModel *model in _dataSource) {
-//            if (model.originalUrl !=nil) {
-//                [orignalUrlArr addObject:model.originalUrl];
-//            }
-//            if (model.thumbnailUrl !=nil) {
-//                [thumbnailUrlArr addObject:model.thumbnailUrl];
-//            }
-//
-//        }
-        //        for (PictureModel *model in _dataSource) {
-        //            [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:model.originalUrl]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        //                [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:model.thumbnailUrl]] placeholderImage:image];
-        //            }];
-        //            _photoCell.deleteBtnAction = ^{
-        //                NSLog(@"%ld",_dataSource.count);
-        //                [_dataSource removeObjectAtIndex:indexPath.row-1];
-        //                [collectionView reloadData];
-        //            };
-        //        }
+    
         [_photoCell.activityIndicatorView startAnimating];
         _photoCell.deleteBtn.hidden=YES;
 

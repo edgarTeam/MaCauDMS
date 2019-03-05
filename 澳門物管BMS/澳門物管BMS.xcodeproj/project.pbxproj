@@ -16,6 +16,7 @@
 		32B0FA202202FA5C000621DE /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B0FA1E2202FA5C000621DE /* NSDate+Utils.m */; };
 		32B0FA222202FCA4000621DE /* Chat_record_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B0FA212202FCA4000621DE /* Chat_record_circle.png */; };
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
+		BA00E6EC222E2DD30022AFCD /* FZZYFW--GB1-0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA00E6EB222E2DD30022AFCD /* FZZYFW--GB1-0.ttf */; };
 		BA0109762224DAB10025E6E9 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0109742224DAB10025E6E9 /* WebViewController.m */; };
 		BA0109772224DAB10025E6E9 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA0109752224DAB10025E6E9 /* WebViewController.xib */; };
 		BA01097A2224DB2C0025E6E9 /* EHWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0109792224DB2C0025E6E9 /* EHWKWebView.m */; };
@@ -164,6 +165,7 @@
 		32B0FA212202FCA4000621DE /* Chat_record_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chat_record_circle.png; sourceTree = "<group>"; };
 		6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.release.xcconfig"; sourceTree = "<group>"; };
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
+		BA00E6EB222E2DD30022AFCD /* FZZYFW--GB1-0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FZZYFW--GB1-0.ttf"; sourceTree = "<group>"; };
 		BA0109732224DAB10025E6E9 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		BA0109742224DAB10025E6E9 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		BA0109752224DAB10025E6E9 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
@@ -993,6 +995,7 @@
 		CB6C9BA621C1672200B5A9E9 /* 澳門物管BMS */ = {
 			isa = PBXGroup;
 			children = (
+				BA00E6EB222E2DD30022AFCD /* FZZYFW--GB1-0.ttf */,
 				32A8CAA421F305FE0064B553 /* 澳門物管BMS.entitlements */,
 				CB42089321C2B13400980B64 /* common */,
 				CB6C9BD921C16BF500B5A9E9 /* class */,
@@ -1256,6 +1259,7 @@
 				CB6C9BAF21C1672200B5A9E9 /* Main.storyboard in Resources */,
 				32B0FA222202FCA4000621DE /* Chat_record_circle.png in Resources */,
 				CB05465821C6B1FC008BE895 /* AnnouncementViewController.xib in Resources */,
+				BA00E6EC222E2DD30022AFCD /* FZZYFW--GB1-0.ttf in Resources */,
 				CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */,
 				CB05F36121E1AB4200208C5E /* AddCollectionViewCell.xib in Resources */,
 			);

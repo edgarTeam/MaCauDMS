@@ -28,6 +28,7 @@
     // Do any additional setup after loading the view from its nib.
    //self.title=@"公告";
     self.title=LocalizedString(@"String_notice_title");
+    self.baseTitleLab.text=@"公告列表";
    // self.edgesForExtendedLayout=UIRectEdgeNone;
     _tableView.separatorColor=[UIColor clearColor];
 //    _tableView.separatorInset=UIEdgeInsetsZero;
