@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "ZKAlertTool.h"
 
+
 #import <Masonry/Masonry.h>
 @interface BaseViewController ()<UIAlertViewDelegate>
 
@@ -58,9 +59,19 @@
     topView.backgroundColor=[UIColor clearColor];
     [self.view addSubview:topView];
     
+//    self.baseTitleLab=[[UILabel alloc] init];
+//
+//    NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
+//
+//    if ([lang isEqualToString:@"zh-Hant"]) {
+//
+//        self.baseTitleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
+//    }else{
+//        self.baseTitleLab.font=[UIFont fontWithName:@"cwTeXQHei-Bold" size:16];
+//    }
+   // self.baseTitleLab=[[BaseLable alloc] initFont];
     self.baseTitleLab=[[UILabel alloc] init];
-   // self.baseTitleLab.font=[UIFont systemFontOfSize:16];
-    self.baseTitleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
+    
     self.baseTitleLab.textColor=[UIColor whiteColor];
     [topView addSubview:self.baseTitleLab];
     [self.baseTitleLab mas_makeConstraints:^(MASConstraintMaker *make){

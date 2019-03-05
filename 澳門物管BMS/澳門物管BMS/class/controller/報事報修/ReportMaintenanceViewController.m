@@ -86,7 +86,7 @@
         case ReportType:
         {
 //            self.baseTitleLab.text=@"報事維修";
-            self.baseTitleLab.text=@"报事报修";
+            self.baseTitleLab.text=LocalizedString(@"string_report_maintenance_title");
             _buildingImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
             _themeImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
             _typeImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
@@ -106,7 +106,7 @@
         case ComplainType:
         {
          //   self.baseTitleLab.text=@"投訴";
-             self.baseTitleLab.text=@"投诉";
+             self.baseTitleLab.text=LocalizedString(@"string_complain_title");
             _buildingImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
             _themeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
             _typeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];

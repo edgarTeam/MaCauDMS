@@ -71,6 +71,7 @@
     [super viewDidLoad];
     
     _titleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
+    _titleLab.text=LocalizedString(@"string_main_page_title");
     
     for (UIButton *btn in _btnArray) {
         [btn.titleLabel setFont:[UIFont systemFontOfSize:13.0]];

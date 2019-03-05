@@ -119,9 +119,7 @@
         [UIApplication sharedApplication].keyWindow.rootViewController =drawer;
         [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:_suspensionMenu];
         [[UIApplication sharedApplication].keyWindow.rootViewController.view bringSubviewToFront:_suspensionMenu];
-       // [drawer  addSubview:_suspensionMenu];
-       // [self.window.rootViewController.view bringSubviewToFront:_suspensionMenu];
-// [self.window.rootViewController.view bringSubviewToFront:_suspensionMenu];
+
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         });
         [ZKAlertTool showAlertWithMsg:LocalizedString(@"String_Alert_title")];

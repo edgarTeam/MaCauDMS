@@ -16,9 +16,6 @@
 		32B0FA202202FA5C000621DE /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B0FA1E2202FA5C000621DE /* NSDate+Utils.m */; };
 		32B0FA222202FCA4000621DE /* Chat_record_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B0FA212202FCA4000621DE /* Chat_record_circle.png */; };
 		96779DDF3A78897051E0D4B1 /* libPods-澳門物管BMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F99EC57492991AD37A255A42 /* libPods-澳門物管BMS.a */; };
-		BA00E6EC222E2DD30022AFCD /* FZZYFW--GB1-0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA00E6EB222E2DD30022AFCD /* FZZYFW--GB1-0.ttf */; };
-		BA00E6F0222E7A630022AFCD /* HYZhuZiMuTouRenW.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA00E6EF222E7A630022AFCD /* HYZhuZiMuTouRenW.ttf */; };
-		BA00E6F2222E7D030022AFCD /* MNgaiHK-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BA00E6F1222E7D030022AFCD /* MNgaiHK-Bold.otf */; };
 		BA0109762224DAB10025E6E9 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0109742224DAB10025E6E9 /* WebViewController.m */; };
 		BA0109772224DAB10025E6E9 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA0109752224DAB10025E6E9 /* WebViewController.xib */; };
 		BA01097A2224DB2C0025E6E9 /* EHWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0109792224DB2C0025E6E9 /* EHWKWebView.m */; };
@@ -44,6 +41,9 @@
 		BA3158A92227D7F9000E5B6F /* TurningLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3158A82227D7F9000E5B6F /* TurningLabelView.m */; };
 		BA585C08221EA7EF002C26B8 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA585C07221EA7EE002C26B8 /* AddressModel.m */; };
 		BA681A97222E878600EC2CC0 /* cwTeXQHeiZH-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA681A96222E878600EC2CC0 /* cwTeXQHeiZH-Bold.ttf */; };
+		BA681A99222E8CCC00EC2CC0 /* cwTeXQHei-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA681A98222E8CCC00EC2CC0 /* cwTeXQHei-Bold.ttf */; };
+		BA681A9C222E903B00EC2CC0 /* BaseLable.m in Sources */ = {isa = PBXBuildFile; fileRef = BA681A9B222E903B00EC2CC0 /* BaseLable.m */; };
+		BA681A9F222E9A4300EC2CC0 /* UILabel+LabelFont.m in Sources */ = {isa = PBXBuildFile; fileRef = BA681A9E222E9A4300EC2CC0 /* UILabel+LabelFont.m */; };
 		BA84BE4A222680FD00600B55 /* UIViewController+zk_Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = BA84BE49222680FD00600B55 /* UIViewController+zk_Additions.m */; };
 		BAA96DD72216CB24008CE03C /* PlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA96DD52216CB24008CE03C /* PlaceTableViewCell.m */; };
 		BAA96DD82216CB24008CE03C /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */; };
@@ -168,9 +168,6 @@
 		32B0FA212202FCA4000621DE /* Chat_record_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chat_record_circle.png; sourceTree = "<group>"; };
 		6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.release.xcconfig"; sourceTree = "<group>"; };
 		863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-澳門物管BMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-澳門物管BMS/Pods-澳門物管BMS.debug.xcconfig"; sourceTree = "<group>"; };
-		BA00E6EB222E2DD30022AFCD /* FZZYFW--GB1-0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FZZYFW--GB1-0.ttf"; sourceTree = "<group>"; };
-		BA00E6EF222E7A630022AFCD /* HYZhuZiMuTouRenW.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HYZhuZiMuTouRenW.ttf; sourceTree = "<group>"; };
-		BA00E6F1222E7D030022AFCD /* MNgaiHK-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MNgaiHK-Bold.otf"; sourceTree = "<group>"; };
 		BA0109732224DAB10025E6E9 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		BA0109742224DAB10025E6E9 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		BA0109752224DAB10025E6E9 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
@@ -215,6 +212,11 @@
 		BA585C06221EA7EE002C26B8 /* AddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
 		BA585C07221EA7EE002C26B8 /* AddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
 		BA681A96222E878600EC2CC0 /* cwTeXQHeiZH-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cwTeXQHeiZH-Bold.ttf"; sourceTree = "<group>"; };
+		BA681A98222E8CCC00EC2CC0 /* cwTeXQHei-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cwTeXQHei-Bold.ttf"; sourceTree = "<group>"; };
+		BA681A9A222E903B00EC2CC0 /* BaseLable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseLable.h; sourceTree = "<group>"; };
+		BA681A9B222E903B00EC2CC0 /* BaseLable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseLable.m; sourceTree = "<group>"; };
+		BA681A9D222E9A4300EC2CC0 /* UILabel+LabelFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+LabelFont.h"; sourceTree = "<group>"; };
+		BA681A9E222E9A4300EC2CC0 /* UILabel+LabelFont.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LabelFont.m"; sourceTree = "<group>"; };
 		BA84BE48222680FD00600B55 /* UIViewController+zk_Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+zk_Additions.h"; sourceTree = "<group>"; };
 		BA84BE49222680FD00600B55 /* UIViewController+zk_Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+zk_Additions.m"; sourceTree = "<group>"; };
 		BAA96DD42216CB24008CE03C /* PlaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceTableViewCell.h; sourceTree = "<group>"; };
@@ -486,6 +488,8 @@
 			children = (
 				BA047988221D2A20006AF8FD /* UILabel+LabelHeightAndWidth.h */,
 				BA047987221D2A20006AF8FD /* UILabel+LabelHeightAndWidth.m */,
+				BA681A9D222E9A4300EC2CC0 /* UILabel+LabelFont.h */,
+				BA681A9E222E9A4300EC2CC0 /* UILabel+LabelFont.m */,
 			);
 			path = label;
 			sourceTree = "<group>";
@@ -972,6 +976,8 @@
 				CB42089B21C2B1BA00980B64 /* BaseViewController.m */,
 				CB42089D21C2B1E600980B64 /* BaseNavigationViewController.h */,
 				CB42089E21C2B1E600980B64 /* BaseNavigationViewController.m */,
+				BA681A9A222E903B00EC2CC0 /* BaseLable.h */,
+				BA681A9B222E903B00EC2CC0 /* BaseLable.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1001,10 +1007,8 @@
 		CB6C9BA621C1672200B5A9E9 /* 澳門物管BMS */ = {
 			isa = PBXGroup;
 			children = (
+				BA681A98222E8CCC00EC2CC0 /* cwTeXQHei-Bold.ttf */,
 				BA681A96222E878600EC2CC0 /* cwTeXQHeiZH-Bold.ttf */,
-				BA00E6F1222E7D030022AFCD /* MNgaiHK-Bold.otf */,
-				BA00E6EF222E7A630022AFCD /* HYZhuZiMuTouRenW.ttf */,
-				BA00E6EB222E2DD30022AFCD /* FZZYFW--GB1-0.ttf */,
 				32A8CAA421F305FE0064B553 /* 澳門物管BMS.entitlements */,
 				CB42089321C2B13400980B64 /* common */,
 				CB6C9BD921C16BF500B5A9E9 /* class */,
@@ -1256,11 +1260,11 @@
 				CB05465D21C6B223008BE895 /* ComplainViewController.xib in Resources */,
 				BA02E7BA2227C887004A2FBF /* MainViewController.xib in Resources */,
 				CB02948121D3AE2900FE55A7 /* SysLocalizable.strings in Resources */,
-				BA00E6F0222E7A630022AFCD /* HYZhuZiMuTouRenW.ttf in Resources */,
 				CBFF233A21CA8BD80066E00C /* ProcessingStateViewController.xib in Resources */,
 				CB05F35C21E1AB2D00208C5E /* PhotpCollectionViewCell.xib in Resources */,
 				CBFF234021CAA2110066E00C /* BookingRecordTableViewCell.xib in Resources */,
 				CB0BCD70221EE48600596E1B /* PlaceDetailViewController.xib in Resources */,
+				BA681A99222E8CCC00EC2CC0 /* cwTeXQHei-Bold.ttf in Resources */,
 				CB08143521D4F6760018A363 /* LanguageSettingViewController.xib in Resources */,
 				CBFE45BA21C9547600DD80E4 /* ClubhouseReservationViewController.xib in Resources */,
 				CB6C9BB421C1672300B5A9E9 /* LaunchScreen.storyboard in Resources */,
@@ -1270,8 +1274,6 @@
 				CB6C9BAF21C1672200B5A9E9 /* Main.storyboard in Resources */,
 				32B0FA222202FCA4000621DE /* Chat_record_circle.png in Resources */,
 				CB05465821C6B1FC008BE895 /* AnnouncementViewController.xib in Resources */,
-				BA00E6EC222E2DD30022AFCD /* FZZYFW--GB1-0.ttf in Resources */,
-				BA00E6F2222E7D030022AFCD /* MNgaiHK-Bold.otf in Resources */,
 				CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */,
 				CB05F36121E1AB4200208C5E /* AddCollectionViewCell.xib in Resources */,
 			);
@@ -1383,7 +1385,9 @@
 				BA0F84C822165BD800EE6F0E /* PlaceViewController.m in Sources */,
 				323A127C21F06730009891ED /* SuspensionModel.m in Sources */,
 				CB08143421D4F6760018A363 /* LanguageSettingViewController.m in Sources */,
+				BA681A9C222E903B00EC2CC0 /* BaseLable.m in Sources */,
 				BA04405D21F84D0D00B310EB /* Weather.m in Sources */,
+				BA681A9F222E9A4300EC2CC0 /* UILabel+LabelFont.m in Sources */,
 				CBFF233921CA8BD80066E00C /* ProcessingStateViewController.m in Sources */,
 				BA09BB4E22154BE40092BDED /* DrawerViewController.m in Sources */,
 				323A128221F06741009891ED /* CircleButton.m in Sources */,
