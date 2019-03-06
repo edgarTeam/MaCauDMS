@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *psdViewHeight;
 @property (weak, nonatomic) IBOutlet UIView *psdLabView;
 @property (weak, nonatomic) IBOutlet UIImageView *centerImageView;
+@property (weak, nonatomic) IBOutlet UILabel *languageLab;
+@property (weak, nonatomic) IBOutlet UILabel *psdLab;
+@property (weak, nonatomic) IBOutlet UILabel *aboutLab;
 
 
 
@@ -35,6 +38,12 @@
 //        return;
 //    }
     self.baseTitleLab.text=LocalizedString(@"string_set_title");
+    _languageLab.font=[UIFont systemFontOfSize:15];
+    _psdLab.font=[UIFont systemFontOfSize:15];
+    _aboutLab.font=[UIFont systemFontOfSize:15];
+    
+    
+    
    // self.title=LocalizedString(@"string_set_title");
     [self.changePsdBtn setTitle:LocalizedString(@"String_change_psd_title") forState:UIControlStateNormal];
  //   [self.changeLanguageBtn setTitle:LocalizedString(@"string_language_setting_title") forState:UIControlStateNormal];

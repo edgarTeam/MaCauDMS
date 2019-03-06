@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *forgetBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *headImg;
+
+@property (weak, nonatomic) IBOutlet UILabel *accountLab;
+@property (weak, nonatomic) IBOutlet UILabel *psdLab;
+
 @end
 
 @implementation LoginViewController
@@ -34,6 +38,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.backBtn.hidden=YES;
+    _accountLab.font=[UIFont systemFontOfSize:15];
+    _psdLab.font=[UIFont systemFontOfSize:15];
+    _loginBtn.titleLabel.font=[UIFont systemFontOfSize:16];
+    
     self.view.backgroundColor=[UIColor clearColor];
     _headImg.layer.masksToBounds=YES;
     _headImg.layer.cornerRadius=40;

@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForgetPswViewController">
             <connections>
                 <outlet property="submitBtn" destination="Fz8-eo-IVC" id="L3V-MF-Cbc"/>
+                <outlet property="userNameLab" destination="GwI-d2-V2b" id="3Yz-Ha-PcT"/>
                 <outlet property="userNameText" destination="fXI-Ur-q4u" id="Hf4-f8-AwJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

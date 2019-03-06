@@ -40,6 +40,11 @@
     // Configure the view for the selected state
 }
 - (void)setUpModel:(ReportMaintenanceDetail *)model{
+    _contentLab.font=[UIFont systemFontOfSize:15];
+    _timeLab.font=[UIFont systemFontOfSize:12];
+    _stateLab.font=[UIFont systemFontOfSize:12];
+    _iconLab.font=[UIFont systemFontOfSize:11];
+    
     if ([model.createTime rangeOfString:@"T"].location !=NSNotFound) {
         _timeStr=[model.createTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
     }else{

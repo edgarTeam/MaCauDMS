@@ -14,9 +14,12 @@
     [super awakeFromNib];
     // Initialization code
     _chooseImage.hidden=YES;
+    _placeTitleLab.font=[UIFont systemFontOfSize:16];
+    _describeLab.font=[UIFont systemFontOfSize:13];
+    
     self.backgroundColor=[UIColor clearColor];
-    self.centerView.layer.masksToBounds=YES;
-    self.centerView.layer.cornerRadius=5.0;
+//    self.centerView.layer.masksToBounds=YES;
+//    self.centerView.layer.cornerRadius=5.0;
 }
 - (IBAction)chooseBtnAction:(UIButton *)btn {
 //    if (btn.selected==YES) {

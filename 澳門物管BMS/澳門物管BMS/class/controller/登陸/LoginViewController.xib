@@ -12,9 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="accountLab" destination="lc6-gW-56Q" id="gu3-ED-Saf"/>
                 <outlet property="accountTextField" destination="SuZ-nd-eVC" id="cN2-TV-Psj"/>
                 <outlet property="forgetBtn" destination="3Af-cd-eW3" id="nUX-Fc-xEE"/>
                 <outlet property="loginBtn" destination="UNR-nr-CpF" id="faq-ZB-bYo"/>
+                <outlet property="psdLab" destination="LPB-0F-iFP" id="LAq-oL-3J6"/>
                 <outlet property="psdTextField" destination="Ceg-Bo-UUb" id="Dbg-w7-oJf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

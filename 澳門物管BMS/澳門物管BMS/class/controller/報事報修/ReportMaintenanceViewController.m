@@ -63,6 +63,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeight;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UILabel *buildingTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairTypeTitleLab;
 
 
 
@@ -78,6 +80,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    _buildingTitleLab.font=[UIFont systemFontOfSize:16];
+    _communityLab.font=[UIFont systemFontOfSize:16];
+    _repairTypeTitleLab.font=[UIFont systemFontOfSize:16];
+    _repairAddressTitleLab.font=[UIFont systemFontOfSize:16];
+    _submitBtn.font=[UIFont systemFontOfSize:16];
+    
+    
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事維修";
     
@@ -974,11 +983,13 @@
     
     
     if (_isNews) {
+        self.playBtn.hidden=YES;
         self.scrollView.scrollEnabled=YES;
         self.maintenanceCollectionView.scrollEnabled=NO;
         [self requestComplain];
         [_maintenanceCollectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:NULL];
     }else{
+        self.playBtn.hidden=YES;
         self.scrollView.scrollEnabled=NO;
         self.maintenanceCollectionView.scrollEnabled=YES;
         [self requestBuildingList];
@@ -1046,6 +1057,7 @@
             self.playBtn.hidden=YES;
         }else{
             _voiceRemarkUrl=_complain.complainVoice;
+            self.playBtn.hidden=NO;
         }
         
         

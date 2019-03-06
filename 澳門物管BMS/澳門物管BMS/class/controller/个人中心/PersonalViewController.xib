@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonalViewController">
             <connections>
+                <outlet property="changeInfoLab" destination="iJw-wr-05l" id="ykx-KT-77o"/>
                 <outlet property="loginBtn" destination="lgd-bX-S1J" id="YlD-xs-8kf"/>
                 <outlet property="tableView" destination="aS0-wZ-pJ4" id="QVl-Qy-lSZ"/>
                 <outlet property="temperatureLab" destination="iDd-Bx-oEF" id="EbL-7d-McO"/>

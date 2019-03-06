@@ -54,8 +54,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return dataSource.count;
-    return 3;
+    return dataSource.count;
+//    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -64,7 +64,7 @@
         cell=[[[NSBundle mainBundle] loadNibNamed:@"NoticeTableViewCell" owner:self options:nil] lastObject];
     }
    // cell.backgroundColor=[UIColor clearColor];
-   // [cell setUpModel:[dataSource objectAtIndex:indexPath.row]];
+    [cell setUpModel:[dataSource objectAtIndex:indexPath.row]];
     
     
     return cell;

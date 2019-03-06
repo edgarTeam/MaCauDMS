@@ -13,10 +13,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController">
             <connections>
                 <outlet property="AboutUsBtn" destination="1eT-dc-qM1" id="4Cg-kK-nut"/>
+                <outlet property="aboutLab" destination="Ovp-rs-Ndr" id="cA5-qo-x3f"/>
                 <outlet property="centerImageView" destination="dxN-5p-fOd" id="5Om-xv-4RG"/>
                 <outlet property="changeLanguageBtn" destination="guS-gM-rDK" id="daR-f7-Yg8"/>
                 <outlet property="changePsdBtn" destination="nCY-sy-3ix" id="8dr-ub-odC"/>
+                <outlet property="languageLab" destination="dYT-yI-5vw" id="v6p-3F-chF"/>
                 <outlet property="privacyBtn" destination="zMw-CM-3f0" id="oFX-lY-T02"/>
+                <outlet property="psdLab" destination="r8S-rz-xj3" id="gXa-2c-r8N"/>
                 <outlet property="psdLabView" destination="LfQ-CQ-HLX" id="9BN-xK-6Zw"/>
                 <outlet property="psdViewHeight" destination="HSn-OV-rWG" id="pLf-uq-tsD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

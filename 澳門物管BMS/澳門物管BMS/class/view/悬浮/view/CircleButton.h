@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SuspensionModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CircleButton : UIButton

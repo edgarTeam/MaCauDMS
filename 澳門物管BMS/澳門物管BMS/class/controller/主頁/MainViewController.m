@@ -30,8 +30,14 @@
 #import "Weather.h"
 #import <CoreLocation/CoreLocation.h>
 #import "User.h"
+#import <SDCycleScrollView/SDCycleScrollView.h>
+#import "NoticeDetailViewController.h"
 
-@interface MainViewController ()<CLLocationManagerDelegate>
+#import "CircleButton.h"
+
+
+
+@interface MainViewController ()<CLLocationManagerDelegate,SDCycleScrollViewDelegate>
 @property (nonatomic,strong) UIButton *sliderBtn;
 @property (nonatomic,strong) UIButton *rightBtn;
 //@property (nonatomic,strong) SuspensionView *suspensionView;
@@ -41,10 +47,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *weatherLab;
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
 @property (weak, nonatomic) IBOutlet UILabel *dateLab;
-@property (weak, nonatomic) IBOutlet TurningLabelView *turningView;
+//@property (weak, nonatomic) IBOutlet TurningLabelView *turningView;
 @property (weak, nonatomic) IBOutlet UIButton *noticeBtn;
 
-@property (weak, nonatomic) IBOutlet UIButton *complainBtn;
+//@property (weak, nonatomic) IBOutlet UIButton *complainBtn;
 @property (weak, nonatomic) IBOutlet UIButton *repairBtn;
 @property (weak, nonatomic) IBOutlet UIButton *placeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *informationBtn;
@@ -53,9 +59,14 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnArray;
 
+@property (weak, nonatomic) IBOutlet SDCycleScrollView *turnLabView;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *serviceLab;
+
+//@property (weak, nonatomic) IBOutlet CircleButton *complainBtn;
 @end
 
 @implementation MainViewController
@@ -66,30 +77,41 @@
     NSString *latStr;//纬度
     NSString *adcode;
     NSMutableArray *noticeList;
+    NSMutableArray *noticeTitleList;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _titleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
     _titleLab.text=LocalizedString(@"string_main_page_title");
-    
+    _clientNameLab.font=[UIFont systemFontOfSize:23];
+    _temperatureLab.font=[UIFont systemFontOfSize:20];
+    _weatherLab.font=[UIFont systemFontOfSize:13];
+    _serviceLab.font=[UIFont systemFontOfSize:12];
+    _dateLab.font=[UIFont systemFontOfSize:12];
+    _noticeBtn.titleLabel.font=[UIFont systemFontOfSize:13];
+//    _complainBtn.imageAlignment=MMImageAlignmentTop;
+//    _complainBtn.spaceBetweenTitleAndImage=10;
     for (UIButton *btn in _btnArray) {
         [btn.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
 //        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width, 0, 0)];
 //        [btn setImageEdgeInsets:UIEdgeInsetsMake( -(btn.frame.size.height/2-btn.imageView.frame.size.height/2), 0, 0, -btn.titleLabel.frame.size.width)];
         [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width-15, 0, 0)];
        // [btn setImageEdgeInsets:UIEdgeInsetsMake( 0, 0, 24, 0)];
-//        NSLog(@"按钮：%f",btn.frame.size.width/2);
-//        NSLog(@"图片：%f",btn.imageView.frame.size.width/2);
+        NSLog(@"按钮：%f",btn.frame.size.width/2);
+        NSLog(@"图片：%f",btn.imageView.frame.size.width/2);
+
         [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.frame.size.width/2-btn.imageView.frame.size.width/2, 24, 0)];
+
+//        [btn setImageEdgeInsets: UIEdgeInsetsMake(0, (btn.bounds.size.width-btn.imageView.bounds.size.width)*0.5, 0, 0)];
+//        [btn setTitleEdgeInsets: UIEdgeInsetsMake(btn.imageView.bounds.size.height, (btn.bounds.size.width-btn.titleLabel.bounds.size.width)*0.5-btn.imageView.bounds.size.width, 0, 0)];
+
+
     }
     
-    
+    _bgImageView.frame=CGRectMake(0, -statusRectHeight, ScreenWidth, ScreenHeight);
 
 
-    
-    
-    
     // Do any additional setup after loading the view.
 //    CGRect statusRect=[[UIApplication sharedApplication] statusBarFrame];
 //    CGFloat height=statusRect.size.height;
@@ -142,7 +164,9 @@
     _dateLab.text=[NSString stringWithFormat:@"%@ %@",dateStr,[NSDate getWeekdays]];
     [self locate];
     [self requestNoticeList];
+   
     if ([User shareUser].name.length==0) {
+        
         _clientNameLab.text=[NSString stringWithFormat:@"您好! 業主"];
     }else{
        // NSString *str=[[User shareUser].name substringToIndex:1];
@@ -346,19 +370,41 @@
 
 
 - (void)requestNoticeList {
+    _turnLabView.delegate=self;
     [[WebAPIHelper sharedWebAPIHelper] postNoticeList:nil completion:^(NSDictionary *dic){
         NSMutableArray *array=[dic objectForKey:@"list"];
         NSArray *arr=[Notice mj_objectArrayWithKeyValuesArray:array];
+        noticeTitleList=[NSMutableArray new];
         noticeList=[NSMutableArray new];
+        noticeList=[arr copy];
         for (Notice *notice in arr) {
-            [noticeList addObject:notice.noticeTitle];
+           // [noticeList addObject:notice.noticeTitle];
+            [noticeTitleList addObject:notice.noticeTitle];
         }
-        [self.turningView cleanArray];
-        [self.turningView setTurnArray:noticeList];
+        _turnLabView.onlyDisplayText=YES;
+        _turnLabView.autoScrollTimeInterval =3;
+        _turnLabView.titleLabelTextColor=[UIColor whiteColor];
+        _turnLabView.titleLabelBackgroundColor=[UIColor clearColor];
+        _turnLabView.titleLabelTextFont=[UIFont systemFontOfSize:13];
+        _turnLabView.scrollDirection=UICollectionViewScrollDirectionVertical;
+        _turnLabView.titlesGroup=noticeTitleList;
+//        [self.turningView cleanArray];
+//        [self.turningView setTurnArray:noticeList];
     }];
 }
 
+#pragma mark SDCycleScrollViewDelegate
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index{
+    
+}
 
+-(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    NoticeDetailViewController *noticeVC=[[NoticeDetailViewController alloc] init];
+    Notice *notice=[noticeList objectAtIndex:index];
+    noticeVC.noticeId=notice.noticeId;
+    [self.navigationController pushViewController:noticeVC animated:YES];
+    
+}
 
 
 

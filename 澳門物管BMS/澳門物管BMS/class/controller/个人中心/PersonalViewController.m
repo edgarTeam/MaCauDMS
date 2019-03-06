@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UILabel *versionLab;
+@property (weak, nonatomic) IBOutlet UILabel *changeInfoLab;
 @end
 
 @implementation PersonalViewController
@@ -47,6 +48,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.baseTitleLab.text=@"個人中心";
+    _changeInfoLab.font=[UIFont systemFontOfSize:14];
+    _temperatureLab.font=[UIFont systemFontOfSize:20];
+    _weatherLab.font=[UIFont systemFontOfSize:13];
+    _loginBtn.titleLabel.font=[UIFont systemFontOfSize:15];
     // Do any additional setup after loading the view from its nib.
     self.loginBtn.layer.masksToBounds=YES;
     self.loginBtn.layer.cornerRadius=23;
@@ -249,8 +254,8 @@
         }
         
        // _weatherLab.text=[NSString stringWithFormat:@" %@℃",weather.temperature];
-        _weatherLab.text=[NSString stringWithFormat:@" %@℃",weather.weather];
-        _temperatureLab.text=weather.temperature;
+        _weatherLab.text=weather.weather;
+        _temperatureLab.text=[NSString stringWithFormat:@" %@℃",weather.temperature];
     } failure:^(NSError *error){
         NSLog(@"%@",error);
     }];

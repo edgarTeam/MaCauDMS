@@ -11,7 +11,7 @@
 #import "LoginViewController.h"
 #import "ZKAlertTool.h"
 
-
+//#import "BaseLable.h"
 #import <Masonry/Masonry.h>
 @interface BaseViewController ()<UIAlertViewDelegate>
 
@@ -59,18 +59,18 @@
     topView.backgroundColor=[UIColor clearColor];
     [self.view addSubview:topView];
     
-//    self.baseTitleLab=[[UILabel alloc] init];
-//
-//    NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
-//
-//    if ([lang isEqualToString:@"zh-Hant"]) {
-//
-//        self.baseTitleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
-//    }else{
-//        self.baseTitleLab.font=[UIFont fontWithName:@"cwTeXQHei-Bold" size:16];
-//    }
-   // self.baseTitleLab=[[BaseLable alloc] initFont];
     self.baseTitleLab=[[UILabel alloc] init];
+
+    NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
+
+    if ([lang isEqualToString:@"zh-Hant"]) {
+
+        self.baseTitleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
+    }else{
+        self.baseTitleLab.font=[UIFont fontWithName:@"cwTeXQHei-Bold" size:16];
+    }
+   // self.baseTitleLab=[[BaseLable alloc] initFont];
+  //  self.baseTitleLab=[[UILabel alloc] init];
     
     self.baseTitleLab.textColor=[UIColor whiteColor];
     [topView addSubview:self.baseTitleLab];
@@ -79,8 +79,10 @@
         make.centerY.mas_equalTo(topView);
     }];
     self.backBtn=[[UIButton alloc] init];
+    self.backBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [self.backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [self.backBtn setBackgroundImage:[UIImage imageNamed:@"icon_back_background"] forState:UIControlStateNormal];
+    [self.backBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
     [self.backBtn setTitle:@"返回" forState:UIControlStateNormal];
     [self.backBtn setTitleColor:RGB(230, 230, 230) forState:UIControlStateNormal];
     [self.backBtn addTarget:self action:@selector(backBtn:)forControlEvents:UIControlEventTouchUpInside];

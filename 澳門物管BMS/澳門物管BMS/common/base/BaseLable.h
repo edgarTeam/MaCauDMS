@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseLable : UILabel
 
--(instancetype)initFont;
+
 @end
 
 NS_ASSUME_NONNULL_END

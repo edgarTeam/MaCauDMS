@@ -66,6 +66,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="detailLab" destination="eUa-rj-GCl" id="ZsL-UZ-8kj"/>
                 <outlet property="orderDateLab" destination="IS5-Q2-Ubx" id="0dF-EW-FHE"/>
                 <outlet property="placeNameLab" destination="vxt-5j-E5C" id="XtH-73-HGW"/>
             </connections>

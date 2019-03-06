@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeOrderTimeTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *placeUpdateTimeTitleLab;
 
+@property (weak, nonatomic) IBOutlet UILabel *detailLab;
 @property (nonatomic,strong) NSArray *statusArr;
 @end
 @implementation BookingRecordTableViewCell
@@ -75,6 +76,10 @@
 //}
 
 - (void)setUpPlaceRecord:(PlaceRecord *)model{
+    _placeNameLab.font=[UIFont systemFontOfSize:15];
+    _orderDateLab.font=[UIFont systemFontOfSize:12];
+    _detailLab.font=[UIFont systemFontOfSize:12];
+    
     _placeNameLab.text=model.place.placeName;
 //    if (model.recordStatus !=nil) {
 //         _statusLab.text=_statusArr[[model.recordStatus intValue] +1];

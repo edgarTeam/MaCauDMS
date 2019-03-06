@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+
     self.backgroundColor=[UIColor clearColor];
 }
 
@@ -23,6 +24,8 @@
 }
 
 - (void)setUpModel:(LeftModel *)model{
+    _titleLab.font=[UIFont systemFontOfSize:14];
+    _describeLab.font=[UIFont systemFontOfSize:13];
     [_titleLab setText:model.title];
     [_bgImageView setImage:[UIImage imageNamed:model.image]];
     [_describeLab setText:model.describe];

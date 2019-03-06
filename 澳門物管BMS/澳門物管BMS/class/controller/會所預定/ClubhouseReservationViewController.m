@@ -77,6 +77,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //self.title=@"會所預定";
+    self.timeLab.font=[UIFont systemFontOfSize:15];
     self.title=LocalizedString(@"string_reservation_place_title");
 
    // self.edgesForExtendedLayout=UIRectEdgeNone;
@@ -108,7 +109,10 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     _plateBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
     _plateBtn.layer.borderWidth =1.0;
     
-
+    _placeNameLab.font=[UIFont systemFontOfSize:16];
+    _placeContentLab.font=[UIFont systemFontOfSize:13];
+    _plateOrderDateLab.font=[UIFont systemFontOfSize:13];
+    _plateChooseTimeLab.font=[UIFont systemFontOfSize:13];
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumLineSpacing=15;
@@ -507,6 +511,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"TimeCollectionViewCell" owner:self options:nil] lastObject];
     }
+    cell.contentLab.font=[UIFont systemFontOfSize:15];
     if (_isNews) {
         self.timeCollectionView.allowsSelection=NO;
         cell.contentLab.text=_dataSource[indexPath.row];

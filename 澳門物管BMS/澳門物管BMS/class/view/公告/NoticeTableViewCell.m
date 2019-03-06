@@ -82,7 +82,20 @@
 //}
 
 - (void)setUpModel:(Notice *)model {
+    _titleLab.font=[UIFont systemFontOfSize:15];
+    _timeLab.font=[UIFont systemFontOfSize:12];
     _titleLab.text=model.noticeTitle;
+    if ([model.createTime rangeOfString:@"T"].location !=NSNotFound) {
+        _timeStr=[model.createTime stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    }else{
+        _timeStr=model.createTime;
+    }
+    if (_timeStr.length !=0) {
+        //_timeStr=[_timeStr substringToIndex:19];
+        _timeStr=[_timeStr substringToIndex:10];
+    }
+    
+    _timeLab.text=_timeStr;
 }
 
 @end

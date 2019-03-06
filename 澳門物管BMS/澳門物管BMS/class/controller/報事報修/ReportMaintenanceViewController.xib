@@ -15,6 +15,7 @@
                 <outlet property="addressTextField" destination="8GX-HR-Nx4" id="kCd-WJ-Kvr"/>
                 <outlet property="adressImage" destination="8Wh-3Y-BO7" id="ekw-8T-kk8"/>
                 <outlet property="buildingImage" destination="73J-57-SIz" id="GRz-QP-Ou5"/>
+                <outlet property="buildingTitleLab" destination="1ww-TO-7bg" id="9gX-Yy-l68"/>
                 <outlet property="chooseBuildingBtn" destination="aqk-Zt-xaA" id="FJK-BV-vzh"/>
                 <outlet property="collectionViewHeight" destination="g72-W2-pfm" id="WU4-fh-u7P"/>
                 <outlet property="communityTitleLab" destination="KdK-g4-HNH" id="a4t-d4-LhB"/>
@@ -27,6 +28,7 @@
                 <outlet property="repairAddressTitleLab" destination="jlC-LL-6Ms" id="dMq-Mk-qBY"/>
                 <outlet property="repairTitleTextField" destination="gWb-Se-OHq" id="Hcz-1d-ZwN"/>
                 <outlet property="repairTypeTextField" destination="1eJ-Ma-8UW" id="zUW-5n-4yi"/>
+                <outlet property="repairTypeTitleLab" destination="8kv-v0-JgM" id="g6z-Wu-T3E"/>
                 <outlet property="scrollView" destination="yQg-aJ-1NQ" id="qSo-19-Axm"/>
                 <outlet property="submitBtn" destination="nHC-Af-I8M" id="JjA-fr-jQm"/>
                 <outlet property="themeImage" destination="o3O-OV-rhh" id="4Nx-m8-sXK"/>

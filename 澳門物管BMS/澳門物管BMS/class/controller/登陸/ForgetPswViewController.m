@@ -12,6 +12,7 @@
 @interface ForgetPswViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameText;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLab;
 
 @end
 
@@ -21,8 +22,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=LocalizedString(@"string_forget_psd_title");
+    
     self.baseTitleLab.text=LocalizedString(@"string_forget_psd_title");
+    _userNameLab.font=[UIFont systemFontOfSize:15];
+    
     _userNameText.placeHoldColor=RGBA(255, 255, 255, 0.5);
+    _submitBtn.titleLabel.font=[UIFont systemFontOfSize:16];
     _submitBtn.layer.masksToBounds=YES;
     _submitBtn.layer.cornerRadius=5.0;
     [_submitBtn setTitle:LocalizedString(@"string_confirm_reset_psd_title") forState:UIControlStateNormal];
