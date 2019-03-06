@@ -15,6 +15,7 @@
 //@property (weak, nonatomic) IBOutlet UIImageView *noticeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *createTimeLable;
 @property (weak, nonatomic) IBOutlet UITextView *noticeTextView;
+@property (weak, nonatomic) IBOutlet UIButton *detailBtn;
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *noticeImageView;
 
 @property (nonatomic,strong) NSMutableArray *imageThumbnailArr;//缩略图数组
@@ -34,9 +35,11 @@
     // Do any additional setup after loading the view from its nib.
  //   self.title=@"公告詳情";
     self.title=LocalizedString(@"string_notice_detail_title");
+    self.baseTitleLab.text=LocalizedString(@"string_notice_detail_title");
  //   self.edgesForExtendedLayout=UIRectEdgeNone;
-    _noticeTextView.layer.masksToBounds=YES;
-    _noticeTextView.layer.cornerRadius=7.0;
+    
+//    _noticeTextView.layer.masksToBounds=YES;
+//    _noticeTextView.layer.cornerRadius=7.0;
     _noticeTextView.layer.borderWidth=0.5;
     _noticeTextView.layer.borderColor=RGB(138, 138, 138).CGColor;
     [_noticeTextView setEditable:NO];
@@ -126,6 +129,8 @@
 
 
 
+- (IBAction)detailBtnAction:(id)sender {
+}
 
 
 

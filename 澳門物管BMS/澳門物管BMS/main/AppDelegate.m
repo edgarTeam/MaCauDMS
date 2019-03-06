@@ -23,12 +23,16 @@
 #import "JPUSHService.h"
 #import "AppDelegate+DismissKeyboard.h"
 #import "DrawerViewController.h"
+
+
+#import "SuspendView.h"
+
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #import "BaseNavigationViewController.h"
 #endif
 
-@interface AppDelegate ()<SuspensionMenuDelegate,JPUSHRegisterDelegate>
+@interface AppDelegate ()<SuspensionMenuDelegate,JPUSHRegisterDelegate,SuspendViewDelegate>
 //@property(nonatomic,strong)MMDrawerController *drawer;
 @property (nonatomic,strong) DrawerViewController *drawer;
 @property (nonatomic,strong) UIButton *centerBtn;
@@ -49,8 +53,8 @@
 @property (nonatomic,strong) ReportMaintenanceViewController *reportVC;
 @property (nonatomic,strong) SettingViewController *setVC;
 @property (nonatomic, strong) NSArray *menuArray;
-@property (nonatomic, strong) SuspensionMenu *suspensionMenu;
-
+//@property (nonatomic, strong) SuspensionMenu *suspensionMenu;
+@property (nonatomic ,strong) SuspendView *suspensionMenu;
 @end
 
 @implementation AppDelegate
@@ -117,9 +121,13 @@
 //    [self.window setRootViewController:self.drawer];
     
     
-    self.suspensionMenu = [[SuspensionMenu alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
+    self.suspensionMenu = [[SuspendView alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
     self.suspensionMenu.delegate = self;
 
+//    if (@available(iOS 11.0, *)) {
+//        UIEdgeInsets insets=self.window.rootViewController.view.safeAreaInsets;
+//        self.window.rootViewController.view.frame=CGRectMake(insets.left, insets.top, <#CGFloat width#>, <#CGFloat height#>)
+//    }
     
     [self.window.rootViewController.view  addSubview:_suspensionMenu];
     [self.window.rootViewController.view bringSubviewToFront:_suspensionMenu];

@@ -22,7 +22,7 @@
 #import "ContactUSViewController.h"
 #import "SettingViewController.h"
 
-
+#import "UserInfoViewController.h"
 
 @interface PersonalViewController ()<UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *userInfoBtn;
@@ -267,6 +267,8 @@
 
 
 - (IBAction)changeInfoBtnAction:(id)sender {
+    UserInfoViewController *infoVC=[UserInfoViewController new];
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 
 - (void) setUpLoginBtn{

@@ -21,7 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title=LocalizedString(@"String_change_psd_title");
+   // self.title=LocalizedString(@"String_change_psd_title");
+    self.baseTitleLab.text=LocalizedString(@"String_change_psd_title");
     [_confirmBtn setTitle:LocalizedString(@"String_confirm") forState:UIControlStateNormal];
     _oldPsdTextField.delegate=self;
     _changePsdTextField.delegate=self;
@@ -85,6 +86,6 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=NO;
+    self.navigationController.navigationBar.hidden=YES;
 }
 @end

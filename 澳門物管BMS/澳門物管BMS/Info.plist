@@ -4,9 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>FZZYFW--GB1-0.ttf</string>
-		<string>HYZhuZiMuTouRenW.ttf</string>
-		<string>MNgaiHK-Bold.otf</string>
+		<string>本墨咏黑.ttf</string>
 		<string>cwTeXQHeiZH-Bold.ttf</string>
 		<string>cwTeXQHei-Bold.ttf</string>
 	</array>

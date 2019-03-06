@@ -89,7 +89,7 @@
     
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事維修";
-    
+   // [self.chooseBuildingBtn setTitle:@"请选择所在建筑" forState:UIControlStateNormal];
     
     switch (_type) {
         case ReportType:
@@ -110,6 +110,9 @@
             _maintenanceTextView.placeHoldString=@"请输入报修内容";
             _maintenanceTextView.placeHoldColor=RGB(231, 93, 119);
             _maintenanceTextView.layer.borderColor=RGB(231, 93, 119).CGColor;
+            
+            //_chooseBuildingBtn.titleLabel.textColor=RGB(231, 93, 119);
+            [_chooseBuildingBtn setTitleColor:RGB(231, 93, 119) forState:UIControlStateNormal];
         }
             break;
         case ComplainType:
@@ -129,6 +132,8 @@
             _maintenanceTextView.placeHoldString=@"请输入报修内容";
             _maintenanceTextView.placeHoldColor=RGB(255, 159, 88);
             _maintenanceTextView.layer.borderColor=RGB(255, 159, 88).CGColor;
+           // _chooseBuildingBtn.titleLabel.textColor=RGB(255, 159, 88);
+            [_chooseBuildingBtn setTitleColor:RGB(255, 159, 88) forState:UIControlStateNormal];
         }
             break;
         default:
@@ -381,6 +386,7 @@
     PickViewController *pickVC=[[PickViewController alloc] init];
     pickVC.dataSource=self.buildingList;
     pickVC.backBlock = ^(NSString *title){
+        [self.chooseBuildingBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.chooseBuildingBtn setTitle:title forState:UIControlStateNormal];
         
     };
@@ -963,6 +969,7 @@
     self.playViewHeight.constant=0;
     self.recordBtnHeight.constant=30;
     self.playBtn.hidden=YES;
+    self.deleteBtn.hidden=YES;
     self.recordBtn.hidden=NO;
     self.progressView.progress=0.0;
 }

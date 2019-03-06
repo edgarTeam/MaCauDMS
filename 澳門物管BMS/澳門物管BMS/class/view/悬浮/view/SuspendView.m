@@ -1,22 +1,23 @@
 //
-//  SuspensionMenu.m
-//  SuspensionMenuView
+//  SuspendView.m
+//  澳門物管BMS
 //
-//  Created by 胡嘉宏 on 2019/1/17.
-//  Copyright © 2019 EdgarHu. All rights reserved.
+//  Created by sc-057 on 2019/3/6.
+//  Copyright © 2019 geanguo_lucky. All rights reserved.
 //
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
-
-#import "SuspensionMenu.h"
+#import "SuspendView.h"
+#import <Masonry/Masonry.h>
 #import "SuspensionModel.h"
 #import "CircleButton.h"
-@interface SuspensionMenu ()
+@interface SuspendView ()
 @property (nonatomic, strong) NSArray *menus;
 @property (nonatomic, strong) UIButton *centerBtn;
-
 @end
-@implementation SuspensionMenu
+
+@implementation SuspendView
+
 {
     CGRect originFrame;
     CGAffineTransform _transform;
@@ -24,19 +25,37 @@
     UIPanGestureRecognizer *dragPan;
 }
 
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
 
 -(instancetype)initWithCenterImage:(UIImage *)image menuData:(NSArray *)menus{
+
     self  = [super initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     originFrame =CGRectMake(0, 0, ScreenWidth, ScreenHeight);
     self.menus = menus;
     isHide = NO;
     isHorAdsorb = YES;
+    
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    CGFloat xPoint;
+    CGFloat yPoint;
+    CGFloat hasSafeArea;
+    hasSafeArea = window.safeAreaInsets.bottom;
+    xPoint = ScreenWidth-40;
+    yPoint = ScreenHeight-hasSafeArea-34;
+    self.centerBtn.center = CGPointMake(xPoint, yPoint);
+    
     [self.centerBtn  setImage:image forState:UIControlStateNormal];
     [self.centerBtn addTarget:self action:@selector(centerDidClick:) forControlEvents:UIControlEventTouchUpInside];
-//    dragPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlerDrage)];
-//    dragPan.maximumNumberOfTouches= 1;
-//    dragPan.minimumNumberOfTouches = 1;
-//    [self.centerBtn addGestureRecognizer:dragPan];
+    //    dragPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlerDrage)];
+    //    dragPan.maximumNumberOfTouches= 1;
+    //    dragPan.minimumNumberOfTouches = 1;
+    //    [self.centerBtn addGestureRecognizer:dragPan];
     [self addSubview:_centerBtn];
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handSingleTap:)];
     singleTap.numberOfTapsRequired = 1;
@@ -44,8 +63,13 @@
     [self addGestureRecognizer:singleTap];
     
     [self addButtons];
+    
     return self;
 }
+
+
+
+
 
 -(void)handSingleTap:(UITapGestureRecognizer *)tagRec{
     if (!isHide) {
@@ -135,7 +159,7 @@
         if (point.y > ScreenHeight/2) {
             newPoint = CGPointMake(xPoint, ScreenHeight-30);
         }else{
-             UIEdgeInsets safeAreaInsets = sgm_safeAreaInset(self);
+            UIEdgeInsets safeAreaInsets = sgm_safeAreaInset(self);
             CGFloat y = 30;
             y += safeAreaInsets.top > 0 ? safeAreaInsets.top : 20.0;
             newPoint = CGPointMake(xPoint, y);
@@ -144,15 +168,15 @@
     [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%f",newPoint.x] forKey:@"centerLocationX"];
     [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithFormat:@"%f",newPoint.y] forKey:@"centerLocationY"];
     self.center = newPoint;
-
+    
 }
 
 static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
-        if (@available(iOS 11.0, *)) {
-            return view.safeAreaInsets;
-        }
-        return UIEdgeInsetsZero;
+    if (@available(iOS 11.0, *)) {
+        return view.safeAreaInsets;
     }
+    return UIEdgeInsetsZero;
+}
 
 
 
@@ -166,6 +190,7 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
         btn.tag = i;
         [btn addTarget:self action:@selector(menuBtnDidClick:) forControlEvents:UIControlEventTouchUpInside];
         btn.center = CGPointMake(xPoint, yPoint);
+        btn.hidden=YES;
         [self addSubview:btn];
         i++;
     }
@@ -191,11 +216,11 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
 
 
 - (void)hideAnimation:(UIView *)subView {
-//    [UIView beginAnimations:@"" context:nil];
-//    [UIView setAnimationDuration:.2];
-//    [UIView setAnimationDelegate:self];
-   
-//    [UIView commitAnimations];
+    //    [UIView beginAnimations:@"" context:nil];
+    //    [UIView setAnimationDuration:.2];
+    //    [UIView setAnimationDelegate:self];
+    
+    //    [UIView commitAnimations];
     [UIView animateWithDuration:0.2 animations:^{
         subView.center = self.center;
     } completion:^(BOOL finished) {
@@ -213,27 +238,21 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
         }
         
     }
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:.2];
-        [UIView setAnimationDelegate:self];
-        self.frame = CGRectMake(0, 20, 60, 60);
-        self.centerBtn.frame = CGRectMake(0, 0, 60, 60);
-//    NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
-//    if ([userdefault objectForKey:@"centerLocationX"]&&[userdefault objectForKey:@"centerLocationY"]) {
-//        CGFloat xPoint = [[userdefault objectForKey:@"centerLocationX"] floatValue];
-//        CGFloat yPoint = [[userdefault objectForKey:@"centerLocationY"] floatValue];
-//        self.center = CGPointMake(xPoint, yPoint);
-//    }
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.2];
+    [UIView setAnimationDelegate:self];
+    self.frame = CGRectMake(0, 20, 60, 60);
+    self.centerBtn.frame = CGRectMake(0, 0, 60, 60);
+    //    NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
+    //    if ([userdefault objectForKey:@"centerLocationX"]&&[userdefault objectForKey:@"centerLocationY"]) {
+    //        CGFloat xPoint = [[userdefault objectForKey:@"centerLocationX"] floatValue];
+    //        CGFloat yPoint = [[userdefault objectForKey:@"centerLocationY"] floatValue];
+    //        self.center = CGPointMake(xPoint, yPoint);
+    //    }
     CGFloat xPoint;
     CGFloat yPoint;
     CGFloat hasSafeArea;
     if (@available(iOS 11.0, *)) {
-//        xPoint =self.superview.frame.size.width-40;
-//        yPoint =self.superview.frame.size.height-34;
-//        xPoint =self.superview.safeAreaInsets.bottom-40;
-//        yPoint =self.superview.safeAreaInsets.bottom-34;
-//        xPoint = self.safeAreaInsets.bottom-40;
-//        yPoint = self.safeAreaInsets.bottom-34;
         UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
         hasSafeArea = window.safeAreaInsets.bottom;
         xPoint = ScreenWidth-40;
@@ -244,14 +263,14 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
         xPoint = ScreenWidth-40;
         yPoint = ScreenHeight-34;
     }
-
-//    CGFloat xPoint = self.frame.size.height-40;
-//    CGFloat yPoint = self.frame.size.height-34;
+    
+    //    CGFloat xPoint = self.frame.size.height-40;
+    //    CGFloat yPoint = self.frame.size.height-34;
     self.center = CGPointMake(xPoint, yPoint);
     self.centerBtn.layer.cornerRadius = 30;
     [UIView commitAnimations];
     isHide = YES;
-   
+    
 }
 
 
@@ -265,19 +284,4 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
     }
     return _centerBtn;
 }
-//var orginImg:UIImage?
-//var centerView:UIImageView?
-//var dragPan:UIPanGestureRecognizer?
-//var delegate:MenuViewDelegate?
-//var isHorAdsorb : Bool?
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 @end

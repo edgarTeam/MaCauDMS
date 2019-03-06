@@ -67,6 +67,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *serviceLab;
 
 //@property (weak, nonatomic) IBOutlet CircleButton *complainBtn;
+@property (weak, nonatomic) IBOutlet UIButton *complainBtn;
 @end
 
 @implementation MainViewController
@@ -82,8 +83,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _titleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
+   // self.baseTitleLab.text=LocalizedString(@"string_main_page_title");
+   // _titleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
     _titleLab.text=LocalizedString(@"string_main_page_title");
+    NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
+    
+    if ([lang isEqualToString:@"zh-Hant"]) {
+        
+        _titleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
+    }else{
+        _titleLab.font=[UIFont fontWithName:@"本墨咏黑" size:16];
+    }
+//    _titleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
+//    _titleLab.text=LocalizedString(@"string_main_page_title");
     _clientNameLab.font=[UIFont systemFontOfSize:23];
     _temperatureLab.font=[UIFont systemFontOfSize:20];
     _weatherLab.font=[UIFont systemFontOfSize:13];
@@ -98,8 +110,7 @@
 //        [btn setImageEdgeInsets:UIEdgeInsetsMake( -(btn.frame.size.height/2-btn.imageView.frame.size.height/2), 0, 0, -btn.titleLabel.frame.size.width)];
         [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width-15, 0, 0)];
        // [btn setImageEdgeInsets:UIEdgeInsetsMake( 0, 0, 24, 0)];
-        NSLog(@"按钮：%f",btn.frame.size.width/2);
-        NSLog(@"图片：%f",btn.imageView.frame.size.width/2);
+
 
         [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.frame.size.width/2-btn.imageView.frame.size.width/2, 24, 0)];
 
@@ -108,6 +119,27 @@
 
 
     }
+    
+//    NSLog(@"按钮：%f",_complainBtn.frame.size.width/2);
+//    NSLog(@"图片：%f",_complainBtn.imageView.frame.size.width/2);
+//    [_complainBtn.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
+//    [_complainBtn setTitleEdgeInsets:UIEdgeInsetsMake(_complainBtn.imageView.frame.size.height, -_complainBtn.imageView.frame.size.width, 0, 0)];
+//    [_complainBtn setImageEdgeInsets:UIEdgeInsetsMake(0, _complainBtn.frame.size.width/2-_complainBtn.imageView.frame.size.width/2, 24, 0)];
+    
+//    CGFloat titleW = CGRectGetWidth(_complainBtn.titleLabel.bounds);//titleLabel的宽度
+//    CGFloat titleH = CGRectGetHeight(_complainBtn.titleLabel.bounds);//titleLabel的高度
+//    
+//    CGFloat imageW = CGRectGetWidth(_complainBtn.imageView.bounds);//imageView的宽度
+//    CGFloat imageH = CGRectGetHeight(_complainBtn.imageView.bounds);//imageView的高度
+//    
+//    CGFloat btnCenterX = CGRectGetWidth(_complainBtn.bounds)/2;//按钮中心点X的坐标（以按钮左上角为原点的坐标系）
+//    CGFloat imageCenterX = btnCenterX - titleW/2;//imageView中心点X的坐标（以按钮左上角为原点的坐标系）
+//    CGFloat titleCenterX = btnCenterX + imageW/2;//titleLabel中心点X的坐标（以按钮左上角为原点的坐标系）
+//    
+//    
+//    [_complainBtn setTitleEdgeInsets:UIEdgeInsetsMake(imageH/2+ 10/2, -(titleCenterX-btnCenterX), -(imageH/2 + 10/2), titleCenterX-btnCenterX)];
+//    [_complainBtn setImageEdgeInsets:UIEdgeInsetsMake(-(titleH/2 + 10/2), btnCenterX-imageCenterX, titleH/2+ 10/2, -(btnCenterX-imageCenterX))];
+    
     
     _bgImageView.frame=CGRectMake(0, -statusRectHeight, ScreenWidth, ScreenHeight);
 
@@ -198,6 +230,7 @@
             {
                 ReportMaintenanceViewController *reportVC=[ReportMaintenanceViewController new];
                 reportVC.type=ComplainType;
+                reportVC.isNews=NO;
                 [self.navigationController pushViewController:reportVC animated:YES];
             }
             break;
@@ -205,12 +238,14 @@
         {
             ReportMaintenanceViewController *reportVC=[ReportMaintenanceViewController new];
             reportVC.type=ReportType;
+            reportVC.isNews=NO;
             [self.navigationController pushViewController:reportVC animated:YES];
         }
             break;
         case 2:
         {
             ClubhouseReservationViewController *clubVC=[ClubhouseReservationViewController new];
+            clubVC.isNews=NO;
             [self.navigationController pushViewController:clubVC animated:YES];
         }
             break;

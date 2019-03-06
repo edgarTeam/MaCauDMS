@@ -23,6 +23,8 @@
 		BA02E7BA2227C887004A2FBF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA02E7B92227C887004A2FBF /* MainViewController.xib */; };
 		BA03620121F322E1008E0B4A /* AppDelegate+DismissKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */; };
 		BA03620421F3322B008E0B4A /* NoticeSubList.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620321F3322B008E0B4A /* NoticeSubList.m */; };
+		BA03F0E0222FABAA00F4DB28 /* 本墨咏黑.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA03F0DF222FABAA00F4DB28 /* 本墨咏黑.ttf */; };
+		BA03F0E3222FC6B300F4DB28 /* SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03F0E2222FC6B300F4DB28 /* SuspendView.m */; };
 		BA04405521F8164400B310EB /* BaseAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405421F8164400B310EB /* BaseAlertViewController.m */; };
 		BA04405921F8168900B310EB /* SelectDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405721F8168900B310EB /* SelectDatePickerController.m */; };
 		BA04405D21F84D0D00B310EB /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04405C21F84D0D00B310EB /* Weather.m */; };
@@ -180,6 +182,9 @@
 		BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+DismissKeyboard.m"; sourceTree = "<group>"; };
 		BA03620221F3322B008E0B4A /* NoticeSubList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSubList.h; sourceTree = "<group>"; };
 		BA03620321F3322B008E0B4A /* NoticeSubList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeSubList.m; sourceTree = "<group>"; };
+		BA03F0DF222FABAA00F4DB28 /* 本墨咏黑.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "本墨咏黑.ttf"; sourceTree = "<group>"; };
+		BA03F0E1222FC6B300F4DB28 /* SuspendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuspendView.h; sourceTree = "<group>"; };
+		BA03F0E2222FC6B300F4DB28 /* SuspendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuspendView.m; sourceTree = "<group>"; };
 		BA04405321F8164400B310EB /* BaseAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAlertViewController.h; sourceTree = "<group>"; };
 		BA04405421F8164400B310EB /* BaseAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAlertViewController.m; sourceTree = "<group>"; };
 		BA04405721F8168900B310EB /* SelectDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDatePickerController.m; sourceTree = "<group>"; };
@@ -416,6 +421,8 @@
 				323A127E21F06741009891ED /* CircleButton.m */,
 				323A128121F06741009891ED /* SuspensionMenu.h */,
 				323A128021F06741009891ED /* SuspensionMenu.m */,
+				BA03F0E1222FC6B300F4DB28 /* SuspendView.h */,
+				BA03F0E2222FC6B300F4DB28 /* SuspendView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1014,6 +1021,7 @@
 		CB6C9BA621C1672200B5A9E9 /* 澳門物管BMS */ = {
 			isa = PBXGroup;
 			children = (
+				BA03F0DF222FABAA00F4DB28 /* 本墨咏黑.ttf */,
 				BA681A98222E8CCC00EC2CC0 /* cwTeXQHei-Bold.ttf */,
 				BA681A96222E878600EC2CC0 /* cwTeXQHeiZH-Bold.ttf */,
 				32A8CAA421F305FE0064B553 /* 澳門物管BMS.entitlements */,
@@ -1271,6 +1279,7 @@
 				CBFF233A21CA8BD80066E00C /* ProcessingStateViewController.xib in Resources */,
 				CB05F35C21E1AB2D00208C5E /* PhotpCollectionViewCell.xib in Resources */,
 				CBFF234021CAA2110066E00C /* BookingRecordTableViewCell.xib in Resources */,
+				BA03F0E0222FABAA00F4DB28 /* 本墨咏黑.ttf in Resources */,
 				CB0BCD70221EE48600596E1B /* PlaceDetailViewController.xib in Resources */,
 				BA681A99222E8CCC00EC2CC0 /* cwTeXQHei-Bold.ttf in Resources */,
 				CB08143521D4F6760018A363 /* LanguageSettingViewController.xib in Resources */,
@@ -1385,6 +1394,7 @@
 				CB4208A321C2B20600980B64 /* LoginViewController.m in Sources */,
 				CB05F35B21E1AB2D00208C5E /* PhotpCollectionViewCell.m in Sources */,
 				32B0FA1D2202FA52000621DE /* UUMessage.m in Sources */,
+				BA03F0E3222FC6B300F4DB28 /* SuspendView.m in Sources */,
 				BA84BE4A222680FD00600B55 /* UIViewController+zk_Additions.m in Sources */,
 				CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */,
 				BA04C86A21F1AE82007A38AF /* NSDate+Utils.m in Sources */,

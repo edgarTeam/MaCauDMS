@@ -88,7 +88,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self laodWeb:_urlString];
-    self.navigationController.navigationBar.hidden=NO;
+    self.navigationController.navigationBar.hidden=YES;
 //    self.navigationController.navigationBar.barTintColor = RGB(43, 183, 224);
 //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 }

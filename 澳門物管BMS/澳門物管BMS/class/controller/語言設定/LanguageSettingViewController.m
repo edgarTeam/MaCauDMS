@@ -30,6 +30,12 @@
 @property (nonatomic,strong) SettingViewController *setVC;
 @property (nonatomic, strong) NSArray *menuArray;
 @property (nonatomic, strong) SuspensionMenu *suspensionMenu;
+
+@property (weak, nonatomic) IBOutlet UILabel *CNTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *CTTitleLab;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+
+
 @end
 
 @implementation LanguageSettingViewController
@@ -40,8 +46,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=@"語言設定";
-    self.title=LocalizedString(@"string_language_setting_title");
-
+   // self.title=LocalizedString(@"string_language_setting_title");
+    self.baseTitleLab.text=LocalizedString(@"string_language_setting_title");
+    _CNTitleLab.font=[UIFont systemFontOfSize:16];
+    _CTTitleLab.font=[UIFont systemFontOfSize:16];
+    _submitBtn.titleLabel.font=[UIFont systemFontOfSize:16];
+    
     NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
     
     if ([lang isEqualToString:@"zh-Hant"]) {

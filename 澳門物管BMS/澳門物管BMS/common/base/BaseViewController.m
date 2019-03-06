@@ -67,7 +67,7 @@
 
         self.baseTitleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
     }else{
-        self.baseTitleLab.font=[UIFont fontWithName:@"cwTeXQHei-Bold" size:16];
+        self.baseTitleLab.font=[UIFont fontWithName:@"本墨咏黑" size:16];
     }
    // self.baseTitleLab=[[BaseLable alloc] initFont];
   //  self.baseTitleLab=[[UILabel alloc] init];

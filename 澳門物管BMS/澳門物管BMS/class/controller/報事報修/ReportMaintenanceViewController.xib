@@ -95,6 +95,9 @@
                                             <state key="normal" title="请选择所在的建筑">
                                                 <color key="titleColor" red="1" green="0.62352941176470589" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="chooseBuildingBtnAction:" destination="-1" eventType="touchUpInside" id="Fck-4q-SNZ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

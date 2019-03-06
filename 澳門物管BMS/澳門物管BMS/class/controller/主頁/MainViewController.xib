@@ -28,7 +28,7 @@
                 <outletCollection property="btnArray" destination="bJo-T2-TDc" id="FtF-Oq-8VF"/>
                 <outletCollection property="btnArray" destination="wvR-lf-thH" id="69k-88-PHV"/>
                 <outletCollection property="btnArray" destination="htq-La-Fcu" id="jiZ-TT-K2j"/>
-                <outletCollection property="btnArray" destination="i9B-Cu-aSS" id="EP6-P9-y8m"/>
+                <outletCollection property="btnArray" destination="i9B-Cu-aSS" id="scB-9w-bFU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
