@@ -29,10 +29,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *noticeTimeTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *noticeConventTitleLab;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeight;
+
+
+
 @end
 
 @implementation NoticeDetailViewController
-
+{
+    NSString * imageURL;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -52,6 +57,7 @@
     
     _noticeTimeTitleLab.text=LocalizedString(@"string_notice_time_title");
     _noticeConventTitleLab.text=LocalizedString(@"string_notice_convent_title");
+    self.detailBtn.hidden=YES;
 }
 
 /*
@@ -95,22 +101,24 @@
                 [_imageUrlArr addObject:[NSString stringWithFormat:@"%@",notice.imageUrl]];
             }
         }
-//        if (_imageThumbnailArr.count !=0 && _imageThumbnailArr !=nil) {
-//             NSArray *imageThumbArr=[_imageThumbnailArr[0] componentsSeparatedByString:@","];
-//        }
+
         if (_imageUrlArr.count ==0 || _imageUrlArr ==nil) {
             return;
         }
-        NSString *imageStr=[_imageUrlArr componentsJoinedByString:@","];
-        NSArray *imageArr=[imageStr componentsSeparatedByString:@","];
-        _turnImageArr=[NSMutableArray new];
-        for (int i=0; i <imageArr.count; i++) {
-            [_turnImageArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,imageArr[i]]];
-           
+        imageURL=_imageThumbnailArr[0];
+        if (imageURL.length!=0 ) {
+            self.detailBtn.hidden=NO;
         }
-        _noticeImageView.imageURLStringsGroup = _turnImageArr;
-        _noticeImageView.autoScrollTimeInterval = 4.0f;
-//        _noticeImageView.currentPageDotColor
+//        NSString *imageStr=[_imageUrlArr componentsJoinedByString:@","];
+//        NSArray *imageArr=[imageStr componentsSeparatedByString:@","];
+//        _turnImageArr=[NSMutableArray new];
+//        for (int i=0; i <imageArr.count; i++) {
+//            [_turnImageArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,imageArr[i]]];
+//
+//        }
+//        _noticeImageView.imageURLStringsGroup = _turnImageArr;
+//        _noticeImageView.autoScrollTimeInterval = 4.0f;
+
         
         
 //        NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,self.notice.noticeImage]];
@@ -133,6 +141,9 @@
 
 
 - (IBAction)detailBtnAction:(id)sender {
+    NoticeImageViewController *noticeImageVC=[NoticeImageViewController new];
+    noticeImageVC.imageUrl=imageURL;
+    [self.navigationController pushViewController:noticeImageVC animated:YES];
 }
 
 

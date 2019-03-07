@@ -34,7 +34,7 @@
 #import "NoticeDetailViewController.h"
 
 #import "CircleButton.h"
-
+#import "ZKAlertTool.h"
 
 
 @interface MainViewController ()<CLLocationManagerDelegate,SDCycleScrollViewDelegate>
@@ -108,12 +108,14 @@
         [btn.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
 //        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width, 0, 0)];
 //        [btn setImageEdgeInsets:UIEdgeInsetsMake( -(btn.frame.size.height/2-btn.imageView.frame.size.height/2), 0, 0, -btn.titleLabel.frame.size.width)];
-        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width-15, 0, 0)];
+        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height, -btn.imageView.frame.size.width-20, 0, 0)];
        // [btn setImageEdgeInsets:UIEdgeInsetsMake( 0, 0, 24, 0)];
 
 
-        [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.frame.size.width/2-btn.imageView.frame.size.width/2, 24, 0)];
-
+       // [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.frame.size.width/2-btn.imageView.frame.size.width/2, 24, 0)];
+//[btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.titleLabel.frame.size.width/2, 24, 0)];
+        [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.titleLabel.frame.size.width/2, btn.titleLabel.frame.size.height, btn.titleLabel.frame.size.width/2)];
+        
 //        [btn setImageEdgeInsets: UIEdgeInsetsMake(0, (btn.bounds.size.width-btn.imageView.bounds.size.width)*0.5, 0, 0)];
 //        [btn setTitleEdgeInsets: UIEdgeInsetsMake(btn.imageView.bounds.size.height, (btn.bounds.size.width-btn.titleLabel.bounds.size.width)*0.5-btn.imageView.bounds.size.width, 0, 0)];
 
@@ -251,8 +253,10 @@
             break;
         case 3:
         {
-            ContactUSViewController *contactVC=[ContactUSViewController new];
-            [self.navigationController pushViewController:contactVC animated:YES];
+            //ContactUSViewController *contactVC=[ContactUSViewController new];
+            //[self.navigationController pushViewController:contactVC animated:YES];
+            [ZKAlertTool showAlertWithMsg:@"该功能暂未开放"];
+            return;
         }
             break;
         case 4:

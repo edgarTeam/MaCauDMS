@@ -766,7 +766,7 @@
         switch (status) {
             case AVPlayerStatusReadyToPlay:{
                 [SVProgressHUD dismiss];
-                [self.playBtn setTitle:@"点击停止播放" forState:UIControlStateNormal];
+              //  [self.playBtn setTitle:@"点击停止播放" forState:UIControlStateNormal];
                 //获取视频长度
                 CMTime duration = playerItem.asset.duration;
                 //更新显示:视频总时长(自定义方法显示时间的格式)
@@ -784,20 +784,15 @@
                 //                __weak typeof(self)WeakSelf = self;
                 //                __strong typeof(WeakSelf) strongSelf = WeakSelf;
                 [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:nil usingBlock:^(CMTime time){
-                    // times++;
-                    //                            self.progressView.progress =times/playTime;
-                    //                            NSLog(@"当前播放时间：%ld",times);
-                    //    NSInteger currentTime=playerItem.currentTime.value/playerItem.currentTime.timescale%60;
-                    //                    float currentTime=playerItem.currentTime.value/playerItem.currentTime.timescale;
-                    //                            self.progressView.progress =currentTime/totalTime;
-                    float currentTime=CMTimeGetSeconds(self.player.currentItem.currentTime);
-                    self.progressView.progress =currentTime/totalTime;
-                    if (self.progressView.progress ==1.0f) {
-                        
-                        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
-                        //[self.progressView setProgress:0.0 animated:NO];
-                    }
-                    NSLog(@"当前播放时间：%f",currentTime);
+
+//                    float currentTime=CMTimeGetSeconds(self.player.currentItem.currentTime);
+//                    self.progressView.progress =currentTime/totalTime;
+//                    if (self.progressView.progress ==1.0f) {
+//
+//                        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+//                        //[self.progressView setProgress:0.0 animated:NO];
+//                    }
+//                    NSLog(@"当前播放时间：%f",currentTime);
                 }];
                 break;
             }
@@ -936,10 +931,10 @@
         self.voiceRemarkUrl=[resultDic objectForKey:@"originalUrl"];
         NSLog(@"%@",self.voiceRemarkUrl);
         self.recordBtnHeight.constant=0;
-        self.recordBtn.hidden=YES;
-        self.playViewHeight.constant=30;
-        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
-        [self.playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+       // self.recordBtn.hidden=YES;
+//        self.playViewHeight.constant=30;
+//        [self.playBtn setTitle:@"点击开始播放" forState:UIControlStateNormal];
+//        [self.playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
     }];
 //    self.recordBtnHeight.constant=0;
 //    self.recordBtn.hidden=YES;

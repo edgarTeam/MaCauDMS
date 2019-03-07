@@ -36,6 +36,7 @@
 -(instancetype)initWithCenterImage:(UIImage *)image menuData:(NSArray *)menus{
 
     self  = [super initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+   // self.backgroundColor=[UIColor colorWithWhite:0 alpha:0.4];
     originFrame =CGRectMake(0, 0, ScreenWidth, ScreenHeight);
     self.menus = menus;
     isHide = NO;
@@ -49,8 +50,8 @@
     xPoint = ScreenWidth-40;
     yPoint = ScreenHeight-hasSafeArea-34;
     self.centerBtn.center = CGPointMake(xPoint, yPoint);
-    
-    [self.centerBtn  setImage:image forState:UIControlStateNormal];
+    [self.centerBtn setBackgroundImage:image forState:UIControlStateNormal];
+  //  [self.centerBtn  setImage:image forState:UIControlStateNormal];
     [self.centerBtn addTarget:self action:@selector(centerDidClick:) forControlEvents:UIControlEventTouchUpInside];
     //    dragPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlerDrage)];
     //    dragPan.maximumNumberOfTouches= 1;
@@ -62,6 +63,7 @@
     singleTap.numberOfTouchesRequired = 1;
     [self addGestureRecognizer:singleTap];
     
+    self.centerBtn.hidden=YES;
     [self addButtons];
     
     return self;
@@ -84,8 +86,10 @@
         [UIView setAnimationDelegate:self];
         self.frame = originFrame;
         self.center = CGPointMake(ScreenWidth/2, ScreenHeight/2);
-        _centerBtn.frame = CGRectMake(0, 0, 100, 100);
-        _centerBtn.layer.cornerRadius = 50;
+//        _centerBtn.frame = CGRectMake(0, 0, 100, 100);
+//        _centerBtn.layer.cornerRadius = 50;
+        _centerBtn.frame = CGRectMake(0, 0, 80, 80);
+        _centerBtn.layer.cornerRadius = 40;
         self.centerBtn.center = self.center;
         [UIView commitAnimations];
         [self performSelector:@selector(showSubView) withObject:nil afterDelay:.5];
@@ -104,6 +108,7 @@
             [self showAnimation:subView];
         }
     }
+    self.backgroundColor=[UIColor colorWithWhite:0 alpha:0.6];
     isHide = NO;
 }
 
@@ -194,6 +199,8 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
         [self addSubview:btn];
         i++;
     }
+    [self hideView];
+    
 }
 
 
@@ -211,6 +218,7 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
             [self hideAnimation:subView];
         }
     }
+    self.backgroundColor=[UIColor clearColor];
     [self performSelector:@selector(delayMethod) withObject:nil afterDelay:0.5];
 }
 
@@ -241,8 +249,13 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.2];
     [UIView setAnimationDelegate:self];
-    self.frame = CGRectMake(0, 20, 60, 60);
-    self.centerBtn.frame = CGRectMake(0, 0, 60, 60);
+   // self.frame = CGRectMake(0, 20, 60, 60);
+   // self.centerBtn.frame = CGRectMake(0, 0, 60, 60);
+    
+    self.frame=CGRectMake(0, 20, 41, 41);
+    self.centerBtn.frame=CGRectMake(0, 0, 41, 41);
+    
+    
     //    NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
     //    if ([userdefault objectForKey:@"centerLocationX"]&&[userdefault objectForKey:@"centerLocationY"]) {
     //        CGFloat xPoint = [[userdefault objectForKey:@"centerLocationX"] floatValue];
@@ -267,21 +280,26 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
     //    CGFloat xPoint = self.frame.size.height-40;
     //    CGFloat yPoint = self.frame.size.height-34;
     self.center = CGPointMake(xPoint, yPoint);
-    self.centerBtn.layer.cornerRadius = 30;
+    self.centerBtn.layer.cornerRadius = 20;
+    
     [UIView commitAnimations];
+    self.centerBtn.hidden=NO;
     isHide = YES;
     
 }
 
 
 
-#pragma getter
+//#pragma getter
 -(UIButton *)centerBtn {
     if (!_centerBtn) {
-        _centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth/2-50, ScreenHeight/2-50, 100, 100)];
+       // _centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth/2-50, ScreenHeight/2-50, 100, 100)];
+        _centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth/2-50, ScreenHeight/2-50, 80, 80)];
         _centerBtn.layer.masksToBounds = YES;
-        _centerBtn.layer.cornerRadius = 50;
+        _centerBtn.layer.cornerRadius = 40;
+        _centerBtn.hidden=YES;
     }
+   // _centerBtn.hidden=YES;
     return _centerBtn;
 }
 @end

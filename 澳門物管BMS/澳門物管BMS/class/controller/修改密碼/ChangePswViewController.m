@@ -13,6 +13,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *changePsdTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPsdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+@property (weak, nonatomic) IBOutlet UIView *centerView;
+@property (weak, nonatomic) IBOutlet UILabel *oldPsdTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *changePsdTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *confirmPsdTitleLab;
 
 @end
 
@@ -22,7 +26,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
    // self.title=LocalizedString(@"String_change_psd_title");
-    self.baseTitleLab.text=LocalizedString(@"String_change_psd_title");
+   // self.baseTitleLab.text=LocalizedString(@"String_change_psd_title");
+    
+    _oldPsdTitleLab.font=[UIFont systemFontOfSize:15];
+    _changePsdTitleLab.font=[UIFont systemFontOfSize:15];
+    _confirmPsdTitleLab.font=[UIFont systemFontOfSize:15];
+    
+    
+    
     [_confirmBtn setTitle:LocalizedString(@"String_confirm") forState:UIControlStateNormal];
     _oldPsdTextField.delegate=self;
     _changePsdTextField.delegate=self;
@@ -65,7 +76,12 @@
         //        }
         NSLog(@"%@",result);
         //        [ZKAlertTool showAlertWithMsg:result];
-        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_change_psd_alert_title")];
+      //  [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_change_psd_alert_title")];
+        [ZKAlertTool showAlertWithTitle:nil andMsg:LocalizedString(@"string_change_psd_alert_title") cancelTitle:@"确定" otherTitles:nil handler:^(NSInteger tag){
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        
     }];
 }
 
@@ -77,6 +93,11 @@
     [_oldPsdTextField resignFirstResponder];
     [_changePsdTextField resignFirstResponder];
     [_confirmPsdTextField resignFirstResponder];
+        UITouch *touch = [touches anyObject];
+        CGPoint point = [touch locationInView:self.view];
+        if (!CGRectContainsPoint(self.centerView.frame, point)) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
 }
 #pragma mark UITextField-Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -88,4 +109,15 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
 }
+
+
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    UITouch *touch = [touches anyObject];
+//    CGPoint point = [touch locationInView:self.view];
+//    if (!CGRectContainsPoint(self.contentView.frame, point)) {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+//}
+
+
 @end

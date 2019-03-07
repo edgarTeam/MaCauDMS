@@ -10,7 +10,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangePswViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangePswViewController">
+            <connections>
+                <outlet property="centerView" destination="XnO-M4-Wch" id="3SL-bE-Bmv"/>
+                <outlet property="changePsdTextField" destination="Cwz-Gd-5YI" id="c45-Pb-cDQ"/>
+                <outlet property="changePsdTitleLab" destination="Nb6-wP-FDo" id="C2k-1h-QNM"/>
+                <outlet property="confirmBtn" destination="zAM-6E-3AA" id="xqn-8s-oIE"/>
+                <outlet property="confirmPsdTextField" destination="0N8-Qm-V5P" id="Mpz-3S-895"/>
+                <outlet property="confirmPsdTitleLab" destination="jNN-iJ-pD3" id="kiF-cO-tTT"/>
+                <outlet property="oldPsdTextField" destination="8p9-Pd-7v3" id="Yjr-Zo-BL0"/>
+                <outlet property="oldPsdTitleLab" destination="7ol-u6-I56" id="WlM-zS-Y89"/>
+                <outlet property="view" destination="rVd-MM-sFR" id="ucY-kP-xdx"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="rVd-MM-sFR">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -19,7 +31,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XnO-M4-Wch">
                     <rect key="frame" x="40" y="183.5" width="295" height="300"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Mf-Wu-MpY">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_username" translatesAutoresizingMaskIntoConstraints="NO" id="5Mf-Wu-MpY">
                             <rect key="frame" x="20.5" y="10" width="254" height="29"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="254" id="8tl-94-giB"/>
@@ -36,13 +48,13 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8p9-Pd-7v3">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入旧密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8p9-Pd-7v3">
                             <rect key="frame" x="102.5" y="9" width="172" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Asf-14-amZ">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_psd" translatesAutoresizingMaskIntoConstraints="NO" id="Asf-14-amZ">
                             <rect key="frame" x="20.5" y="59" width="254" height="29"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新密码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb6-wP-FDo">
@@ -51,13 +63,13 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cwz-Gd-5YI">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入新密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cwz-Gd-5YI">
                             <rect key="frame" x="102.5" y="58" width="172" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HhX-iG-F0i">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_username" translatesAutoresizingMaskIntoConstraints="NO" id="HhX-iG-F0i">
                             <rect key="frame" x="20.5" y="108" width="254" height="29"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="再次确认" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNN-iJ-pD3">
@@ -66,8 +78,8 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0N8-Qm-V5P">
-                            <rect key="frame" x="102.5" y="107" width="172" height="30"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输入新密码确认" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0N8-Qm-V5P">
+                            <rect key="frame" x="102.5" y="120" width="172" height="17"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -81,6 +93,9 @@
                             <state key="normal" title="确认">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="confirmBtnAction:" destination="-1" eventType="touchUpInside" id="Hjr-hG-aKr"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -123,7 +138,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.3986247859589041" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="XnO-M4-Wch" firstAttribute="leading" secondItem="Whc-0j-mbY" secondAttribute="leading" constant="40" id="7bk-7O-XXb"/>
                 <constraint firstItem="XnO-M4-Wch" firstAttribute="centerX" secondItem="rVd-MM-sFR" secondAttribute="centerX" id="Bjf-gk-tbt"/>
@@ -133,4 +148,8 @@
             <point key="canvasLocation" x="2220" y="253"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_psd" width="253.5" height="28.5"/>
+        <image name="icon_username" width="253.5" height="28.5"/>
+    </resources>
 </document>

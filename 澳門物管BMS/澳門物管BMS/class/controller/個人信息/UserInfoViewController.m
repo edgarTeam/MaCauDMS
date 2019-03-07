@@ -17,6 +17,9 @@
 #import "PictureModel.h"
 #import <Photos/Photos.h>
 #import "UIButton+WebCache.h"
+#import "ChangePswViewController.h"
+
+#import <Masonry/Masonry.h>
 @interface UserInfoViewController ()<UIImagePickerControllerDelegate,UITextFieldDelegate>
 //@property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField; //姓名
@@ -31,7 +34,7 @@
 //@property (nonatomic,strong) UIButton *rightBtn; //修改按钮
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn; //提交按钮（点击修改才会出现，提交完成后消失）
 @property (weak, nonatomic) IBOutlet UIButton *changePsdBtn;
-@property (weak, nonatomic) IBOutlet UIButton *rightBtn;
+@property (strong, nonatomic) UIButton *rightBtn;
 @end
 
 @implementation UserInfoViewController
@@ -40,6 +43,11 @@
     [super viewDidLoad];
   //  self.title=LocalizedString(@"String_info_title");
     self.baseTitleLab.text=LocalizedString(@"String_info_title");
+    
+    _nameTitleLab.font=[UIFont systemFontOfSize:16];
+    _sexTitleLab.font=[UIFont systemFontOfSize:16];
+    _telTitleLab.font=[UIFont systemFontOfSize:16];
+    _sexLab.font=[UIFont systemFontOfSize:15];
     
 //    self.rightBtn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 40) ];
 //    [self.rightBtn setTitle:@"修改" forState:UIControlStateNormal];
@@ -50,6 +58,17 @@
 //  //  [self.view addSubview:self.btn];
 //    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:_rightBtn];
 //    self.navigationItem.rightBarButtonItem=rightItem;
+    
+    self.rightBtn=[[UIButton alloc] init];
+    [self.rightBtn setTitle:@"修改" forState:UIControlStateNormal];
+    [self.rightBtn setTitleColor:RGB(138, 138, 138) forState:UIControlStateNormal];
+    [self.rightBtn.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [self.rightBtn addTarget:self action:@selector(changeInfoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.topView addSubview:self.rightBtn];
+    [self.rightBtn mas_makeConstraints:^(MASConstraintMaker *make){
+        make.right.mas_equalTo(-15);
+        make.centerY.mas_equalTo(self.topView);
+    }];
     
     _nameTextField.delegate=self;
     _telTextField.delegate=self;
@@ -67,6 +86,8 @@
     }else if ([[User shareUser].sex integerValue] ==1){
         self.sexLab.text = LocalizedString(@"string_sex_male");
     }
+    
+    
 //    self.headImage.layer.masksToBounds = YES;
 //    self.headImage.layer.cornerRadius = self.headImage.frame.size.width/2;
 //    self.changeBtn.layer.masksToBounds =YES;
@@ -85,14 +106,19 @@
     self.changeSexBtn.enabled=NO;
     
     self.changeBtn.layer.masksToBounds =YES;
-    self.changeBtn.layer.cornerRadius=self.changeBtn.frame.size.width/2;
+   // self.changeBtn.layer.cornerRadius=self.changeBtn.frame.size.width/2;
+    self.changeBtn.layer.cornerRadius=42.5;
     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,[User shareUser].portrait]];
   //  [self.headImage sd_setImageWithURL:url placeholderImage:kEMPTYIMG];
     [self.changeBtn sd_setImageWithURL:url forState:UIControlStateNormal placeholderImage:kEMPTYIMG];
+
+    
     
     _submitBtn.layer.masksToBounds=YES;
     _submitBtn.layer.cornerRadius=5.0;
-    
+    _submitBtn.hidden=YES;
+    _changePsdBtn.layer.masksToBounds=YES;
+    _changePsdBtn.layer.cornerRadius=5.0;
     
     // Do any additional setup after loading the view from its nib.
    // self.title=LocalizedString(@"");
@@ -267,7 +293,7 @@
     
 }
 
-- (void)changeBtnaction:(UIButton *)btn{
+- (void)changeInfoBtnAction:(UIButton *)btn{
    
     self.submitBtn.hidden=NO;
      self.changeBtn.enabled=YES;
@@ -275,9 +301,12 @@
     self.telTextField.enabled=YES;
     self.nameTextField.enabled=YES;
     
-    self.nameTextField.textColor=RGB(230, 230, 230);
-    self.sexLab.textColor=RGB(230, 230, 230);
-    self.telTextField.textColor=RGB(230, 230, 230);
+//    self.nameTextField.textColor=RGB(230, 230, 230);
+//    self.sexLab.textColor=RGB(230, 230, 230);
+//    self.telTextField.textColor=RGB(230, 230, 230);
+    self.nameTextField.textColor=RGB(51, 51, 51);
+    self.sexLab.textColor=RGB(51, 51, 51);
+    self.telTextField.textColor=RGB(51, 51, 51);
   //  self.rightBtn.hidden=YES;
  //   [ZKAlertTool showAlertWithMsg:@"您已经可以修改个人信息了"];
 }
@@ -378,6 +407,9 @@
 
 
 - (IBAction)changePsdBtnAction:(id)sender {
+    ChangePswViewController *changePsdVC=[ChangePswViewController new];
+    changePsdVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:changePsdVC animated:YES completion:nil];
 }
 
 - (IBAction)updateInfoBtnAction:(id)sender {
@@ -398,6 +430,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
+    
 }
 
 @end

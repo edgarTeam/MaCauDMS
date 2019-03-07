@@ -15,7 +15,7 @@
 #import <Masonry/Masonry.h>
 @interface BaseViewController ()<UIAlertViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *topImageView;
+
 
 
 @end
@@ -55,9 +55,9 @@
 
     }];
     
-    UIView *topView=[[UIView alloc] initWithFrame:CGRectMake(0, statusRectHeight, ScreenWidth, 44)];
-    topView.backgroundColor=[UIColor clearColor];
-    [self.view addSubview:topView];
+    _topView=[[UIView alloc] initWithFrame:CGRectMake(0, statusRectHeight, ScreenWidth, 44)];
+    _topView.backgroundColor=[UIColor clearColor];
+    [self.view addSubview:_topView];
     
     self.baseTitleLab=[[UILabel alloc] init];
 
@@ -73,10 +73,10 @@
   //  self.baseTitleLab=[[UILabel alloc] init];
     
     self.baseTitleLab.textColor=[UIColor whiteColor];
-    [topView addSubview:self.baseTitleLab];
+    [_topView addSubview:self.baseTitleLab];
     [self.baseTitleLab mas_makeConstraints:^(MASConstraintMaker *make){
-        make.centerX.mas_equalTo(topView);
-        make.centerY.mas_equalTo(topView);
+        make.centerX.mas_equalTo(_topView);
+        make.centerY.mas_equalTo(_topView);
     }];
     self.backBtn=[[UIButton alloc] init];
     self.backBtn.titleLabel.font=[UIFont systemFontOfSize:14];
@@ -86,9 +86,9 @@
     [self.backBtn setTitle:@"返回" forState:UIControlStateNormal];
     [self.backBtn setTitleColor:RGB(230, 230, 230) forState:UIControlStateNormal];
     [self.backBtn addTarget:self action:@selector(backBtn:)forControlEvents:UIControlEventTouchUpInside];
-    [topView addSubview:self.backBtn];
+    [_topView addSubview:self.backBtn];
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make){
-        make.centerY.mas_equalTo(topView);
+        make.centerY.mas_equalTo(_topView);
         make.left.mas_equalTo(0);
         make.width.mas_equalTo(77);
         make.height.mas_equalTo(33);
@@ -130,19 +130,19 @@
     if (token!= nil && token.length > 0) {
         NSLog(@"已登陆");
     }else{
-//        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"String_login_request") preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-//            LoginViewController *loginVC=[[LoginViewController alloc] init];
-//            UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
-//            
-//            
-//            [nav pushViewController:loginVC animated:YES];
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:nil message:LocalizedString(@"String_login_request") preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertAc=[UIAlertAction actionWithTitle:LocalizedString(@"String_confirm") style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            LoginViewController *loginVC=[[LoginViewController alloc] init];
+           // UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+            [self.navigationController pushViewController:loginVC animated:YES];
+            
+           // [nav pushViewController:loginVC animated:YES];
 //            [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished){
 //                [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
 //            }];
-//        }];
-//        [alert addAction:alertAc];
-//        [self presentViewController:alert animated:YES completion:nil];
+        }];
+        [alert addAction:alertAc];
+        [self presentViewController:alert animated:YES completion:nil];
 
     }
 }

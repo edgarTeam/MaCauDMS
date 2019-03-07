@@ -23,7 +23,7 @@
 #import "SettingViewController.h"
 
 #import "UserInfoViewController.h"
-
+#import "ZKAlertTool.h"
 @interface PersonalViewController ()<UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *userInfoBtn;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -53,6 +53,10 @@
     _weatherLab.font=[UIFont systemFontOfSize:13];
     _loginBtn.titleLabel.font=[UIFont systemFontOfSize:15];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    self.userInfoBtn.layer.masksToBounds=YES;
+    self.userInfoBtn.layer.cornerRadius=self.userInfoBtn.frame.size.width/2;
     self.loginBtn.layer.masksToBounds=YES;
     self.loginBtn.layer.cornerRadius=23;
     
@@ -124,10 +128,13 @@
     UIViewController *vc=[NSClassFromString(array[indexPath.row]) new];
   //  UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
     
-    if (indexPath.row==0 || indexPath.row==3) {
+    if (indexPath.row==0 || indexPath.row==1 || indexPath.row==2) {
         [self checkLogin];
     }
-    
+    if (indexPath.row==3) {
+        [ZKAlertTool showAlertWithMsg:@"该功能暂未开放"];
+        return;
+    }
     
     
     [self.navigationController pushViewController:vc animated:YES];
@@ -299,4 +306,11 @@
     }
 }
 
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    [self setUpLoginBtn];
+}
 @end

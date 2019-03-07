@@ -20,7 +20,7 @@
                 <outlet property="temperatureLab" destination="QQo-Cf-xoa" id="fXR-Gg-riW"/>
                 <outlet property="titleLab" destination="sL4-bK-ity" id="8h3-km-2w7"/>
                 <outlet property="turnLabView" destination="BAm-vd-RA5" id="qU7-k7-664"/>
-                <outlet property="view" destination="iN0-l3-epB" id="QjP-aX-TeT"/>
+                <outlet property="view" destination="iN0-l3-epB" id="ssL-fl-tbk"/>
                 <outlet property="weatherImage" destination="1FJ-0Y-k1s" id="keU-Gv-V3F"/>
                 <outlet property="weatherLab" destination="GPF-9K-PSK" id="gc4-jt-T96"/>
                 <outletCollection property="btnArray" destination="Y8X-eo-8G2" id="buJ-NA-Gdn"/>
@@ -196,7 +196,7 @@
                                         <constraint firstAttribute="width" secondItem="i9B-Cu-aSS" secondAttribute="height" multiplier="55:79" id="o84-gP-Bo7"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="投訴" image="complain"/>
+                                    <state key="normal" title="投诉" image="complain"/>
                                     <connections>
                                         <action selector="chooseBtnAction:" destination="-1" eventType="touchUpInside" id="Ddc-Pf-wt0"/>
                                     </connections>
@@ -204,10 +204,9 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="i9B-Cu-aSS" firstAttribute="top" secondItem="hOc-Mo-aWq" secondAttribute="top" id="3ll-zl-1kP"/>
                                 <constraint firstItem="i9B-Cu-aSS" firstAttribute="centerY" secondItem="hOc-Mo-aWq" secondAttribute="centerY" id="AS5-Xq-I2a"/>
-                                <constraint firstAttribute="bottom" secondItem="i9B-Cu-aSS" secondAttribute="bottom" id="Z4h-ZZ-l38"/>
                                 <constraint firstItem="i9B-Cu-aSS" firstAttribute="centerX" secondItem="hOc-Mo-aWq" secondAttribute="centerX" id="dTd-Wm-NaZ"/>
+                                <constraint firstItem="i9B-Cu-aSS" firstAttribute="top" secondItem="hOc-Mo-aWq" secondAttribute="top" id="i8b-a8-QYe"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWA-qZ-4oq">

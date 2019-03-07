@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseViewController : UIViewController
 @property (nonatomic,strong)GradientView *gradientView;
+@property (nonatomic,strong) UIView *topView;
+//@property (strong, nonatomic) UIImageView *topImageView;
 @property (nonatomic,strong)NSString *str;
 @property (nonatomic,strong)NSString *token;
 @property(nonatomic,strong)UIButton *backBtn;

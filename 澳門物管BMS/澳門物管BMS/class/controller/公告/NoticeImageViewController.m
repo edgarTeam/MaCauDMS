@@ -27,6 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.baseTitleLab.text=LocalizedString(@"详情");
     // Do any additional setup after loading the view.
     sumHeight = 0;
     // Do any additional setup after loading the view from its nib.
@@ -34,19 +36,24 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     statusRect = [[UIApplication sharedApplication] statusBarFrame];
-    self.view.backgroundColor=[UIColor whiteColor];
+    //self.view.backgroundColor=[UIColor whiteColor];
     //    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.scrollView = [[UIScrollView alloc] init];
     [self.view addSubview:self.scrollView];
-    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make){
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
-    }];
+
     
     //    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,SCREEN_HEIGHT)];
     //    [self.scrollView addSubview:self.imageView];
     [self.scrollView setAlwaysBounceHorizontal:NO];
     
     if (@available(iOS 11.0, *)) {
+        [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make){
+            //make.top.mas_equalTo(60);
+            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(60);
+            make.left.and.right.and.bottom.mas_equalTo(0);
+            //make.edges.mas_equalTo(UIEdgeInsetsZero);
+        }];
+        
         self.scrollView.contentInsetAdjustmentBehavior= UIScrollViewContentInsetAdjustmentNever;
     } else {
         // Fallback on earlier versions
