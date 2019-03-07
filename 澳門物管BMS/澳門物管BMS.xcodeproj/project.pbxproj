@@ -51,6 +51,7 @@
 		BAA96DD82216CB24008CE03C /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA96DD62216CB24008CE03C /* PlaceTableViewCell.xib */; };
 		BAD5D5BA222BD49B008256C4 /* TimeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD5D5B8222BD49B008256C4 /* TimeCollectionViewCell.m */; };
 		BAD5D5BB222BD49B008256C4 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD5D5B9222BD49B008256C4 /* TimeCollectionViewCell.xib */; };
+		BAFF62872230B3DA00636CB5 /* NoticeImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF62862230B3DA00636CB5 /* NoticeImageViewController.m */; };
 		CB017BC821DB294C00BB6BFD /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */; };
 		CB017BC921DB294C00BB6BFD /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */; };
 		CB019E9821F0B382004A88D8 /* RequestResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB019E9721F0B382004A88D8 /* RequestResultModel.m */; };
@@ -230,6 +231,8 @@
 		BAD5D5B7222BD49B008256C4 /* TimeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeCollectionViewCell.h; sourceTree = "<group>"; };
 		BAD5D5B8222BD49B008256C4 /* TimeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeCollectionViewCell.m; sourceTree = "<group>"; };
 		BAD5D5B9222BD49B008256C4 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
+		BAFF62852230B3DA00636CB5 /* NoticeImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeImageViewController.h; sourceTree = "<group>"; };
+		BAFF62862230B3DA00636CB5 /* NoticeImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeImageViewController.m; sourceTree = "<group>"; };
 		CB017BC521DB294C00BB6BFD /* UserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		CB017BC621DB294C00BB6BFD /* UserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		CB017BC721DB294C00BB6BFD /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
@@ -813,6 +816,8 @@
 				CB5C392C21E39A8C008E3A64 /* NoticeDetailViewController.h */,
 				CB5C392D21E39A8C008E3A64 /* NoticeDetailViewController.m */,
 				CB5C392E21E39A8C008E3A64 /* NoticeDetailViewController.xib */,
+				BAFF62852230B3DA00636CB5 /* NoticeImageViewController.h */,
+				BAFF62862230B3DA00636CB5 /* NoticeImageViewController.m */,
 			);
 			path = "公告";
 			sourceTree = "<group>";
@@ -1424,6 +1429,7 @@
 				CB05464721C6A43F008BE895 /* MainViewController.m in Sources */,
 				CB118E6D21EB8C2500F25522 /* UpdateHelper.m in Sources */,
 				CBFE45B421C9541C00DD80E4 /* ReportMaintenanceViewController.m in Sources */,
+				BAFF62872230B3DA00636CB5 /* NoticeImageViewController.m in Sources */,
 				CB04505821D11CAC00EB59D7 /* ReportMaintenanceList.m in Sources */,
 				CB18AA0421E6443200B3A232 /* GradientView.m in Sources */,
 				BA01097A2224DB2C0025E6E9 /* EHWKWebView.m in Sources */,

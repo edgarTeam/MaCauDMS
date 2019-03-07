@@ -10,6 +10,9 @@
 #import "Notice.h"
 #import "NoticeSubList.h"
 #import <SDCycleScrollView/SDCycleScrollView.h>
+#import "NoticeImageViewController.h"
+
+
 @interface NoticeDetailViewController ()<SDCycleScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *noticeTitleLab;
 //@property (weak, nonatomic) IBOutlet UIImageView *noticeImageView;

@@ -10,77 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangePswViewController">
-            <connections>
-                <outlet property="changePsdTextField" destination="PDX-3Z-573" id="g0J-uO-WWa"/>
-                <outlet property="confirmBtn" destination="COg-bO-Uzj" id="EkC-Vd-muP"/>
-                <outlet property="confirmPsdTextField" destination="Jm8-sh-Evz" id="fG1-gI-DNo"/>
-                <outlet property="oldPsdTextField" destination="ICi-2b-Clg" id="4bz-O7-znG"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangePswViewController"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="舊密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICi-2b-Clg">
-                    <rect key="frame" x="0.0" y="80" width="375" height="55"/>
-                    <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="55" id="xgu-aq-Ctg"/>
-                    </constraints>
-                    <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="新密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PDX-3Z-573">
-                    <rect key="frame" x="0.0" y="137" width="375" height="55"/>
-                    <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="再次確認" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jm8-sh-Evz">
-                    <rect key="frame" x="0.0" y="194" width="375" height="55"/>
-                    <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COg-bO-Uzj">
-                    <rect key="frame" x="0.0" y="279" width="375" height="55"/>
-                    <color key="backgroundColor" red="0.2470588235" green="0.44705882349999998" blue="0.61204335389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="55" id="l5x-aD-mq3"/>
-                    </constraints>
-                    <state key="normal" title="確認">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <connections>
-                        <action selector="confirmBtnAction:" destination="-1" eventType="touchUpInside" id="8IM-Wu-jiq"/>
-                    </connections>
-                </button>
-            </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="PDX-3Z-573" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="7az-DX-UtX"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="ICi-2b-Clg" secondAttribute="trailing" id="9PV-RD-zmn"/>
-                <constraint firstItem="PDX-3Z-573" firstAttribute="height" secondItem="ICi-2b-Clg" secondAttribute="height" id="EMU-PQ-3Gj"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="PDX-3Z-573" secondAttribute="trailing" id="N7e-U3-kA6"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Jm8-sh-Evz" secondAttribute="trailing" id="PRU-G4-hW2"/>
-                <constraint firstItem="COg-bO-Uzj" firstAttribute="top" secondItem="Jm8-sh-Evz" secondAttribute="bottom" constant="30" id="PSI-Z0-sOE"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="COg-bO-Uzj" secondAttribute="trailing" id="V7d-1U-TdN"/>
-                <constraint firstItem="Jm8-sh-Evz" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="WRE-5L-QjY"/>
-                <constraint firstItem="Jm8-sh-Evz" firstAttribute="top" secondItem="PDX-3Z-573" secondAttribute="bottom" constant="2" id="XOf-UX-bj3"/>
-                <constraint firstItem="COg-bO-Uzj" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="dYa-fU-20d"/>
-                <constraint firstItem="ICi-2b-Clg" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="lAi-Ky-0Dq"/>
-                <constraint firstItem="ICi-2b-Clg" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="60" id="tcG-k4-QkU"/>
-                <constraint firstItem="PDX-3Z-573" firstAttribute="top" secondItem="ICi-2b-Clg" secondAttribute="bottom" constant="2" id="toq-dT-ask"/>
-                <constraint firstItem="Jm8-sh-Evz" firstAttribute="height" secondItem="PDX-3Z-573" secondAttribute="height" id="xkQ-8S-AfA"/>
-            </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-        </view>
         <view contentMode="scaleToFill" id="rVd-MM-sFR">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
