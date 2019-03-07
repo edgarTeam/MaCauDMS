@@ -88,8 +88,8 @@
         self.center = CGPointMake(ScreenWidth/2, ScreenHeight/2);
 //        _centerBtn.frame = CGRectMake(0, 0, 100, 100);
 //        _centerBtn.layer.cornerRadius = 50;
-        _centerBtn.frame = CGRectMake(0, 0, 80, 80);
-        _centerBtn.layer.cornerRadius = 40;
+        _centerBtn.frame = CGRectMake(0, 0, 60, 60);
+        _centerBtn.layer.cornerRadius = 30;
         self.centerBtn.center = self.center;
         [UIView commitAnimations];
         [self performSelector:@selector(showSubView) withObject:nil afterDelay:.5];
@@ -294,9 +294,9 @@ static inline UIEdgeInsets sgm_safeAreaInset(UIView *view) {
 -(UIButton *)centerBtn {
     if (!_centerBtn) {
        // _centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth/2-50, ScreenHeight/2-50, 100, 100)];
-        _centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth/2-50, ScreenHeight/2-50, 80, 80)];
+        _centerBtn = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth/2-50, ScreenHeight/2-50, 60, 60)];
         _centerBtn.layer.masksToBounds = YES;
-        _centerBtn.layer.cornerRadius = 40;
+        _centerBtn.layer.cornerRadius = 30;
         _centerBtn.hidden=YES;
     }
    // _centerBtn.hidden=YES;

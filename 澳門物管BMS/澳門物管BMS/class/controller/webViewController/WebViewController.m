@@ -27,23 +27,30 @@
 {
     NSString *displayTitle;
     BOOL realPath;
+    CGFloat f;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = displayTitle;
 
-    self.edgesForExtendedLayout=UIRectEdgeNone;
-
-    
+    self.baseTitleLab.text=LocalizedString(@"隱私政策");
+   // self.edgesForExtendedLayout=UIRectEdgeNone;
+    NSLog(@"屏幕高度%f",ScreenHeight);
+    NSLog(@"%f",resultHeight);
+    NSLog(@"長度：%f",ScreenHeight-resultHeight);
+    CGFloat SCH=ScreenHeight;
+    CGFloat RH=resultHeight;
+    f=SCH-RH;
+    NSLog(@"%f",f);
     self.webView = [[
-                     EHWKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height)];
+                     EHWKWebView alloc] initWithFrame:CGRectMake(0, resultHeight, self.view.bounds.size.width,f)];
     _webView.EHWKWebViewDelegate = self;
     // Do any additional setup after loading the view from its nib.
 
 }
 
 -(void)viewWillLayoutSubviews{
-    [self.webView setFrame:CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height)];
+    [self.webView setFrame:CGRectMake(0, resultHeight, self.view.bounds.size.width,f)];
 }
 
 /*

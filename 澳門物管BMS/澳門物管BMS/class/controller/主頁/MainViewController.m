@@ -68,6 +68,19 @@
 
 //@property (weak, nonatomic) IBOutlet CircleButton *complainBtn;
 @property (weak, nonatomic) IBOutlet UIButton *complainBtn;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *complainTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *placeTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *informationTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *contactTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *settingTitleLab;
+
+
+
+
+
 @end
 
 @implementation MainViewController
@@ -141,6 +154,13 @@
 //    
 //    [_complainBtn setTitleEdgeInsets:UIEdgeInsetsMake(imageH/2+ 10/2, -(titleCenterX-btnCenterX), -(imageH/2 + 10/2), titleCenterX-btnCenterX)];
 //    [_complainBtn setImageEdgeInsets:UIEdgeInsetsMake(-(titleH/2 + 10/2), btnCenterX-imageCenterX, titleH/2+ 10/2, -(btnCenterX-imageCenterX))];
+    
+    _complainTitleLab.font=[UIFont systemFontOfSize:13];
+    _repairTitleLab.font=[UIFont systemFontOfSize:13];
+    _placeTitleLab.font=[UIFont systemFontOfSize:13];
+    _informationTitleLab.font=[UIFont systemFontOfSize:13];
+    _contactTitleLab.font=[UIFont systemFontOfSize:13];
+    _settingTitleLab.font=[UIFont systemFontOfSize:13];
     
     
     _bgImageView.frame=CGRectMake(0, -statusRectHeight, ScreenWidth, ScreenHeight);
