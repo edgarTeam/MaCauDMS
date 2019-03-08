@@ -82,10 +82,15 @@
     [super viewDidLoad];
 
     _buildingTitleLab.font=[UIFont systemFontOfSize:16];
-    _communityLab.font=[UIFont systemFontOfSize:16];
+    _communityTitleLab.font=[UIFont systemFontOfSize:16];
     _repairTypeTitleLab.font=[UIFont systemFontOfSize:16];
     _repairAddressTitleLab.font=[UIFont systemFontOfSize:16];
     _submitBtn.font=[UIFont systemFontOfSize:16];
+    
+    _buildingTitleLab.text=LocalizedString(@"string_complain_building_title");
+    _communityTitleLab.text=LocalizedString(@"string_repair_theme_title");
+    _repairTypeTitleLab.text=LocalizedString(@"string_repair_type_title");
+    _repairAddressTitleLab.text=LocalizedString(@"string_repair_address_title");
     
     
     // Do any additional setup after loading the view from its nib.
@@ -103,12 +108,12 @@
             _adressImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
             
             _repairTitleTextField.placeHoldColor=RGB(231, 93, 119);
-            _repairTitleTextField.placeHoldString=@"请输入报修主题";
+            _repairTitleTextField.placeHoldString=LocalizedString(@"string_repair_alert_theme_title");
             _repairTypeTextField.placeHoldColor=RGB(231, 93, 119);
-            _repairTypeTextField.placeHoldString=@"请输入报修类型";
+            _repairTypeTextField.placeHoldString=LocalizedString(@"string_repair_alert_type_title");
             _addressTextField.placeHoldColor=RGB(231, 93, 119);
-            _addressTextField.placeHoldString=@"请输入详细地址";
-            _maintenanceTextView.placeHoldString=@"请输入报修内容";
+            _addressTextField.placeHoldString=LocalizedString(@"string_repair_alert_address_title");
+            _maintenanceTextView.placeHoldString=LocalizedString(@"string_repair_alert_describe_title");
             _maintenanceTextView.placeHoldColor=RGB(231, 93, 119);
             _maintenanceTextView.layer.borderColor=RGB(231, 93, 119).CGColor;
             
@@ -125,12 +130,12 @@
             _typeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
             _adressImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
             _repairTitleTextField.placeHoldColor=RGB(255, 159, 88);
-            _repairTitleTextField.placeHoldString=@"请输入报修主题";
+            _repairTitleTextField.placeHoldString=LocalizedString(@"string_repair_alert_theme_title");
             _repairTypeTextField.placeHoldColor=RGB(255, 159, 88);
-            _repairTypeTextField.placeHoldString=@"请输入报修类型";
+            _repairTypeTextField.placeHoldString=LocalizedString(@"string_repair_alert_type_title");
             _addressTextField.placeHoldColor=RGB(255, 159, 88);
-            _addressTextField.placeHoldString=@"请输入详细地址";
-            _maintenanceTextView.placeHoldString=@"请输入报修内容";
+            _addressTextField.placeHoldString=LocalizedString(@"string_repair_alert_address_title");
+            _maintenanceTextView.placeHoldString=LocalizedString(@"string_repair_alert_describe_title");
             _maintenanceTextView.placeHoldColor=RGB(255, 159, 88);
             _maintenanceTextView.layer.borderColor=RGB(255, 159, 88).CGColor;
            // _chooseBuildingBtn.titleLabel.textColor=RGB(255, 159, 88);
@@ -205,8 +210,8 @@
 //    _maintenanceCollectionView.layer.masksToBounds=YES;
 //    _maintenanceCollectionView.layer.cornerRadius=7.0;
     
-    _communityTitleLab.text=LocalizedString(@"string_repair_theme_title");
-    _repairAddressTitleLab.text=LocalizedString(@"string_repair_address_title");
+//    _communityTitleLab.text=LocalizedString(@"string_repair_theme_title");
+//    _repairAddressTitleLab.text=LocalizedString(@"string_repair_address_title");
     
     [_recordBtn addTarget:self action:@selector(cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
     [_recordBtn addTarget:self action:@selector(RemindDragExit:) forControlEvents:UIControlEventTouchDragExit];

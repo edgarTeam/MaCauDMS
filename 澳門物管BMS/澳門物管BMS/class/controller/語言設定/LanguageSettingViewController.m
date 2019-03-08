@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *CNTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *CTTitleLab;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (weak, nonatomic) IBOutlet UILabel *ENTitleLab;
 
 
 @end
@@ -51,6 +52,7 @@
     _CNTitleLab.font=[UIFont systemFontOfSize:16];
     _CTTitleLab.font=[UIFont systemFontOfSize:16];
     _submitBtn.titleLabel.font=[UIFont systemFontOfSize:16];
+    _ENTitleLab.font=[UIFont systemFontOfSize:16];
     
     NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
     
@@ -58,6 +60,8 @@
         [self selectedLanguageOfIndex:0];
     }else if ([lang isEqualToString:@"zh-Hans"]){
         [self selectedLanguageOfIndex:1];
+    }else if ([lang isEqualToString:@"en"]){
+        [self selectedLanguageOfIndex:2];
     }
 }
 
@@ -79,6 +83,11 @@
             break;
         case 1:{
             [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:AppLanguage];
+            [self selectedLanguageOfIndex:sender.tag];
+        }
+            break;
+        case 2:{
+            [[NSUserDefaults standardUserDefaults] setObject:@"en" forKey:AppLanguage];
             [self selectedLanguageOfIndex:sender.tag];
         }
             break;
@@ -108,6 +117,11 @@
         case 1:
         {
             [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:@"appLanguage"];
+        }
+            break;
+        case 2:
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:@"en" forKey:@"appLanguage"];
         }
             break;
         default:

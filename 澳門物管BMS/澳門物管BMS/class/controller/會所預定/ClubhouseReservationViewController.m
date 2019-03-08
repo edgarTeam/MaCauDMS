@@ -80,6 +80,11 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     self.timeLab.font=[UIFont systemFontOfSize:15];
     self.title=LocalizedString(@"string_reservation_place_title");
 
+    
+    
+    self.plateOrderDateLab.text=LocalizedString(@"string_plate_order_date_title");
+    self.plateChooseTimeLab.text=LocalizedString(@"string_plate_choose_time_title");
+    
    // self.edgesForExtendedLayout=UIRectEdgeNone;
     [self createView];
 }

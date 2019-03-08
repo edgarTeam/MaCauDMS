@@ -77,11 +77,11 @@ string_place_alert_time_cancel_title = "您不能取消這行，因為間隔了2
 string_place_alert_time_choose_title = "您不能選擇這行，因為間隔了2小時";
 
 string_repair_alert_community_title = "請選擇建築";
-string_repair_alert_theme_title = "請填寫報修主題";
-string_repair_alert_type_title = "請填寫報修類型";
-string_repair_alert_address_title = "請填寫地址";
+string_repair_alert_theme_title = "請輸入報修主題";
+string_repair_alert_type_title = "請輸入報修類型";
+string_repair_alert_address_title = "請輸入詳細地址";
 string_repair_alert_photo_title = "請您拍好照片";
-string_repair_alert_describe_title = "請填寫描述";
+string_repair_alert_describe_title = "請輸入報修內容";
 string_repair_alert_voice_title = "沒有錄音可以播放";
 
 string_change_psd_alert_title = "修改成功";
@@ -92,7 +92,7 @@ string_notice_time_title = "創建時間";
 string_notice_convent_title = "公告內容";
 
 string_plate_name_title = "會所類型";
-string_plate_order_date_title = "選擇日期";
+string_plate_order_date_title = "預定日期";
 string_plate_choose_time_title = "選擇時間";
 string_plate_order_time_title = "預定時段";
 string_plate_update_time_title = "更新日期";
@@ -105,7 +105,7 @@ string_repair_community_name_title = "小區";
 string_repair_community_name_third_title = "小區:";
 string_repair_community_name_sec_title = "小           區";
 string_repair_type_title = "報修類型";
-string_repair_theme_title = "報修主題";
+string_repair_theme_title = "報修標題";
 string_repair_address_title = "地址";
 string_repair_describe_title = "描述";
 string_repair_describe_sec_title = "描           述";
@@ -132,3 +132,24 @@ string_choose_plate_alert_title = "請選擇場地";
 
 string_privacy_title = "隱私政策";
 string_main_page_title = "管家";
+
+
+
+string_homepage_service_title = "已為您提供如下服務";
+string_homepage_complain_title = "投訴";
+string_homepage_repair_title = "維修";
+string_homepage_place_title = "預約會所";
+string_homepage_information_title = "單位資訊";
+string_homepage_contact_title = "關於我們";
+string_homepage_setting_title = "設定";
+
+string_complain_building_title = "建築";
+
+string_notice_list_title = "公告列表";
+
+
+string_old_psd_title = "舊密碼";
+string_new_psd_title ="新密碼";
+string_confirm_psd_title ="再次確認";
+
+string_complain_list_title = "投訴紀錄";

@@ -31,6 +31,9 @@
     _oldPsdTitleLab.font=[UIFont systemFontOfSize:15];
     _changePsdTitleLab.font=[UIFont systemFontOfSize:15];
     _confirmPsdTitleLab.font=[UIFont systemFontOfSize:15];
+    _oldPsdTitleLab.text=LocalizedString(@"string_old_psd_title");
+    _changePsdTitleLab.text=LocalizedString(@"string_new_psd_title");
+    _confirmPsdTitleLab.text=LocalizedString(@"string_confirm_psd_title");
     
     
     

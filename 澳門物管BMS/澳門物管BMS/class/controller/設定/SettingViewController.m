@@ -41,13 +41,13 @@
     _languageLab.font=[UIFont systemFontOfSize:15];
     _psdLab.font=[UIFont systemFontOfSize:15];
     _aboutLab.font=[UIFont systemFontOfSize:15];
-    
-    
+    _languageLab.text=LocalizedString(@"string_language_setting_title");
+    _aboutLab.text=LocalizedString(@"string_about_us_title");
     
    // self.title=LocalizedString(@"string_set_title");
-    [self.changePsdBtn setTitle:LocalizedString(@"String_change_psd_title") forState:UIControlStateNormal];
- //   [self.changeLanguageBtn setTitle:LocalizedString(@"string_language_setting_title") forState:UIControlStateNormal];
-    [self.AboutUsBtn setTitle:LocalizedString(@"string_about_us_title") forState:UIControlStateNormal];
+//    [self.changePsdBtn setTitle:LocalizedString(@"String_change_psd_title") forState:UIControlStateNormal];
+// //   [self.changeLanguageBtn setTitle:LocalizedString(@"string_language_setting_title") forState:UIControlStateNormal];
+//    [self.AboutUsBtn setTitle:LocalizedString(@"string_about_us_title") forState:UIControlStateNormal];
     NSDictionary *attribtDic =
     @{NSUnderlineStyleAttributeName: [NSNumber
                                       numberWithInteger:NSUnderlineStyleSingle]

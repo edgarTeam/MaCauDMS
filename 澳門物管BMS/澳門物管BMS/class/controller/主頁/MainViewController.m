@@ -99,6 +99,14 @@
    // self.baseTitleLab.text=LocalizedString(@"string_main_page_title");
    // _titleLab.font=[UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:16];
     _titleLab.text=LocalizedString(@"string_main_page_title");
+    _serviceLab.text=LocalizedString(@"string_homepage_service_title");
+    _complainTitleLab.text=LocalizedString(@"string_homepage_complain_title");
+    _repairTitleLab.text=LocalizedString(@"string_homepage_repair_title");
+    _placeTitleLab.text=LocalizedString(@"string_homepage_place_title");
+    _informationTitleLab.text=LocalizedString(@"string_homepage_information_title");
+    _contactTitleLab.text=LocalizedString(@"string_homepage_contact_title");
+    _settingTitleLab.text=LocalizedString(@"string_homepage_setting_title");
+    
     NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
     
     if ([lang isEqualToString:@"zh-Hant"]) {

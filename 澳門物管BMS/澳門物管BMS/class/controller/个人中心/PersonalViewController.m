@@ -76,23 +76,23 @@
 
 - (void)creatView {
     LeftModel *model1=[LeftModel new];
-    model1.title=LocalizedString(@"订场记录");
+    model1.title=LocalizedString(@"string_booking_record_title");
     model1.image=@"icon_personal_plate_bg";
     model1.describe=[NSString stringWithFormat:@"共%lu條訂場紀錄",placeArr.count];
     LeftModel *model2=[LeftModel new];
-    model2.title=LocalizedString(@"报修记录");
+    model2.title=LocalizedString(@"string_report_maintenance_list");
     model2.image=@"icon_personal_repair_bg";
     model2.describe=@"报修记录进度更新";
     LeftModel *model3=[LeftModel new];
-    model3.title=LocalizedString(@"投诉记录");
+    model3.title=LocalizedString(@"string_complain_list_title");
     model3.image=@"icon_personal_complain_bg";
     model3.describe=@"投诉记录进度更新";
     LeftModel *model4=[LeftModel new];
-    model4.title=LocalizedString(@"单位资讯");
+    model4.title=LocalizedString(@"string_homepage_information_title");
     model4.image=@"icon_personal_info_bg";
     model4.describe=@"热门资讯随时查看";
     LeftModel *model5=[LeftModel new];
-    model5.title=LocalizedString(@"设定");
+    model5.title=LocalizedString(@"string_homepage_setting_title");
     model5.image=@"icon_personal_setting_bg";
     model5.describe=@"多种语言供选择";
     dataSource=[NSArray arrayWithObjects:model1,model2,model3, model4,model5, nil];
