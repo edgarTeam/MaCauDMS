@@ -44,6 +44,7 @@
     NSString *lonStr;//经度
     NSString *latStr;//纬度
     NSString *adcode;
+    NSArray *placeArr;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,10 +65,20 @@
     _tableView.dataSource=self;
     _tableView.separatorColor=[UIColor clearColor];
     
+
+    
+    [_loginBtn addTarget:self action:@selector(loginInBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self creatView];
+    [self setUpLoginBtn];
+    [self locate];
+}
+
+
+- (void)creatView {
     LeftModel *model1=[LeftModel new];
     model1.title=LocalizedString(@"订场记录");
     model1.image=@"icon_personal_plate_bg";
-    model1.describe=@"供12条订场记录";
+    model1.describe=[NSString stringWithFormat:@"共%lu條訂場紀錄",placeArr.count];
     LeftModel *model2=[LeftModel new];
     model2.title=LocalizedString(@"报修记录");
     model2.image=@"icon_personal_repair_bg";
@@ -85,10 +96,7 @@
     model5.image=@"icon_personal_setting_bg";
     model5.describe=@"多种语言供选择";
     dataSource=[NSArray arrayWithObjects:model1,model2,model3, model4,model5, nil];
-    
-    [_loginBtn addTarget:self action:@selector(loginInBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self setUpLoginBtn];
-    [self locate];
+    [_tableView reloadData];
 }
 
 /*
@@ -274,6 +282,7 @@
 
 
 - (IBAction)changeInfoBtnAction:(id)sender {
+    [self checkLogin];
     UserInfoViewController *infoVC=[UserInfoViewController new];
     [self.navigationController pushViewController:infoVC animated:YES];
 }
@@ -306,11 +315,28 @@
     }
 }
 
+//- (void)requestComplainList {
+//    [[WebAPIHelper sharedWebAPIHelper] postComplainList:nil completion:^(NSDictionary *dic){
+//        if (dic ==nil) {
+//            return ;
+//        }
+//        placeArr=[dic objectForKey:@"list"];
+//    }];
+//}
+
+- (void)requestPlaceList {
+    [[WebAPIHelper sharedWebAPIHelper] postPlaceRecordList:nil completion:^(NSDictionary *dic){
+        placeArr=[dic objectForKey:@"list"];
+        [self creatView];
+    }];
+}
 
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [self setUpLoginBtn];
+    [self requestPlaceList];
+    //[self creatView];
 }
 @end

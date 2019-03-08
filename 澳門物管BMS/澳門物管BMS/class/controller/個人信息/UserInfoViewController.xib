@@ -31,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLD-UZ-rYB">
-                    <rect key="frame" x="18" y="185" width="284" height="45"/>
+                    <rect key="frame" x="18" y="215" width="284" height="45"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_personal_plate_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vLn-b4-Rf3">
                             <rect key="frame" x="0.0" y="0.0" width="284" height="45"/>
@@ -65,7 +65,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WE4-c6-YLp">
-                    <rect key="frame" x="18" y="240" width="284" height="45"/>
+                    <rect key="frame" x="18" y="270" width="284" height="45"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_personal_repair_bg" translatesAutoresizingMaskIntoConstraints="NO" id="cNI-Xj-lpa">
                             <rect key="frame" x="0.0" y="0.0" width="284" height="45"/>
@@ -105,7 +105,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUL-M9-1vN">
-                    <rect key="frame" x="18" y="295" width="284" height="45"/>
+                    <rect key="frame" x="18" y="325" width="284" height="45"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_personal_complain_bg" translatesAutoresizingMaskIntoConstraints="NO" id="jTb-Px-nNQ">
                             <rect key="frame" x="0.0" y="0.0" width="284" height="45"/>
@@ -135,7 +135,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAX-L6-cSt">
-                    <rect key="frame" x="60" y="400" width="200" height="50"/>
+                    <rect key="frame" x="60" y="450" width="200" height="50"/>
                     <color key="backgroundColor" red="0.82352941180000006" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="KWa-ue-z5e"/>
@@ -160,7 +160,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xal-Sd-ZUb">
-                    <rect key="frame" x="60" y="482" width="200" height="50"/>
+                    <rect key="frame" x="60" y="532" width="200" height="50"/>
                     <color key="backgroundColor" red="0.30588235289999999" green="0.69411764710000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="修改密码">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -172,7 +172,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="EAX-L6-cSt" firstAttribute="top" secondItem="fUL-M9-1vN" secondAttribute="bottom" constant="60" id="7eL-V5-BkV"/>
+                <constraint firstItem="EAX-L6-cSt" firstAttribute="top" secondItem="fUL-M9-1vN" secondAttribute="bottom" constant="80" id="7eL-V5-BkV"/>
                 <constraint firstItem="j6U-Ge-eg8" firstAttribute="centerX" secondItem="qcp-HY-otT" secondAttribute="centerX" id="9Cv-wI-s9Y"/>
                 <constraint firstItem="r9g-lF-GYw" firstAttribute="leading" secondItem="Hi8-mP-ITp" secondAttribute="leading" id="BXD-OM-0F6"/>
                 <constraint firstItem="fUL-M9-1vN" firstAttribute="top" secondItem="WE4-c6-YLp" secondAttribute="bottom" constant="10" id="BXq-32-Zvp"/>
@@ -191,7 +191,7 @@
                 <constraint firstItem="rM9-Yi-o8N" firstAttribute="trailing" secondItem="aLD-UZ-rYB" secondAttribute="trailing" constant="18" id="bg6-nB-7gT"/>
                 <constraint firstItem="fUL-M9-1vN" firstAttribute="leading" secondItem="WE4-c6-YLp" secondAttribute="leading" id="hLr-0G-8lr"/>
                 <constraint firstItem="j6U-Ge-eg8" firstAttribute="top" secondItem="rM9-Yi-o8N" secondAttribute="top" constant="60" id="hqt-Ba-7MQ"/>
-                <constraint firstItem="aLD-UZ-rYB" firstAttribute="top" secondItem="j6U-Ge-eg8" secondAttribute="bottom" constant="20" id="jp8-yA-oQ3"/>
+                <constraint firstItem="aLD-UZ-rYB" firstAttribute="top" secondItem="j6U-Ge-eg8" secondAttribute="bottom" constant="50" id="jp8-yA-oQ3"/>
                 <constraint firstItem="WE4-c6-YLp" firstAttribute="trailing" secondItem="aLD-UZ-rYB" secondAttribute="trailing" id="loQ-2m-KhB"/>
                 <constraint firstItem="WE4-c6-YLp" firstAttribute="height" secondItem="aLD-UZ-rYB" secondAttribute="height" id="o5F-WQ-yDg"/>
                 <constraint firstItem="aLD-UZ-rYB" firstAttribute="leading" secondItem="rM9-Yi-o8N" secondAttribute="leading" constant="18" id="s9u-yH-d6x"/>

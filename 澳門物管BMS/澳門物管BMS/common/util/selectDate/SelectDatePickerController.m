@@ -79,13 +79,13 @@
     [cacelButton addTarget:self action:@selector(cacelAction:) forControlEvents:UIControlEventTouchUpInside];
     [cacelButton setTitle:NSLocalizedString(@"取消", nil) forState:UIControlStateNormal];
 //    [cacelButton setBackgroundImage:[UIImage imageNamed:@"cellColor_3"] forState:UIControlStateNormal];
-    [cacelButton setBackgroundColor:RGB(63, 114, 156)];
+    [cacelButton setBackgroundColor:RGB(78, 177, 102)];
     
     UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [submitButton addTarget:self action:@selector(submitAction:) forControlEvents:UIControlEventTouchUpInside];
     [submitButton setTitle:NSLocalizedString(@"確定", nil) forState:UIControlStateNormal];
 //    [submitButton setBackgroundImage:[UIImage imageNamed:@"cellColor_3"] forState:UIControlStateNormal];
-     [submitButton setBackgroundColor:RGB(63, 114, 156)];
+     [submitButton setBackgroundColor:RGB(78, 177, 102)];
     [bottomView sd_addSubviews:@[cacelButton,submitButton]];
     cacelButton.sd_layout.heightIs(30);
     submitButton.sd_layout.heightIs(30);

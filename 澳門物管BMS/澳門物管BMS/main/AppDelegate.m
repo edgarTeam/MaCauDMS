@@ -26,10 +26,13 @@
 
 
 #import "SuspendView.h"
+#import "NoticeDetailViewController.h"
+
 
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #import "BaseNavigationViewController.h"
+
 #endif
 
 @interface AppDelegate ()<SuspensionMenuDelegate,JPUSHRegisterDelegate,SuspendViewDelegate>
@@ -76,6 +79,17 @@
         // NSSet<UNNotificationCategory *> *categories for iOS10 or later
         // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
     }
+    if (launchOptions) {
+        NSDictionary * remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        //这个判断是在程序没有运行的情况下收到通知，点击通知跳转页面
+        if (remoteNotification) {
+            NSLog(@"推送消息==== %@",remoteNotification);
+            [self goToMssageViewControllerWith:remoteNotification];
+        }
+    }
+
+    
+    
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
     NSSet *set = [[NSSet alloc]initWithObjects:@"iosdevice", nil];
     [JPUSHService addTags:set completion:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
@@ -187,6 +201,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [application setApplicationIconBadgeNumber:0];   //清除角标
+    [application cancelAllLocalNotifications];
     [JPUSHService setBadge:0];
 }
 
@@ -312,5 +328,23 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         _menuArray = [NSArray arrayWithObjects:setting,place,repairsec,complain, nil];
     }
     return _menuArray;
+}
+
+
+
+- (void)goToMssageViewControllerWith:(NSDictionary*)msgDic{
+    //将字段存入本地，因为要在你要跳转的页面用它来判断,这里我只介绍跳转一个页面，
+    NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
+    [pushJudge setObject:@"push"forKey:@"push"];
+    [pushJudge synchronize];
+    NSString * targetStr = [msgDic objectForKey:@"target"];
+    if ([targetStr isEqualToString:@"notice"]) {
+        NoticeDetailViewController *noticeVC=[NoticeDetailViewController new];
+        
+      //  MessageVC * VC = [[MessageVC alloc]init];
+        UINavigationController * Nav = [[UINavigationController alloc]initWithRootViewController:noticeVC];//这里加导航栏是因为我跳转的页面带导航栏，如果跳转的页面不带导航，那这句话请省去。
+        [self.window.rootViewController presentViewController:Nav animated:YES completion:nil];
+        
+    }
 }
 @end

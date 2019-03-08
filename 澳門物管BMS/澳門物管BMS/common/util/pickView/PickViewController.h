@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
 @property (nonatomic,strong)NSArray *dataSource;
 @property (nonatomic,copy)void(^backBlock)(NSString *title);
+@property(nonatomic,strong)NSString *str;
 @end
 
 NS_ASSUME_NONNULL_END

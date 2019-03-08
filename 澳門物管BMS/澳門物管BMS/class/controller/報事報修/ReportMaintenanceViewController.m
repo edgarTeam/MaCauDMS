@@ -76,6 +76,7 @@
     NSInteger playTime;
     NSString *filePath;
     CGFloat scrollerHeight;
+    NSString *buildingStr;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -384,8 +385,10 @@
 
 - (IBAction)chooseBuildingBtnAction:(id)sender {
     PickViewController *pickVC=[[PickViewController alloc] init];
+    pickVC.str=buildingStr;
     pickVC.dataSource=self.buildingList;
     pickVC.backBlock = ^(NSString *title){
+        buildingStr=title;
         [self.chooseBuildingBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.chooseBuildingBtn setTitle:title forState:UIControlStateNormal];
         
