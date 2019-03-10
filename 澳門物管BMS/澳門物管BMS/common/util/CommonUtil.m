@@ -59,6 +59,15 @@
 //                   
 //                }];
 
+                [ZKAlertTool showAlertWithTitle:nil andMsg:LocalizedString(@"string_request_login_miss_code") cancelTitle:@"确定" otherTitles:nil handler:^(NSInteger tag){
+                                        LoginViewController *loginVC=[[LoginViewController alloc] init];
+                    BaseNavigationViewController *nav=(BaseNavigationViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+                    if (![nav.topViewController isKindOfClass:[LoginViewController class]]) {
+                                                [nav pushViewController:loginVC animated:YES];
+                    }
+                    
+                }];
+                
                 return  NO;
             }
             case 102: //没有这条纪录
