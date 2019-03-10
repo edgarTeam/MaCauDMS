@@ -30,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.baseTitleLab.text=LocalizedString(@"string_choose_plate_alert_title");
     self.placeAlertLab.text=LocalizedString(@"string_choose_plate_alert_title");
     [self.submitBtn setTitle:LocalizedString(@"String_confirm") forState:UIControlStateNormal];
  //   [self.cancelBtn setTitle:LocalizedString(@"String_cancel") forState:UIControlStateNormal];
@@ -154,6 +155,7 @@
 //    _placeId=place.placeId;
 
     ClubhouseReservationViewController *clubVC=[ClubhouseReservationViewController new];
+    clubVC.isNews=NO;
     clubVC.selectedPlace=place;
     [self.navigationController pushViewController:clubVC animated:YES];
 

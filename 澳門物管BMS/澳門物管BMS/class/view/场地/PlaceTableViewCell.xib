@@ -70,10 +70,10 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="centerView" destination="tXV-MP-h7a" id="NIX-2G-Nnd"/>
-                <outlet property="describeLab" destination="Any-ke-xnK" id="iYT-JU-tgp"/>
+                <outlet property="describeLab" destination="KE9-j7-gsv" id="KaO-4t-WL8"/>
                 <outlet property="placeIconImage" destination="n3w-MV-937" id="Uv5-1k-808"/>
                 <outlet property="placeImage" destination="5te-Vx-tIr" id="AfT-Vt-fMl"/>
-                <outlet property="placeTitleLab" destination="KE9-j7-gsv" id="cQH-Ei-iLs"/>
+                <outlet property="placeTitleLab" destination="Any-ke-xnK" id="HJZ-vn-rVz"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="173.61319340329837"/>
         </tableViewCell>

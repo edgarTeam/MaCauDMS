@@ -635,6 +635,27 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
         _placeNameLab.text=_selectedPlace.placeName;
         _placeContentLab.text=_selectedPlace.placeIntroduction;
         _placeId=_selectedPlace.placeId;
+        NSMutableArray *imageUrlArr=[NSMutableArray new];
+        NSMutableArray *imageThumbnailArr=[NSMutableArray new];
+        if (_selectedPlace.images.count ==0 ) {
+            return;
+        }
+        for (NoticeSubList *notice in _selectedPlace.images) {
+            if (notice.imageUrl !=nil) {
+                [imageUrlArr addObject:notice.imageUrl];
+            }
+            if (notice.imageThumbnail !=nil) {
+                [imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
+            }
+        }
+        if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
+            return;
+        }
+        if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
+            return;
+        }
+        _placeImageView.imageURLStringsGroup = imageThumbnailArr;
+        _placeImageView.autoScrollTimeInterval = 4.0f;
         [self checkLogin];
         //  [self createView];
         [self reuqestPlateList];

@@ -36,7 +36,7 @@
 #import "CircleButton.h"
 #import "ZKAlertTool.h"
 
-
+#import "PlaceViewController.h"
 @interface MainViewController ()<CLLocationManagerDelegate,SDCycleScrollViewDelegate>
 @property (nonatomic,strong) UIButton *sliderBtn;
 @property (nonatomic,strong) UIButton *rightBtn;
@@ -274,9 +274,10 @@
             break;
         case 2:
         {
-            ClubhouseReservationViewController *clubVC=[ClubhouseReservationViewController new];
-            clubVC.isNews=NO;
-            [self.navigationController pushViewController:clubVC animated:YES];
+//            ClubhouseReservationViewController *clubVC=[ClubhouseReservationViewController new];
+//            clubVC.isNews=NO;
+            PlaceViewController *placeVC=[PlaceViewController new];
+            [self.navigationController pushViewController:placeVC animated:YES];
         }
             break;
         case 3:

@@ -338,9 +338,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [pushJudge setObject:@"push"forKey:@"push"];
     [pushJudge synchronize];
     NSString * targetStr = [msgDic objectForKey:@"target"];
+    NSDictionary *extra = [msgDic objectForKey:@"extras"];
+    NSString *noticeId=[extra objectForKey:@"noticeId"];
     if ([targetStr isEqualToString:@"notice"]) {
         NoticeDetailViewController *noticeVC=[NoticeDetailViewController new];
-        
+        noticeVC.noticeId=noticeId;
       //  MessageVC * VC = [[MessageVC alloc]init];
         UINavigationController * Nav = [[UINavigationController alloc]initWithRootViewController:noticeVC];//这里加导航栏是因为我跳转的页面带导航栏，如果跳转的页面不带导航，那这句话请省去。
         [self.window.rootViewController presentViewController:Nav animated:YES completion:nil];

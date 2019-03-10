@@ -74,7 +74,7 @@
     NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
     if ([lang isEqualToString:@"zh-Hant"]) {
         
-        self.font =[UIFont fontWithName:@"蘋方-簡 中黑體" size:self.font.pointSize];
+        self.font =[UIFont fontWithName:@"蘋方-繁 標準體" size:self.font.pointSize];
         // self.font = [UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:self.font.pointSize];
     }else{
         self.font =[UIFont fontWithName:@"蘋方-簡 中黑體" size:self.font.pointSize];
@@ -99,7 +99,7 @@
     NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
     if ([lang isEqualToString:@"zh-Hant"]) {
         
-        self.font =[UIFont fontWithName:@"蘋方-簡 中黑體" size:self.font.pointSize];
+        self.font =[UIFont fontWithName:@"蘋方-繁 標準體" size:self.font.pointSize];
        // self.font = [UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:self.font.pointSize];
     }else{
         //self.font = [UIFont fontWithName:@"cwTeXQHei-Bold" size:self.font.pointSize];
@@ -117,7 +117,7 @@
 //    }
     NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
     if ([lang isEqualToString:@"zh-Hant"]) {
-        self.font =[UIFont fontWithName:@"蘋方-簡 中黑體" size:self.font.pointSize];
+        self.font =[UIFont fontWithName:@"蘋方-繁 標準體" size:self.font.pointSize];
         
        // self.font = [UIFont fontWithName:@"cwTeXQHeiZH-Bold" size:self.font.pointSize];
     }else{
