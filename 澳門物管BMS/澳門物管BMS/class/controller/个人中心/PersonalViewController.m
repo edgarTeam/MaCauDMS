@@ -47,6 +47,7 @@
     NSString *latStr;//纬度
     NSString *adcode;
     NSArray *placeArr;
+    NSArray *reportArr;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -84,11 +85,11 @@
     LeftModel *model2=[LeftModel new];
     model2.title=LocalizedString(@"string_report_maintenance_list");
     model2.image=@"icon_personal_repair_bg";
-    model2.describe=@"报修记录进度更新";
+    model2.describe=[NSString stringWithFormat:@"共%lu條報修紀錄",reportArr.count];
     LeftModel *model3=[LeftModel new];
     model3.title=LocalizedString(@"string_complain_list_title");
     model3.image=@"icon_personal_complain_bg";
-    model3.describe=@"投诉记录进度更新";
+    model3.describe=[NSString stringWithFormat:@"共%lu條投訴紀錄",reportArr.count];
     LeftModel *model4=[LeftModel new];
     model4.title=LocalizedString(@"string_homepage_information_title");
     model4.image=@"icon_personal_info_bg";
@@ -375,9 +376,24 @@
 - (void)requestPlaceList {
     [[WebAPIHelper sharedWebAPIHelper] postPlaceRecordList:nil completion:^(NSDictionary *dic){
         placeArr=[dic objectForKey:@"list"];
+        [self requestComplainList];
+        
+    }];
+}
+
+
+- (void)requestComplainList {
+    [[WebAPIHelper sharedWebAPIHelper] postComplainList:nil completion:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
+        }
+        reportArr=[dic objectForKey:@"list"];
         [self creatView];
     }];
 }
+
+
+
 
 - (void)requestVersion {
     NSDictionary *para=@{

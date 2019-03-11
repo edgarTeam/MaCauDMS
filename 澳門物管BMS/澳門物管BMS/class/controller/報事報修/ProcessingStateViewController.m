@@ -214,7 +214,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
-    [self requestComplainList];
-   // [self refreshRequest];
+  //  [self requestComplainList];
+    [self refreshRequest];
 }
 @end
