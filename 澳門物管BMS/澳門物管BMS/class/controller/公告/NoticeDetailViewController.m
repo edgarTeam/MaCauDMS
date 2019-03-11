@@ -29,7 +29,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *noticeTimeTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *noticeConventTitleLab;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeight;
-@property (weak, nonatomic) IBOutlet UIButton *dismissBtn;
 
 
 
@@ -152,25 +151,28 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
-    self.dismissBtn.hidden=YES;
+//    self.dismissBtn.hidden=YES;
     [self requestNotice];
+//     self.backBtn.tag = 1005;
     NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
     if([[pushJudge objectForKey:@"push"]isEqualToString:@"push"]) {
-        self.topView.hidden=YES;
-        self.dismissBtn.hidden=NO;
-        [self.dismissBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-        [self.dismissBtn addTarget:self action:@selector(rebackToRootViewAction) forControlEvents:UIControlEventTouchUpInside];
+//        self.topView.hidden=NO;
+        self.backBtn.tag = 1005;
+//        [self.backBtn removeTarget:self.superclass action:@selector(backBtn:) forControlEvents:UIControlEventTouchUpInside];
+//        self.dismissBtn.hidden=NO;
+//        [self.dismissBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+//        [self.dismissBtn addTarget:self action:@selector(rebackToRootViewAction) forControlEvents:UIControlEventTouchUpInside];
 //        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(rebackToRootViewAction)];
     }else{
-        self.dismissBtn.hidden=YES;
+//        self.dismissBtn.hidden=YES;
 //        self.navigationItem.leftBarButtonItem=nil;
     }
 }
 
-- (void)rebackToRootViewAction {
-    NSUserDefaults * pushJudge = [NSUserDefaults standardUserDefaults];
-    [pushJudge setObject:@""forKey:@"push"];
-    [pushJudge synchronize];//记得立即同步
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)rebackToRootViewAction {
+//    NSUserDefaults * pushJudge = [NSUserDefaults standardUserDefaults];
+//    [pushJudge setObject:@""forKey:@"push"];
+//    [pushJudge synchronize];//记得立即同步
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 @end

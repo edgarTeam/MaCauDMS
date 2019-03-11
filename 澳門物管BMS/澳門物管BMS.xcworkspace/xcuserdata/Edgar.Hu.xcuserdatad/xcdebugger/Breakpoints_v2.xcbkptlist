@@ -4,19 +4,13 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.7673351"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "-goToMssageViewControllerWith:"
-            landmarkType = "7">
+            scope = "0"
+            stopOnStyle = "1">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.767622"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/base/BaseViewController.m"
+            timestampString = "574003863.700004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "-backBtn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.767689"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/base/BaseViewController.m"
+            timestampString = "574003863.700289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-backBtn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,332 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.767745"
+            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/base/BaseViewController.m"
+            timestampString = "574003863.700343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "-jpushNotificationCenter:openSettingsForNotification:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.767799"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "-application:didReceiveRemoteNotification:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.767853"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "-jpushNotificationCenter:openSettingsForNotification:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.767905"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "-jpushNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.767957"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "-jpushNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.768007"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
-            landmarkName = "-application:didReceiveRemoteNotification:fetchCompletionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.768064"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
-            landmarkName = "-application:didReceiveRemoteNotification:fetchCompletionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.768118"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "573998502.817853"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/common/util/http/HttpHelper.m"
-            timestampString = "573998502.818051"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-postWithURL:parameters:convertClassName:isArray:isString:success:failure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HttpHelper postWithURL:parameters:convertClassName:isArray:isString:success:failure:]"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Edgar.Hu/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "573996392.449458"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "252">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__87-[HttpHelper postWithURL:parameters:convertClassName:isArray:isString:success:failure:]_block_invoke"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Edgar.Hu/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "573996392.4507461"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.88"
-                  moduleName = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Edgar.Hu/Documents/GitHub/MaCauDMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/%E6%BE%B3%E9%96%80%E7%89%A9%E7%AE%A1BMS/common/util/http/HttpHelper.m"
-                  timestampString = "573996392.452235"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.768225"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "-jpushNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.768275"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "-jpushNotificationCenter:willPresentNotification:withCompletionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.7683229"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "-jpushNotificationCenter:willPresentNotification:withCompletionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.768369"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "-goToMssageViewControllerWith:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.768432"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
-            landmarkName = "-goToMssageViewControllerWith:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.7684799"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "-jpushNotificationCenter:willPresentNotification:withCompletionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.768526"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
-            landmarkName = "-jpushNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x6fb3;&#x9580;&#x7269;&#x7ba1;BMS/main/AppDelegate.m"
-            timestampString = "574001068.7685699"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "-jpushNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-backBtn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

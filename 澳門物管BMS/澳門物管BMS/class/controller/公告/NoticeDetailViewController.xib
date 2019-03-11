@@ -14,7 +14,6 @@
             <connections>
                 <outlet property="createTimeLable" destination="kDY-Bf-3gk" id="64a-bJ-kwP"/>
                 <outlet property="detailBtn" destination="jUC-Ns-ODs" id="4Up-zS-fky"/>
-                <outlet property="dismissBtn" destination="GQF-UC-l9s" id="K7o-BU-Efp"/>
                 <outlet property="noticeTextView" destination="h7s-0X-J5m" id="IH4-fc-cAB"/>
                 <outlet property="view" destination="VaJ-Wa-wT2" id="q5x-xg-XRP"/>
             </connections>
@@ -50,15 +49,6 @@
                         <action selector="detailBtnAction:" destination="-1" eventType="touchUpInside" id="Tha-Ag-VeU"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQF-UC-l9s">
-                    <rect key="frame" x="20" y="33" width="60" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="60" id="2Nf-dU-kfj"/>
-                    </constraints>
-                    <state key="normal">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -69,8 +59,6 @@
                 <constraint firstItem="kDY-Bf-3gk" firstAttribute="top" secondItem="Ym3-gz-Za6" secondAttribute="top" constant="60" id="eRV-qy-u1F"/>
                 <constraint firstItem="jUC-Ns-ODs" firstAttribute="centerX" secondItem="VaJ-Wa-wT2" secondAttribute="centerX" id="fJy-IS-pg1"/>
                 <constraint firstItem="jUC-Ns-ODs" firstAttribute="top" secondItem="h7s-0X-J5m" secondAttribute="bottom" id="fcZ-bU-JHP"/>
-                <constraint firstItem="GQF-UC-l9s" firstAttribute="top" secondItem="Ym3-gz-Za6" secondAttribute="top" constant="13" id="hL3-1K-gEM"/>
-                <constraint firstItem="GQF-UC-l9s" firstAttribute="leading" secondItem="Ym3-gz-Za6" secondAttribute="leading" constant="20" id="phB-L2-LpK"/>
                 <constraint firstItem="kDY-Bf-3gk" firstAttribute="centerX" secondItem="VaJ-Wa-wT2" secondAttribute="centerX" id="qkk-BW-OgZ"/>
                 <constraint firstItem="h7s-0X-J5m" firstAttribute="top" secondItem="kDY-Bf-3gk" secondAttribute="bottom" constant="36" id="vvJ-MO-BYm"/>
             </constraints>

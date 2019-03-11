@@ -187,7 +187,10 @@
 
 
 -(void)backBtn:(UIButton *)sender{
-    [self.navigationController popViewControllerAnimated:YES];
+    if(self.backBtn.tag==1005){
+         [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];}
     
 }
 @end
