@@ -132,7 +132,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
 
         MainViewController *mainVC=[[MainViewController alloc] init];
-        LeftViewController *leftVC=[[LeftViewController alloc] init];
+//        LeftViewController *leftVC=[[LeftViewController alloc] init];
         _centerNvaVC= [[BaseNavigationViewController alloc]initWithRootViewController:mainVC];
 //        _leftNvaVC = [[BaseNavigationViewController alloc]initWithRootViewController:leftVC];
 //        DrawerViewController *drawer = [[DrawerViewController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];

@@ -85,8 +85,7 @@
     _communityTitleLab.font=[UIFont systemFontOfSize:16];
     _repairTypeTitleLab.font=[UIFont systemFontOfSize:16];
     _repairAddressTitleLab.font=[UIFont systemFontOfSize:16];
-    _submitBtn.font=[UIFont systemFontOfSize:16];
-    
+    _submitBtn.titleLabel.font=[UIFont systemFontOfSize:16];
     _buildingTitleLab.text=LocalizedString(@"string_complain_building_title");
     _communityTitleLab.text=LocalizedString(@"string_repair_theme_title");
     _repairTypeTitleLab.text=LocalizedString(@"string_repair_type_title");

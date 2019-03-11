@@ -13,6 +13,8 @@
 #import "NoticeImageViewController.h"
 
 
+
+
 @interface NoticeDetailViewController ()<SDCycleScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *noticeTitleLab;
 //@property (weak, nonatomic) IBOutlet UIImageView *noticeImageView;
@@ -142,7 +144,7 @@
 
 - (IBAction)detailBtnAction:(id)sender {
     NoticeImageViewController *noticeImageVC=[NoticeImageViewController new];
-    noticeImageVC.imageUrl=imageURL;
+    noticeImageVC.notice=self.notice;
     [self.navigationController pushViewController:noticeImageVC animated:YES];
 }
 

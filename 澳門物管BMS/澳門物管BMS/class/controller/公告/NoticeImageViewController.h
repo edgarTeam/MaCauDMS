@@ -7,11 +7,11 @@
 //
 
 #import "BaseViewController.h"
-
+#import "Notice.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NoticeImageViewController : BaseViewController
-@property (nonatomic,strong) NSString *imageUrl;
+@property (nonatomic,strong) Notice *notice;
 @end
 
 NS_ASSUME_NONNULL_END

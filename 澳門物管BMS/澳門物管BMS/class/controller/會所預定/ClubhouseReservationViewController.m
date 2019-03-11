@@ -20,7 +20,7 @@
 #import <SDCycleScrollView/SDCycleScrollView.h>
 
 
-@interface ClubhouseReservationViewController ()<UITableViewDelegate,UITableViewDataSource,LSXPopMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ClubhouseReservationViewController ()<LSXPopMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *plateBtn;
 @property (nonatomic,strong)LSXPopMenu *plateMenu;
 @property (strong, nonatomic) IBOutlet UITableView *dateTableView;

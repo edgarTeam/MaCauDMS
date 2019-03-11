@@ -7,7 +7,7 @@
 //
 
 #import "NoticeImageViewController.h"
-
+#import "NoticeSubList.h"
 #import <SDWebImage/SDImageCache.h>
 
 
@@ -61,14 +61,22 @@
     [self.scrollView setShowsHorizontalScrollIndicator:NO];
     [self.scrollView setShowsVerticalScrollIndicator:NO];
     
+//    NSString *images = self.notice.noticeImage
+    NSMutableArray *fullImages = [NSMutableArray new];
+    NSMutableArray *thumbImages = [NSMutableArray new];
+    for (NoticeSubList *notice in self.notice.noticeImage) {
+        if (notice.imageThumbnail !=nil && notice.imageUrl !=nil) {
+            [thumbImages addObject:[NSString stringWithFormat:@"%@",notice.imageThumbnail]];
+            [fullImages addObject:[NSString stringWithFormat:@"%@",notice.imageUrl]];
+        }else{
+            
+        }
+    }
     
-    NSArray *imageArr=[_imageUrl componentsSeparatedByString:@";"];
-    //    NSMutableArray *imageHeight=[NSMutableArray new];
     
-    
-    for (int i=0; i<imageArr.count; i++) {
+    for (int i=0; i<fullImages.count; i++) {
         UIImageView *imageView=[[UIImageView alloc] init];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,imageArr[i]]] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,thumbImages[i]]] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             CGFloat height=ScreenWidth/(image.size.width/image.size.height);
             
             imageView.image=image;
