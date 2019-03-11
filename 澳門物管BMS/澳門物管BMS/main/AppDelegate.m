@@ -79,15 +79,6 @@
         // NSSet<UNNotificationCategory *> *categories for iOS10 or later
         // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
     }
-    if (launchOptions) {
-        NSDictionary * remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-        //这个判断是在程序没有运行的情况下收到通知，点击通知跳转页面
-        if (remoteNotification) {
-            NSLog(@"推送消息==== %@",remoteNotification);
-            [self goToMssageViewControllerWith:remoteNotification];
-        }
-    }
-
     
     
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
@@ -95,6 +86,18 @@
     [JPUSHService addTags:set completion:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
         
     } seq:0] ;
+    
+//    if (launchOptions) {
+//        NSDictionary * remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+//        //这个判断是在程序没有运行的情况下收到通知，点击通知跳转页面
+//        if (remoteNotification) {
+//            NSLog(@"推送消息==== %@",remoteNotification);
+//            [self goToMssageViewControllerWith:remoteNotification];
+//        }
+//    }
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
+    
     [JPUSHService setupWithOption:launchOptions appKey:JPUSHKEY
                           channel:@"app store"
                  apsForProduction:0
@@ -121,53 +124,14 @@
     self.window.rootViewController=_centerNvaVC;
     MainViewController *mainVC=[[MainViewController alloc] init];
     [_centerNvaVC pushViewController:mainVC animated:YES];
-   // LeftViewController *leftVC=[[LeftViewController alloc] init];
-   // self.window.rootViewController=;
-   // _centerNvaVC= [[BaseNavigationViewController alloc]initWithRootViewController:mainVC];
-//    _leftNvaVC = [[BaseNavigationViewController alloc]initWithRootViewController:leftVC];
-//     self.drawer = [[DrawerViewController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];
-//
-//    self.drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
-//    self.drawer.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
-//    self.drawer.maximumLeftDrawerWidth = ScreenWidth/2;
-//    self.drawer.maximumRightDrawerWidth = ScreenWidth/2;
-//    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-//    [self.window setRootViewController:self.drawer];
-    
     
     self.suspensionMenu = [[SuspendView alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
     self.suspensionMenu.delegate = self;
 
-//    if (@available(iOS 11.0, *)) {
-//        UIEdgeInsets insets=self.window.rootViewController.view.safeAreaInsets;
-//        self.window.rootViewController.view.frame=CGRectMake(insets.left, insets.top, <#CGFloat width#>, <#CGFloat height#>)
-//    }
     
     [self.window.rootViewController.view  addSubview:_suspensionMenu];
     [self.window.rootViewController.view bringSubviewToFront:_suspensionMenu];
     [self.window makeKeyAndVisible];
-    
-//    self.centerBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-//    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight-60, 50, 50);
-//    self.centerBtn.frame=CGRectMake(ScreenWidth-60, ScreenHeight/2, 50, 50);
-//    [self.centerBtn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
-//    self.centerBtn.layer.cornerRadius=self.centerBtn.frame.size.width/2;
-//    self.centerBtn.layer.cornerRadius=25;
-//    self.centerBtn.layer.masksToBounds=YES;
-//    self.centerBtn.layer.borderWidth=0.5;
-//    self.centerBtn.layer.borderColor=RGB(138, 138, 138).CGColor;
-//    [self.centerBtn addTarget:self action:@selector(choose:) forControlEvents:UIControlEventTouchUpInside];
-//
-//    [self.window.rootViewController.view addSubview:self.centerBtn];
-//    [self.drawer.view addSubview:self.centerBtn];
-//    _panGestureRecognizer = [[UIPanGestureRecognizer alloc]
-
-//                             initWithTarget:self
-//
-//                             action:@selector(handlePan:)];
-//
-//    [self.centerBtn addGestureRecognizer:_panGestureRecognizer];
-//    [self.centerBtn addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
     return YES;
 }
 
@@ -237,8 +201,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
     // Required
     NSDictionary * userInfo = notification.request.content.userInfo;
-    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:userInfo];
+    if (@available(iOS 10.0, *)) {
+        if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+            [JPUSHService handleRemoteNotification:userInfo];
+        }
+    } else {
+        // Fallback on earlier versions
     }
     completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
 }
@@ -247,8 +215,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
     // Required
     NSDictionary * userInfo = response.notification.request.content.userInfo;
-    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:userInfo];
+    if (@available(iOS 10.0, *)) {
+        if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+            [JPUSHService handleRemoteNotification:userInfo];
+        }
+    } else {
+        // Fallback on earlier versions
     }
     completionHandler();  // 系统要求执行这个方法
 }
@@ -348,5 +320,12 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         [self.window.rootViewController presentViewController:Nav animated:YES completion:nil];
         
     }
+}
+
+
+- (void)networkDidReceiveMessage:(NSNotification *)notification {
+    NSDictionary * userInfo = [notification userInfo];
+    [self goToMssageViewControllerWith:userInfo];
+    //服务端传递的 Extras 附加字段，key 是自己定义的
 }
 @end
