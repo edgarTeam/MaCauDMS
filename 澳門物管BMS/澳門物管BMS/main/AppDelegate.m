@@ -162,7 +162,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [JPUSHService setBadge:0];
+    
 }
 
 
@@ -184,6 +186,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
   //  [[UpdateHelper shareUpdateHelper] checkUpdateInfo];
     //[[UpdateHelper shareUpdateHelper] checkUpdateInfo];
     [CommonUtil loadDefuatUser];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [JPUSHService setBadge:0];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
@@ -227,6 +230,14 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     if (@available(iOS 10.0, *)) {
         if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
             [JPUSHService handleRemoteNotification:userInfo];
+            if ([UIApplication sharedApplication].applicationState == UIApplicationStateInactive) {
+                 [self goToMssageViewControllerWith:userInfo];
+                
+            }else{
+                NSLog(@"%ld", (long)[UIApplication sharedApplication].applicationState);
+            }
+           
+            
         }
     } else {
         // Fallback on earlier versions
@@ -318,10 +329,10 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
     [pushJudge setObject:@"push"forKey:@"push"];
     [pushJudge synchronize];
-    NSString * targetStr = [msgDic objectForKey:@"target"];
-    NSDictionary *extra = [msgDic objectForKey:@"extras"];
-    NSString *noticeId=[extra objectForKey:@"noticeId"];
-    if ([targetStr isEqualToString:@"notice"]) {
+//    NSString * targetStr = [msgDic objectForKey:@"target"];
+//    NSDictionary *extra = [msgDic objectForKey:@"extras"];
+    NSString *noticeId=[msgDic objectForKey:@"noticeId"];
+    if (noticeId) {
         NoticeDetailViewController *noticeVC=[NoticeDetailViewController new];
         noticeVC.noticeId=noticeId;
       //  MessageVC * VC = [[MessageVC alloc]init];
