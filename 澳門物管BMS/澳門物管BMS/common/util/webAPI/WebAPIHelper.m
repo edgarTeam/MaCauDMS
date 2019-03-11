@@ -326,4 +326,12 @@ static AFHTTPSessionManager *_manager;
         NSLog(@"%@",error);
     }];
 }
+
+
+- (void)postRequestVersion:(NSDictionary *)parameters completion:(void (^)(NSDictionary * _Nonnull))completion{
+    [self.httpHelper postDicWithURL:kVersion parameters:parameters  needLoading:YES success:completion failure:^(NSError *error){
+        NSLog(@"%@",error);
+    }];
+}
+
 @end

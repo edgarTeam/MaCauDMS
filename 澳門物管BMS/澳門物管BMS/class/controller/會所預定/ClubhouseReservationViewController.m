@@ -657,6 +657,35 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
         _placeImageView.imageURLStringsGroup = imageThumbnailArr;
         _placeImageView.autoScrollTimeInterval = 4.0f;
         [self checkLogin];
+        switch (_selectedPlace.placeIconType) {
+            case 0:
+            {
+                self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_basketball"];
+            }
+                break;
+            case 1:
+            {
+                self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_badminton"];
+            }
+                break;
+            case 2:
+            {
+                self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_ktv"];
+            }
+                break;
+            case 3:
+            {
+                self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_football"];
+            }
+                break;
+            case 4:
+            {
+                self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_golf"];
+            }
+                break;
+            default:
+                break;
+        }
         //  [self createView];
         [self reuqestPlateList];
     }
@@ -755,6 +784,37 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
         }
         _placeImageView.imageURLStringsGroup = imageThumbnailArr;
         _placeImageView.autoScrollTimeInterval = 4.0f;
+        
+        switch (_placeRecord.place.placeIconType) {
+            case 0:
+            {
+                self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_basketball"];
+            }
+                break;
+            case 1:
+            {
+                self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_badminton"];
+            }
+                break;
+            case 2:
+            {
+                self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_ktv"];
+            }
+                break;
+            case 3:
+            {
+                self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_football"];
+            }
+                break;
+            case 4:
+            {
+                self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_golf"];
+            }
+                break;
+            default:
+                break;
+        }
+        
        // _dataSource[]
         
     }];

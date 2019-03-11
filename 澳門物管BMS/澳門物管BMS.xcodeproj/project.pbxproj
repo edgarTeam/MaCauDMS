@@ -21,6 +21,7 @@
 		BA01097A2224DB2C0025E6E9 /* EHWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0109792224DB2C0025E6E9 /* EHWKWebView.m */; };
 		BA02E7B62227BBA2004A2FBF /* UITextField+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA02E7B52227BBA2004A2FBF /* UITextField+PlaceHolder.m */; };
 		BA02E7BA2227C887004A2FBF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA02E7B92227C887004A2FBF /* MainViewController.xib */; };
+		BA0346CE223641F2003B0D08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA0346CD223641F2003B0D08 /* Images.xcassets */; };
 		BA03620121F322E1008E0B4A /* AppDelegate+DismissKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */; };
 		BA03620421F3322B008E0B4A /* NoticeSubList.m in Sources */ = {isa = PBXBuildFile; fileRef = BA03620321F3322B008E0B4A /* NoticeSubList.m */; };
 		BA03F0E0222FABAA00F4DB28 /* 本墨咏黑.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA03F0DF222FABAA00F4DB28 /* 本墨咏黑.ttf */; };
@@ -179,6 +180,7 @@
 		BA02E7B42227BBA2004A2FBF /* UITextField+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+PlaceHolder.h"; sourceTree = "<group>"; };
 		BA02E7B52227BBA2004A2FBF /* UITextField+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+PlaceHolder.m"; sourceTree = "<group>"; };
 		BA02E7B92227C887004A2FBF /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		BA0346CD223641F2003B0D08 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BA0361FF21F322E0008E0B4A /* AppDelegate+DismissKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DismissKeyboard.h"; sourceTree = "<group>"; };
 		BA03620021F322E0008E0B4A /* AppDelegate+DismissKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+DismissKeyboard.m"; sourceTree = "<group>"; };
 		BA03620221F3322B008E0B4A /* NoticeSubList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeSubList.h; sourceTree = "<group>"; };
@@ -1039,6 +1041,7 @@
 				CB6C9BB521C1672300B5A9E9 /* Info.plist */,
 				CB6C9BB621C1672300B5A9E9 /* main.m */,
 				CB02948321D3AE2900FE55A7 /* SysLocalizable.strings */,
+				BA0346CD223641F2003B0D08 /* Images.xcassets */,
 			);
 			path = "澳門物管BMS";
 			sourceTree = "<group>";
@@ -1260,6 +1263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA07FC7A222BA5FA000BAC4F /* PersonalViewController.xib in Resources */,
+				BA0346CE223641F2003B0D08 /* Images.xcassets in Resources */,
 				CB02948B21D3B99000FE55A7 /* NoticeTableViewCell.xib in Resources */,
 				BA681A97222E878600EC2CC0 /* cwTeXQHeiZH-Bold.ttf in Resources */,
 				CB02668021D8CF3F00561B1C /* LeftViewTableViewCell.xib in Resources */,
@@ -1642,6 +1646,7 @@
 			baseConfigurationReference = 863B3D7D16BEBA5B8018C85D /* Pods-澳門物管BMS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "澳門物管BMS/澳門物管BMS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72XXW98UJB;
@@ -1664,6 +1669,7 @@
 			baseConfigurationReference = 6599791A9FC59AB019D01C8F /* Pods-澳門物管BMS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "澳門物管BMS/澳門物管BMS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72XXW98UJB;

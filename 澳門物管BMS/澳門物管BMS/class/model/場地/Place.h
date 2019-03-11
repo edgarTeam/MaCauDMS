@@ -30,6 +30,7 @@
 @property (nonatomic,copy)NSString *updateTime;
 @property (nonatomic,assign) NSInteger placeStatus; //场所状态（0未开放 1开放）
 @property (nonatomic,copy)NSArray<NoticeSubList *>* images;
+@property (nonatomic,assign)NSInteger placeIconType;
 - (instancetype) initWithDictionary:(NSDictionary *)dict;
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key;
 

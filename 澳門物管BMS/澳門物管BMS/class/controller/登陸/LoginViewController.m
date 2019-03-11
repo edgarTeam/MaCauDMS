@@ -43,7 +43,7 @@
     _psdLab.font=[UIFont systemFontOfSize:15];
     _loginBtn.titleLabel.font=[UIFont systemFontOfSize:16];
     
-    self.view.backgroundColor=[UIColor clearColor];
+    self.view.backgroundColor=[UIColor blackColor];
     _headImg.layer.masksToBounds=YES;
     _headImg.layer.cornerRadius=40;
     

@@ -35,9 +35,10 @@ string_language_setting_title ="语言设定";
 string_notice_detail_title ="公告详情";
 string_report_maintenance_list ="报修记录";
 string_report_maintenance_detail_title ="报事详情";
+string_complain_list = "";
 
 string_reservation_place_title ="会所预定";
-string_contact_us_title = "联系我们";
+string_contact_us_title = "关于我们";
 string_booking_record_title ="订场记录";
 string_booking_record_detail_title = "订场详情";
 

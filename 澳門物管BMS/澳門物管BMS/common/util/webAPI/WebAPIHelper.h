@@ -65,6 +65,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)postResetPSDWithStr:(NSDictionary *)parameters completion:(void (^)(NSString *dic))completion;
 
+//版本号
+- (void)postRequestVersion:(NSDictionary *)parameters completion:(void (^)(NSDictionary *dic))completion;
 
 @end
 

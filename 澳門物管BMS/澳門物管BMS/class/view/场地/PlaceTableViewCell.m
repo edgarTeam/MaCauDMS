@@ -44,16 +44,53 @@
     _describeLab.font=[UIFont systemFontOfSize:13];
     [self.placeTitleLab setText:model.placeName];
     [self.describeLab setText:model.placeIntroduction];
-    if ([model.placeName containsString:@"篮球"]) {
-        self.placeIconImage.image=[UIImage imageNamed:@"icon_place_basketball"];
-    }else if ([model.placeName containsString:@"羽毛球"]) {
-        self.placeIconImage.image=[UIImage imageNamed:@"icon_place_badminton"];
-    }else if ([model.placeName containsString:@"KTV"]) {
-        self.placeIconImage.image=[UIImage imageNamed:@"icon_place_ktv"];
-    }else if ([model.placeName containsString:@"足球"]) {
-        self.placeIconImage.image=[UIImage imageNamed:@"icon_place_football"];
-    }else if ([model.placeName containsString:@"高尔夫"]) {
-        self.placeIconImage.image=[UIImage imageNamed:@"icon_place_golf"];
+//    if ([model.placeName containsString:@"篮球"]) {
+//        self.placeIconImage.image=[UIImage imageNamed:@"icon_place_basketball"];
+//    }else if ([model.placeName containsString:@"羽毛球"]) {
+//        self.placeIconImage.image=[UIImage imageNamed:@"icon_place_badminton"];
+//    }else if ([model.placeName containsString:@"KTV"]) {
+//        self.placeIconImage.image=[UIImage imageNamed:@"icon_place_ktv"];
+//    }else if ([model.placeName containsString:@"足球"]) {
+//        self.placeIconImage.image=[UIImage imageNamed:@"icon_place_football"];
+//    }else if ([model.placeName containsString:@"高尔夫"]) {
+//        self.placeIconImage.image=[UIImage imageNamed:@"icon_place_golf"];
+//    }
+    
+    
+    
+    switch (model.placeIconType) {
+        case 0:
+            {
+                self.placeImage.image=[UIImage imageNamed:@"icon_place_basketball_bg"];
+                self.placeIconImage.image=[UIImage imageNamed:@"icon_place_basketball"];
+            }
+            break;
+        case 1:
+        {
+            self.placeImage.image=[UIImage imageNamed:@"icon_place_badminton_bg"];
+            self.placeIconImage.image=[UIImage imageNamed:@"icon_place_badminton"];
+        }
+            break;
+        case 2:
+        {
+            self.placeImage.image=[UIImage imageNamed:@"icon_place_ktv_bg"];
+            self.placeIconImage.image=[UIImage imageNamed:@"icon_place_ktv"];
+        }
+            break;
+        case 3:
+        {
+            self.placeImage.image=[UIImage imageNamed:@"icon_place_football_bg"];
+            self.placeIconImage.image=[UIImage imageNamed:@"icon_place_football"];
+        }
+            break;
+        case 4:
+        {
+            self.placeImage.image=[UIImage imageNamed:@"icon_place_golf_bg"];
+            self.placeIconImage.image=[UIImage imageNamed:@"icon_place_golf"];
+        }
+            break;
+        default:
+            break;
     }
     
     

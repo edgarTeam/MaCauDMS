@@ -79,7 +79,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输入新密码确认" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0N8-Qm-V5P">
-                            <rect key="frame" x="102.5" y="120" width="172" height="17"/>
+                            <rect key="frame" x="102.5" y="107" width="172" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -106,6 +106,7 @@
                         <constraint firstItem="5Mf-Wu-MpY" firstAttribute="leading" secondItem="7ol-u6-I56" secondAttribute="leading" id="4cO-b4-snM"/>
                         <constraint firstItem="8p9-Pd-7v3" firstAttribute="height" secondItem="7ol-u6-I56" secondAttribute="height" id="6Wm-X3-llv"/>
                         <constraint firstItem="jNN-iJ-pD3" firstAttribute="leading" secondItem="HhX-iG-F0i" secondAttribute="leading" id="8XZ-dA-Udm"/>
+                        <constraint firstItem="0N8-Qm-V5P" firstAttribute="height" secondItem="Cwz-Gd-5YI" secondAttribute="height" id="9o8-ML-GJZ"/>
                         <constraint firstItem="8p9-Pd-7v3" firstAttribute="bottom" secondItem="5Mf-Wu-MpY" secondAttribute="bottom" id="AOJ-SB-jvQ"/>
                         <constraint firstItem="0N8-Qm-V5P" firstAttribute="leading" secondItem="jNN-iJ-pD3" secondAttribute="trailing" id="E0S-Pg-Bk4"/>
                         <constraint firstItem="8p9-Pd-7v3" firstAttribute="leading" secondItem="7ol-u6-I56" secondAttribute="trailing" id="FjX-Z9-i5G"/>

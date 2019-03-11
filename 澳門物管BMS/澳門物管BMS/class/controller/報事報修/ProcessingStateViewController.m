@@ -28,7 +28,22 @@
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事狀態";
  //   self.title=LocalizedString(@"string_report_maintenance_list");
-    self.baseTitleLab.text=LocalizedString(@"string_report_maintenance_list");
+    switch (_type) {
+        case ReportProcessType:
+            {
+                self.baseTitleLab.text=LocalizedString(@"string_report_maintenance_list");
+            }
+            break;
+        case ComplainProcessType:
+        {
+            self.baseTitleLab.text=LocalizedString(@"string_complain_list_title");
+        }
+            break;
+        default:
+            break;
+    }
+    
+   // self.baseTitleLab.text=LocalizedString(@"string_report_maintenance_list");
    // self.edgesForExtendedLayout=UIRectEdgeNone;
     _processingStateTableView.delegate=self;
     _processingStateTableView.dataSource=self;
@@ -143,6 +158,20 @@
     ReportMaintenanceViewController *reportVC=[ReportMaintenanceViewController new];
     ReportMaintenanceDetail *report=[dataSource objectAtIndex:indexPath.row];
     reportVC.complainId=report.complainId;
+    switch (_type) {
+        case ReportProcessType:
+        {
+            reportVC.type=ReportType;
+        }
+            break;
+        case ComplainProcessType:
+        {
+            reportVC.type=ComplainType;
+        }
+            break;
+        default:
+            break;
+    }
     reportVC.isNews=YES;
     [self.navigationController pushViewController:reportVC animated:YES];
 }

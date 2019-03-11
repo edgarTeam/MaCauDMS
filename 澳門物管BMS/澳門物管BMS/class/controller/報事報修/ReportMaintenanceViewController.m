@@ -997,6 +997,7 @@
         self.scrollView.scrollEnabled=YES;
         self.maintenanceCollectionView.scrollEnabled=NO;
         [self requestComplain];
+        [self.chooseBuildingBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_maintenanceCollectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:NULL];
     }else{
         self.playBtn.hidden=YES;

@@ -17,6 +17,17 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_startover_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ngx-5G-WcY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ngx-5G-WcY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="I5N-Zf-yz1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ngx-5G-WcY" secondAttribute="trailing" id="Mzj-LY-p8Q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ngx-5G-WcY" secondAttribute="bottom" id="Z0r-QY-aUX"/>
+                            <constraint firstItem="Ngx-5G-WcY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sgg-sQ-gG6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -25,4 +36,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_startover_bg" width="750" height="1334"/>
+    </resources>
 </document>

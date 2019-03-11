@@ -34,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UILabel *versionLab;
 @property (weak, nonatomic) IBOutlet UILabel *changeInfoLab;
+
+@property (nonatomic,strong) NSString *versionStr;
 @end
 
 @implementation PersonalViewController
@@ -132,20 +134,66 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    NSArray *array=@[@"BookingRecordViewController",@"ProcessingStateViewController",@"ProcessingStateViewController",@"ContactUSViewController",@"SettingViewController"];
-    UIViewController *vc=[NSClassFromString(array[indexPath.row]) new];
-  //  UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+//    NSArray *array=@[@"BookingRecordViewController",@"ProcessingStateViewController",@"ProcessingStateViewController",@"ContactUSViewController",@"SettingViewController"];
+//    UIViewController *vc=[NSClassFromString(array[indexPath.row]) new];
+//  //  UINavigationController *nav=(UINavigationController *)self.mm_drawerController.centerViewController;
+//    
+//    if (indexPath.row==0 || indexPath.row==1 || indexPath.row==2) {
+//        [self checkLogin];
+//    }
+//
+//    if (indexPath.row==3) {
+//        [ZKAlertTool showAlertWithMsg:@"该功能暂未开放"];
+//        return;
+//    }
     
-    if (indexPath.row==0 || indexPath.row==1 || indexPath.row==2) {
-        [self checkLogin];
+    switch (indexPath.row) {
+        case 0:
+            {
+                BookingRecordViewController *BookVC=[BookingRecordViewController new];
+                [self checkLogin];
+                [self.navigationController pushViewController:BookVC animated:YES];
+            }
+            break;
+        case 1:
+        {
+            ProcessingStateViewController *ProcessVC=[ProcessingStateViewController new];
+            ProcessVC.type=ReportProcessType;
+            [self checkLogin];
+            [self.navigationController pushViewController:ProcessVC animated:YES];
+        }
+            break;
+        case 2:
+        {
+            ProcessingStateViewController *ProcessVC=[ProcessingStateViewController new];
+            ProcessVC.type=ComplainProcessType;
+            [self checkLogin];
+            [self.navigationController pushViewController:ProcessVC animated:YES];
+        }
+            break;
+        case 3:
+        {
+            ContactUSViewController *ContactVC=[ContactUSViewController new];
+            [ZKAlertTool showAlertWithMsg:@"该功能暂未开放"];
+            return;
+            //[self checkLogin];
+           // [self.navigationController pushViewController:ContactVC animated:YES];
+        }
+            break;
+        case 4:
+        {
+            SettingViewController *SetVC=[SettingViewController new];
+           // [self checkLogin];
+            [self.navigationController pushViewController:SetVC animated:YES];
+        }
+            break;
+        default:
+            break;
+            
     }
-    if (indexPath.row==3) {
-        [ZKAlertTool showAlertWithMsg:@"该功能暂未开放"];
-        return;
-    }
     
     
-    [self.navigationController pushViewController:vc animated:YES];
+   // [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -331,12 +379,29 @@
     }];
 }
 
+- (void)requestVersion {
+    NSDictionary *para=@{
+                         @"deviceType":@(1)
+                         };
+    [[WebAPIHelper sharedWebAPIHelper] postRequestVersion:para completion:^(NSDictionary *dic){
+        if (dic==nil) {
+            return ;
+        }
+        _versionStr=[dic objectForKey:@"versionNumber"];
+        _versionLab.text=[NSString stringWithFormat:@"Ver %@",_versionStr];
+    }];
+}
+
+
+
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [self setUpLoginBtn];
     [self requestPlaceList];
+    [self requestVersion];
     //[self creatView];
 }
 @end

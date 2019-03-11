@@ -53,6 +53,9 @@
 //重置密碼
 #define kResetPSD kBaseUrl @"/pass/resetPassword"
 
+//版本号
+#define kVersion kBaseUrl @"/app/system/version"
+
 #define deleteFile kBaseUrl @"/api/file/delFile"
 
 #define Kweather @"http://v.juhe.cn/weather/geo"
