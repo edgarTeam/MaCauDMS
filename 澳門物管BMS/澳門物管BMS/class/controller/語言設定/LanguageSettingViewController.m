@@ -19,6 +19,7 @@
 #import "ClubhouseReservationViewController.h"
 #import "ReportMaintenanceViewController.h"
 #import "SettingViewController.h"
+#import "SuspendView.h"
 @interface LanguageSettingViewController ()<SuspensionMenuDelegate>
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *imageArray;
 @property (nonatomic,strong) BaseNavigationViewController *centerNvaVC;
@@ -29,7 +30,7 @@
 @property (nonatomic,strong) ReportMaintenanceViewController *reportVC;
 @property (nonatomic,strong) SettingViewController *setVC;
 @property (nonatomic, strong) NSArray *menuArray;
-@property (nonatomic, strong) SuspensionMenu *suspensionMenu;
+@property (nonatomic, strong) SuspendView *suspensionMenu;
 
 @property (weak, nonatomic) IBOutlet UILabel *CNTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *CTTitleLab;
@@ -138,7 +139,7 @@
         drawer.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
         drawer.maximumLeftDrawerWidth = ScreenWidth/2;
         drawer.maximumRightDrawerWidth = ScreenWidth/2;
-        self.suspensionMenu = [[SuspensionMenu alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
+        self.suspensionMenu = [[SuspendView alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
         self.suspensionMenu.delegate = self;
         [UIApplication sharedApplication].keyWindow.rootViewController =drawer;
         [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:_suspensionMenu];
@@ -203,9 +204,9 @@
 
 -(NSArray *)menuArray{
     if (!_menuArray) {
-        SuspensionModel *setting = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_set_title") image:@"settingsec"];
+        SuspensionModel *setting = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_set_title") image:@"setting"];
         SuspensionModel *place = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_reservation_place_title") image:@"place"];
-        SuspensionModel *repairsec = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_report_maintenance_title") image:@"repairsec"];
+        SuspensionModel *repairsec = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_report_maintenance_title") image:@"repair"];
         SuspensionModel *complain = [[SuspensionModel alloc] initWithName:LocalizedString(@"string_complain_title") image:@"complain"];
         _menuArray = [NSArray arrayWithObjects:setting,place,repairsec,complain, nil];
     }
