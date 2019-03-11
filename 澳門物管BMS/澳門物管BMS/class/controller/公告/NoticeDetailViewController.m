@@ -152,6 +152,19 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
     [self requestNotice];
+    NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
+    if([[pushJudge objectForKey:@"push"]isEqualToString:@"push"]) {
+        self.topView.hidden=YES;
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(rebackToRootViewAction)];
+    }else{
+        self.navigationItem.leftBarButtonItem=nil;
+    }
 }
 
+- (void)rebackToRootViewAction {
+    NSUserDefaults * pushJudge = [NSUserDefaults standardUserDefaults];
+    [pushJudge setObject:@""forKey:@"push"];
+    [pushJudge synchronize];//记得立即同步
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

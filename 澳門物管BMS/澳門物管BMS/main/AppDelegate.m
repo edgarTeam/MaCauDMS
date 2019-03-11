@@ -79,6 +79,15 @@
         // NSSet<UNNotificationCategory *> *categories for iOS10 or later
         // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
     }
+//    if (launchOptions) {
+//        NSDictionary * remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+//        //这个判断是在程序没有运行的情况下收到通知，点击通知跳转页面
+//        if (remoteNotification) {
+//            NSLog(@"推送消息==== %@",remoteNotification);
+//            [self goToMssageViewControllerWith:remoteNotification];
+//        }
+//    }
+
     
     
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
@@ -167,8 +176,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    [application setApplicationIconBadgeNumber:0];   //清除角标
-    [application cancelAllLocalNotifications];
+//    [application setApplicationIconBadgeNumber:0];   //清除角标
+//    [application cancelAllLocalNotifications];
     [JPUSHService setBadge:0];
 }
 

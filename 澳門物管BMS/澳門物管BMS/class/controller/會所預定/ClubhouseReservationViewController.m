@@ -785,7 +785,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
         _placeImageView.imageURLStringsGroup = imageThumbnailArr;
         _placeImageView.autoScrollTimeInterval = 4.0f;
         
-        switch (_placeRecord.place.placeIconType) {
+        switch (_place.placeIconType) {
             case 0:
             {
                 self.placeIconImageView.image=[UIImage imageNamed:@"icon_place_basketball"];

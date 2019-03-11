@@ -477,13 +477,6 @@
 			path = KeyBoard;
 			sourceTree = "<group>";
 		};
-		BA03F0D7222F6CA100F4DB28 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		BA04405621F8167800B310EB /* selectDate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1093,7 +1086,6 @@
 		CBCB79C421CBD2A000BF454D /* util */ = {
 			isa = PBXGroup;
 			children = (
-				BA03F0D7222F6CA100F4DB28 /* New Group */,
 				BA3158A62227D7C7000E5B6F /* turningLable */,
 				BA02E7B32227B9E8004A2FBF /* UITextField+PlaceHolder */,
 				BA84BE47222680C900600B55 /* refresh */,

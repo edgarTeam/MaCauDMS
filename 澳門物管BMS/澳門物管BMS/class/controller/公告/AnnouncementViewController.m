@@ -13,10 +13,12 @@
 #import "NoticeDetailViewController.h"
 #import "MJRefresh.h"
 #import "SVProgressHUD.h"
+#import "UIViewController+zk_Additions.h"
 @interface AnnouncementViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *cycleScrollView;
 @property(nonatomic,strong)SVProgressHUD *hud;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,assign) NSInteger start;
 @end
 
 @implementation AnnouncementViewController
@@ -36,13 +38,36 @@
     _tableView.delegate=self;
     _tableView.dataSource=self;
     
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self requestNoticeList];
-    }];
+    _tableView.mj_header=[self createHeaderWithRefreshingTarget:self refreshingAction:@selector(refreshRequest)];
+    _tableView.mj_footer=[self createFooterWithRefreshingTarget:self refreshingAction:@selector(loadMordRequset)];
 }
 
 
+- (void)refreshRequest {
+    self.start = 0;
+    __weak typeof(self)weakSelf = self;
+    [self requestNoticeList:^(NSInteger pageCount, NSArray<Notice *> *data, NSError *error){
+        [weakSelf.tableView.mj_header endRefreshing];
+        dataSource=data;
+        [weakSelf.tableView reloadData];
+    }];
+}
 
+- (void)loadMordRequset {
+    self.start++;
+    __weak typeof(self)weakSelf = self;
+    [self requestNoticeList:^(NSInteger pageCount, NSArray<Notice *> *data, NSError *error){
+        [weakSelf.tableView.mj_footer endRefreshing];
+        if (error == nil) {
+            if (weakSelf.start < pageCount) {
+                dataSource = [dataSource arrayByAddingObjectsFromArray:data];
+                [weakSelf.tableView reloadData];
+            }
+        } else {
+            weakSelf.start--;
+        }
+    }];
+}
 
 
 
@@ -92,19 +117,39 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (void)requestNoticeList {
-    [[WebAPIHelper sharedWebAPIHelper] postNoticeList:nil completion:^(NSDictionary *dic){
-        NSMutableArray *array=[dic objectForKey:@"list"];
-        if (_tableView.mj_header.isRefreshing) {
-            [_tableView.mj_header endRefreshing];
+
+- (void)requestNoticeList:(void (^)(NSInteger pageCount, NSArray<Notice *> *data, NSError *error))handle {
+    NSInteger limit = 10;
+    NSDictionary *para = @{
+                           @"pageNo":@(self.start *limit),
+                           @"pageSize":@(limit)
+                           };
+    [[WebAPIHelper sharedWebAPIHelper] postNoticeList:para completion:^(NSDictionary *dic){
+        if (dic ==nil) {
+            return ;
         }
-        dataSource=[Notice mj_objectArrayWithKeyValuesArray:array];
-        [_tableView reloadData];
+         NSInteger pageCount = [dic[@"pageNum"] integerValue];
+        NSMutableArray *array=[dic objectForKey:@"list"];
+        NSArray *data=[Notice mj_objectArrayWithKeyValuesArray:array];
+        handle(pageCount,data,nil);
     }];
+
 }
+
+//- (void)requestNoticeList {
+//    [[WebAPIHelper sharedWebAPIHelper] postNoticeList:nil completion:^(NSDictionary *dic){
+//        NSMutableArray *array=[dic objectForKey:@"list"];
+//        if (_tableView.mj_header.isRefreshing) {
+//            [_tableView.mj_header endRefreshing];
+//        }
+//        dataSource=[Notice mj_objectArrayWithKeyValuesArray:array];
+//        [_tableView reloadData];
+//    }];
+//}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
-    [self requestNoticeList];
+   // [self requestNoticeList];
+    [self refreshRequest];
 }
 @end

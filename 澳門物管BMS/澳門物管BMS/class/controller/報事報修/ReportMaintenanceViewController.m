@@ -446,9 +446,11 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     if (_isNews) {
         [self.maintenanceCollectionView registerNib:[UINib nibWithNibName:@"PhotpCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"PhotpCollectionViewCell"];
         _photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
+        _photoCell.activityIndicatorView.hidden=NO;
         NSMutableArray *orignalUrlArr=[NSMutableArray new];
         NSMutableArray *thumbnailUrlArr=[NSMutableArray new];
         for (NoticeSubList *notice in _dataSource) {
@@ -459,8 +461,9 @@
                 [thumbnailUrlArr addObject:notice.imageThumbnail];
             }
         }
-        
+        _photoCell.activityIndicatorView.color=RGB(230, 230, 230);
         [_photoCell.activityIndicatorView startAnimating];
+        
         _photoCell.deleteBtn.hidden=YES;
         
         [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
@@ -480,6 +483,7 @@
             [self.maintenanceCollectionView registerNib:[UINib nibWithNibName:@"PhotpCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"PhotpCollectionViewCell"];
             
             _photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"PhotpCollectionViewCell" forIndexPath:indexPath];
+            _photoCell.activityIndicatorView.hidden=NO;
             NSMutableArray *orignalUrlArr=[NSMutableArray new];
             NSMutableArray *thumbnailUrlArr=[NSMutableArray new];
             
@@ -492,7 +496,7 @@
                 }
                 
             }
-            
+            _photoCell.activityIndicatorView.color=RGB(230, 230, 230);
             [_photoCell.activityIndicatorView startAnimating];
             [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:thumbnailUrlArr[indexPath.row-1]]] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                 [_photoCell.photoImageView sd_setImageWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:orignalUrlArr[indexPath.row-1]]] placeholderImage:image];
