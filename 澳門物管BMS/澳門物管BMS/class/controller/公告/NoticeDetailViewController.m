@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *noticeTimeTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *noticeConventTitleLab;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeight;
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
 
 
 
@@ -151,13 +152,18 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
+    self.backBtn.hidden=YES;
     [self requestNotice];
     NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
     if([[pushJudge objectForKey:@"push"]isEqualToString:@"push"]) {
         self.topView.hidden=YES;
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(rebackToRootViewAction)];
+        self.backBtn.hidden=NO;
+        [self.backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [self.backBtn addTarget:self action:@selector(rebackToRootViewAction) forControlEvents:UIControlEventTouchUpInside];
+//        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(rebackToRootViewAction)];
     }else{
-        self.navigationItem.leftBarButtonItem=nil;
+        self.backBtn.hidden=YES;
+//        self.navigationItem.leftBarButtonItem=nil;
     }
 }
 
