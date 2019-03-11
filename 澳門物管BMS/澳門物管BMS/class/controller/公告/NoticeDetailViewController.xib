@@ -12,9 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticeDetailViewController">
             <connections>
-                <outlet property="backBtn" destination="GQF-UC-l9s" id="Y9S-Q7-n4y"/>
                 <outlet property="createTimeLable" destination="kDY-Bf-3gk" id="64a-bJ-kwP"/>
                 <outlet property="detailBtn" destination="jUC-Ns-ODs" id="4Up-zS-fky"/>
+                <outlet property="dismissBtn" destination="GQF-UC-l9s" id="K7o-BU-Efp"/>
                 <outlet property="noticeTextView" destination="h7s-0X-J5m" id="IH4-fc-cAB"/>
                 <outlet property="view" destination="VaJ-Wa-wT2" id="q5x-xg-XRP"/>
             </connections>
