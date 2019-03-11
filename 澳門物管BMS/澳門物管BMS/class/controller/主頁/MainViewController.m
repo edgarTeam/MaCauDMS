@@ -175,6 +175,7 @@
 
 
     // Do any additional setup after loading the view.
+    
 //    CGRect statusRect=[[UIApplication sharedApplication] statusBarFrame];
 //    CGFloat height=statusRect.size.height;
 //
