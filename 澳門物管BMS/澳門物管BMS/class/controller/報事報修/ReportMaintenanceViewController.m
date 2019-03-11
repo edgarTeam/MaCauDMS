@@ -308,7 +308,6 @@
     [mutArr addObject:picture];
     NSDictionary *para=@{
                          
-                         @"complainLiaisonsEmail":[User shareUser].email,
                          @"complainLiaisonsName":[User shareUser].name,
                          @"complainLiaisonsSex":[User shareUser].sex,
                          @"complainPosition":_chooseBuildingBtn.titleLabel.text,

@@ -20,6 +20,7 @@
 #import "ReportMaintenanceViewController.h"
 #import "SettingViewController.h"
 #import "SuspendView.h"
+#import "PlaceViewController.h"
 @interface LanguageSettingViewController ()<SuspensionMenuDelegate>
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *imageArray;
 @property (nonatomic,strong) BaseNavigationViewController *centerNvaVC;
@@ -133,15 +134,15 @@
         MainViewController *mainVC=[[MainViewController alloc] init];
         LeftViewController *leftVC=[[LeftViewController alloc] init];
         _centerNvaVC= [[BaseNavigationViewController alloc]initWithRootViewController:mainVC];
-        _leftNvaVC = [[BaseNavigationViewController alloc]initWithRootViewController:leftVC];
-        DrawerViewController *drawer = [[DrawerViewController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];
-        drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
-        drawer.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
-        drawer.maximumLeftDrawerWidth = ScreenWidth/2;
-        drawer.maximumRightDrawerWidth = ScreenWidth/2;
+//        _leftNvaVC = [[BaseNavigationViewController alloc]initWithRootViewController:leftVC];
+//        DrawerViewController *drawer = [[DrawerViewController alloc]initWithCenterViewController:_centerNvaVC leftDrawerViewController:_leftNvaVC];
+//        drawer.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+//        drawer.closeDrawerGestureModeMask =MMCloseDrawerGestureModeAll;
+//        drawer.maximumLeftDrawerWidth = ScreenWidth/2;
+//        drawer.maximumRightDrawerWidth = ScreenWidth/2;
         self.suspensionMenu = [[SuspendView alloc] initWithCenterImage:[UIImage imageNamed:@"home"] menuData:self.menuArray];
         self.suspensionMenu.delegate = self;
-        [UIApplication sharedApplication].keyWindow.rootViewController =drawer;
+        [UIApplication sharedApplication].keyWindow.rootViewController =_centerNvaVC;
         [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:_suspensionMenu];
         [[UIApplication sharedApplication].keyWindow.rootViewController.view bringSubviewToFront:_suspensionMenu];
 
@@ -164,17 +165,22 @@
             //                return;
             //            }
             
+        {
             [_reportVC setTitle:LocalizedString(@"string_complain_title")];
             [_centerNvaVC pushViewController:_reportVC animated:YES];
+        }
             break;
         case 1:
             //            if (![baseVC login]) {
             ////            [_centerNvaVC pushViewController:_clubVC animated:YES];
             //                return;
             //            }
-            _clubVC=[[ClubhouseReservationViewController alloc] init];
-            [_centerNvaVC pushViewController:_clubVC animated:YES];
-            
+//            _clubVC=[[ClubhouseReservationViewController alloc] init];
+//            [_centerNvaVC pushViewController:_clubVC animated:YES];
+        {
+            PlaceViewController *placeVC=[PlaceViewController new];
+            [_centerNvaVC pushViewController:placeVC animated:YES];
+        }
             break;
         case 2:
             //            if (![baseVC login]) {
@@ -183,16 +189,20 @@
             //                return;
             //            }
             // _reportVC=[[ReportMaintenanceViewController alloc] init];
+        {
             [_reportVC setTitle:LocalizedString(@"string_report_maintenance_title")];
             [_centerNvaVC pushViewController:_reportVC animated:YES];
+        }
             break;
         case 0:
             //            if (![baseVC login]) {
             ////            [_centerNvaVC pushViewController:_setVC animated:YES];
             //                return;
             //            }
+        {
             _setVC=[[SettingViewController alloc] init];
             [_centerNvaVC pushViewController:_setVC animated:YES];
+        }
             break;
         default:
             break;

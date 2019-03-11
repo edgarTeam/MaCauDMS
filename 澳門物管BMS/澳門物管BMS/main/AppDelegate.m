@@ -27,7 +27,7 @@
 
 #import "SuspendView.h"
 #import "NoticeDetailViewController.h"
-
+#import "PlaceViewController.h"
 
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
@@ -272,17 +272,23 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         ////                [_centerNvaVC pushViewController:_reportVC animated:YES];
         //                return;
         //            }
-           
+        {
         [_reportVC setTitle:LocalizedString(@"string_complain_title")];
-        [_centerNvaVC pushViewController:_reportVC animated:YES];
+            [_centerNvaVC pushViewController:_reportVC animated:YES];
+            
+        }
         break;
     case 1:
         //            if (![baseVC login]) {
         ////            [_centerNvaVC pushViewController:_clubVC animated:YES];
         //                return;
         //            }
-            _clubVC=[[ClubhouseReservationViewController alloc] init];
-        [_centerNvaVC pushViewController:_clubVC animated:YES];
+        {
+            PlaceViewController * placeVC =  [PlaceViewController new];
+            [_centerNvaVC pushViewController:placeVC animated:YES];
+        }
+//            _clubVC=[[ClubhouseReservationViewController alloc] init];
+//        [_centerNvaVC pushViewController:_clubVC animated:YES];
         
         break;
     case 2:
@@ -291,17 +297,23 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         ////            [_centerNvaVC pushViewController:_reportVC animated:YES];
         //                return;
         //            }
-          // _reportVC=[[ReportMaintenanceViewController alloc] init];
+            // _reportVC=[[ReportMaintenanceViewController alloc] init];
+        {
         [_reportVC setTitle:LocalizedString(@"string_report_maintenance_title")];
-        [_centerNvaVC pushViewController:_reportVC animated:YES];
+            [_centerNvaVC pushViewController:_reportVC animated:YES];
+            
+        }
         break;
     case 0:
         //            if (![baseVC login]) {
         ////            [_centerNvaVC pushViewController:_setVC animated:YES];
         //                return;
         //            }
+        {
             _setVC=[[SettingViewController alloc] init];
-        [_centerNvaVC pushViewController:_setVC animated:YES];
+            [_centerNvaVC pushViewController:_setVC animated:YES];
+            
+        }
         break;
     default:
         break;

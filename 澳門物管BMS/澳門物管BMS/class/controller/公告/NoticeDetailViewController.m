@@ -158,6 +158,7 @@
     if([[pushJudge objectForKey:@"push"]isEqualToString:@"push"]) {
 //        self.topView.hidden=NO;
         self.backBtn.tag = 1005;
+         [pushJudge setObject:@""forKey:@"push"];
 //        [self.backBtn removeTarget:self.superclass action:@selector(backBtn:) forControlEvents:UIControlEventTouchUpInside];
 //        self.dismissBtn.hidden=NO;
 //        [self.dismissBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
@@ -171,7 +172,7 @@
 
 //- (void)rebackToRootViewAction {
 //    NSUserDefaults * pushJudge = [NSUserDefaults standardUserDefaults];
-//    [pushJudge setObject:@""forKey:@"push"];
+//
 //    [pushJudge synchronize];//记得立即同步
 //    [self dismissViewControllerAnimated:YES completion:nil];
 //}

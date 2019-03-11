@@ -84,6 +84,7 @@
     [self.backBtn setBackgroundImage:[UIImage imageNamed:@"icon_back_background"] forState:UIControlStateNormal];
     [self.backBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
     [self.backBtn setTitle:@"返回" forState:UIControlStateNormal];
+    self.backBtn.tag = 0;
     [self.backBtn setTitleColor:RGB(230, 230, 230) forState:UIControlStateNormal];
     [self.backBtn addTarget:self action:@selector(backBtn:)forControlEvents:UIControlEventTouchUpInside];
     [_topView addSubview:self.backBtn];
@@ -189,7 +190,9 @@
 -(void)backBtn:(UIButton *)sender{
     if(self.backBtn.tag==1005){
          [self dismissViewControllerAnimated:YES completion:nil];
+        self.backBtn.tag =0;
     }else{
+        
         [self.navigationController popViewControllerAnimated:YES];}
     
 }
