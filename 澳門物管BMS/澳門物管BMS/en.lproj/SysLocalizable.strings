@@ -176,3 +176,19 @@ string_username_alert_title = "帳號不能為空";
 
 string_personal_center_title = "個人中心";
 string_function_not_open_title = "該功能暫未開放";
+string_resetPSD_alert_title = "重置成功";
+string_resetPSD_alert_content = "新密碼已發送致閣下郵箱，請前往郵箱查收郵件。";
+string_resetPSD_email_nil_title = "郵箱地址未設置";
+
+string_personal_place_base_title = "共";
+string_personal_place_list = "條訂場紀錄";
+string_personal_report_list_title = "報修紀錄有新进度更新";
+string_personal_complain_list_title = "投訴紀錄有新进度更新";
+string_personal_information_title = "熱門資訊隨時查看";
+string_personal_setting_title = "多種語言供選擇";
+string_homepage_welcome_title = "您好! 業主";
+string_setting_CN_title = "簡體中文";
+string_setting_CT_title = "繁體中文";
+string_setting_EN_title = "英文";
+string_place_choose_time_first_title = "您已經選擇";
+string_place_choose_time_second_title = "個小時";

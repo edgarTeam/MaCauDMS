@@ -51,7 +51,7 @@
                            
                            };
     [[WebAPIHelper sharedWebAPIHelper] postResetPSD:para completion:^(NSDictionary *dic){
-        
+        [ZKAlertTool showAlertWithTitle:LocalizedString(@"string_resetPSD_alert_title") andMsg:LocalizedString(@"string_resetPSD_alert_content")];
     }];
 }
 

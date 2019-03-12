@@ -52,9 +52,13 @@
    // self.title=LocalizedString(@"string_language_setting_title");
     self.baseTitleLab.text=LocalizedString(@"string_language_setting_title");
     _CNTitleLab.font=[UIFont systemFontOfSize:16];
+    _CNTitleLab.text=LocalizedString(@"string_setting_CN_title");
     _CTTitleLab.font=[UIFont systemFontOfSize:16];
+    _CTTitleLab.text=LocalizedString(@"string_setting_CT_title");
     _submitBtn.titleLabel.font=[UIFont systemFontOfSize:16];
+    [_submitBtn setTitle:LocalizedString(@"String_confirm") forState:UIControlStateNormal];
     _ENTitleLab.font=[UIFont systemFontOfSize:16];
+    _ENTitleLab.text=LocalizedString(@"string_setting_EN_title");
     
     NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
     

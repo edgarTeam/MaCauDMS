@@ -95,6 +95,10 @@
                 [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_request_login_error_code")];
                 return NO;
             }
+            case 108:{
+                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_resetPSD_email_nil_title")];
+                return NO;
+            }
             case 401:{
 //                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_requset_place_erroe_code")];
                 [ZKAlertTool showAlertWithMsg:[dictResp objectForKey:@"msg"]];

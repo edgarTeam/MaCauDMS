@@ -171,3 +171,20 @@ string_username_alert_title = "账号不能为空";
 
 string_personal_center_title = "个人中心";
 string_function_not_open_title = "该功能暂未开放";
+
+string_resetPSD_alert_title = "重置成功";
+string_resetPSD_alert_content = "新密码已发送至阁下邮箱，请前往邮箱查收邮件。";
+string_resetPSD_email_nil_title = "邮箱地址未设置";
+
+string_personal_place_base_title = "共";
+string_personal_place_list = "条订场记录";
+string_personal_report_list_title = "报修记录有新进度更新";
+string_personal_complain_list_title = "投诉记录有新进度更新";
+string_personal_information_title = "热门资讯随时查看";
+string_personal_setting_title = "多种语言供选择";
+string_homepage_welcome_title = "您好! 业主";
+string_setting_CN_title = "简体中文";
+string_setting_CT_title = "繁体中文";
+string_setting_EN_title = "英文";
+string_place_choose_time_first_title = "您已经选择";
+string_place_choose_time_second_title = "个小时";

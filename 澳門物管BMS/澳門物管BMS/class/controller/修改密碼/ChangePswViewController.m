@@ -78,11 +78,13 @@
         //            return ;
         //        }
         NSLog(@"%@",result);
-        //        [ZKAlertTool showAlertWithMsg:result];
-      //  [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_change_psd_alert_title")];
-        [ZKAlertTool showAlertWithTitle:nil andMsg:LocalizedString(@"string_change_psd_alert_title") cancelTitle:@"确定" otherTitles:nil handler:^(NSInteger tag){
-            [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:^{
+            [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_change_psd_alert_title")];
         }];
+//        [ZKAlertTool showAlertWithTitle:nil andMsg:LocalizedString(@"string_change_psd_alert_title") cancelTitle:@"确定" otherTitles:nil handler:^(NSInteger tag){
+//           // [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//
+//        }];
         
         
     }];

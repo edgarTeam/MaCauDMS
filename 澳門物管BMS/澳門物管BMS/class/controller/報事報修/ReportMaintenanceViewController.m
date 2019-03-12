@@ -265,7 +265,7 @@
         return;
     }
     
-    if (_chooseBuildingBtn.titleLabel.text.length==0) {
+    if (buildingStr.length==0) {
                 [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
                 return;
     }

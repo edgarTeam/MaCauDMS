@@ -588,7 +588,8 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
                     cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
                     cell.isChoosed=NO;
                     [_strArr removeObject:str];
-                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];
+//                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];string_place_choose_time_first_title
+                    self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_strArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
                     return;
                 }
                 if (index==arr.count-1) {
@@ -596,7 +597,8 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
                     cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
                     cell.isChoosed=NO;
                     [_strArr removeObject:str];
-                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];
+//                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];
+                    self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_strArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
                     return;
                 }
                 if ([arr[index+1] intValue]-[arr[index-1] intValue]==4) {
@@ -611,7 +613,8 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
                     [_strArr removeObject:str];
                 }
     }
-    self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];
+//    self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];
+    self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_strArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
 }
 
 - (void)setSelectedPlace:(Place *)place {
@@ -718,73 +721,6 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
         _place=_placeRecord.place;
         _placeNameLab.text=_place.placeName;
         _placeContentLab.text=_place.placeIntroduction;
-//        NSMutableArray *imageUrlArr=[NSMutableArray new];
-//        NSMutableArray *imageThumbnailArr=[NSMutableArray new];
-//        if (_place.images.count ==0 ) {
-//            return;
-//        }
-//        for (NoticeSubList *notice in _place.images) {
-//            if (notice.imageUrl !=nil) {
-//                [imageUrlArr addObject:notice.imageUrl];
-//            }
-//            if (notice.imageThumbnail !=nil) {
-//                [imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
-//            }
-//        }
-//        if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
-//            return;
-//        }
-//        if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
-//            return;
-//        }
-//        _placeImageView.imageURLStringsGroup = imageThumbnailArr;
-//        _placeImageView.autoScrollTimeInterval = 4.0f;
-//        if (_placeRecord.recordStatus !=nil) {
-//            _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
-//        }
-//        // _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
-//        _timeZoneLab.text=[NSString stringWithFormat:@"%@ %@ 至 %@",timeStr,_placeRecord.orderStartTime,_placeRecord.orderEndTime];
-//        _clientName.text=[User shareUser].name;
-        NSString *startTimeStr=[_placeRecord.orderStartTime substringToIndex:5];
-        NSString *endTimeStr=[_placeRecord.orderEndTime substringToIndex:5];
-        NSMutableArray *chooseArr=[NSMutableArray new];
-        for (int i=0; i<_dataSource.count; i++) {
-            NSString *str=[_dataSource[i] substringToIndex:5];
-            [chooseArr addObject:str];
-        }
-        NSInteger startIndex;
-        NSInteger endIndex;
-       // if ([chooseArr containsObject:startTimeStr] && [chooseArr containsObject:endTimeStr]) {
-            startIndex=[chooseArr indexOfObject:startTimeStr];
-            endIndex=[chooseArr indexOfObject:endTimeStr];
-      //  }
-        _chooseArr=[NSMutableArray new];
-        for (NSInteger i=startIndex; i<endIndex; i++) {
-            [_chooseArr addObject:_dataSource[i]];
-        }
-        [self.timeCollectionView reloadData];
-        NSMutableArray *imageUrlArr=[NSMutableArray new];
-        NSMutableArray *imageThumbnailArr=[NSMutableArray new];
-        if (_place.images.count ==0 ) {
-            return;
-        }
-        for (NoticeSubList *notice in _place.images) {
-            if (notice.imageUrl !=nil) {
-                [imageUrlArr addObject:notice.imageUrl];
-            }
-            if (notice.imageThumbnail !=nil) {
-                [imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
-            }
-        }
-        if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
-            return;
-        }
-        if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
-            return;
-        }
-        _placeImageView.imageURLStringsGroup = imageThumbnailArr;
-        _placeImageView.autoScrollTimeInterval = 4.0f;
-        
         switch (_place.placeIconType) {
             case 0:
             {
@@ -814,6 +750,84 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
             default:
                 break;
         }
+//        NSMutableArray *imageUrlArr=[NSMutableArray new];
+//        NSMutableArray *imageThumbnailArr=[NSMutableArray new];
+//        if (_place.images.count ==0 ) {
+//            return;
+//        }
+//        for (NoticeSubList *notice in _place.images) {
+//            if (notice.imageUrl !=nil) {
+//                [imageUrlArr addObject:notice.imageUrl];
+//            }
+//            if (notice.imageThumbnail !=nil) {
+//                [imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
+//            }
+//        }
+//        if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
+//            return;
+//        }
+//        if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
+//            return;
+//        }
+//        _placeImageView.imageURLStringsGroup = imageThumbnailArr;
+//        _placeImageView.autoScrollTimeInterval = 4.0f;
+//        if (_placeRecord.recordStatus !=nil) {
+//            _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
+//        }
+//        // _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
+//        _timeZoneLab.text=[NSString stringWithFormat:@"%@ %@ 至 %@",timeStr,_placeRecord.orderStartTime,_placeRecord.orderEndTime];
+//        _clientName.text=[User shareUser].name;
+        NSString *startTimeStr=[_placeRecord.orderStartTime substringToIndex:5];
+        NSString *endTimeStr=[_placeRecord.orderEndTime substringToIndex:5];
+//        if ([_placeRecord.orderEndTime isEqualToString:@"00:00:00"]) {
+//            endTimeStr=@"24:00";
+//        }
+        NSMutableArray *chooseArr=[NSMutableArray new];
+        for (int i=0; i<_dataSource.count; i++) {
+            NSString *str=[_dataSource[i] substringToIndex:5];
+            [chooseArr addObject:str];
+        }
+        NSInteger startIndex;
+        NSInteger endIndex;
+       // if ([chooseArr containsObject:startTimeStr] && [chooseArr containsObject:endTimeStr]) {
+            startIndex=[chooseArr indexOfObject:startTimeStr];
+        if ([endTimeStr isEqualToString:@"00:00"]) {
+            endIndex=12;
+        }else{
+            endIndex=[chooseArr indexOfObject:endTimeStr];
+        }
+        
+      //  }
+        _chooseArr=[NSMutableArray new];
+        for (NSInteger i=startIndex; i<endIndex; i++) {
+            [_chooseArr addObject:_dataSource[i]];
+        }
+        self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_chooseArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
+//        self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_chooseArr.count*2];
+        [self.timeCollectionView reloadData];
+        NSMutableArray *imageUrlArr=[NSMutableArray new];
+        NSMutableArray *imageThumbnailArr=[NSMutableArray new];
+        if (_place.images.count ==0 ) {
+            return;
+        }
+        for (NoticeSubList *notice in _place.images) {
+            if (notice.imageUrl !=nil) {
+                [imageUrlArr addObject:notice.imageUrl];
+            }
+            if (notice.imageThumbnail !=nil) {
+                [imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
+            }
+        }
+        if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
+            return;
+        }
+        if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
+            return;
+        }
+        _placeImageView.imageURLStringsGroup = imageThumbnailArr;
+        _placeImageView.autoScrollTimeInterval = 4.0f;
+        
+
         
        // _dataSource[]
         

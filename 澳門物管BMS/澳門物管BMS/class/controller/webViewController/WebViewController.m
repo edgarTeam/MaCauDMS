@@ -33,7 +33,7 @@
     [super viewDidLoad];
     self.title = displayTitle;
 
-    self.baseTitleLab.text=LocalizedString(@"隱私政策");
+    self.baseTitleLab.text=LocalizedString(@"string_privacy_title");
    // self.edgesForExtendedLayout=UIRectEdgeNone;
     NSLog(@"屏幕高度%f",ScreenHeight);
     NSLog(@"%f",resultHeight);

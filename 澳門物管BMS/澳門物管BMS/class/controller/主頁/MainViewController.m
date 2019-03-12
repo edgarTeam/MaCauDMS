@@ -230,10 +230,10 @@
    
     if ([User shareUser].name.length==0) {
         
-        _clientNameLab.text=[NSString stringWithFormat:@"您好! 業主"];
+        _clientNameLab.text=LocalizedString(@"string_homepage_welcome_title");
     }else{
        // NSString *str=[[User shareUser].name substringToIndex:1];
-        _clientNameLab.text=[NSString stringWithFormat:@"您好! 業主%@",[User shareUser].name];
+        _clientNameLab.text=[NSString stringWithFormat:@"%@%@",LocalizedString(@"string_homepage_welcome_title"),[User shareUser].name];
     }
 
 }
