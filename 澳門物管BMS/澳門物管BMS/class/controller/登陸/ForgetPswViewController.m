@@ -9,6 +9,7 @@
 #import "ForgetPswViewController.h"
 #import "ZKAlertTool.h"
 #import "UITextField+PlaceHolder.h"
+
 @interface ForgetPswViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameText;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
@@ -27,6 +28,7 @@
     _userNameLab.font=[UIFont systemFontOfSize:15];
     
     _userNameText.placeHoldColor=RGBA(255, 255, 255, 0.5);
+    _userNameText.placeHoldString=LocalizedString(@"String_tips_input_tel");
     _submitBtn.titleLabel.font=[UIFont systemFontOfSize:16];
     _submitBtn.layer.masksToBounds=YES;
     _submitBtn.layer.cornerRadius=5.0;
@@ -41,7 +43,7 @@
 
 - (void)requestResetPSD {
     if (_userNameText.text.length==0 || _userNameText==nil) {
-        [ZKAlertTool showAlertWithMsg:@"用戶名不能為空"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_username_alert_title")];
         return;
     }
     NSDictionary *para = @{

@@ -381,7 +381,8 @@
 + (NSString *)getWeekdays {
     NSCalendar *calendar = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSArray *weekdays = [NSArray arrayWithObjects:@"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", nil];
+    NSArray *weekdays = [NSArray arrayWithObjects:LocalizedString(@"string_weekday_sunday"), LocalizedString(@"string_weekday_monday"), LocalizedString(@"string_weekday_tuesday"), LocalizedString(@"string_weekday_wednesday"), LocalizedString(@"string_weekday_thursday"), LocalizedString(@"string_weekday_friday"), LocalizedString(@"string_weekday_saturday"), nil];
+//    NSArray *weekdays = [NSArray arrayWithObjects:@"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", nil];
     NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
     [calendar setTimeZone: timeZone];
     NSDate *date = [NSDate date];

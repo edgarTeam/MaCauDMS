@@ -53,10 +53,10 @@
     _psdTextField.delegate=self;
     
     _accountTextField.placeHoldColor=RGBA(255, 255, 255, 0.5);
-    _accountTextField.placeHoldString=LocalizedString(@"請輸入帳號");
+    _accountTextField.placeHoldString=LocalizedString(@"String_tips_input_tel");
     _accountTextField.tintColor=[UIColor whiteColor];
     _psdTextField.placeHoldColor=RGBA(255, 255, 255, 0.5);
-    _psdTextField.placeHoldString=LocalizedString(@"請輸入密碼");
+    _psdTextField.placeHoldString=LocalizedString(@"String_tips_input_password");
     _psdTextField.tintColor=[UIColor whiteColor];
     
 //    _psdTextField.placeHoldColor=[UIColor redColor];
@@ -84,7 +84,7 @@
         [[[UIAlertView alloc]initWithTitle:@"" message:LocalizedString(@"String_tips_input_password") delegate:nil cancelButtonTitle:LocalizedString(@"String_confirm") otherButtonTitles: nil] show];
     }else{
         NSString *registrationId=[[NSUserDefaults standardUserDefaults] objectForKey:@"registrationId"];
-        NSDictionary *dic =[NSDictionary  dictionaryWithObjectsAndKeys:_accountTextField.text,@"username",_psdTextField.text,@"password",registrationId,@"registrationId",nil];
+        NSDictionary *dic =[NSDictionary  dictionaryWithObjectsAndKeys:_accountTextField.text,@"username",_psdTextField.text,@"password",@"12",@"registrationId",nil];
         [[WebAPIHelper sharedWebAPIHelper]postUserLogin:dic completion:^(NSDictionary *dic){
             if(dic !=nil){
                 [CommonUtil clearDefuatUser];

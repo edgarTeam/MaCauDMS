@@ -51,7 +51,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.baseTitleLab.text=@"個人中心";
+    self.baseTitleLab.text=LocalizedString(@"string_personal_center_title");
     _changeInfoLab.font=[UIFont systemFontOfSize:14];
     _temperatureLab.font=[UIFont systemFontOfSize:20];
     _weatherLab.font=[UIFont systemFontOfSize:13];
@@ -177,7 +177,7 @@
         case 3:
         {
             ContactUSViewController *ContactVC=[ContactUSViewController new];
-            [ZKAlertTool showAlertWithMsg:@"该功能暂未开放"];
+            [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_function_not_open_title")];
             return;
             //[self checkLogin];
            // [self.navigationController pushViewController:ContactVC animated:YES];
@@ -305,22 +305,29 @@
         Weather *weather=weatherArr[0];
         if ([weather.weather rangeOfString:@"晴"].location !=NSNotFound) {
             [_weatherImage setImage:[UIImage imageNamed:@"fine"]];
+            _weatherLab.text=LocalizedString(@"string_weather_fun");
         }else if([weather.weather rangeOfString:@"多云"].location !=NSNotFound){
             [_weatherImage setImage:[UIImage imageNamed:@"cloudy"]];
+            _weatherLab.text=LocalizedString(@"string_weather_cloudy");
         }else if ([weather.weather rangeOfString:@"雷"].location !=NSNotFound){
             [_weatherImage setImage:[UIImage imageNamed:@"thunder"]];
+            _weatherLab.text=LocalizedString(@"string_weather_thunder");
         }else if ([weather.weather rangeOfString:@"小雨"].location !=NSNotFound){
             [_weatherImage setImage:[UIImage imageNamed:@"light_rain"]];
+            _weatherLab.text=LocalizedString(@"string_weather_light_rainn");
         }else if ([weather.weather rangeOfString:@"中雨"].location !=NSNotFound){
             [_weatherImage setImage:[UIImage imageNamed:@"moderate_rain"]];
+            _weatherLab.text=LocalizedString(@"string_weather_moderate_rain");
         }else if ([weather.weather rangeOfString:@"大雨"].location !=NSNotFound){
             [_weatherImage setImage:[UIImage imageNamed:@"heavy_rain"]];
+            _weatherLab.text=LocalizedString(@"string_weather_heavy_rain");
         }else{
             [_weatherImage setImage:[UIImage imageNamed:@"overcast"]];
+            _weatherLab.text=LocalizedString(@"string_weather_overcast");
         }
         
        // _weatherLab.text=[NSString stringWithFormat:@" %@℃",weather.temperature];
-        _weatherLab.text=weather.weather;
+     //   _weatherLab.text=weather.weather;
         _temperatureLab.text=[NSString stringWithFormat:@" %@℃",weather.temperature];
     } failure:^(NSError *error){
         NSLog(@"%@",error);

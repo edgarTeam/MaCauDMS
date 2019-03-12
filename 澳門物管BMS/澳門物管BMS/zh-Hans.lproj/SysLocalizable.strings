@@ -5,9 +5,9 @@
   Created by geanguo_lucky on 2018/12/26.
   Copyright © 2018 geanguo_lucky. All rights reserved.
 */
-String_notice_title ="公告";
-String_Community_title = "社区";
-String_Place_title ="";
+//String_notice_title ="公告";
+//String_Community_title = "社区";
+//String_Place_title ="";
 
 String_login_request = "请先登入";
 String_Alert_title ="您已经设置成功啦！";
@@ -100,32 +100,32 @@ string_plate_detail_client_name_title = "客户姓名";
 string_plate_detail_status_title = "预定状态";
 
 
-string_repair_community_name_title = "小区";
-string_repair_community_name_third_title = "小区:";
-string_repair_community_name_sec_title = "小           区";
+//string_repair_community_name_title = "小区";
+//string_repair_community_name_third_title = "小区:";
+//string_repair_community_name_sec_title = "小           区";
 string_repair_type_title = "报修类型";
 string_repair_theme_title = "报修标题";
 string_repair_address_title = "地址";
 string_repair_describe_title = "描述";
-string_repair_describe_sec_title = "描           述";
-string_repair_describe_third_title = "描述:";
+//string_repair_describe_sec_title = "描           述";
+//string_repair_describe_third_title = "描述:";
 string_repair_status_title = "类型";
 string_repair_classify_title = "标题";
-string_repair_detail_client_name_title = "姓           名";
-sreing_repair_detail_client_name_third_title = "姓名:";
-string_repair_detail_contact_sec_title = "联 系 方 式";
-string_repair_detail_contact_third_title = "联系方式:";
+//string_repair_detail_client_name_title = "姓           名";
+//sreing_repair_detail_client_name_third_title = "姓名:";
+//string_repair_detail_contact_sec_title = "联 系 方 式";
+//string_repair_detail_contact_third_title = "联系方式:";
 string_repair_detail_contact_title = "联系方式";
-string_repair_detail_create_time_third_title = "报修时间:";
-string_repair_detail_create_time_sec_title = "报 修 时 间";
+//string_repair_detail_create_time_third_title = "报修时间:";
+//string_repair_detail_create_time_sec_title = "报 修 时 间";
 string_repair_detail_create_time_title = "报修时间";
-string_repair_detail_voice_third_title = "录音:";
-string_repair_detail_voice_sec_title = "录           音";
+//string_repair_detail_voice_third_title = "录音:";
+//string_repair_detail_voice_sec_title = "录           音";
 string_repair_detail_voice_title = "录音";
-string_repair_progress_sec_title = "报 修 进 度";
-string_repair_progress_third_title = "报修进度:";
-string_repair_progress_title = "报修进度";
-string_repair_handler_title = "处理人";
+//string_repair_progress_sec_title = "报 修 进 度";
+//string_repair_progress_third_title = "报修进度:";
+//string_repair_progress_title = "报修进度";
+//string_repair_handler_title = "处理人";
 string_confirm_reset_psd_title = "确认重置密码";
 string_choose_plate_alert_title = "请选择场地";
 
@@ -150,3 +150,24 @@ string_new_psd_title ="新密码";
 string_confirm_psd_title ="再次确认";
 
 string_complain_list_title = "投诉记录";
+
+string_weather_fun = "晴";
+string_weather_cloudy = "多云";
+string_weather_thunder = "雷";
+string_weather_light_rain = "小雨";
+string_weather_moderate_rain = "中雨";
+string_weather_heavy_rain = "大雨";
+string_weather_overcast = "阴";
+
+string_weekday_monday = "周一";
+string_weekday_tuesday = "周二";
+string_weekday_wednesday = "周三";
+string_weekday_thursday = "周四";
+string_weekday_friday = "周五";
+string_weekday_saturday = "周六";
+string_weekday_sunday = "周日";
+
+string_username_alert_title = "账号不能为空";
+
+string_personal_center_title = "个人中心";
+string_function_not_open_title = "该功能暂未开放";
