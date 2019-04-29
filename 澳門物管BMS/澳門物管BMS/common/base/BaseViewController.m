@@ -10,9 +10,11 @@
 #import "User.h"
 #import "LoginViewController.h"
 #import "ZKAlertTool.h"
+#import "BaseNavigationViewController.h"
 
 //#import "BaseLable.h"
 #import <Masonry/Masonry.h>
+#import "MainViewController.h"
 @interface BaseViewController ()<UIAlertViewDelegate>
 
 
@@ -24,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _token=[[NSUserDefaults standardUserDefaults]objectForKey:LoginToken];
    // _gradientView=[[GradientView alloc] init];
 
 //        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : RGB(230, 230, 230),NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:17]}];
@@ -188,12 +191,21 @@
 
 
 -(void)backBtn:(UIButton *)sender{
+//    BaseNavigationViewController *nav=(BaseNavigationViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+//    if (![nav.topViewController isKindOfClass:[LoginViewController class]]) {
+//      //  [nav pushViewController:loginVC animated:YES];
+//    }
     if(self.backBtn.tag==1005){
          [self dismissViewControllerAnimated:YES completion:nil];
         self.backBtn.tag =0;
     }else{
-        
-        [self.navigationController popViewControllerAnimated:YES];}
+        if ([self.navigationController.topViewController isKindOfClass:[LoginViewController class]]) {
+            MainViewController *mainVC=[MainViewController new];
+            [self.navigationController popToViewController:mainVC animated:YES];
+        }else{
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
     
 }
 @end

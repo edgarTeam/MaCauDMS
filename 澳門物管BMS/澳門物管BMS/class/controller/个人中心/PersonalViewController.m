@@ -314,7 +314,7 @@
             _weatherLab.text=LocalizedString(@"string_weather_thunder");
         }else if ([weather.weather rangeOfString:@"小雨"].location !=NSNotFound){
             [_weatherImage setImage:[UIImage imageNamed:@"light_rain"]];
-            _weatherLab.text=LocalizedString(@"string_weather_light_rainn");
+            _weatherLab.text=LocalizedString(@"string_weather_light_rain");
         }else if ([weather.weather rangeOfString:@"中雨"].location !=NSNotFound){
             [_weatherImage setImage:[UIImage imageNamed:@"moderate_rain"]];
             _weatherLab.text=LocalizedString(@"string_weather_moderate_rain");

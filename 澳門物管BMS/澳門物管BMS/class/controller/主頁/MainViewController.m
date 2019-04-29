@@ -107,6 +107,8 @@
     _contactTitleLab.text=LocalizedString(@"string_homepage_contact_title");
     _settingTitleLab.text=LocalizedString(@"string_homepage_setting_title");
     
+    _turnLabView.backgroundColor=[UIColor clearColor];
+    
     NSString *lang = [[NSUserDefaults standardUserDefaults]  objectForKey:@"appLanguage"];
     
     if ([lang isEqualToString:@"zh-Hant"]) {
@@ -172,7 +174,7 @@
     
     
     _bgImageView.frame=CGRectMake(0, -statusRectHeight, ScreenWidth, ScreenHeight);
-
+    
 
     // Do any additional setup after loading the view.
     
@@ -226,7 +228,10 @@
     NSString *dateStr=[NSDate stringApplyYMDTimeSting:timeStr];
     _dateLab.text=[NSString stringWithFormat:@"%@ %@",dateStr,[NSDate getWeekdays]];
     [self locate];
-    [self requestNoticeList];
+    if (self.token.length!=0) {
+        [self requestNoticeList];
+    }
+    
    
     if ([User shareUser].name.length==0) {
         
@@ -424,7 +429,7 @@
             _weatherLab.text=LocalizedString(@"string_weather_thunder");
         }else if ([weather.weather rangeOfString:@"小雨"].location !=NSNotFound){
             [_weatherImage setImage:[UIImage imageNamed:@"light_rain"]];
-            _weatherLab.text=LocalizedString(@"string_weather_light_rainn");
+            _weatherLab.text=LocalizedString(@"string_weather_light_rain");
         }else if ([weather.weather rangeOfString:@"中雨"].location !=NSNotFound){
             [_weatherImage setImage:[UIImage imageNamed:@"moderate_rain"]];
             _weatherLab.text=LocalizedString(@"string_weather_moderate_rain");

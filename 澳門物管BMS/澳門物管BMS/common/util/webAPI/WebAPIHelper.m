@@ -9,6 +9,7 @@
 #import "WebAPIHelper.h"
 #import "HttpHelper.h"
 #import <AFNetworking.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 @interface WebAPIHelper()
 @property (nonatomic, strong) HttpHelper *httpHelper;
 //@property (nonatomic, strong) AFHTTPSessionManager *manager;
@@ -296,6 +297,7 @@ static AFHTTPSessionManager *_manager;
         }
         completion(dic);
     } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
         NSLog(@"%@",error);
     }];
 }

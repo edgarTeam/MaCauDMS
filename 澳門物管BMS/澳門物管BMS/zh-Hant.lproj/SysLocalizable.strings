@@ -189,3 +189,4 @@ string_setting_CT_title = "繁體中文";
 string_setting_EN_title = "英文";
 string_place_choose_time_first_title = "您已經選擇";
 string_place_choose_time_second_title = "個小時";
+string_place_extra_charge_title = "附加費用";

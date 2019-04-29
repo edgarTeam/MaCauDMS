@@ -108,6 +108,10 @@ static AFHTTPSessionManager *_manager;
                     jsonData =  [NSJSONSerialization dataWithJSONObject:[responseObject objectForKey:@"data"] options:NSJSONWritingPrettyPrinted error:nil];
                 }
                 NSError *err;
+                if (jsonData==nil) {
+                    success(nil);
+                    return ;
+                }
                 id resultObject = [NSJSONSerialization JSONObjectWithData:jsonData
                                                                   options:NSJSONReadingMutableContainers
                                                                     error:&err];

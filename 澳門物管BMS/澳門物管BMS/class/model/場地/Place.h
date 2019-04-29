@@ -31,6 +31,8 @@
 @property (nonatomic,assign) NSInteger placeStatus; //场所状态（0未开放 1开放）
 @property (nonatomic,copy)NSArray<NoticeSubList *>* images;
 @property (nonatomic,assign)NSInteger placeIconType;
+@property (nonatomic,assign) NSNumber *placeCharge;
+@property (nonatomic,assign) NSNumber *placeAttachCharge;//附加费用
 - (instancetype) initWithDictionary:(NSDictionary *)dict;
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key;
 

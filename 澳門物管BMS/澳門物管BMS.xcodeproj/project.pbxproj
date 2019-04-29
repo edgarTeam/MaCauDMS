@@ -41,6 +41,7 @@
 		BA09BB4E22154BE40092BDED /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09BB4D22154BE40092BDED /* DrawerViewController.m */; };
 		BA0F84C822165BD800EE6F0E /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0F84C622165BD800EE6F0E /* PlaceViewController.m */; };
 		BA0F84C922165BD800EE6F0E /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */; };
+		BA310F0122701939003D00F3 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = BA310F0022701939003D00F3 /* NSString+Additions.m */; };
 		BA3158A92227D7F9000E5B6F /* TurningLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3158A82227D7F9000E5B6F /* TurningLabelView.m */; };
 		BA585C08221EA7EF002C26B8 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA585C07221EA7EE002C26B8 /* AddressModel.m */; };
 		BA681A97222E878600EC2CC0 /* cwTeXQHeiZH-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA681A96222E878600EC2CC0 /* cwTeXQHeiZH-Bold.ttf */; };
@@ -215,6 +216,8 @@
 		BA0F84C522165BD800EE6F0E /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		BA0F84C622165BD800EE6F0E /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		BA0F84C722165BD800EE6F0E /* PlaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
+		BA310EFF22701938003D00F3 /* NSString+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
+		BA310F0022701939003D00F3 /* NSString+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		BA3158A72227D7F9000E5B6F /* TurningLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurningLabelView.h; sourceTree = "<group>"; };
 		BA3158A82227D7F9000E5B6F /* TurningLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TurningLabelView.m; sourceTree = "<group>"; };
 		BA585C06221EA7EE002C26B8 /* AddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
@@ -572,6 +575,15 @@
 				CB0BCD6E221EE48600596E1B /* PlaceDetailViewController.xib */,
 			);
 			path = "场地";
+			sourceTree = "<group>";
+		};
+		BA310EFE227018FF003D00F3 /* nsstring */ = {
+			isa = PBXGroup;
+			children = (
+				BA310EFF22701938003D00F3 /* NSString+Additions.h */,
+				BA310F0022701939003D00F3 /* NSString+Additions.m */,
+			);
+			path = nsstring;
 			sourceTree = "<group>";
 		};
 		BA3158A62227D7C7000E5B6F /* turningLable */ = {
@@ -1086,6 +1098,7 @@
 		CBCB79C421CBD2A000BF454D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				BA310EFE227018FF003D00F3 /* nsstring */,
 				BA3158A62227D7C7000E5B6F /* turningLable */,
 				BA02E7B32227B9E8004A2FBF /* UITextField+PlaceHolder */,
 				BA84BE47222680C900600B55 /* refresh */,
@@ -1212,6 +1225,9 @@
 					CB6C9BA321C1672200B5A9E9 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 0;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1385,6 +1401,7 @@
 				CB04505B21D11D0300EB59D7 /* ReportMaintenanceDetail.m in Sources */,
 				CBFE45C821C955D600DD80E4 /* BookingRecordViewController.m in Sources */,
 				CB6C9BAC21C1672200B5A9E9 /* ViewController.m in Sources */,
+				BA310F0122701939003D00F3 /* NSString+Additions.m in Sources */,
 				CB02948A21D3B99000FE55A7 /* NoticeTableViewCell.m in Sources */,
 				BA047989221D2A20006AF8FD /* UILabel+LabelHeightAndWidth.m in Sources */,
 				CB05464A21C6A4BB008BE895 /* LeftViewController.m in Sources */,

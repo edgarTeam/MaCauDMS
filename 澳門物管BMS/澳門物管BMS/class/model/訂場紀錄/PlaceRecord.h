@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString *recordStatus;//预定状态（-1预约取消 0开始发起 1预约成功 2预约失败）
 @property (nonatomic,copy)NSString *updateTime;
 @property (nonatomic,copy)NSString *userId;
+@property (nonatomic,assign) NSNumber *averageCharge;//每小时费用
+@property (nonatomic,assign) NSNumber *totalCharge;//总费用
+@property (nonatomic,assign) NSNumber *attachCharge;//附加费用
+
 @property (nonatomic,strong)Place *place;
 - (instancetype) initWithDictionary:(NSDictionary *)dict;
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key;

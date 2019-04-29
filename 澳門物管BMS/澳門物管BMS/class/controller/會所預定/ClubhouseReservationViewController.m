@@ -18,7 +18,7 @@
 #import "TimeCollectionViewCell.h"
 
 #import <SDCycleScrollView/SDCycleScrollView.h>
-
+#import "NSString+Additions.h"
 
 @interface ClubhouseReservationViewController ()<LSXPopMenuDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *plateBtn;
@@ -41,6 +41,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *plateNameTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *plateOrderDateLab;
 @property (weak, nonatomic) IBOutlet UILabel *plateChooseTimeLab;
+@property (weak, nonatomic) IBOutlet UILabel *extraChargeLab;
+@property (weak, nonatomic) IBOutlet UILabel *extraChargeTitleLab;
 
 
 
@@ -51,6 +53,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLab;
 @property (weak, nonatomic) IBOutlet UILabel *placeContentLab;
 @property (weak, nonatomic) IBOutlet UILabel *placePriceLab;
+@property (weak, nonatomic) IBOutlet UILabel *amountTitleLab;
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *placeIconImageView;
@@ -59,6 +62,7 @@
 
 @property (nonatomic,strong) NSMutableArray *chooseArr;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *submitBtnWidth;
 
 
 
@@ -72,11 +76,18 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     //NSArray *dataSource;
     //NSString *placeId;
 //    NSArray *placeList;
+    int a;
+    int b;
+    NSString *totlePriceStr;//总价
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //self.title=@"會所預定";
+    
+    a=50;
+    b=30;
+    
     self.timeLab.font=[UIFont systemFontOfSize:15];
     self.title=LocalizedString(@"string_reservation_place_title");
 
@@ -100,7 +111,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     _plateNameTitleLab.text=LocalizedString(@"string_plate_name_title");
     _plateOrderDateLab.text=LocalizedString(@"string_plate_order_date_title");
     _plateChooseTimeLab.text=LocalizedString(@"string_plate_choose_time_title");
-    
+    _extraChargeTitleLab.text=LocalizedString(@"string_place_extra_charge_title");
     
     _placeImageView.backgroundColor=[UIColor clearColor];
     
@@ -119,6 +130,12 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     _plateOrderDateLab.font=[UIFont systemFontOfSize:13];
     _plateChooseTimeLab.font=[UIFont systemFontOfSize:13];
     
+    _extraChargeTitleLab.font=[UIFont systemFontOfSize:15];
+    _extraChargeLab.font=[UIFont systemFontOfSize:15];
+    _amountTitleLab.font=[UIFont systemFontOfSize:15];
+    _amountLab.font=[UIFont systemFontOfSize:15];
+    _placePriceLab.font=[UIFont systemFontOfSize:15];
+    
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumLineSpacing=15;
     flowLayout.minimumInteritemSpacing=10;
@@ -133,21 +150,6 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     _timeCollectionView.backgroundColor=[UIColor clearColor];
     [self.timeCollectionView registerNib:[UINib nibWithNibName:@"TimeCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"TimeCollectionViewCell"];
     
-    
-    
-
-//    _dateTableView.tableFooterView=[UIView new];
-//    _dateTableView.separatorInset=UIEdgeInsetsZero;
-//    _dateTableView.delegate=self;
-//    _dateTableView.dataSource=self;
-//
-//    NSLog(@"%lu",_strArr.count);
-//    [_dateTableView reloadData];
-    //  [self reuqestPlateList];
-    
-//    if (![self login]) {
-//        return;
-//    }
 }
 
 
@@ -220,8 +222,6 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
                          @"orderEndTime":endTime
                          };
 
-//    NSString *temp=[NSString stringWithFormat:@"{\"orderDate\":\"%@\",\"placeId\":\"%@\",\"orderStartTime\":\"%@\",\"orderEndTime\":\"%@\"}",_dateTimeStr,placeId,stratTime,endTime];
-//    NSData *jsonData=[temp dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError *error =nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:para options:NSJSONWritingPrettyPrinted error:&error];
@@ -241,9 +241,6 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
         }];
         [alert addAction:alertAc];
         [self presentViewController:alert animated:YES completion:nil];
-//        [ZKAlertTool showAlertWithMsg:@"您已經成功預定了會所"];
-//             //   _placeRecord=[PlaceRecord mj_objectWithKeyValues:resultDic[@"data"]];
-//        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error){
         
     }];
@@ -268,9 +265,6 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
 
 #pragma mark 場所列表
 - (void)reuqestPlateList {
-//    NSDictionary *para=@{
-//                         @"keyword":self.keyword
-//                         };
     [[WebAPIHelper sharedWebAPIHelper] postPlaceList:nil completion:^(NSDictionary *dic){
         if (dic ==nil) {
             return ;
@@ -588,8 +582,11 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
                     cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_no"];
                     cell.isChoosed=NO;
                     [_strArr removeObject:str];
-//                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];string_place_choose_time_first_title
                     self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_strArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
+//                    NSString *mutiplyingStr=[self multiplyingByNumber:_selectedPlace.placeCharge number:[NSString stringWithFormat:@"%lu",_strArr.count*2]];
+//                    self.amountLab.text=[self addByNumber:_selectedPlace.placeAttachCharge number:mutiplyingStr];
+                    NSString *mutiplyingStr=[NSString stringWithFormat:@"%lu",_strArr.count*2*a];
+                     self.amountLab.text=[NSString stringWithFormat:@"%lu(%@+%d)",_strArr.count*2*a+b,mutiplyingStr,b];
                     return;
                 }
                 if (index==arr.count-1) {
@@ -599,6 +596,10 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
                     [_strArr removeObject:str];
 //                     self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];
                     self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_strArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
+//                    NSString *mutiplyingStr=[self multiplyingByNumber:_selectedPlace.placeCharge number:[NSString stringWithFormat:@"%lu",_strArr.count*2]];
+//                    self.amountLab.text=[self addByNumber:_selectedPlace.placeAttachCharge number:mutiplyingStr];
+                    NSString *mutiplyingStr=[NSString stringWithFormat:@"%lu",_strArr.count*2*a];
+                     self.amountLab.text=[NSString stringWithFormat:@"%lu(%@+%d)",_strArr.count*2*a+b,mutiplyingStr,b];
                     return;
                 }
                 if ([arr[index+1] intValue]-[arr[index-1] intValue]==4) {
@@ -615,6 +616,11 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     }
 //    self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_strArr.count*2];
     self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_strArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
+    NSString *mutiplyingStr=[NSString stringWithFormat:@"%lu",_strArr.count*2*a];
+    self.amountLab.text=[NSString stringWithFormat:@"%lu(%@+%d)",_strArr.count*2*a+b,mutiplyingStr,b];
+//    NSString *mutiplyingStr=[self multiplyingByNumber:_selectedPlace.placeCharge number:[NSString stringWithFormat:@"%lu",_strArr.count*2]];
+//    self.amountLab.text=[self addByNumber:_selectedPlace.placeAttachCharge number:mutiplyingStr];
+
 }
 
 - (void)setSelectedPlace:(Place *)place {
@@ -633,11 +639,24 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
         [self requestPlaceRecord];
         [self createView];
     }else{
-        //[self.plateBtn setTitle:_placeName forState:UIControlStateNormal];
+
         self.baseTitleLab.text=LocalizedString(@"string_reservation_place_title");
         _placeNameLab.text=_selectedPlace.placeName;
         _placeContentLab.text=_selectedPlace.placeIntroduction;
         _placeId=_selectedPlace.placeId;
+        self.submitBtnWidth.constant=ScreenWidth/2;
+        
+//        NSString *money=[NSString stringWithFormat:@"%@",_selectedPlace.placeCharge];
+//        money=[money moneyStringWithPoint:4];
+//        _placePriceLab.text=money;
+//
+//        NSString *extraMoney=[NSString stringWithFormat:@"%@",_selectedPlace.placeAttachCharge];
+//        extraMoney=[extraMoney moneyStringWithPoint:4];
+//        _extraChargeTitleLab.text=LocalizedString(@"string_place_extra_charge_title");
+//        _extraChargeLab.text=[NSString stringWithFormat:@"%@",extraMoney];
+        
+        _extraChargeLab.text=[NSString stringWithFormat:@"%d",b];
+        _placePriceLab.text=[NSString stringWithFormat:@"%d",a];
         NSMutableArray *imageUrlArr=[NSMutableArray new];
         NSMutableArray *imageThumbnailArr=[NSMutableArray new];
         if (_selectedPlace.images.count ==0 ) {
@@ -706,8 +725,8 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
         }
         self.orderDateBtn.enabled=NO;
         self.submitBtn.enabled=NO;
-        self.submitBtn.hidden=YES;
-        
+      //  self.submitBtn.hidden=YES;
+        self.submitBtnWidth.constant=0;
         
         
         
@@ -721,6 +740,9 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
         _place=_placeRecord.place;
         _placeNameLab.text=_place.placeName;
         _placeContentLab.text=_place.placeIntroduction;
+        NSString *money=[NSString stringWithFormat:@"%@",_placeRecord.averageCharge];
+        money=[money moneyStringWithPoint:4];
+        _placePriceLab.text=money;
         switch (_place.placeIconType) {
             case 0:
             {
@@ -803,7 +825,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
             [_chooseArr addObject:_dataSource[i]];
         }
         self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_chooseArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
-//        self.timeLab.text=[NSString stringWithFormat:@"您已经选择%lu个小时",_chooseArr.count*2];
+        self.amountLab.text=[NSString stringWithFormat:@"%@",_placeRecord.totalCharge==NULL ?@"0":_placeRecord.totalCharge];
         [self.timeCollectionView reloadData];
         NSMutableArray *imageUrlArr=[NSMutableArray new];
         NSMutableArray *imageThumbnailArr=[NSMutableArray new];
@@ -835,8 +857,27 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     
 }
 
+//nsnumber乘法计算
+- (NSString *)multiplyingByNumber:(NSNumber *)number1 number:(NSString *)numberStr2 {
+    if (number1 == nil || numberStr2 ==nil) {
+        return @"0";
+    }
+    NSDecimalNumber *unitPrice = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lf",number1.doubleValue]];
+    NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:numberStr2];
+    NSDecimalNumber *sumMoney = [unitPrice decimalNumberByMultiplyingBy:number];
+    return [sumMoney stringValue];
+}
 
-
+//nsnumber加法计算
+- (NSString *)addByNumber:(NSNumber *)number1 number:(NSString *)numberStr2 {
+    if (number1 == nil || numberStr2 ==nil) {
+        return @"0";
+    }
+    NSDecimalNumber *unitPrice = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lf",number1.doubleValue]];
+    NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:numberStr2];
+    NSDecimalNumber *sumMoney = [unitPrice decimalNumberByAdding:number];
+    return [sumMoney stringValue];
+}
 
 
 #pragma mark LSXPopMenuDelegate
