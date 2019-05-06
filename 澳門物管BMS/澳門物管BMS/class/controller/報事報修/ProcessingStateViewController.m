@@ -109,7 +109,7 @@
 //        if (_processingStateTableView.mj_header.isRefreshing) {
 //            [_processingStateTableView.mj_header endRefreshing];
 //        }
-        NSInteger pageCount = [dic[@"pageNum"] integerValue];
+        NSInteger pageCount = [dic[@"pages"] integerValue];
 //        NSArray *data = [NSArray modelArrayWithClass:[ReportMaintenanceDetail class] json:dic[@"list"]];
         NSMutableArray *array=[dic objectForKey:@"list"];
         NSArray *data=[ReportMaintenanceDetail mj_objectArrayWithKeyValuesArray:array];

@@ -128,7 +128,7 @@
         if (dic ==nil) {
             return ;
         }
-         NSInteger pageCount = [dic[@"pageNum"] integerValue];
+         NSInteger pageCount = [dic[@"pages"] integerValue];
         NSMutableArray *array=[dic objectForKey:@"list"];
         NSArray *data=[Notice mj_objectArrayWithKeyValuesArray:array];
         handle(pageCount,data,nil);
