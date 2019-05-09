@@ -108,7 +108,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     _compareArr=[NSMutableArray new];
     _cancelArr=[NSMutableArray new];
     _selectIndexs=[NSMutableArray new];
-    NSArray *source=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00~10:00",@"10:00~12:00",@"12:00~14:00",@"14:00~16:00",@"16:00~18:00",@"18:00~20:00",@"20:00~22:00",@"22:00~00:00"];
+    NSArray *source=@[@"00:00~02:00",@"02:00~04:00",@"04:00~06:00",@"06:00~08:00",@"08:00~10:00",@"10:00~12:00",@"12:00~14:00",@"14:00~16:00",@"16:00~18:00",@"18:00~20:00",@"20:00~22:00",@"22:00~24:00"];
     _dataSource=[source mutableCopy];
     
     _plateNameTitleLab.text=LocalizedString(@"string_plate_name_title");
@@ -839,7 +839,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
             [_chooseArr addObject:_dataSource[i]];
         }
         self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_chooseArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
-//        self.amountLab.text=[NSString stringWithFormat:@"%@",_placeRecord.totalCharge==NULL ?@"0":_placeRecord.totalCharge];
+
             NSString *mutiplyingStr=[self multiplyingByNumber:_placeRecord.averageCharge number:[NSString stringWithFormat:@"%lu",_chooseArr.count*2]];
         self.amountLab.text=[NSString stringWithFormat:@"%@(%@+%@) MOP",_placeRecord.totalCharge==NULL ?@"0":_placeRecord.totalCharge,mutiplyingStr,_placeRecord.attachCharge==NULL ? @"0":_placeRecord.attachCharge];
         [self.timeCollectionView reloadData];
