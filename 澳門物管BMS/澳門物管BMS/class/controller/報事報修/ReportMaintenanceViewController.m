@@ -35,8 +35,8 @@
 @property (nonatomic,strong) NSMutableArray *communityList;
 @property (nonatomic,strong) AddCollectionViewCell *addCell;
 @property (nonatomic,strong) PhotpCollectionViewCell *photoCell;
-@property (weak, nonatomic) IBOutlet UILabel *communityLab;
-@property (weak, nonatomic) IBOutlet UIButton *communityBtn;
+//@property (weak, nonatomic) IBOutlet UILabel *communityLab;
+//@property (weak, nonatomic) IBOutlet UIButton *communityBtn;
 @property (nonatomic,strong) LSXPopMenu *communityMenu;
 @property (weak, nonatomic) IBOutlet UIButton *recordBtn;
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
@@ -44,7 +44,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
-@property (weak, nonatomic) IBOutlet UILabel *communityTitleLab;
+//@property (weak, nonatomic) IBOutlet UILabel *communityTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *repairThemeTitleLab;
+
 @property (weak, nonatomic) IBOutlet UILabel *repairAddressTitleLab;
 @property (weak, nonatomic) IBOutlet UIButton *repairTypeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *chooseBuildingBtn;
@@ -66,6 +68,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *buildingTitleLab;
 @property (weak, nonatomic) IBOutlet UILabel *repairTypeTitleLab;
 
+@property (weak, nonatomic) IBOutlet UIImageView *communityImage;
+@property (weak, nonatomic) IBOutlet UILabel *communityTitleLab;
+@property (weak, nonatomic) IBOutlet UIButton *communityBtn;
 
 
 @property (nonatomic,strong) ReportMaintenanceDetail *complain;
@@ -77,6 +82,8 @@
     NSString *filePath;
     CGFloat scrollerHeight;
     NSString *buildingStr;
+    NSString *communityStr;
+    NSString *communityId;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -86,12 +93,14 @@
     _repairTypeTitleLab.font=[UIFont systemFontOfSize:16];
     _repairAddressTitleLab.font=[UIFont systemFontOfSize:16];
     _submitBtn.titleLabel.font=[UIFont systemFontOfSize:16];
+    _repairThemeTitleLab.font=[UIFont systemFontOfSize:16];
     _buildingTitleLab.text=LocalizedString(@"string_complain_building_title");
-    _communityTitleLab.text=LocalizedString(@"string_repair_theme_title");
+    _communityTitleLab.text=LocalizedString(@"string_repair_community_title");
+    _repairThemeTitleLab.text=LocalizedString(@"string_repair_theme_title");
     _repairTypeTitleLab.text=LocalizedString(@"string_repair_type_title");
     _repairAddressTitleLab.text=LocalizedString(@"string_repair_address_title");
-    
-    
+    [_chooseBuildingBtn setTitle:LocalizedString(@"string_repair_alert_building_title") forState:UIControlStateNormal];
+    [_communityBtn setTitle:LocalizedString(@"string_repair_alert_community_title") forState:UIControlStateNormal];
     // Do any additional setup after loading the view from its nib.
    // self.title=@"報事維修";
    // [self.chooseBuildingBtn setTitle:@"请选择所在建筑" forState:UIControlStateNormal];
@@ -105,6 +114,7 @@
             _themeImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
             _typeImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
             _adressImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
+            _communityImage.image=[UIImage imageNamed:@"icon_report_text_bg"];
             
             _repairTitleTextField.placeHoldColor=RGB(231, 93, 119);
             _repairTitleTextField.placeHoldString=LocalizedString(@"string_repair_alert_theme_title");
@@ -118,6 +128,7 @@
             
             //_chooseBuildingBtn.titleLabel.textColor=RGB(231, 93, 119);
             [_chooseBuildingBtn setTitleColor:RGB(231, 93, 119) forState:UIControlStateNormal];
+            [_communityBtn setTitleColor:RGB(231, 93, 119) forState:UIControlStateNormal];
         }
             break;
         case ComplainType:
@@ -128,6 +139,7 @@
             _themeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
             _typeImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
             _adressImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
+            _communityImage.image=[UIImage imageNamed:@"icon_complain_text_bg"];
             _repairTitleTextField.placeHoldColor=RGB(255, 159, 88);
             _repairTitleTextField.placeHoldString=LocalizedString(@"string_repair_alert_theme_title");
             _repairTypeTextField.placeHoldColor=RGB(255, 159, 88);
@@ -139,6 +151,7 @@
             _maintenanceTextView.layer.borderColor=RGB(255, 159, 88).CGColor;
            // _chooseBuildingBtn.titleLabel.textColor=RGB(255, 159, 88);
             [_chooseBuildingBtn setTitleColor:RGB(255, 159, 88) forState:UIControlStateNormal];
+            [_communityBtn setTitleColor:RGB(255, 159, 88) forState:UIControlStateNormal];
         }
             break;
         default:
@@ -170,10 +183,10 @@
     self.communityList=[NSMutableArray new];
     self.buildingList=[NSMutableArray new];
     
-    _communityBtn.layer.masksToBounds = YES;
-    _communityBtn.layer.cornerRadius = 5.0;
-    _communityBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
-    _communityBtn.layer.borderWidth =1.0;
+//    _communityBtn.layer.masksToBounds = YES;
+//    _communityBtn.layer.cornerRadius = 5.0;
+//    _communityBtn.layer.borderColor = RGB(63, 114, 156).CGColor;
+//    _communityBtn.layer.borderWidth =1.0;
     
     _repairTypeBtn.layer.masksToBounds = YES;
     _repairTypeBtn.layer.cornerRadius = 5.0;
@@ -247,10 +260,14 @@
 //        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
 //        return;
 //    }
-//    if (_communityBtn.titleLabel.text.length==0) {
-//        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_theme_title")];
+//    if (_communityBtn.titleLabel.text.length==0 && [_communityBtn.titleLabel.text isEqualToString:LocalizedString(@"string_repair_alert_community_title")]) {
+//        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
 //        return;
 //    }
+    if (communityStr.length==0){
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
+        return;
+    }
 //    if (_repairTypeBtn.titleLabel.text.length ==0) {
 //        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_type_title")];
 //        return;
@@ -266,7 +283,7 @@
     }
     
     if (buildingStr.length==0) {
-                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_community_title")];
+                [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_repair_alert_building_title")];
                 return;
     }
     if (_addressTextField.text.length ==0) {
@@ -305,20 +322,52 @@
                             };
     NSMutableArray *mutArr=[NSMutableArray new];
     [mutArr addObject:picture];
-    NSDictionary *para=@{
-                         
-                         @"complainLiaisonsName":[User shareUser].name,
-                         @"complainLiaisonsSex":[User shareUser].sex,
-                         @"complainPosition":_chooseBuildingBtn.titleLabel.text,
-                         @"complainSpecificPosition":_addressTextField.text,
-                         @"complainVoice":self.voiceRemarkUrl==nil?@"":self.voiceRemarkUrl,
-                         @"complainDescribe":self.maintenanceTextView.text,
-                         @"complainClassType":_repairTitleTextField.text,
-                         @"complainType":_repairTypeTextField.text,
-                         @"complainId":[User shareUser].communityId,
-                         @"images":[NSArray arrayWithObjects:picture, nil]
-//                         @"images":mutArr
-                         };
+//    NSDictionary *para=@{
+//
+//                         @"complainLiaisonsName":[User shareUser].name,
+//                         @"complainLiaisonsSex":[User shareUser].sex,
+//                         @"complainPosition":_chooseBuildingBtn.titleLabel.text,
+//                         @"complainSpecificPosition":_addressTextField.text,
+//                         @"complainVoice":self.voiceRemarkUrl==nil?@"":self.voiceRemarkUrl,
+//                         @"complainDescribe":self.maintenanceTextView.text,
+//                         @"complainClassType":_repairTitleTextField.text,
+//                         @"complainType":_repairTypeTextField.text,
+//                         @"complainId":[User shareUser].communityId,
+//                         @"images":[NSArray arrayWithObjects:picture, nil]
+//                         };
+    
+    NSMutableDictionary *para = [@{
+                                   @"complainLiaisonsName":[User shareUser].name,
+                                   @"complainLiaisonsSex":[User shareUser].sex,
+                                   @"complainPosition":_chooseBuildingBtn.titleLabel.text,
+                                   @"complainSpecificPosition":_addressTextField.text,
+                                   @"complainVoice":self.voiceRemarkUrl==nil?@"":self.voiceRemarkUrl,
+                                   @"complainDescribe":self.maintenanceTextView.text,
+                                   @"complainClassType":_repairTitleTextField.text,
+                                   @"complainType":_repairTypeTextField.text,
+//                                   @"complainId":[User shareUser].communityId,
+                                   @"complainId":communityId,
+                                   @"images":[NSArray arrayWithObjects:picture, nil]
+                                   } mutableCopy];
+    switch (_type) {
+        case ReportType:
+            {
+                [para setObject:@(4) forKey:@"type"];
+            }
+            break;
+        case ComplainType:
+        {
+            [para setObject:@(3) forKey:@"type"];
+        }
+            break;
+        default:
+            break;
+    }
+//    if (!IS_EMPTY(self.roomyear)) {
+//        [para setObject:self.roomyear forKey:@"roomyear"];
+//    }
+    
+    
 //    NSDictionary *dic=@{
 //                        @"complain":para
 //                        };
@@ -354,16 +403,18 @@
 //                         @"pageNo":@(1),
 //                             @"pageSize":@(1)
 //                         };
+    [self.communityList removeAllObjects];
     [[WebAPIHelper sharedWebAPIHelper] postCommunity:nil completion:^(NSDictionary *dic){
         if (dic ==nil) {
             return ;
         }
         NSMutableArray *array=[dic objectForKey:@"list"];
-        NSMutableArray *communityArr=[NSMutableArray new];
-        communityArr=[Community mj_objectArrayWithKeyValuesArray:array];
-        for (Community * community in communityArr) {
-            [self.communityList addObject:community.communityName];
-        }
+     //   NSMutableArray *communityArr=[NSMutableArray new];
+        self.communityList=[Community mj_objectArrayWithKeyValuesArray:array];
+       // self.communityList=communityArr;
+//        for (Community * community in communityArr) {
+//            [self.communityList addObject:community.communityName];
+//        }
     }];
 }
 
@@ -389,6 +440,10 @@
 - (IBAction)chooseBuildingBtnAction:(id)sender {
     PickViewController *pickVC=[[PickViewController alloc] init];
     pickVC.str=buildingStr;
+    if (self.buildingList.count ==0) {
+        [ZKAlertTool showAlertWithMsg:@"當前沒有數據可選擇"];
+        return;
+    }
     pickVC.dataSource=self.buildingList;
     pickVC.backBlock = ^(NSString *title){
         buildingStr=title;
@@ -412,20 +467,39 @@
 }
 
 - (IBAction)communityBtnAction:(id)sender {
-//    self.communityMenu=[LSXPopMenu showRelyOnView:sender titles:self.communityList icons:nil menuWidth:200 isShowTriangle:YES delegate:self];
     PickViewController *pickVC=[[PickViewController alloc] init];
-    pickVC.dataSource=@[@"供電系統",@"發動機"];
-    pickVC.backBlock = ^(NSString *title){
+    pickVC.str=communityStr;
+    
+    if (self.communityList.count ==0) {
+        [ZKAlertTool showAlertWithMsg:@"當前沒有數據可選擇"];
+        return;
+    }
+    NSMutableArray *communityNameArr=[NSMutableArray new];
+    for (Community * community in self.communityList) {
+        [communityNameArr addObject:community.communityName];
+    }
+    pickVC.dataSource=communityNameArr;
+    pickVC.backBlock = ^(NSString *  title) {
+        communityStr=title;
+        NSInteger index=[communityNameArr indexOfObject:title];
+        Community * community=self.communityList[index];
+        communityId=community.communityId;
+        [self.communityBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.communityBtn setTitle:title forState:UIControlStateNormal];
-       
     };
+//    pickVC.dataSource=@[@"供電系統",@"發動機"];
+//    pickVC.backBlock = ^(NSString *title){
+//        [self.communityBtn setTitle:title forState:UIControlStateNormal];
+//
+//    };
     
     [self presentViewController:pickVC animated:YES completion:nil];
 }
 
 -(void)LSXPopupMenuDidSelectedAtIndex:(NSInteger)index LSXPopupMenu:(LSXPopMenu *)LSXPopupMenu{
     if (LSXPopupMenu ==_communityMenu) {
-        [self.communityLab setText:self.communityList[index]];
+       // [self.communityLab setText:self.communityList[index]];
+        [self.communityBtn setTitle:self.communityList[index] forState:UIControlStateNormal];
     }
 }
 
@@ -1062,6 +1136,7 @@
         _repairTitleTextField.enabled=NO;
         _repairTypeTextField.enabled=NO;
         _addressTextField.enabled=NO;
+        _communityBtn.enabled=NO;
         [_maintenanceTextView setEditable:NO];
         self.recordBtn.hidden=YES;
         self.deleteBtn.hidden=YES;

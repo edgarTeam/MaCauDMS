@@ -34,8 +34,11 @@
    // self.dataSource=@[@"11",@"22"];
     self.pickView.delegate=self;
     self.pickView.dataSource=self;
-    value = [_dataSource indexOfObject:_str];        //someString 是我想让uipicerview自动选中的值
-    [_pickView selectRow: value inComponent:0 animated:NO];
+    if (_dataSource.count>0) {
+        value = [_dataSource indexOfObject:_str];        //someString 是我想让uipicerview自动选中的值
+        [_pickView selectRow: value inComponent:0 animated:NO];
+    }
+
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
