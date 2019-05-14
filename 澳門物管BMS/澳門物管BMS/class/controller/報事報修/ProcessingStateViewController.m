@@ -113,7 +113,40 @@
 //        NSArray *data = [NSArray modelArrayWithClass:[ReportMaintenanceDetail class] json:dic[@"list"]];
         NSMutableArray *array=[dic objectForKey:@"list"];
         NSArray *data=[ReportMaintenanceDetail mj_objectArrayWithKeyValuesArray:array];
-        handle(pageCount,data,nil);
+        NSMutableArray *reportArr=[NSMutableArray new];
+        NSMutableArray *complainArr=[NSMutableArray new];
+       // NSMutableArray *dataSource=[NSMutableArray new];
+        for (ReportMaintenanceDetail *model in data) {
+            switch (model.type) {
+                case 3:
+                {
+                    [reportArr addObject:model];
+                }
+                    break;
+                case 4:
+                {
+                    [complainArr addObject:model];
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+        switch (_type) {
+            case ReportProcessType:
+            {
+                handle(pageCount,complainArr,nil);
+            }
+                break;
+            case ComplainProcessType:
+            {
+                handle(pageCount,reportArr,nil);
+            }
+                break;
+            default:
+                break;
+        }
+//        handle(pageCount,data,nil);
 //        dataSource=[ReportMaintenanceDetail mj_objectArrayWithKeyValuesArray:array];
 //        [_processingStateTableView reloadData];
     }];

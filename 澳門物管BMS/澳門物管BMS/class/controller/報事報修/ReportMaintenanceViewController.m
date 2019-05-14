@@ -1150,7 +1150,7 @@
         
         
         
-        
+        [_communityBtn setTitle:_complain.communityName forState:UIControlStateNormal];
         [_chooseBuildingBtn setTitle:_complain.complainPosition forState:UIControlStateNormal];
         _repairTitleTextField.text=_complain.complainClassType;
         _repairTypeTextField.text=_complain.complainType;

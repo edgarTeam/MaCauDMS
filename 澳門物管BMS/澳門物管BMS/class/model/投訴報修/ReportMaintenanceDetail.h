@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReportMaintenanceDetail : NSObject
+@property (nonatomic,copy) NSString *communityName;//社区名
+@property (nonatomic,assign) NSInteger type; //3-投诉。 4-报修
 @property (nonatomic,copy) NSString *complainClassType;
 @property (nonatomic,copy) NSString *complainDescribe;
 @property (nonatomic,copy) NSString *complainFinishTime;
