@@ -441,7 +441,7 @@
     PickViewController *pickVC=[[PickViewController alloc] init];
     pickVC.str=buildingStr;
     if (self.buildingList.count ==0) {
-        [ZKAlertTool showAlertWithMsg:@"當前沒有數據可選擇"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_none_source_title")];
         return;
     }
     pickVC.dataSource=self.buildingList;
@@ -471,7 +471,7 @@
     pickVC.str=communityStr;
     
     if (self.communityList.count ==0) {
-        [ZKAlertTool showAlertWithMsg:@"當前沒有數據可選擇"];
+        [ZKAlertTool showAlertWithMsg:LocalizedString(@"string_none_source_title")];
         return;
     }
     NSMutableArray *communityNameArr=[NSMutableArray new];
@@ -793,23 +793,6 @@
 }
 
 - (IBAction)playBtnAction:(id)sender {
-//    if (self.player.rate != 0) {
-//        [self.player pause];
-//        return;
-//    }
-//
-//    if (self.recordPath != nil) {
-//        AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL fileURLWithPath:self.recordPath]];
-//        // 播放当前资源
-//        [self.player replaceCurrentItemWithPlayerItem:playerItem];
-//
-//    } else {
-//        AVPlayerItem *playerItem = [[AVPlayerItem alloc]initWithURL:[NSURL URLWithString:[kBaseImageUrl stringByAppendingPathComponent:self.voiceRemarkUrl]]];
-//       //  播放当前资源
-//        [self.player replaceCurrentItemWithPlayerItem:playerItem];
-//    }
-//
-//    [self.player play];
     
     
     if (self.player.rate ==0) {

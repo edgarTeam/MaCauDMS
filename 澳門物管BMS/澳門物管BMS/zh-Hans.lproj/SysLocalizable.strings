@@ -193,3 +193,4 @@ string_place_choose_time_second_title = "个小时";
 string_place_extra_charge_title = "附加费用";
 string_totle_price_title = "总费用";
 string_price_postfix_title = "MOP/小时";
+string_none_source_title = "当前没有数据可选择";
