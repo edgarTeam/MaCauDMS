@@ -105,6 +105,17 @@
    // self.title=@"報事維修";
    // [self.chooseBuildingBtn setTitle:@"请选择所在建筑" forState:UIControlStateNormal];
     
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    //将触摸事件添加到当前view
+    [self.scrollView addGestureRecognizer:tapGestureRecognizer];
+    
+
+    
+    
+    
     switch (_type) {
         case ReportType:
         {
@@ -431,7 +442,10 @@
             return;
         }
         for (BuildingModel * model in buildingArr) {
-            [self.buildingList addObject:model.buildingName];
+            if (model.buildingName !=nil) {
+                [self.buildingList addObject:model.buildingName];
+            }
+            
         }
     }];
 }
@@ -1067,11 +1081,21 @@
 }
 
 
+
+-(void)keyboardHide:(UITapGestureRecognizer*)tap{
+    [_addressTextField resignFirstResponder];
+    [_repairTypeTextField resignFirstResponder];
+    [_repairTitleTextField resignFirstResponder];
+    [_maintenanceTextView resignFirstResponder];
+
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [_addressTextField resignFirstResponder];
     [_repairTypeTextField resignFirstResponder];
     [_repairTitleTextField resignFirstResponder];
     [_maintenanceTextView resignFirstResponder];
+  
 }
 #pragma mark UITextField-Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

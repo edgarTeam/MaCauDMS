@@ -67,6 +67,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *submitBtnWidth;
 
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeight;
 
 
 @property (nonatomic,strong)Place *place;
@@ -101,6 +102,7 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     
    // self.edgesForExtendedLayout=UIRectEdgeNone;
     [self createView];
+    _collectionViewHeight.constant=230;
 }
 
 - (void)createView {
@@ -285,8 +287,13 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
             return;
         }
         for (Place *place in placeArr) {
-            [_placeList addObject:place.placeName];
-            [_placeIdArr addObject:place.placeId];
+            if (place.placeName !=nil) {
+                [_placeList addObject:place.placeName];
+            }
+            if (place.placeId !=nil) {
+                [_placeIdArr addObject:place.placeId];
+            }
+            
         }
     }];
     
@@ -508,7 +515,12 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _dataSource.count;
+   
+    if (_isNews) {
+        return _chooseArr.count;
+    }else{
+         return _dataSource.count;
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -518,14 +530,17 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
     }
     cell.contentLab.font=[UIFont systemFontOfSize:15];
     if (_isNews) {
+//        self.timeCollectionView.allowsSelection=NO;
+//        cell.contentLab.text=_dataSource[indexPath.row];
+//        if ([_chooseArr containsObject:_dataSource[indexPath.row]]) {
+//
+//            cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_yes"];
+//        }else{
+//            cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_defult"];
+//        }
         self.timeCollectionView.allowsSelection=NO;
-        cell.contentLab.text=_dataSource[indexPath.row];
-        if ([_chooseArr containsObject:_dataSource[indexPath.row]]) {
-            
-            cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_yes"];
-        }else{
-            cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_defult"];
-        }
+        cell.contentLab.text=_chooseArr[indexPath.row];
+        cell.bgImageView.image=[UIImage imageNamed:@"icon_place_time_choose_yes"];
     }else{
         
         cell.isChoosed=NO;
@@ -786,62 +801,68 @@ static NSString * const cellIdentifier = @"TimeCollectionViewCell";
             default:
                 break;
         }
-//        NSMutableArray *imageUrlArr=[NSMutableArray new];
-//        NSMutableArray *imageThumbnailArr=[NSMutableArray new];
-//        if (_place.images.count ==0 ) {
-//            return;
-//        }
-//        for (NoticeSubList *notice in _place.images) {
-//            if (notice.imageUrl !=nil) {
-//                [imageUrlArr addObject:notice.imageUrl];
-//            }
-//            if (notice.imageThumbnail !=nil) {
-//                [imageThumbnailArr addObject:[NSString stringWithFormat:@"%@%@",kBaseImageUrl,notice.imageThumbnail]];
-//            }
-//        }
-//        if (imageThumbnailArr.count ==0 || imageThumbnailArr==nil) {
-//            return;
-//        }
-//        if (imageUrlArr.count ==0 || imageUrlArr ==nil) {
-//            return;
-//        }
-//        _placeImageView.imageURLStringsGroup = imageThumbnailArr;
-//        _placeImageView.autoScrollTimeInterval = 4.0f;
-//        if (_placeRecord.recordStatus !=nil) {
-//            _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
-//        }
-//        // _statusLab.text=dataSource[[_placeRecord.recordStatus intValue]+1];
-//        _timeZoneLab.text=[NSString stringWithFormat:@"%@ %@ 至 %@",timeStr,_placeRecord.orderStartTime,_placeRecord.orderEndTime];
-//        _clientName.text=[User shareUser].name;
-        NSString *startTimeStr=[_placeRecord.orderStartTime substringToIndex:5];
-        NSString *endTimeStr=[_placeRecord.orderEndTime substringToIndex:5];
-//        if ([_placeRecord.orderEndTime isEqualToString:@"00:00:00"]) {
-//            endTimeStr=@"24:00";
-//        }
-        NSMutableArray *chooseArr=[NSMutableArray new];
-        for (int i=0; i<_dataSource.count; i++) {
-            NSString *str=[_dataSource[i] substringToIndex:5];
-            [chooseArr addObject:str];
+        NSString *startTimeStr=[_placeRecord.orderStartTime substringToIndex:2];
+        NSString *endTimeStr=[_placeRecord.orderEndTime substringToIndex:2];
+        if ([endTimeStr isEqualToString:@"00"]) {
+            endTimeStr=@"24";
         }
-        NSInteger startIndex;
-        NSInteger endIndex;
-       // if ([chooseArr containsObject:startTimeStr] && [chooseArr containsObject:endTimeStr]) {
-            startIndex=[chooseArr indexOfObject:startTimeStr];
-        if ([endTimeStr isEqualToString:@"00:00"]) {
-            endIndex=12;
-        }else{
-            endIndex=[chooseArr indexOfObject:endTimeStr];
-        }
+        NSInteger chooseCounts=[endTimeStr integerValue]-[startTimeStr integerValue];
+                NSMutableArray *chooseArr=[NSMutableArray new];
+                for (int i=0; i<_dataSource.count; i++) {
+                    NSString *str=[_dataSource[i] substringToIndex:2];
+                    [chooseArr addObject:str];
+                }
+                NSInteger startIndex;
+                NSInteger endIndex;
         
-      //  }
-        _chooseArr=[NSMutableArray new];
-        for (NSInteger i=startIndex; i<endIndex; i++) {
-            [_chooseArr addObject:_dataSource[i]];
+                    startIndex=[chooseArr indexOfObject:startTimeStr];
+                if ([endTimeStr isEqualToString:@"00:00"]) {
+                    endIndex=12;
+                }else{
+                    endIndex=[chooseArr indexOfObject:endTimeStr];
+                }
+                _chooseArr=[NSMutableArray new];
+                for (NSInteger i=startIndex; i<endIndex; i++) {
+                    [_chooseArr addObject:_dataSource[i]];
+                }
+                self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_chooseArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
+        
+                    NSString *mutiplyingStr=[self multiplyingByNumber:_placeRecord.averageCharge number:[NSString stringWithFormat:@"%lu",_chooseArr.count*2]];
+                self.amountLab.text=[NSString stringWithFormat:@"%@(%@+%@) MOP",_placeRecord.totalCharge==NULL ?@"0":_placeRecord.totalCharge,mutiplyingStr,_placeRecord.attachCharge==NULL ? @"0":_placeRecord.attachCharge];
+        
+        
+//        NSString *startTimeStr=[_placeRecord.orderStartTime substringToIndex:5];
+//        NSString *endTimeStr=[_placeRecord.orderEndTime substringToIndex:5];
+//
+//        NSMutableArray *chooseArr=[NSMutableArray new];
+//        for (int i=0; i<_dataSource.count; i++) {
+//            NSString *str=[_dataSource[i] substringToIndex:5];
+//            [chooseArr addObject:str];
+//        }
+//        NSInteger startIndex;
+//        NSInteger endIndex;
+//
+//            startIndex=[chooseArr indexOfObject:startTimeStr];
+//        if ([endTimeStr isEqualToString:@"00:00"]) {
+//            endIndex=12;
+//        }else{
+//            endIndex=[chooseArr indexOfObject:endTimeStr];
+//        }
+//
+//        _chooseArr=[NSMutableArray new];
+//        for (NSInteger i=startIndex; i<endIndex; i++) {
+//            [_chooseArr addObject:_dataSource[i]];
+//        }
+//        self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_chooseArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
+//
+//            NSString *mutiplyingStr=[self multiplyingByNumber:_placeRecord.averageCharge number:[NSString stringWithFormat:@"%lu",_chooseArr.count*2]];
+//        self.amountLab.text=[NSString stringWithFormat:@"%@(%@+%@) MOP",_placeRecord.totalCharge==NULL ?@"0":_placeRecord.totalCharge,mutiplyingStr,_placeRecord.attachCharge==NULL ? @"0":_placeRecord.attachCharge];
+        if (_chooseArr.count % 3==0) {
+            _collectionViewHeight.constant=50*(_chooseArr.count/3);
+        }else{
+             _collectionViewHeight.constant=50*(_chooseArr.count/3)+50;
         }
-        self.timeLab.text=[NSString stringWithFormat:@"%@%lu%@",LocalizedString(@"string_place_choose_time_first_title"),_chooseArr.count*2,LocalizedString(@"string_place_choose_time_second_title")];
-
-            NSString *mutiplyingStr=[self multiplyingByNumber:_placeRecord.averageCharge number:[NSString stringWithFormat:@"%lu",_chooseArr.count*2]];
-        self.amountLab.text=[NSString stringWithFormat:@"%@(%@+%@) MOP",_placeRecord.totalCharge==NULL ?@"0":_placeRecord.totalCharge,mutiplyingStr,_placeRecord.attachCharge==NULL ? @"0":_placeRecord.attachCharge];
+       // _collectionViewHeight.constant=50*(_chooseArr.count/3)+50;
         [self.timeCollectionView reloadData];
         NSMutableArray *imageUrlArr=[NSMutableArray new];
         NSMutableArray *imageThumbnailArr=[NSMutableArray new];

@@ -1658,7 +1658,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "澳門物管BMS/澳門物管BMS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72XXW98UJB;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/澳門物管BMS/main/PropetyManagement-prefix.pch";
 				INFOPLIST_FILE = "澳門物管BMS/Info.plist";
@@ -1681,7 +1681,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "澳門物管BMS/澳門物管BMS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 72XXW98UJB;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/澳門物管BMS/main/PropetyManagement-prefix.pch";
 				INFOPLIST_FILE = "澳門物管BMS/Info.plist";
